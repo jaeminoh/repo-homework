@@ -7,40 +7,8 @@
 
 \begin{document}
 \maketitle
-\section*{chapter 6}
-    \subsection*{4. Invariant Subspaces}\hfill \\
 
-    Problem 8. \\
-
-    Let $\mathcal{B} = \{ \alpha_1, \cdots, \alpha_n \}$ be an ordered basis for $V$.
-    Let $\mathcal{B}_i = span(\alpha_i)$.
-    Since every subspace of $V$ is invariant under $T$, $T \alpha_i = c_i \alpha_i$ for some scalar $c_i$.
-    Let $W_i = span(\alpha_1 + \alpha_i)$, $\beta_i = \alpha_1 + \alpha_i$.
-    $T \beta_i = c_1 \alpha_1 + c_i \alpha_i = k\beta_i$. So $c_1 = c_i = k$.
-    Therefore, $T \alpha_i = c_1 \alpha_i$ for all $i$. So $T$ is a scalar multiple of the identity operator.\\
-
-    Problem 10. \\
-
-    Let $p$ be a minimal polynomial for $A$.
-    From non-triangulability of $A$, we can say that $p$ has degree 2 irreducible factor since every degree 3 real coefficient polynomial has at least one real zero.
-    Then irreducible factor of $p$ splits into distinct linear factors over $\mathbb{C}$.
-    So, minimal polynomial for $A$ splits into distinct linear factors over $\mathbb{C}$ which is equivalent to $A$ is diagonalizable.\\
-
-    Problem 12. \\
-
-    First assume $t$ is an eigenvalue of $T$. Then there exists $\alpha \in V \setminus 0$
-    such that $T\alpha = t\alpha$. It is easy to observe that $f(T)\alpha = f(t)\alpha$.
-    So $f(t)$ is an eigenvalue of linear operator $f(T)$.
-
-    Conversely, assume $c$ is an eigenvalue of $f(T)$. So there exists nonzero vector $\alpha \in V$.
-    Consider the equation $f(x) = c$. There is $t \in F$ which satisfies that equatio since $F$ is algebraically closed.
-    From $f(t) = c$, $f(x) - c = (x-t)q(x)$. So $(T-tI)q(T)\alpha = 0$. If $q(T)\alpha \ne 0$, we are done.
-    If $q(T)\alpha = 0$, $q(T)$ has $0$ as eigenvalue. So we can find $s \in F$ such that $q(s) = 0$.
-    Then $q(x) = (x-s)r(x)$, $q(T)\alpha = (T-sI)r(T)\alpha = 0$. If $r(T)\alpha \ne 0$, we are done.
-    If not $\cdots$. By repeating (such process is finite since f has finite degree), we can conclude that 
-    $t$ is an eigenvaue for $T$. When $f$ is degree 1, it is trivial.
-    
-
+\include{ch6}
 
 
 \end{document}

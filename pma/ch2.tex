@@ -1,0 +1,40 @@
+\section*{chapter 2}
+
+Problem 19. \\
+
+a) Since $A \cap \bar{B} = \bar{A} \cap B = A \cap B = \emptyset$ since $A, B$ are closed. So they are separated. \\
+
+b) Let $G_1, G_2$ be disjoint open sets. If $x \in G_1 \cap \bar{G_2}$, there exists positive real number $\epsilon$ such that $\epsilon$ neighborhood of $x$ is contained in $G_1$. But $x$ is also in closure of $G_2$. So $\epsilon$ neighborhood of $x$ contains points of $G_2$ which we call $y$. Then $y$ is in $G_1 \cap G_2$ which leads contradiction. \\
+
+c) If you observe that $B$ is open, it is trivial to check. \\
+
+d) Let $x_1$ and $x_2$ are two different points in $X$. Put $\delta = d(x_1, x_2) > \epsilon > 0$. If there is no $x \in X$ which satisfies $d(x, x_1) = \epsilon$, $X$ is separated. So, for each $\epsilon$ between $0$ and $\delta$, there is at least one $x_{\epsilon}$ whose distance from $x_1$ is exactly $\epsilon$. Therefore, $\epsilon \mapsto x_{\epsilon}$ is injection from uncountable set to $X$ which gives uncountability of $X$. \\
+Also, note that $d$ is continuous function into ordered set, which preserves connectedness. So by intermediate value thm, for every $\epsilon \in \left ( 0, \delta \right )$, there must be $x \in X$ which satisfies $d(x, x_1) = \epsilon$. So $X$ must be uncountable.
+Problem 20. \\
+
+Interior of connected set is not always connected. Consider wedge sum of two unit disk. It is clearly connected but its interior is disjoint union of two open unit balls. \\
+
+On the contrary, closure of connected set is always connected. Let $A, B$ be a separation of $\bar{C}$, closure of connected set $C$. Then $C \subset A \sqcup B$. So $C$ is contained in $A$ entirely (without loss of generality). Then $\bar{C} \cap B \subset \bar{A} \cap B = \emptyset$ which implies $\bar{C} \subset A$, contradiction. Therefore closure of connected set is connected. \\
+
+
+Problem 21. \\
+
+a) Let $t \in \bar{A_0}$. To show $t \notin B_0$, we will show $p(t) \notin B \Rightarrow p(t) \in \bar{A}$. Let $\epsilon >0$ be given and $\delta = {\epsilon \over \lvert b-a \rvert}$. Choose $s \in \mathbb{R}$ from $\delta$ neighborhood of $t$ intersectionn $A_0$ (it is possible since $t$ is in closure of $A_0$). Then $\lvert p(s) - p(t) \rvert = \lvert b-a \rvert \lvert s-t \rvert \leq \epsilon$ which implies $p(s) \in \bar{A}$. Similarly, we can prove rest of a). \\
+
+b) Note that $0\in A_0$ and $1 \in B_0$. Let $I = \left [ 0, 1 \right ]$. Now consider $\left ( A_0 \cap I \right ) \sqcup \left ( B_0 \cap I \right ) \subset I$. This inclusion must be proper due to connectedness of $I$. Take $t_0 \in I \setminus \left ( A_0 \cup B_0 \right )$. Then we get $p(t_0) \notin A, B$ both. \\
+
+c) A set $C$ is called convex if $\theta x + \left ( 1-\theta \right ) y \in C$ for any $x, y \in C$ and $\theta \in I$. If $C$ is not connected, by b), there exists $t_0 \in (0, 1)$ such that $p(t_0)$ does not belong to any separation of $C$ which is contradiction to convexity of $C$. \\
+
+Problem 22. \\
+
+From $\bar{A \times B} = \bar{A} \times \bar{B}$, we can deduce that $k$ times Cartesian product of $\mathbb{Q}$ is dense in $\mathbb{R}^k$. \\
+
+Problem 23. \\
+
+Some metric space $X$ is separable if there is countable dense subset $Y$ of $X$. Take countable base $\mathcal{B}$  as set of all rational radius neighborhood of points in $Y$. Now consider $x \in U$ which is open set. There exists positive real number $\epsilon$ such that $\epsilon$ neighborhood of $x$ is in $U$. Take $y \in Y$ from $\epsilon \over 3$ neighborhood of $x$ and choose rational number $q \in \left ( {\epsilon \over 3}, {2\epsilon \over 3} \right )$. Then $x$ is in $q$ neighborhood of $y$ and this neighborhood is in $\epsilon$ neighborhood of $x$ which is in $U$. Therefore, $\mathcal{B}$ is a countable base of $X$. (other properties are easily checked.)\\
+
+
+
+
+
+

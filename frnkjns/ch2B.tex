@@ -1,0 +1,65 @@
+\section*{B. Properties of Lebesgue Measure}
+
+\begin{enumerate}
+	\item $\mathcal{L}$ is complement closed.
+	\item $\mathcal{L}$ is $\sigma - \cap \cup$ closed.
+	\item $\mathcal{L}$ is set minus closed.
+	\item Countable additivity of $\lambda$.
+	\item Continuity from below.
+	\item Continuity from above.
+	\item $\mathcal{L}$ contains Borel algebra on $\mathbb{R}^n$.
+	\item $\lambda$ is complete.
+	\item Theorem on approximation of $\mathcal{L}$.
+	\item On $\mathcal{L}$, $\lambda ^{*} = \lambda_{*} = \lambda$.
+	\item $\lambda(B) = \lambda^{*}(A) + \lambda_{*}(B\setminus A)$ if $A \subset B \in \mathcal{L}$.
+	\item $A\in \mathcal{L}$ if and only if $\lambda^{*}(E) = \lambda^{*}(E\cap A)+\lambda^{*}(E\cap A^{c})$ for all $E \subset \mathbb{R}^n$.
+\end{enumerate}
+
+Problem 27. \\
+
+If $A \subset \bigcup_{k=1}^{\infty}I_{k}$, then $\lambda^{*}(A) \leq \lambda^{*}(\bigcup_{k=1}^{\infty}I_{k}) \leq \sum_{k=1}^{\infty}\lambda^{*}(I_{k}) \leq \sum_{k=1}^{\infty}\lambda(I_{k})$. Therefore $\lambda^{*}(A) \leq \inf{\{\} }$.
+
+On the contrary, assume $\lambda^{*}(A) < \inf{ \{ \} }$. There is open set $G$ containing $A$ and $\lambda(G) < \inf{ \{ \} }$. From problem 9, $G$ can be expressed as a countable union of nonoverlapping special rectangles. That is, $\lambda(G) = \sum_{k=1}^{\infty}\lambda(I_{k})$ which is contradiction.\\
+
+Problem 29. \\
+
+Use $\lambda(A \cup B) = \lambda(A \setminus B) + \lambda(B \setminus A) + \lambda(A\cap B)$.\\
+
+Problem 30. \\
+
+Let $G_{A}$, $G_{B}$ be open sets containing $A$, $B$ respectively.
+$\lambda(G_A) + \lambda(G_B) = \lambda(G_A \cup G_B) + \lambda(G_A \cap G_B) \geq \lambda^{*}(A\cup B) + \lambda^{*}(A\cap B)$. Since $G_A$, $G_B$ are arbitrary, $\lambda^{*}(A) + \lambda^{*}(B) \geq \lambda^{*}(A\cup B) + \lambda^{*}(A \cap B)$.\\
+
+Problem 31. \\
+
+Clearly one point set is measure zero and closed. Let $\varepsilon >0$ be given. There exists open set $G_i$ containing $a_i$ such that $\lambda(G_i \setminus a_i) < {\varepsilon \over 2^i}$. Therefore $\lambda(A) <\varepsilon$ which means $\lambda(A) = 0$.\\
+
+Problem 32. \\
+
+Let $I_{k}$ be special 'cube' centered at origin, length of side $= k$. Then $a \times I_k \subset a \times \mathbb{R}^n$. Therefore we get $\lambda(a \times \mathbb{R}^n) = \lim_{k\rightarrow \infty}\lambda(a\times I_k) = 0$ by continuity from below.\\
+
+Problem 34. \\
+
+There is closed set of positive measure, no interior. \begin{equation}
+	\left [ 0, 1 \right ] \setminus \bigcup_{k=1}^{\infty}\left (q_k - {\varepsilon \over 2^{k+1} }, q_k + {\varepsilon \over 2^{k+1} } \right )
+\end{equation}
+
+Problem 37. \\
+
+For each positive integer $k$, choose open set $G_k supset E$ such that $\lambda(G_k) < \lambda^{*}(E) + {1 \over k}$. Put $A = \bigcap_{k=1}^{\infty}G_k$ which is measurable. Then $\lambda(A) < \lambda^{*}(E) + {1 \over k}$ for all positive integer $k$. Therefore $\lambda(A) \leq \lambda^{*}(E)$. Reverse inequality is trivial because $E \subset A$. We can conclude that there exists measurable hull of $E$ which has finite outer measure. \\
+
+Problem 38. \\
+
+First assume $A$ is measurable hull of $E$. $\lambda(A) = \lambda^{*}(E) < \infty$. But we already know that $\lambda(A) = \lambda^{*}(E) + \lambda_{*}(A \setminus E)$. Therefore $\lambda_{*}(A \setminus E) = 0$.
+
+Conversely assume $\lambda_{*}(A\setminus E) = 0$. From 11st property of Lebesgue measure, we can get $A$ is measurable hull of $E$.\\
+
+Problem 39. \\
+
+Let $E_k = B(0, k) \setminus B(0, k-1)$ which is measurable partition of $\mathbb{R}^n$. Then $E \cap E_k$ has finite outer measure. By problem 37, there exists measurable hull $A_k$ of $E \cap E_k$. Put $A = \bigcup_{k=1}^{\infty}A_k$ and consider the compact set $K \subset A \setminus E$. But $\lambda(K \cap E_k ) \leq \lambda_{*}(A_k \setminus E\cap E_k) = 0$. By continuity from below, $\lambda(K) = 0$. So $\lambda_{*}(A\setminus E) = 0$.\\
+
+Problem 40. \\
+
+
+
+

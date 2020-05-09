@@ -1,0 +1,21 @@
+\subsection*{section F. Some Calculations} \hfill \\
+
+Problem 36. \\
+
+$\{ f > {1 \over k} \}$ must be finite since $\sum_{x\in X}f(x) < \infty$. Therefore $\bigcup \{ f > {1 \over k} \} = \{ f > 0 \}  $ is countable. \\
+
+Problem 37. \\
+
+Let $F$ be finite subset of $\mathbb{N}$. Then $\sum_{x\in F} f(x) \leq \sum_{k=1}^{F_{\text{max} } } f(k) $. Therefore $\sum_{x\in F} f(x) \leq \lim_{n\rightarrow \infty } \sum{k=1}^{n}f(k)$.
+
+Conversely, $\sum_{k=1}^{n}f(k) \leq \sum_{x\in F}f(x) \leq \sum_{x\in \mathbb{N}}f(x)$ for each $n$. \\
+
+Proposition says when counting measure and nonnegative measurable function is given, $\int_{X}f d\mu = \sum_{x\in X}f(x)$. \\
+
+Problem 38. \\
+
+First assume $f \in L^1$. Then $\left| f  \right |$ is nonnegative function. So $\int_{X} \left | f  \right | d\mu = \sum_{x\in X} \left| f(x)  \right | < \infty$ by proposition above.
+
+Conversely, $\sum_{x\in X} \left | f(x)  \right | = \int_{X} \left| f  \right | d\mu < \infty$. Therefore $\int_{X} f^{\pm} d\mu \leq \int_{X}\left | f  \right | d\mu < \infty$. So $f \in L^1$.\\
+
+

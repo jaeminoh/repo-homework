@@ -1,0 +1,23 @@
+\subsection*{section E. Simple Functions} \hfill \\
+
+Problem 21. \\
+
+Consider $s^{-1}(\left [ t, \infty \right ] )$ where $s = \sum_{k=1}^{m}\alpha_k 1_{A_k}$. Rearrange $\alpha_k$ as increasing order, i.e. $\alpha_1 < \alpha_2 < \cdots < \alpha_m$. Then inverse image of $\left [ t, \infty \right ]$ is disjoint union of $A_k$'s. Therefore $s$ is measurable if and only if each $A_k$ is measurable. \\
+
+Problem 23. \\
+
+Actually, $f^{+} = \sup \{ f, 0\}$ and $f^{-} = - \inf \{ f, 0 \}$. By MF6, $f^{\pm}$ are all measurable. \\
+
+Problem 24. \\
+
+Consider the function below:
+\begin{equation*}
+	\phi_n (x) = 
+	\begin{cases}
+		{i-1 \over 2^{n} } & \text{ if } {i-1 \over 2^{n}} \leq x \leq {i \over 2^{n}} \\
+		n & \text{ if } x \geq n
+	\end{cases}
+\end{equation*}
+Since $f$ is bounded, there exists $M \geq 0$ such that $ \lvert f(x) \rvert \leq M$ for all $x \in X$. Also note that $\phi_n$ converges to $i: x \mapsto x$ where $ \lvert x \rvert \leq M$. So $\phi_n \circ f^{\pm}$ uniformly converges to $f^{\pm}$ repectively. This means $\phi_n \circ f^{+} - \phi_n \circ f^{-}$ uniformly converges to $f$. \\
+
+

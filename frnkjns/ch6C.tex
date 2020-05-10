@@ -1,4 +1,4 @@
-\subsection*{section C} \hfill \\
+\subsection*{section C. Almost Everywhere} \hfill \\
 
 Problem 16. \\
 
@@ -16,3 +16,27 @@ Let g be measurable and $E_t = \left [ -\infty, t \right]$, $N = \{ x : g(x) \ne
 Then $h^{-1}(E_t) \setminus g^{-1}(E_t) \subset N$ and $g^{-1}(E_t) \setminus h^{-1}(E_t) \subset N$.
 Since $\mu$ is complete, they are all null sets. So $h^{-1}(E_t) \cup g^{-1}(E_t)$ is measurable.
 Therefore, $h^{-1}(E_t)$ is also measurable, which implies measurability of $h$.\\
+
+Comment: In problem 19 and 21, we treat the functions in $L^1$. So $f(x) - g(x)$ is well defined except on null set $N$ which is $\{ x: f(x) = \pm \infty \text { or } g(x) = \pm \infty \} $. \\
+
+Problem 19. \\
+
+It is trivial to check whether $f$ is measurable or not. (Surely measurable.)\\
+There are countably many corresponding null sets. Let $N$ be a union of such null sets.
+Then all assumptions of problem are valid except on $N$.
+Note that $\lim_{k\rightarrow \infty} \left| f_k\left( x \right) \right | \leq \lim_{k\rightarrow \infty} g_k \left( x \right) = g(x)$ almost everywhere  and $g \in L^1$ so $f \in L^1$.
+Now consider $g_k + g - \left | f - f_k  \right | = h_k $ which is nonnegative measurable function except on $N$.
+By applying Fatou's lemma, we can get :
+
+\begin{multline*}
+	\int \liminf_{k \rightarrow \infty } h_k d\lambda \leq \liminf_{k\rightarrow \infty } \left( \int g d\lambda + \int \left( g_k - \left | f - f_k  \right |  \right) d\lambda  \right) = \\
+	\int g d\lambda - \limsup_{k\rightarrow \infty } \left( \int \left( \left| f - f_k  \right | - g_k \right) d\lambda  \right) \leq 0
+\end{multline*}
+
+Therefore $\int g d\lambda + \limsup_{k\rightarrow \infty }\left( \int \left( \left | f- f_k \right| - g_k \right)d\lambda \right) \leq 0$. But we know that $\int g d\lambda = \limsup\int g_k d\lambda$ and $\limsup\left( a_k + b_k  \right) \leq \limsup\left( a_k  \right) + \limsup \left( b_k \right) $.
+Thus, \begin{equation*}
+	\limsup_{k\rightarrow \infty } \left(  \int \left( g_k + \left | f - f_k  \right | - g_k  \right) d\lambda  \right)
+\end{equation*}
+which means $\lim_{k\rightarrow \infty } \int \left| f - f_k \right | d\lambda = 0$ because limsup of nonnegative sequence goes to positive (or infinity) when it does not go to 0.
+
+Then $\lim \left | \int f_k d\lambda - \int f d\lambda  \right | = 0$, which implies conclusion of our problem.\\

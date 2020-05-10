@@ -1,0 +1,20 @@
+\subsection*{section D. Integration over subsets of $\mathbb{R}^n$ } \hfill \\
+
+Problem 20. \\
+
+It is obvious that $\{ x \in E : - \infty \leq f(x) \leq t \} \subset E$ for every $t \in \left[ -\infty, \infty \right]$. By completeness of Lebesgue measure $\lambda$, every subset of null set is measurable. Hence $f$ is measurable.
+
+Now consider $0 \leq s \leq f_{+}1_{E}$ where $s$ is nonnegative simple function. $s$ can have positive value on subset of $E$. Therefore $\int s d\lambda = 0$. So $\int f_{+} 1_{E} d\lambda  = 0$. Similarly, we can show that $\int f_{-} 1_{E} d\lambda = 0$. Thus we get $\int _{E} f d\lambda = 0 $ for all measurable function defined on $E$. \\
+
+Problem 21. \\
+
+There are countably many corresponding null sets. Let $N$ be a union of such null sets. Then all assumptions of problem are valid except on $N$.
+Now consider $ \left | f - f_k  \right| \leq f + f_k = g_k \in L^1$ a.e. and $\lim g_k = 2f$ exists a.e. and $\lim \int g_k d\lambda = \int 2f d\lambda$. So all the assumptions of problem 19 is satisfied.
+
+Therefore $\lim_{k\rightarrow \infty } \int \left | f_k - f  \right | d\lambda = \int \lim_{k\rightarrow \infty } \left| f_k - f  \right | d\lambda = 0$.
+
+From above and $\int_{E} f d\lambda \leq \int f d\lambda $ for nonnegative measurable function $f$, we can get
+\begin{equation*}
+	\lim \left| \int_{E} f d\lambda - \int_{E} f_k d\lambda  \right | \leq \lim \int_{E} \left| f- f_k \right| d\lambda = 0
+\end{equation*}
+So $\lim_{k\rightarrow \infty}\int_{E}f_k d\lambda = \lim _{k\rightarrow \infty}\int_{E}f d\lambda$. \\

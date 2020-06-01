@@ -1,0 +1,71 @@
+\section*{chater 7: Lebesgue Integral on $\mathbb{R}^n$}
+
+\subsection*{section A: Riemann Integral} \hfill \\
+
+Problem 1. \\
+
+Suppose $1_A$ is LSC. Let $x \in A$ and $0 < 1_A(x) = 1$. By definition of LSC at $x$, there exists $\delta>0$ such that $1_A(y) > 0$ for all $y \in B\left( x ; \delta \right) $. So $1_A(y) = 1$ and therefore $B\left( x ; \delta \right) \subset A$. Thus $A$ is open.
+
+On the contrary, suppose $A$ is open. For $x \in A$, consider $t < 1 = 1_A(x)$. Since $A$ is open, there exists $\delta>0$ such that $B\left( x;\delta \right) \subset A$. Then we get $y\in B\left( x;\delta \right) \Rightarrow t < 1_A(y) = 1$.
+For $x \notin A$, consider $t<0 = 1_A(x)$. Take any $\delta > 0$. Then $y \in B\left( x ; \delta \right) \Rightarrow t < 0 \leq 1_A(y)$. Therefore $1_A$ is LSC if $A$ is open.\\
+
+Note that $f$ is LSC if and only if $\forall t \in \bar{\mathbb{R}}$, $\left\{ f > t \right\}$ is open.
+And $f$ is LSC at $x$ if and only if $x$ is interior point of every $\left\{ f>t \right\}$ for $t < f(x)$.\\
+
+Problem 2. \\
+
+For $x \in A^\circ$, there exists $\delta > 0$ such that $B\left( x ; \delta \right) \subset A$. Then $\inf_{y \in B\left( x ; \delta \right)}1_A(y) = 1$ so lower envelope of $1_A$ at $x$ is same as $1_{A^\circ}(x)=1$.
+
+Now assume $x \notin A^\circ$. Then, for every $\delta>0$ $B\left( x;\delta \right) \cap A \ne \emptyset$. Then $\inf_{y \in B\left( x;\delta \right)}1_A(y) = 0$ for some small $\delta$. Then lower envelope of $1_A$ is zero at $x$, which is same as $1_{A^\circ}(x)$.\\
+
+If $x \in \bar{A}$, for all $\delta >0$ $B\left( x;\delta \right) \cap A \ne \emptyset$. Therefore $\sup_{y\in B\left( x;\delta \right)}1_A(y) = 1$, so upper envelope of $1_A$ is same as $1_{\bar{A}}$.
+
+If $x \notin \bar{A}$, there exists $\delta>0$ such that $B\left( x;\delta \right) \cap A = \emptyset$. Then $\sup_{y\in B\left( x ; \delta \right)}1_A(y) = 0$. So upper envelope of $1_A$ is same as $1_{\bar{A}}$.\\
+
+Problem 3. \\
+
+For each $x \in \mathbb{R}^n$, let $t < \min_{i}f_i(x)$. Then $t<f_i(x)$ for all $i \in \mathcal{I}$. For each $i$, there exists $\delta_i$ such that $y\in B\left( x;\delta_i \right)$ implies $t < f_i(y)$. Take $\delta = \max_{i}\delta_i$. Then $y \in B\left( x;\delta \right)$ implies $t <\min_{i} f_i(y)$. So $\min_{i}f_i $ is LSC.
+
+Now consider $A_i = \left(- \frac{1}{i}, \frac{1}{i} \right)\subset \mathbb{R}$. Since $A_i$ is open, by problem 1, $1_{A_i}$ is LSC. Let $A = \bigcap_{i=1}^{\infty}A_i$ then $1_A = \inf_{i}1_{A_i}$. It is not semicontinuous by considering the set $\left\{ 1_A > \frac{1}{2} \right\}=\left\{ 0 \right\}$. \\
+
+Problem 4. \\
+
+Let $\tau_f \geq f$ and $\tau_g \geq g$ where $\tau_f$ and $\tau_g$ are step functions. Note that $\tau_f + \tau_g$ is also step function greater than $f+g$. Then all others follow directly. \\
+
+Problem 5. \\
+
+Let $\varepsilon>0$ be given. We can choose positive integer $N$ such that 
+
+\begin{enumerate}
+	\item $\left | f(x) - f_n(x) \right | < \varepsilon$ if $n \geq N$ and for all $x \in \mathbb{R}^n = X$.
+	\item $\int_I\left ( \tau_N - \sigma_N\right ) d\lambda < \varepsilon$
+\end{enumerate}
+
+where $\tau_N, \sigma_N$ is simple function bigger, smaller than $f_N$ respectively.
+
+For every $x\in X$,
+\begin{equation*}
+	\sigma_N(x) - \varepsilon \leq f_N(x) -\varepsilon < f < f_N(x) +\varepsilon \leq \tau_N(x) + \varepsilon
+	\label{2}
+\end{equation*}
+
+Then, $\int_I \sigma_N d\lambda -\varepsilon \lambda\left( I \right) \leq r\underline{\int_I}fd\lambda \leq r\overline{\int_I}fd\lambda \leq \int_I \tau_N d\lambda + \varepsilon\lambda\left( I \right)$
+Because $\sigma_N -\varepsilon$ is step function smaller than $f$ and $\tau_N + \varepsilon$ is also step function bigger than $f$. 
+
+Therefore we can get
+\begin{equation*}
+	r \overline{\int_I}fd\lambda - r\underline{\int_I}f\lambda < \varepsilon + 2\varepsilon \lambda\left( I \right)
+	\label{3}
+\end{equation*}
+which implies Riemann integrability of $f$.
+
+By definition of uniform convergence, $r\int \left | f - f_N \right | d\lambda \leq \varepsilon \lambda\left( I \right)$.\\
+So, $\lim_{N\rightarrow \infty}r\int \left | f - f_N \right | d\lambda = 0$, which implies $\lim_{N\rightarrow \infty}\left | r\int fd\lambda - r\int f_N d\lambda \right | = 0$ then conclusion follows. \\
+
+Problem 6.\\
+
+\begin{enumerate}[label = (\alph*)]
+	\item $g(x) = 0$ for all $x \in I = \left[ 0, 1 \right]$. $f(x) = 1_{\mathbb{Q}\cap I}(x)$. $f$ is nowhere continuous but $f = g$ almost everywhere.
+	\item
+
+\end{enumerate}<++>

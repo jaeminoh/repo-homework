@@ -66,6 +66,89 @@ Problem 6.\\
 
 \begin{enumerate}[label = (\alph*)]
 	\item $g(x) = 0$ for all $x \in I = \left[ 0, 1 \right]$. $f(x) = 1_{\mathbb{Q}\cap I}(x)$. $f$ is nowhere continuous but $f = g$ almost everywhere.
-	\item
+	\item Consider the following funnction $f$ :
+		\begin{equation*}
+			f(x) = 
+			\begin{cases}
+				0 & \text{ if } x \in I\cap C \\
+				{1 \over x } & \text{ if } x \in I \cap C^{c}
+			\end{cases}
+			\label{<+label+>}
+		\end{equation*}
+		where $C$ is Cantor ternary set and $I = \left[ 0, 1 \right]$.
+		
+		For $x \in I \cap C^c$, $x \in I_{j, k} =  \left( {2k \over 3^j}, {2k+1 \over 3^j} \right)$ for some $k, j$. 
+		On $I_{j, k}$, function $i : x \mapsto x$ is continuous and $i(x) \ne 0$. So, the map $\varphi:x \mapsto {1\over x}$ is also continuous on $I_{j, k}$.
+		Therefore, $\varphi$ is continuous at $x$. Therefore, $\varphi$ is continuous a.e. on $I$.
 
-\end{enumerate}<++>
+		Note that $f(x) = {1\over x }$ a.e. on $I$. Let $g = f$ a.e. on $I$. Then $g(x) = {1\over x}$ a.e. on $I$. Then $g$ is discontinuous at $x = 0$. Therefore, $f$ is continuous a.e. on $I$ and there is no continuous function such that $f = g$ a.e. on $I$.
+\end{enumerate}
+
+\hfill \\
+
+Problem 7. \\
+
+For $x \in \left[ a, b \right]$, $na \leq nx \leq nb$, so $nx \in {1 \over 2} + \mathbb{Z}$ for finitely many $x$. Therefore, $(nx)$ is discontinuous at most finitely many points, which implies $\left( nx \right)$ is Riemann integrable.
+Then $\frac{\left( nx \right)}{n^2}$ also Riemann integrable, and their finite summation $f_k (x) = \sum_{n=1}^{k} \frac{\left( nx \right)}{n^2}$ is also Riemann integrable.
+
+Now, let $\varepsilon > 0$ be given. Since $\sum_{n=1}^{\infty}$ converges, there exists positive integer $N$ such that $\sum_{k=N}^{\infty} < \varepsilon$.
+Consider $m > n \geq N$ and following:
+\begin{equation*}
+	\left | f_m(x) - f_n(x)  \right | \leq \left | \sum_{k=n+1}^{m} \frac{\left( kx \right)}{k^2} \right |
+	\leq \sum_{k=n+1}^{m}\frac{\left | \left( kx \right) \right |}{k^2} \leq \sum_{k=n+1}^{m} \frac{1}{k^2} < \varepsilon
+	\label{<+label+>}
+\end{equation*}
+for all $x \in \left[ a, b \right]$ since $ -1 \leq \left( nx \right) \leq 1$.
+Therefore, $f_n$ is uniformly Cauchy, which implies uniform convergence of $f_n$ to $f$.
+By problem 5, $f$ is Riemann integrable since each $f_n$ is Riemann integrable and $f_n \rightrightarrows f$. \\
+
+Problem 9. \\
+
+With out loss of generality, assume that $f$ is monotonically increasing.\\
+
+Let $\varepsilon >0$ be given. Consider $a = x_0 < x_1 < \cdots < x_n = b$ \\
+where $\max_{ 1\leq k \leq n }\lambda\left( \left[ x_{k-1}, x_k \right] \right) < \frac{\varepsilon}{f(b) - f(a)}$. (If $f(a) = f(b)$, conclusion follows trivially so let us assume that $f(a) < f(b)$.
+
+	Let $I = \left[ a, b \right]$ and $\sigma : I \rightarrow \mathbb{R}$ such that $\sigma\left( \left( x_{k-1}, x_k \right) \right) = \left\{ f(x_{k-1}) \right\} $, $\sigma(x_k) = f(a)$. Similarly, let $\tau: I \rightarrow \mathbb{R}$ such that $\tau\left( \left( x_{k-1}, x_k \right) \right) = \left\{ f\left( x_k \right) \right\}$ and $\tau(x_k) = f(b)$. 
+	Then $\sigma, \tau$ are step functions satisfying $\sigma \leq f \leq \tau$.
+	So, 
+	\begin{equation*}
+			\begin{split}
+				\int_{I}\left( \tau - \sigma \right) d\lambda = \sum_{k=1}^{n}\left( f(x_k) - f(x_{k-1}) \right)\lambda\left( \left[ x_{k-1}, x_k \right] \right)\\
+				< \sum_{k=1}^{n} \left( f(x_k) - f(x_{k-1}) \right) \frac{\varepsilon}{f(b) - f(a)} = \varepsilon
+			\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	which implies Riemann integrability of $f$ on $I$.\\
+
+Let $x< x'$ be points where $f$ is discontinuous.
+Since $f$ is monotonic, $f(x-) = \lim_{y\uparrow x}f(y)$ and $f(x+) = \lim_{y\downarrow x}f(y)$ exist.
+By monotonicity of $f$, we can easily deduce that $f(x-) \leq f(x) \leq f(x+) \leq f(x'-) \leq f(x') \leq f(x'+)$.
+Since $f$ is discontinuous at $x, x'$, $f(t-) < f(t+) $ for $t = x, x'$. Choose $q_t \in (f(t-), f(t+))$ for $t = x, x'$. Then $q_x < q_{x'}$. The map $x \mapsto q_x$ is hence injective. So, there are at most countably many discontinuous points of $f$ on $I$.
+	
+Therefore $f$ is continuous a.e. on $I$.\\
+
+Problem 10.\\
+
+Consider $1_C$ where $C$ is Cantor ternary set.
+If $x \in C$, $x \notin C^\circ$ since $C$ has empty interior. So, for any $\delta >0$, there exists $y \in B(x;\delta)$ such that $y \notin C$. Then $1_C(x) - 1_C(y) = 1$. So $1_C$ is discontinuous at $x \in C$.
+
+On the contrary if $x \in C^c$, $x \in I_{j, k}$ for some $j, k$ (we'll use notation of problem 6.)
+Then there is $\delta > 0 $ such that $B(x;\delta) \subset I_{j, k} \subset C^c$, so $d(x, y) < \delta$ implies $1_C(x) - 1_C(y) = 0 < \varepsilon$ for any $\varepsilon >0$. Therefore $1_C$ is continuous on $C^c$.
+
+$1_C$ has an uncountable set of discontinuities($C$) and continuous a.e. on $\left[ 0, 1 \right]$. Therefore $1_C$ is Riemann integrable.\\
+
+Problem 11. \\
+
+If $f$ is Riemann integrable and $f = 1_A$ a.e. on $I = \left[ 0, 1 \right]$, $r\int f d\lambda = \int _I f d\lambda = \int_I 1_A d\lambda = \lambda\left( A \right) > 0$.
+
+Let $\sigma$ be a step function, $\sigma \leq f$. Then $\sigma \leq 1_A$ a.e. on $I$ and let $N$ be corresponding null set.
+
+Let $0 = x_0 < x_1 < \cdots < x_n = 1$ be endpoints of special rectangles corresponding to $\sigma$.
+If $\left( x_{k-1}, x_k \right) \cap J_{i} = \emptyset$ for all positive $i = \frac{2m-1}{2^t} < 1$ ($ A = I \setminus \bigcup J_i$, we'll use notation of section 4.B), $\left( x_{k-1}, x_k \right) \subset A$ which contradicts the fact that $A$ has empty interior. So, $\left( x_{k-1}, x_k \right) \cap J_i \ne \emptyset$ for some $i$.
+
+If $\left( x_{k-1}, x_k \right) \setminus N \subset A$, $\left( x_{k-1}, x_k \right) \setminus N \cap J_i = \emptyset$, then $\left( x_{k-1}, x_k \right) \cap J_i \subset N$. But $J_i \cap \left( x_{k-1}, x_k \right)$ is open and nonempty, so it has positive measure which contradicts $\lambda(N) = 0$. 
+
+Therefore for each $k$, $\left( x_{k-1}, x_k \right) \setminus N \cap A^c \ne \emptyset$. So $\sigma\left( \left( x_{k-1}, x_k \right) \right) = {\xi}$ where $\xi \leq 0$. It means $\sigma \leq 0$.
+
+Then $r\int f d\lambda = \sup_{\sigma \leq f} \int_I \sigma d\lambda \leq 0$ which contradicts to $r\int fd\lambda = \lambda\left( A \right) >0$.

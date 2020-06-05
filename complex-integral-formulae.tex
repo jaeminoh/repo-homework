@@ -1,0 +1,107 @@
+\documentclass{oblivoir}
+
+\usepackage{amsmath, amssymb}
+
+\title{complex integral formulae}
+
+\author{jaeminoh}
+\newtheorem{theorem}{Theorem}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{theorem}
+	If $f:\left[ a, b \right] \rightarrow \mathbb{C}$ is continuous and if there exists a function $F(x)$ such that $F' = f$ on $\left[ a,b \right]$, then 
+	\begin{equation}
+		\int_a^b f(x)dx = F(x)  |_a ^b = F(b) - F(a)
+		\label{complexFTC}
+	\end{equation}
+	\label{7.30}
+\end{theorem}
+
+\begin{theorem}[Green's Theorem]
+	Let $P, Q$ be continuous with continuous partials in a simply connected closed region $R$ whose boundary is the contour $C$. Then
+	\begin{equation}
+		\int_C Pdx + Qdy = \iint _R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)dxdy
+		\label{Greenthm}
+	\end{equation}
+	where $C$ is traversed in the positive sense.
+	\label{7.31}
+\end{theorem}
+
+\begin{theorem}[Cauchy's Weak Theorem]
+	If $f(z)$ is analytic (with a continuous derivative) in a simply connected domain $D$, and $C$ is closed contour lying in $D$, then we have $\int_C f dz = 0$
+	\label{7.33}
+\end{theorem}
+
+Necessity of continuous derivative of $f$ can be removed later by considering rectangle, closed ball, \ldots etc.
+
+\begin{theorem}[corollary 7.34]
+	Under the conditions of above, let $C_1, C_2$ be any contours in the domain with the same initial and terminal points. Then 
+	\begin{equation}
+		\int_{C_1}f dz = \int_{C_2}f dz
+		\label{<+label+>}
+	\end{equation}
+	\label{7.34}
+\end{theorem}
+
+\begin{theorem}
+	Suppose that $f$ is analytic (with a continuous derivative) in a multiply connected domain and on its boundary C. Then we have $\int_C fdz = 0$, where the integration is performed along $C$ in the positive sense.
+	\label{7.36}
+\end{theorem}
+
+\begin{theorem}[Cauchy's theorem for a rectangle]
+	Let $f$ be analytic in a domain containing a rectangle $C$ and its interior. Then $\int_C f dz = 0$.
+	\label{7.39}
+\end{theorem}
+
+Proof is similar to proof of 'Heine-Borel' thm. Divide given rectangles evenly and so on.
+
+\begin{theorem}[Corollary 7.40]
+	Let $f$ be continuous in a domain $D$ containing a rectangle $C$ and its interior. Suppose that $f$ is analytic in $D\setminus \left\{ a \right\}$ for some point $a \in D$. Then $\int_C fdz = 0$
+	\label{7.40}
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Integration]
+	Let $f$ be continuous in a domain $D$, and suppose there is an antiderivative $F$ of $f$ in $D$. Then for any contour $C$ in $D$ parameterized by $z(t), a\leq t\leq b$, we have
+	\begin{equation}
+		\int_C f dz = F(z(b)) - F(z(a))
+		\label{<+label+>}
+	\end{equation}
+In particular, if $C$ is closed then $\int_C fdz = 0$.
+	\label{7.41}
+\end{theorem}
+
+\begin{theorem}[Cauchy's theorem for a disk]
+	Let $f$ be analytic in a domain containing the closed disk $\left | z - z_0  \right | \leq r$. Then $\int_{\left | z - z_0  \right | = r} f dz = 0$.
+		\label{7.45}
+\end{theorem}
+
+\begin{theorem}[Corollary 7.46]
+	Let $f$ be analytic for $\left | z - z_0  \right | < r $ except at some point $a$ inside the disk and continuous for $\left | z - z_0  \right | \leq r$. Then $\int_{\left | z - z_0 \right | =r}f dz = 0$.
+	\label{7.46}
+\end{theorem}
+
+\begin{theorem}[Cauchy's Theorem]
+	If $f$ is analytic in a simply connected domain $D$ and $C$ is a closed contour lying in $D$, then $\int_C f dz = 0$.
+	\label{7.47}
+\end{theorem}
+
+\begin{theorem}[Cauchy's Theorem for multiply connected domains]
+	Let $D$ be a multiply connected domain bounded externally by a simple closed contour $C$ and internally by $n$ simple closed nonintersecting contours $C_1, C_2, \cdots , C_n$. Let $f$ be analytic on $D \cup C\cup C_1 \cup \cdots \cup C_n$. Then 
+	\begin{equation}
+		\int_C f dz = \sum_{k=1}^n \int_{C_k}f dz
+		\label{<+label+>}
+	\end{equation}
+where $C$ is taken counterclockwise around the external boundary $C$ and clockwise around the internal boundaries $C_1, C_2, \cdots, C_n$.
+\label{7.49}
+\end{theorem}
+
+\begin{theorem}
+	If $f$ is analytic and nonzero in a simply connected domain $D$, then there exists a function $g$, analytic in $D$, such that $e^{g(z)} = f(z)$.
+	\label{7.51}
+\end{theorem}<++>
+\end{document}
+

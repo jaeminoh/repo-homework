@@ -19,4 +19,15 @@ Therefore $\varphi\left( E \right) = 0$ for all $E \in \mathcal{L}$. By previous
 
 Problem 45. \\
 
+Define $\nu(A) = \lambda \left ( A \cap \left[ -1, 1 \right] \right )$. Then $\int_{\left[ a, b \right]}1_E - {1 \over 2} d\nu = 0$ for all $-\infty < a < b < \infty$.
 
+Note that $\int_{\mathbb{R}}\left | 1_E - {1\over 2} \right | d\nu = {1\over 2}\lambda\left( \left[ -1, 1 \right] \right) < \infty$ So $1_E - {1\over 2} \in L^1\left( \nu \right)$.
+
+Every open set $G\subset \mathbb{R}$ can be expressed as countably many nonoverlapping special rectangle $\left[ a_k, b_k \right]$. Therefore $\int_{G} \left( 1_E - {1\over 2} \right) d\nu = 0$. Therefore $\int_{F}\left( 1_E - {1\over 2} \right) d\nu = 0$ for all closed $F \subset \mathbb{R}$. And it implies $\int_{F_{\sigma}}\left( 1_E - {1\over 2} \right)d\nu = 0$.
+
+Every $A\in \mathcal{L}$ can be expressed as $F_{\sigma} \cup N$ where $N$ is $\mu$-null set.
+Therefore $\int_{A}\left( 1_E - {1\over 2} \right)d\nu = 0$ for all $A\in \mathcal{L}$. By problem 43, $1_E = {1\over 2}$ $\nu$-a.e.
+
+But ${x : 1_E \ne {1\over 2}} = \mathbb{R}$ and $\nu\left( \mathbb{R} \right) = \mu\left( \left[ -1, 1 \right] \right) > 0$ which is contradiction.
+
+Therefore, there is no such $E$.

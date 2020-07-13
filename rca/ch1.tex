@@ -1,12 +1,19 @@
-\section*{1. abstract integration} \hfill \\
+\setcounter{section}{0}
+\section{Abstract Integration}
 
-Problem 10. \\
+\begin{problem}[10]
+	\hfill
 
-$\left | f_n \right | \leq c_n$ for each $n \in \mathbb{N}$ since each $f_n$ is bounded.
-Let $\epsilon$ be given positive real number.
-Then there exists positive integer $N$ such that $\left | f - f_N \right | \leq \epsilon$ since $f_n$ uniformly converges to $f$.
-So, we can assert that $f$ is bounded since $\left | f \right | \leq \left | f_N - f \right | + \left | f_N \right | \leq c_N + \epsilon = C'$.
-Therefore, $\left | f_n \right | \leq \sum_{n=1}^N c_n + \epsilon + C' = C$ for all positive integer $n$.
-So, $\left | f_n \right | \leq C \in \mathcal{L}^1(\mu)$ because $\int _X C d\mu = C\mu(X) < \infty$.
-Also, $f = \lim f_n$ is measurable since limit of measurable function is measurable.
-By dominated convergence thm, $\lim_{n \rightarrow \infty} \int_X f_n d\mu = \int_X f d\mu$.
+	Since each $f_n$ is bounded and $\mu\left( X \right) < \infty$, $f_n \in L^1$. We can conclude that $f$ is also bounded hence $f\in L^1$ because $f_n$ is uniformly convergent to $f$ and each $f_n$ is bounded.
+
+	\begin{equation*}
+		\begin{split}
+			\left | \int _X f_n d\mu - \int _X f d\mu \right | & \leq
+			\int_X \left | f_n - f \right | d\mu \\
+			& \leq \varepsilon \mu\left( X \right)
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+
+	if $n$ is large, because of uniform convergence. So we can see that $\lim \int_X f_n d\mu = \int_X f d\mu$.
+\end{problem}

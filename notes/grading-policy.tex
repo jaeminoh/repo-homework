@@ -1,0 +1,28 @@
+\documentclass{oblivoir}
+
+\author{Jaemin Oh}
+\usepackage{amsthm, amsmath, amsfonts}
+\title{grading policy for 3.4.p2}
+
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}
+	A \underline{nonempty} subset $W \subset \mathbb{R}^n$ is called subspace if it is closed under scalar multiplication and vector addition.
+	\label{<+label+>}
+\end{definition}
+
+\begin{itemize}
+\item $0 \in W$ (1pt)
+\item closed under scalar multiplication (3pt)
+\item closed under vector addition (3pt)
+\item writing some sentences (3pt)
+\end{itemize}
+
+Actually, 2nd and 3rd conditions can be integrated as 'closed under linear combintation'. Because, $k_1 v_1 + k_2 v_2$ equals $k_1 v_1$ if $k_2 = 0$ and $v_1 + v_2$ if $k_1 = k_2 = 1$. So if you showed $W$ is closed under linear combinaton, you'll get full points for 2nd and 3rd of above.
+
+If you do not write your answer specifically, I cannot know whether you know the exact solution or not. In such cases, I will deduct some points. For example, to show 2nd and 3rd of above you should use the fact that $W_1$ and $W_2$ are subspaces. But, for instance, 'for $x_1, x_2 \in W_1\cap W_2$, $k_1 x_1 + k_2 x_2 \in W_1 \cap W_2$' is not enough to get full points. That sentence does not contain any specific manipulation. Further, that sentence is what you should show.
+\end{document}

@@ -1,0 +1,29 @@
+\begin{problem}[2.2.3] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item $f(U_i)$'s are iid because $P\left( \bigcap_{i} \left( f\circ U_i \right) \in B_i \right) = P\left( \bigcap_i \left\{ U_i \in f^{-1}(B_i) \right\} \right) = \Pi_i P\left( U_i \in f^{-1}(B_i) \right) = \Pi_i P\left( f(U_i) \in B_i \right)$.
+			Also, for borel set $B$, $P\left( f(U_i) \in B \right) = P\left( U_i \in f^{-1}(B_i) \right)$ are all same for $i$.
+
+			$Ef(U_i) = \int_0^1 f(x)dx$, $E|f(U_i)| = \int_0^1 |f(x)|dx < \infty$. 
+
+			Now, by WLLN, $\frac{\sum f(U_i)}{n}$ converges to $\int_0^1 f(x)dx$ in probability.
+
+		\item $P\left( |I_n -I | > a/n^{0.5} \right) \leq \frac{n}{a^2} E|I_n -I|^2 = \frac{n}{a^2}Var(I_n) = Var(\sum f(U_i)) / na^2 = Var(f(U_i))/a^2 = \left[ \int_0^1 f(x)^2 dx - \left( \int_0^1 f(x)dx \right)^2 \right]/a^2$.
+\end{enumerate}
+
+
+\end{problem}
+
+\begin{problem}[2.2.5] \hfill
+
+	Note that $P(X_i \leq a) = 0$ for all $a <e$.
+
+	$xP(X_i > x) = \frac{e}{\log x} \rightarrow 0$ as $x \rightarrow \infty$. 
+
+	$E|X_i| = EX_i = \int_e^\infty P(X_i >x) dx = \int_e^\infty \frac{e}{x \log x} dx = \infty$ since $X_i \geq 0$ almost surely.
+
+	But $\mu_n = \int_{|X_i| \leq n} X_i dP \uparrow EX_i = \infty$ by monotone convergence theorem.
+
+	Now, theorem 2.2.12 says $\frac{s_n}{n} - \mu_n$ converges to $0$ in probability.
+	
+\end{problem}

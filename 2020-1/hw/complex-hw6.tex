@@ -1,0 +1,156 @@
+\documentclass{oblivoir}
+
+\usepackage{enumitem, amsmath, amssymb}
+
+\title{complex - hw6}
+
+\author{2015160046 오재민}
+
+\newtheorem{problem}{Problem}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+	\begin{equation}
+		\begin{split}
+			\int_C \overline{z} dz & =\int_0 ^\pi \left( 5e^{-it}+3 \right)\left( 5ie^{it} \right)dt \\
+			& = \int_0 ^\pi 25i + 15ie^{it}dt \\
+			& =  25i\pi -30
+		\end{split}
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	For $\left| z  \right | = 1$, $\left | \frac{2z + 1 }{5+z^2} \right | \leq {3 \over 4}$.
+	Therefore
+	\begin{equation}
+		\left | \int_{\left | z  \right | = 1} \frac{2z+1}{5+z^2} \right | \leq \int_{\left | z  \right | = 1} \left | \frac{2z + 1}{5+z^2} \right | |dz| \leq {3 \over 2 }\pi
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item $|z| = \sqrt{ {t^4 \over 9 } + t^2 }$. So
+			\begin{equation}
+				\begin{split}
+					\int_C |z|^2 dz & = \int_0 ^1 \left( {t^4 \over 9} + t^2 \right)\left( {2t \over 3} + i \right)dt \\
+					& = \int_0 ^1 {2 \over 27} t^5 + {2 \over 3} t^3 dt + i \int_0 ^1 {1 \over 9}t^4 + t^2 dt \\
+					& = {29 \over 162} + i{16\over 45}
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+
+		\item \begin{equation}
+				\begin{split}
+					\int_C Re(z) |dz| & = \int_0 ^1 {t^2 \over 3} \sqrt{ {4\over 9}t^2 + 1}dt \\
+					& = \int_0^{tan^{-1}\left( {2\over 3} \right)}{9 \over 8} \tan^2 \theta \sec^3 \theta d\theta \\
+					& = {1\over 4} \sec^3x \tan x - {1\over 8}\sec x \tan x + {1 \over 8} \ln \left | \sec x + \tan x  \right | |_0 ^{\tan^{-1}\left( {2\over 3} \right)} \\
+					& = \frac{17 \sqrt{13}}{288} -{9 \over 64} \ln\left( {2\over 3} + {\sqrt{13} \over 3} \right)
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	\begin{equation}
+		\int_C z |z| dz = \int_0 ^\pi R^2 e^{it}\left( Rie^{it} \right)dt + \int_{-R}^R t|t| dt = 0
+		\label{<+label+>}
+	\end{equation}
+
+	because each of them is $0$.
+\end{problem}
+
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item Given integral is
+			\begin{equation}
+				\begin{split}
+					\int_1^2 -x^2 dx + \int_2^1 0 dx + \int_0^{-1}3y^2 dy + \int_{-1}^0 5y^2 dy \\
+					= -{1\over 3}7 -1 + {5 \over 3} = -{5 \over 3}
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+
+		\item Let $x = r \cos \theta$ and $y = r \sin \theta$. Then given integral is
+			\begin{equation}
+				\begin{split}
+					& = \int_{-\pi}^\pi r^2 \cos^2 \theta \sin^2 \theta d\theta\\
+					& = {r^4 \over 4} \int_{\pi}^\pi \frac{1 - \cos 4\theta}{2}d\theta = {r^2 \over 4} \pi
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Since $e^z$ is entire, $\int_{|z| = 1} e^z dz = 0$. So its real and imaginary part are zero.
+	Put $z = e^{it}$. Then
+	\begin{equation}
+		\begin{split}
+			\int_{|z| = 1}e^z dz & = \int_{-\pi}^\pi e^{e^{it}}ie^{it}dt = 0 \\
+			& = \int_{-\pi}^\pi e^{\cos t + i\left( \sin t + t \right)} i dt \\
+			& = i\int_{-\pi}^\pi e^{\cos t} \cos \left( \sin t + t \right) dt - \int_{-\pi}^\pi e^{\cos t} \sin \left(  \sin t + t \right) dt \\
+		\end{split}
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item \begin{equation}
+				\begin{split}
+					\int_{|z-i|=1}\frac{dz}{1+z^2} & = {1\over 2i}\int_{|z-i|=1}\left( {1\over z-i} - {1\over z+i} \right)dz \\
+					& = \pi
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+
+			since ${1\over z+i}$ is analytic except for $z = -i$.
+
+		\item Consider $C_1 = |z-i|=\varepsilon_1$ and $C_2 = |z+i| = \varepsilon_2$ where $C_1, C_2$ are lying inside of contour $|z| = 2$. (it is possible since $i, -i$ are interior point of $|z| \leq 2$)
+			Then
+			\begin{equation}
+				\begin{split}
+					\int_{|z| = 2} \frac{dz}{z^2 + 1} & = \int_{C_1}\frac{dz}{z^2 + 1} + \int_{C_2} \frac{dz}{z^2 + 1} \\
+					& = {1\over 2i} \int_{C_1}\left( {1\over z-i} - {1\over z+i} \right)dz + {1\over 2i} \int_{C_2}\left( {1\over z-i} - {1 \over z+i} \right)dz \\
+					& = \pi + \left( -\pi \right) = 0
+				\end{split}
+				\label{<+label+>}
+			\end{equation}
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Let $F(z) = Log z$. Then $F'(z) = {1 \over z}$ and ${1 \over z}$ is continuous on right half plane. By Fundamental Theorem of Integration, 
+	\begin{equation}
+		\int_{z_0}^{z_1} {1\over z}dz = Log\left( z_1 \right) - Log\left( z_0 \right)
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	Note that $P(z)$ is entire. So given integral is $P^{\left( n+1 \right)}\left( 1 \right) = 0$.
+\end{problem}
+
+\begin{problem}
+	By joining terminal point and initial point of $\gamma$ with straight line, we can get simple closed contour $C$. Consider $C_1 = |z -\pi i | = \varepsilon_1$ and $C_2 = | z + \pi i | = \varepsilon_2$ such that each circle lies inside of contour $C$. Then $\int_C \frac{dz}{z^2 \pi^2} = \int_{C_1} \frac{dz}{z^2 + \pi^2} + \int_{C_2}\frac{dz}{z^2 + \pi^2} = \int_{\gamma} \frac{dz}{z^2 + \pi^2} = \int_{\delta}\frac{dz}{z^2 + \pi^2}$ where $\delta(t) = -t$ for $-2\pi \leq t \leq 0$.	
+
+	But, $\int_{C_1}\frac{dz}{z^2 + \pi^2} = {1\over 2\pi i} \int_{C_1}\left( {1 \over z - \pi i} - {1 \over z + \pi i} \right)dz = 1$ and similarly, $\int_{C_2}\frac{dz}{z^2+\pi^2} = -1$. So $\int_{C}\frac{dz}{z^2 + \pi^2} = 0$, therefore $\int_{\gamma}\frac{dz}{z^2 + \pi^2} = -\int_{\delta}\frac{dz}{z^2+\pi^2}$.
+
+	So given integral is
+	\begin{equation}
+		\begin{split}
+			-\int_{\delta}\frac{dz}{z^2+\pi^2} & = \int_{-2\pi}^0 \frac{dt}{t^2 + \pi^2} \\
+			& = \int_{\tan^{-1}\left( -2 \right)}^0 {dt \over \pi} \\
+			& = {\tan^{-1}\left( 2 \right) \over \pi}
+		\end{split}
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+\end{document}

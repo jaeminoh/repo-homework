@@ -1,0 +1,69 @@
+\documentclass{oblivoir}
+\usepackage{amsmath, amssymb, enumitem}
+
+\title{convex - hw5}
+\author{2015160046 수학과 오재민}
+
+\newtheorem{problem}{Problem}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+	$P$ can be orthogonally diagonalized. So $P = Q \Lambda Q^{-1}$ where $\Lambda$ is diagonal matrix whose entries are eigenvalues of $P$ and columns of $Q$ are orthonormal eigenbasis.
+	Let $\left\{ \alpha_i \right\}_{i=1}^{\infty}$ be the orthonormal eigenbasis.
+	Then $x = \sum_{i=1}^{\infty}x_i \alpha_i$, $x^t P x = \sum_{i=1}^{\infty}\lambda_i x_i^2$. 
+	Since $P$ is not positive semidefinite, there is at least one negative eigenvalue. Let $\lambda_i < 0$. Then by letting $x_j = 0$ for $j\ne i$ and $x_i \rightarrow \infty$, we can get $x^t P x\rightarrow -\infty$. So problem is unbounded if $P$ is not positive semidefinite.
+\end{problem}
+
+\begin{problem}
+	Note that given objective function is convex since $f(x, y) = x^2 / y$ is convex. 
+	By $\text{dom}f$, Slator's condition is satisfied.
+	Let $c^t x + d = y > 0$.
+	$L(x, y, \lambda, \nu) = {1\over y}\left( x^t A^t A x - 2 b^t A x + b^t b \right) -\lambda y + \nu\left( c^t x + d - y \right)$.
+	To minimize $L$, consider $\nabla_x L = {1\over y}\left( 2A^t A x - 2A^t b \right) + \nu c = 0$.
+	Then $x^* = \left( A^t A \right)^{-1}\left( A^t b - {1\over 2 }y\nu c \right)$. 
+	But we know that the duality gap is tight. So $g(\lambda^*, \nu^*) = L(x^*, y^*, \lambda^*, \nu^*) = f(x^*)$.
+	So minimizer of given problem is $x^*$ which can be represented as $x_1 + tx_2$.
+\end{problem}
+
+\begin{problem}
+	$x_1 = \gamma\left( \frac{\gamma -1}{\gamma + 1} \right)^k$ and $x_2 = \left( \frac{1-\gamma}{1+\gamma} \right)^k$.
+	We will using induction.
+	\begin{equation}
+		\begin{split}
+		(x_1', x_2') & = (x_1, x_2) + \text{argmin}_t f\left( (x_1, x_2) + t \nabla f (x_1, x_2) \right)\nabla f(x_1, x_2) \\
+		& = (x_1, x_2) + t^*(x_1, \gamma x_2) = \left( x_1(1+t^*), x_2(1+t^* \gamma \right)
+		\end{split}
+	\end{equation}
+	where $t^* = \frac{-x_1^2 - \gamma^2 x_2^2}{x_1 ^2 + \gamma^3 x_2^2}$.
+	By 'hard' calculation, we can get $\left( x_1', x_2' \right) = \left( \gamma\left( \frac{\gamma -1}{\gamma + 1} \right)^{k+1}, \left( \frac{1-\gamma}{\gamma +1} \right)^{k+1} \right)$
+\end{problem}
+
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $f(x) = \frac{e^x}{1+e^x}$. Then $f'(x) = \frac{e^x}{\left( 1+e^x \right)^2} > 0$, so $f$ is increasing function of $x$.
+		Therefore maximizing $p$ is equivalent to maximizing $a^t x + b$ subject to given constraints.
+		
+	\item Note that $f(x)$ is log concave. Since log is monotonic function, maximizing given objective is equivalent to maximizing $\log(\text{objective})$. By taking log, we obtain new objective $a^tx + b - \log(1+e^{a^t x + b}) +\log(c^tx +d)$. Therefore, it is convex optimization.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	\begin{enumerate}[label = (\alph*)]
+		\item Let optimal $t >0$. Then $a^t x_i -b \geq t > 0$ and $a^t y_i -b \leq < -t < 0$ so $\left \{ x_i \right \} _{i=1}^{N}$ and $\left \{y_i\right \}_{i=1}^{N}$ are linearly separated by the hyperplane $a^t z - b = 0$. \\
+
+			Let $\left\{ x_i \right\}_{i=1}^N$ and $\left\{ y_i \right\}_{i=1}^N$ be linearly separated. Then there is $\left( a, b \right)$ such that $a^t x_i -b > 0$ and $a^t y_i -b <0$.
+			If $a = 0$, contradiction. By multiplying normalizing constant, we can assume $\|a \| = 1$.
+			Let $t = \min\left\{ a^t x_i - b, -a^t y_i + b \right\} >0$. Then $t, a, b$ satisfies all the conditions of given problem. So optimal $t^* \geq t >0$. \\
+
+			If inequality is not tight, by considering all variables divided with $\|a \|$ we can get larger optimal $t$ than older ones. So inequality must be tight.
+
+		\item From $\| a \| \leq 1$, we can get $\| \tilde{a} \| \leq {1\over t}$. From tightness of inequality, we can get optimal $t$ by maximizing ${1\over \| \tilde{a} \|}$ which is equivalent to minimizing $\| \tilde{a} \|$.
+
+			So given problem is equivalent to new problem.
+
+	\end{enumerate}
+\end{problem}
+\end{document}

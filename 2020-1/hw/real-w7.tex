@@ -1,0 +1,59 @@
+Notation: $\mu$ is Lebesgue measure, $1_A$ is characteristic function, $X$ is Euclidean space.\\
+
+Problem 11. \\
+
+It is obvious that $ \lvert f_k \rvert \leq \lvert f \rvert$ and $\lvert f \rvert \in \mathcal{L}^1(\mu)$.
+So, if each $f_k$s are measurable, by dominated convergence thm, done.
+Actually, $f_k = f \cdot 1_{A_k \cap E_k}$ where $A_k = \left [ -k, k \right ]$ and $E_k = f^{-1} (\left [ -k, k \right])$.
+There exists sequence of nonnegative simple function $\{s_i: X \rightarrow (-\infty, \infty) \}$ which converges to $f$ since $f$ is measurable.
+So, $\lim_{i\rightarrow \infty} s_i 1_{a_k \cap E_k} = f_k$ is measurable because product of finite measurable function is measurable and limit of measurable function is measurable.
+
+Also note that $1_{A_k \cap E_k} \rightarrow 1$ as $k \rightarrow \infty$ so $f_k \rightarrow f$.\\
+
+
+Problem 12. \\
+
+Likewise, it is enough to show that $f(x) e^{-{ {\lvert x \rvert}^2 \over k}} = f_k(x)$ is measurable because $\lvert f_k \rvert \leq \lvert f \rvert \in \mathcal{L}^1$ and $f_k \rightarrow f$.
+$e^{-{ {\lvert x \rvert}^2 \over k}}$ is continuous, hence Borel measurable, hence Lebesgue measurable.
+There exists sequence of nonnegative simple function $\{s_i : X \rightarrow \left (-\infty, \infty \right ) \}$ which converges to $f$ since $f$ is measurable.
+So, $\lim_{i \rightarrow \infty} s_i e^{-{ {\lvert x \rvert}^2 \over k}} = f_k$ is measurable because product of finite measurable function is measurable and limit of measurable function is measurable.\\
+
+Problem 13. 'alternative proof for problem 2.42' \\
+
+For each $x \in X$, there are at most $d\in \mathbb{N}$ distinct $A_k$ containing $x$.
+Fix positive integer $N$.
+Clearly $\sum_{k=1}^N 1_{A_k} \leq d 1_A$ where $A = \bigcup_{i=1}^{\infty}A_i$.
+By integrating both sides, $\sum_{k=1}^N \mu(A_k) \leq d \mu(A)$ by linearity of integral operator.
+Since $N$ is arbitrary, we got the result in Problem 2.42.\\
+
+%(similar, another) Let $I_x = \{ k \in \mathbb{N} : k \leq N \text{ and } x\in A_k\}$. $\sum_{k=1}^N 1_{A_k} \leq \left | I_x \right | \leq d = d 1_A$ for all N.
+%So $\sum_{k=1}^{\infty} 1_{A_k} \leq d1_A$.
+%By integrating both sides and monotone convergence thm, we got it.\\
+
+Problem 14. \\
+
+Let $\mathcal{I}$ be set of all sequences which are strictly increasing positive integers and length $m$.
+Such set is countable. Now, $\bigcup_{i \in \mathcal{I}} \bigcap_{j=1}^m A_{i_j} = E_m$ and it is measurable.
+
+Similar to Problem 13, $m 1_{E_m} \leq \sum_{i=1}^{\infty}1_{A_i}$.
+So, $$m \mu(E_m) = \int m 1_{E_m} d\mu \leq \int \sum_{i=1}^{\infty}1_{A_i} d\mu = \sum_{i=1}^{\infty} \int 1_{A_i} d\mu = \sum_{i=1}^{\infty}\mu(A_i)$$ by monotone convergence thm.
+
+\subsection*{section C} \hfill \\
+
+Problem 16. \\
+
+Clearly, $ \lvert f \rvert = 0$ almost everywhere, and $\lvert f \rvert$ is measurable.
+Consider nonnegative finite simple function $s \leq \lvert f \rvert$. Then $s=0$ almost everywhere
+and $s = \sum_{i=1}^N \alpha_i 1_{A_i}$, where $A_i$ is null set if $\alpha_i \ne 0$.
+Therefore, $\int s d\mu = 0$, which implies $\int \lvert f \rvert d\mu = 0$.
+So, $f \in \mathcal{L}^1(\mu)$, $\left | \int f d \mu \right | \leq \int \lvert f \rvert d\mu =0 \Rightarrow \int f d \mu = 0$.\\
+
+Problem 17. \\
+
+Note that $f \sim g \Leftrightarrow f = g\text{ a.e.}$ is an equivalence relation. (transitivity can be verified from contrapositive of $g = f$ a.e. and $f = h$ a.e. $\Rightarrow g = h$ a.e.)
+So, $g = h \text{ a.e}$.
+Let g be measurable and $E_t = \left [ -\infty, t \right]$, $N = \{ x : g(x) \ne h(x)\}$.
+Then $h^{-1}(E_t) \setminus g^{-1}(E_t) \subset N$ and $g^{-1}(E_t) \setminus h^{-1}(E_t) \subset N$.
+Since $\mu$ is complete, they are all null sets. So $h^{-1}(E_t) \cup g^{-1}(E_t)$ is measurable because $g^{-1}(E_t)$ is measurable.
+Therefore, $h^{-1}(E_t)$ is also measurable, which implies measurability of $h$.
+Similarly, measurability of $h$ implies measurability of $g$. \\

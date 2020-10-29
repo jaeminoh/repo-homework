@@ -1,11 +1,14 @@
 # solutions for homeworks
 
-1. Frank Jones - Lebesgue Integration on Euclidean Space.
-2. Walter Rudin - Real and Complex Analysis.
-3. Hoffman and Kunze - Linear Algebra.
+2020-1 : integration theory, topology, linear algebra
+
+2020-2 : complex function theory, probability theory, integration theory
 
 
 
-Any comment will be welcomed.
+There are several errors.
 
-email : willlit@korea.ac.kr
+
+
+email : jaeminoh@kaist.ac.kr
+

@@ -1,0 +1,79 @@
+\begin{problem}[2.3.5] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $F_N = \left\{ Y \leq N \right\}$ and $Y_n = Y 1_{F_n}$. Then $EY_n \uparrow EY$ by MCT. So choose $N$ so that $EY - EY_N < \varepsilon$.
+			Now consider $\left | EX_n - EX \right | \leq E|X_n -X| \leq \int_{|X_n -X | > \varepsilon} 2Y dP + \int_{|X_n -X| \leq \varepsilon}|X_n - X| dP \leq \varepsilon + \int_{|X_n -X| > \varepsilon} 2Y dP$. \\
+
+			Let $E_n = \left\{ |X_n - X| > \varepsilon \right\}$. Then $\int_{E_n} 2Y dP = \int_{E_n}2Y - 2Y_N + 2Y_N dP \leq E(2Y-2Y_N) + 2N P(E_n)$, where the last term goes to $0$ as $n \rightarrow \infty$.
+
+		\item Let $h, g$ be continuous functions, $h(0) = 0$, $g>0$ for large $x$, $|h|/g \rightarrow 0$ as $|x| \rightarrow \infty$, and $Eg(X_n) \leq C <\infty$.
+
+			Choose $M$ so large that $g>0$ on $|x| > M$. $\varepsilon_M = \sup_{|x| \geq M} |h|/g$ and $\bar{Y} = Y 1_{|Y| \leq M}$.
+
+			Then $|Eh(X_n) - Eh(X)| \leq E|h(X_n) - Eh(\bar{X_n})| + E|h(\bar{X_n} - h(\bar{X})| + E|h(\bar{X}) - h(X)|$.
+			First term and third term are bounded by $\varepsilon_M C$ which goes to $0$ as $M \rightarrow \infty$.
+			And the second term goes to $0$ as $n\rightarrow \infty$ by bounded convergence thm.
+
+			Therefore the conclusions hold.
+	\end{enumerate}
+
+\end{problem}
+
+\begin{problem}[2.3.6.] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item We already show that $\rho(x, y) = \frac{|x-y|}{1+|x-y|}$ is a metric in problem 2.1.3.
+
+			First consider $d(X, Y) = 0$ iff $E\frac{|X-Y|}{1+|X-Y|} = 0$ iff $\frac{|X-Y|}{1+|X-Y|} = 0$ a.s. iff $X=Y$ a.s.
+
+			Next, it is trivial to check $d(X, Y) = d(Y, X)$.
+
+			Lastly, $d(X, Z) = E\rho(X, Z) \leq E\left( \rho(X, Y)+\rho(Y, Z) \right) = E\rho(X, Y) + E\rho(Y, Z) = d(X, Y) + d(Y, Z)$.
+
+			Therefore given function is a metric of class of random variables.
+
+		\item First assume $X_n \rightarrow X$ in probability. Then $\frac{|X_n - X|}{1+|X_n - X|} \leq 1$ and it goes to $0$ in probability. So bounded convergence thm implies $d(X_n, X) \rightarrow 0$.
+
+			Next assume $d(X_n, X) \rightarrow 0$ as $n\rightarrow 0$. 
+
+			\begin{equation*}
+				\begin{split}
+					P(|X_n -X| > \varepsilon)
+					& = P\left( \frac{|X_n - X|}{1+|X_n - X|} > \frac{\varepsilon}{1+\varepsilon} \right) \\
+					& \leq E\frac{|X_n - X|}{1+|X_n - X|} \frac{1+\varepsilon}{\varepsilon} \\
+					& = d(X_n, X) \frac{1+\varepsilon}{\varepsilon} \rightarrow 0 
+				\end{split}
+			\end{equation*}
+			by Markov's inequality.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[2.3.8] \hfill
+
+	Independence of $A_n$ implies independence of $A_n ^c$. Let $B_n = \cap_{k=1}^n A_k^c$. Then $0 = P\left( \bigcap_{n=1}^\infty A_n^c \right) = \lim_{n\rightarrow \infty} P(B_n)$.
+
+	So, for arbitrary $\varepsilon >0$, there is a positive integer $N_\varepsilon$ such that $n \geq N_\varepsilon$ implies $P(B_n) = P\left( \cap_{k=1}^n A_k^c\right) = \Pi_{k=1}^n \left( 1-P(A_k) \right) = e^{\sum_{k=1}^n \log \left( 1-P(A_k) \right)} < \varepsilon$.
+	But as $n\rightarrow \infty$
+	\begin{equation*}
+		\begin{split}
+			\lim_{n\rightarrow \infty} e^{\sum_{k=1}^n \log \left( 1-P(A_k) \right)} =0
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+
+	This means that $\sum_{k=1}^\infty \log \left( 1-P(A_k) \right) = -\infty$, therefore $\log \left( 1-P(A_k) \right)$ does not converge to $0$, which is equivalent to that $P(A_k)$ does not converge to $0$. Therefore $\sum_{n=1}^{\infty} P(A_n) = \infty$.
+	
+\end{problem}
+
+
+\begin{problem}[2.3.12] \hfill
+
+Let $\Omega = \left\{ \omega_i : i \in \mathbb{N} \right\}$. Without loss of generality, we can assume $P(\left\{ \omega_i \right\}) >0$ for all $i \in \mathbb{N}$.
+
+If there is $\omega_i$ such that $X_n(\omega_i)$ does not converge to $X(\omega_i)$, then for some $\varepsilon >0$, and for all $N \in \mathbb{N}$, there is $n_N \geq N$ but $\left | X_{n_N}(\omega_i) - X(\omega_i) \right | > \varepsilon$.
+
+This means $\left\{ |X_{n_N}-X| > \varepsilon \right\}$ contains $\omega_i$ for all $N$. So $0 < P(\left\{ \omega_i \right\}) \leq P\left( |X_{n_N}-X| > \varepsilon \right)$.
+
+But $X_n \rightarrow X$ in probability implies $X_{n_N} \rightarrow X$ in probability. This contradicts to above.
+Therefore there is no such $w_i$ hence $X_n$ converges to $X$ almost surely.
+	
+\end{problem}

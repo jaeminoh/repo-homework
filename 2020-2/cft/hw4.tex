@@ -1,0 +1,84 @@
+\begin{problem}[4.1] \hfill
+
+	Notice that $f$ does not vanish on $\mathbb{C}\setminus \left\{ 0 \right\}$. Therefore $g(z) = \frac{1}{f(z)}$ is holomorphic on $\mathbb{C} \setminus \left\{ 0 \right\}$.
+	Near $0$, $g$ is bounded since $\sqrt{|z|}$ goes to $0$ as $z$ goes to $0$. This means $g$ has removable singularity at $0$ and therefore entire. But $g(z) \leq \sqrt{|z|}$, so $g$ must be constant by Cauchy integral formula.
+
+	Then $f$ must be constant also, and this is contradiction. Therefore there is no such holomorphic function.
+
+\end{problem}
+
+\begin{problem}[4.2] \hfill
+
+	Let $g(z) = f\left( \frac{1}{z} \right)$. Then $g \rightarrow 0$ as $z \rightarrow 0$. Therefore $g$ is entire.
+	Also, $g(z)/z$ is entire since $\lim_{z\rightarrow 0} g(z)/z = g'(0)$ hence bounded near $0$.
+
+	Now, consider given integral. Let $\zeta = e^{it}$ and $t = 2\pi - s$. Then given integral is $\frac{1}{2\pi i} \int_0^{2\pi} \frac{f(e^{-is})}{e^{-is} - z}ie^{-is}ds = \frac{1}{2\pi i} \int_0^{2\pi}\frac{g(e^{is})}{e^{is}-e^{2is}z}ie^{is} ds = \frac{1}{2\pi i} \int_{|\zeta| = 1} \frac{g(\zeta)}{\zeta z \left( {1 \over z} - w \right)} d\zeta$
+	
+	Therefore given integral is equal to $\frac{1}{2\pi i} \int_{|\zeta| = 1} \frac{h(\zeta)}{ {1 \over z} - \zeta} d\zeta$ where $h(\zeta) = \frac{g(\zeta)}{\zeta z}$.
+	Thus, it is equal to $-g(1/z) = -f(z)$.
+\end{problem}
+
+\begin{problem}[4.3] \hfill
+
+	$f$ maps $re^{i\theta}$ to $\sqrt{r} e^{i\left( {\theta \over 2} + k(z) \pi \right)}$ where $k(z) \in \mathbb{Z}$. To $f$ be continuous, $k(z)$ must be all even or all odd.
+
+	First assume that $k(z)$ is all even. Then $f'(0) = \lim_{\mathbb{R} \ni h \rightarrow 0} \frac{f(h)}{h} = \lim_{\mathbb{R} \ni h \rightarrow 0} \frac{\sqrt{h}}{h} = \infty$, which is contradiction.
+
+	Similarly, if $k(z)$ is all odd, $f'(0)$ does not exist. 
+
+	Therefore existence of such $f$ leads $0 \notin U$. \\
+
+	Let $\iota$ be identity function of $U$. Since $z \notin U$, $\iota$ does not vanish on $U$, hence $1/\iota$ is holomorphic on $U$. Since $U$ is hsc, $1/\iota$ has holomorphic antiderivative $\varphi$.
+
+	Now consider the derivative of $\iota(z)e^{-\varphi(z)}$. Simple calculation leads that it is equal to 0. Hence $\iota(z) = c e^{\varphi(z)}$ for some constant $c$. Therefore $\iota(z) = e^{\psi(z)}$ for some holomorphic $\psi$ on $U$.
+
+	Take $f = e^{ {1\over 2} \psi  }$. Then $f$ satisfies what we want.
+\end{problem}
+
+\begin{problem}[4.4] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $\gamma_R$ be the contour used in example 4.6.5.
+
+			First, consider $\int_0^\infty \frac{1}{x^a(x+1)} dx$. To calculate this, take $f(z) = z^{-a}/(1+z)$ where $0 < arg(z) < 2\pi$.
+			By residue thm, $2\pi i e^{-a\pi i} = \int_0^\infty \frac{1}{r^a(r+1)} dr \left( 1-e^{-2a\pi i} \right)$.
+			Therefore $\int_0^\infty \frac{1}{x^a(x+1)}dx = \pi \csc (\pi a)$. \\
+
+			Now, $\int_{\gamma_R}\frac{\log z}{z^a(1+z)}dz = 2\pi i e^{-a\pi i} \pi i$ by residue thm. But as $R \rightarrow \infty$, that integral goes to $(1-e^{-2a\pi i})\int_0^\infty \frac{\log r }{r^a(r+1)}dr -e^{-2a\pi i} \int_0^\infty \frac{2\pi i \log r }{r^a (r+1)}dr$.
+
+			By simple calculation, the value we want is equal to $\frac{i \pi^2}{\sin (\pi a)} + \frac{\pi^2 e^{-a\pi i}}{\sin^2 (\pi a)} = \frac{\pi^2 \cos (\pi a)}{\sin^2 (\pi a)}$.
+
+		\item Consider $f(z) = \frac{\pi \cot (\pi z)}{\left( z+\alpha \right)^2}$ and $\Gamma_n$ = square centered at origin, each edges is parallel to real or imaginary axis, length of edge is $2n+1$.
+
+			Then $\int_{\Gamma_n} f(z) dz$ goes to 0 as $n \rightarrow \infty$ by considering modulus of $f(z)$, and index of $\Gamma_n$ at each singularites is 1, and residues are $\frac{1}{\left( k+\alpha \right)^2}$ at $z = k$ and $-\frac{\pi^2}{\sin^2(\pi \alpha)^2}$ at $z = -\alpha$.
+
+			Above calculation leads the conclusion.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[4.5] \hfill
+
+	Note that $f : \hat{\mathbb{C}} \rightarrow \hat{\mathbb{C}}$ is holomorphic iff $f$ is meromorphic on $\hat{\mathbb{C}}$.
+	\begin{enumerate}[label = (\alph*)]
+		\item First consider 'if' part. Let $f$ be rational function. We already knows that rational function is meromorphic on entire complex plane. So, we need to show that rational function is meromorphic at $\infty$.
+
+			Let $f(z) = \frac{(z-Q_1)^{m_1} \cdots (z-Q_l)^{m_l}}{(z-P_1)^{n_1} \cdots (z-P_k)^{n_k}}$. Since $f$ has finitely many pole in complex plane, we can choose $M>0$ so that $f$ has no pole on $\left\{ z: |z|>M \right\}$. For $0<|w|<{1 \over M}$, consider $g(w) = f(1/w)$. Then $g$ is holomorphic.
+
+			Let $\sum_i n_i = N$ and $\sum_j m_j = M$. If $M = N$, $g \rightarrow 1$ as $z \rightarrow 0$. If $M > N$, $g \rightarrow 0$ as $z \rightarrow 0$. If $M < N$, $g \rightarrow \infty$ if $z \rightarrow 0$. Hence $g$ is meromorphic near $0$, which means that $f$ is meromorphic at $\infty$. \\
+
+			Second, consider 'only if' part. Either $f$ has a pole or removable singularity at $\infty$, $f$ has finitely many poles in complex plane. So $f(z)(z - P_1)^{n_1} \cdots (z-P_k)^{n_k}=F(z)$ is entire where $n_i$ is order of pole $P_i$.
+
+			Consider $F(1/z) = g(z)$ for $z \ne 0$. As $z\rightarrow 0$, $g \rightarrow \infty$ or $\alpha$ for some $\alpha \in \mathbb{C}$ by simple calculation. Therefore $F$ has a pole or removable singularity at $\infty$.
+
+			If $F$ has removable singularity at $\infty$, $F$ must be bounded, hence constant by Liouville's thm.
+
+			If $F$ has a pole at $\infty$, $F$ must be polynomial since its modulus diverges.
+
+			In both cases, $F$ must be rational function.
+
+		\item Note that $z \mapsto \frac{az+b}{cz+d}$ for $ad -bc \ne 0$ is biholomorphic function of Riemann sphere. Also note that biholomorphic function of $\mathbb{C}$ must have a form of $\alpha z + \beta$ for $\alpha \ne 0$ by fundamental thm of algebra.
+
+			Now consider biholomorphic $f$ on Riemann sphere. Let $f(\infty) = b$ and $\varphi_b(z) = \frac{-\bar{b} - 1}{z-b}$. Then $\varphi_b \circ f$ is biholomorphic function of Riemann sphere, which maps $\infty \rightarrow \infty$. Therefore $\varphi_b \circ f$ is biholomophic function of complex plane hence $\varphi_b (f(z)) = \alpha z + \beta$. Then $f(z) = \frac{-b\alpha z -b\beta +1}{-\alpha z -\beta -\bar{b}}$, which is linear frational transformation.
+	\end{enumerate}
+	
+\end{problem}

@@ -1,0 +1,33 @@
+\subsection*{section G. Miscellany} \hfill \\
+
+Problem 43. \\
+
+Define $\varphi\left( E \right) = \int_E f d\mu$. Then $\varphi(\emptyset) = 0$ and $\varphi$ is countably additive. Let $P_n = \left\{ x\in X : f(x) \geq {1\over n} \right\}$. Then $P_n$ is measurable hence $\varphi\left( P_n \right) = 0$ for all $n$. $\varphi\left( P_n \right) = \int_{P_n} f d\mu \geq {1\over n} \int_{P_n} f d\mu = {1\over n} \mu\left( P_n \right)$. Hence $\mu\left( P_n \right) = 0$ for all $n$.
+Therefore $\mu\left( \left\{ x\in X : f(x) > 0 \right\} \right) = \mu\left( \bigcup_{n=1}^{\infty}P_n \right) = 0$.
+
+Similarly, we can deduce that $\mu\left( \left\{ x\in X : f(x) < 0 \right\} \right) = 0$. Therefore $f = 0$ a.e. \\
+
+Problem 44. \\
+
+Define $\varphi\left( E \right) = \int_{E} f d\lambda$ for $E \in \mathcal{L}$. Such $\varphi$ has same property as in problem 43. Note that $\varphi\left( \left\{ x \right\} \right) = 0$ for each $x \in \mathbb{R}$ since one-point set is null set.
+
+Every open set $G \subset \mathbb{R}$ can be expressed as nonoverlapping union of special rectangles. So $\varphi\left( G \right) = \sum_{k=1}^{\infty} \varphi\left( \left[ a_k, b_k \right] \right)$ where $G = \cup_{k=1}^{\infty}\left[ a_k, b_k \right]$.
+
+Also, $\mathbb{R}$ is open. Therefore $\varphi\left( F \right) = \varphi\left( \mathbb{R} - G \right)$ for all closed set $F\subset \mathbb{R}$. Then $\varphi\left( F_{\sigma} \right) = 0$. All Lebesgue measurable set $E$ can be expressed as $F_{\sigma} \cup N$ where $N$ is a null set.
+
+Therefore $\varphi\left( E \right) = 0$ for all $E \in \mathcal{L}$. By previous problem, we get $f = 0$ $\lambda$-a.e. \\
+
+Problem 45. \\
+
+Define $\nu(A) = \lambda \left ( A \cap \left[ -1, 1 \right] \right )$. Then $\int_{\left[ a, b \right]}1_E - {1 \over 2} d\nu = 0$ for all $-\infty < a < b < \infty$.
+
+Note that $\int_{\mathbb{R}}\left | 1_E - {1\over 2} \right | d\nu = {1\over 2}\lambda\left( \left[ -1, 1 \right] \right) < \infty$ So $1_E - {1\over 2} \in L^1\left( \nu \right)$.
+
+Every open set $G\subset \mathbb{R}$ can be expressed as countably many nonoverlapping special rectangle $\left[ a_k, b_k \right]$. Therefore $\int_{G} \left( 1_E - {1\over 2} \right) d\nu = 0$. Therefore $\int_{F}\left( 1_E - {1\over 2} \right) d\nu = 0$ for all closed $F \subset \mathbb{R}$. And it implies $\int_{F_{\sigma}}\left( 1_E - {1\over 2} \right)d\nu = 0$.
+
+Every $A\in \mathcal{L}$ can be expressed as $F_{\sigma} \cup N$ where $N$ is $\mu$-null set.
+Therefore $\int_{A}\left( 1_E - {1\over 2} \right)d\nu = 0$ for all $A\in \mathcal{L}$. By problem 43, $1_E = {1\over 2}$ $\nu$-a.e.
+
+But ${x : 1_E \ne {1\over 2}} = \mathbb{R}$ and $\nu\left( \mathbb{R} \right) = \mu\left( \left[ -1, 1 \right] \right) > 0$ which is contradiction.
+
+Therefore, there is no such $E$.

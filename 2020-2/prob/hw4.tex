@@ -1,0 +1,57 @@
+\begin{problem}[1.7.1] \hfill
+
+	We need to show that $\int_{X \times Y} |f| d(\mu_1 \times \mu_2) < \infty$.
+
+	Since $|f|^{\pm}$ is nonnegative, by Fubini's theorem, $\int_X \int_Y |f|^{\pm} \mu_2(dy) \mu_1(dx) < \infty$. Then, their sum is also finite, and the sum is $\int_{X\times Y} |f| d(\mu_1 \times \mu_2)$ by Fubini's theorem. This leads the conclusion of the exercise.
+
+	Corollary is immediate if we take $\mu_1 = c$ and $\mu_2 = \mu$.
+
+\end{problem}
+
+\begin{problem}[1.7.3] \hfill
+	\begin{enumerate}
+		\item \begin{equation*}
+				\begin{split}
+					\int_{(a, b]}\left\{ F(y) - F(a) \right\}dG(y) & = \int_{(a, b]} \int_{(a, y]} 1 \mu(dx) \nu(dy) \\
+					& = \int_{a < x \leq y \leq b} 1 d(\mu \times \nu) \\
+					& = \mu \times \nu (1 < X \leq Y \leq b)
+				\end{split}
+				\label{<+label+>}
+			\end{equation*}
+			by Fubini's theorem on nonnegative function $1$.
+		\item \begin{equation*}
+				\begin{split}
+					\int_{(a, b]}F(y)dG(y) & = \int_{(a, b]} \int_{-\infty}^y 1 \mu(dx) \nu(dy) \\
+					& = \int_{(-\infty, a]} \int_{(a, b]} 1 \nu(dy) \mu(dx) + \int_{(a, b]} \int_{[x, b]} \nu(dy) \mu(dx) \\
+					& = F(a)\left\{ G(b) - G(a) \right\} + G(b)\left\{ F(b) - F(a) \right\} \\
+					& - \int_{(a, b]} G(x) \mu(dx) + \int_{(a, b]} G(x) - G(x^-) \mu(dx)
+				\end{split}
+				\label{<+label+>}
+			\end{equation*}
+			We can get similar result for $\int_{(a, b]} G(y) dF(y)$. By simple calculation, we get the conclusion of (2).
+
+		\item If $F = G$ continuous, Then $\mu(\left\{ x \right\}) = \nu(\left\{ x \right\}) = F(x) - F(x^-) = G(x) - G(x^-) = 0)$. Therefore, by using (2), we can get the conclusion.
+
+		\end{enumerate}
+\end{problem}
+
+\begin{problem}[2.1.3]\hfill
+
+	\begin{enumerate}
+		\item If $h(\alpha) = 0$ for some $\alpha >0$, by mean value theorem, $h'(\beta) = 0$ for some $\beta \in (0, \alpha)$. It contradicts to $h'(x) >0$ for positive $x$. Therefore $h >0$ for positive $x$. 
+
+			$x = y$ iff $\rho(x, y) = 0$ iff $h(\rho(x, y)) = 0$. And $h(\rho(x, y)) = h(\rho(y, x))$ since $\rho(x, y) = \rho(y, x)$.
+
+			Now consider $x \geq y > 0$ and $\frac{h(x+y) - h(x)}{y} = h'(x+\theta)$ and $\frac{h(y)}{y} = h'(y-\delta)$. Since $h'$ is decreasing, $h(x+y)-h(x) \leq h(y)$. Using this, we can prove triangle inequality of $h \circ \rho$. 
+
+		\item $h(x) = 1-\frac{1}{1+x}$ so $h'(x) = \frac{1}{(1+x)^2}$ and $h''(x) = \frac{-2}{(1+x)^3}$. Given $h$ satisfies all of (1).
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[2.1.9]\hfill
+	
+	Let $\mathcal{A}_1 = \left\{ \left\{ 1, 2 \right\}, \left\{ 1, 3 \right\} \right\}, \mathcal{A}_2 = \left\{ \left\{ 1, 4 \right\} \right\}$. For $A_1 \in \mathcal{A}_1$ and $A_2 \in \mathcal{A}_2$, $P(A_1 \cap A_2) = P(A_1)P(A_2) = 1/4$. But, $\sigma\left( \mathcal{A}_1 \right) = 2^{\Omega}$and $\sigma\left( \mathcal{A}_2 \right) = \left\{ \Omega, \left\{ 1, 4 \right\}, \left\{ 2, 3 \right\}, \emptyset \right\}$. They are not independent by considering $A_1 = \left\{ 2, 3, 4 \right\}$ and $A_2 = \left\{ 2, 3 \right\}$.
+\end{problem}
+
+

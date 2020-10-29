@@ -1,0 +1,163 @@
+\begin{problem}
+	$u_{xx} = \left( 2y+6xy \right)_{x} = 6y$ and $u_{yy} = \left( 2x+3x^2 -3y^2 \right)_y = -6y$, so given function $u$ is harmonic. Let $v$ be a harmonic conjugate of $u$. Then $f = u+iv$ must satisfy Cauchy - Riemann equation. Therefore $v_y = u_x = 2y + 6xy$, $v = y^2 +3xy^2 + \varphi(x)$. $v_x = 3y^2 + \varphi'(x) = 3y^2 -3x^2 -2x$. So $\varphi(x) = -x^3 -x^2 + C$ and $v = y^2 +3xy^2 -x^3-x^2+C$ where $C \in \mathbb{R}$.
+\end{problem}
+
+\begin{problem}
+	\begin{equation}
+		\begin{split}
+		u_x = e^x\left( x\sin y + y \cos y + \sin y \right) = v_y \\
+		u_y = e^x\left( x \cos y + \cos y - y \sin y \right) = -v_x
+	\end{split}
+		\label{2CRequation}
+	\end{equation}
+
+	Because $\int x e^x dx = \left( x-1 \right)e^x + c$ for some $c \in \mathbb{R}$, we get
+	\begin{equation}
+		v = -\cos y \left( x-1 \right) e^x - e^x \left( \cos y - y \sin y \right) + \varphi(y)
+		\label{2v}
+	\end{equation}
+	by integrating $v_x$ with respect to $x$.
+	
+	We can get $\varphi'(y) = 0$ by differntiating (2) and comparing with $v_x$ in (1).
+	Therefore, 
+	\begin{equation}
+		v = -e^x(x-1)\cos y - e^x \left( \cos y - y \sin y \right) + c
+		\label{2v}
+	\end{equation}
+	for some $c\in \mathbb{R}$.
+\end{problem}
+
+\begin{problem}
+	\begin{equation}
+		\begin{split}
+			u_x + v_x = -2e^{-x}\left( \cos y - \sin y \right) = u_x - u_y \\
+			u_y + v_y = 2e^{-x} \left( -\sin y -\cos y \right) = u_x + u_y
+		\end{split}
+		\label{anyway}
+	\end{equation}
+
+	By CR equation, $u_x = v_y$ and $u_y = -v_x$. By (4) and CR equation, we can get
+	\begin{equation}
+		\begin{split}
+			u_x =2 e^{-x}\left( -\cos y \right) = v_y \\
+			u_y =2 e^{-x}\left( -\sin y \right) = -v_x
+		\end{split}
+		\label{5}
+	\end{equation}
+
+	So,
+	\begin{equation}
+		\begin{split}
+			u =2 e^{-x} \cos y + c_1 \\
+			v = -2 e^{-x} \sin y + c_2
+		\end{split}
+		\label{6}
+	\end{equation}
+	Therefore, $f(x, y) =2 e^{-x}\left( \cos y + i \sin (-y) \right) + C =2 e^{-x}e^{-iy} + C =2 e^{-z} + C$ where $C\in \mathbb{C}$.
+\end{problem}
+
+\begin{problem}
+	Let $f = u+iv$. $zf(z) = \left( x+iy \right)\left( u+iv \right) = xu-yv + i\left( uy+vx \right)$. 
+	\begin{equation}
+		\begin{split}
+		\left( xu - yv \right)_{xx} = \left( u+xu_x - yv_x \right)_x = \left( 2u_x + xu_{xx} - yv_{xx} \right)\\
+		\left( xu-yv \right)_{yy} = \left( xu_y - v - yv_y \right)_{y} = \left( xu_{yy} - 2v_y - yv_{yy} \right)
+	\end{split}
+		\label{7}
+	\end{equation}
+
+	Since $f$ and $zf(z)$ are both harmonic, by (7), we can get $u_x = v_y$. Similar computation on imaginary part of $zf(z)$ yields $u_y = -v_x$. Also note that each partials of $f$ is continuous on $D$. Therefore, $f$ is analytic on $D$.
+\end{problem}
+
+\begin{problem}
+	We can choose $\varepsilon > 0 $ such that $L + \varepsilon < 1$. Then, there exists positive integer $N$ such that $\sup_{k\geq n} \left| \frac{a_{k+1}}{a_k} \right | < L + \varepsilon $ for all $n \geq N$. So $\left | \frac{a_{n+1}}{a_n} \right | < L + \varepsilon$ for all $n \geq N$. We can deduce $\left | a_{k+N} \right | < \left( L + \varepsilon  \right) ^k \left| a_N \right |$. 
+
+	Therefore,
+	\begin{equation}
+		\begin{split}
+			\sum_{n=1}^{\infty} \left | a_n \right |& = \sum_{n=1}^{N-1} \left| a_n \right | + \sum_{n=N}^{\infty}\left | a_N \right | \\
+			&\leq \sum_{n=1}^{N-1} \left | a_n \right | + \sum_{k=0}^{\infty}\left | a_N \right | \left( L + \varepsilon \right)^k < \infty
+		\end{split}
+		\label{7}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	\hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item For $E = \left\{ z : z \ne \pm n i, n\in \mathbb{N} \right\}$, given sequence converges pointwisely to zero.
+
+			For  $|z| \leq R \in \mathbb{R}_{\ge 0}$ and $n^2 \geq N \ge R^2 + {R \over \varepsilon}$ for some small positive $\varepsilon$, 
+			\begin{equation}
+			\left | \frac{z }{ z^2 + n^2} \right | \leq \frac{|z|}{\left | n^2 - |z|^2 \right | }\leq \frac{R}{n^2 - R^2} < \varepsilon
+				\label{9}
+			\end{equation}
+
+			Therefore, for $E \bigcap \left\{ |z| \leq R \right\}$, given sequence converges uniformly for any $R \in \mathbb{R}_{\geq 0}$. 
+		\item Let $z = x+iy$. Then $\frac{e^{nx + iny}}{n} $ converges uniformly when $x\leq 0$. If $x > 0$, $\frac{e^{nx}}{n} \uparrow \infty$  as $ n\uparrow \infty$ which implies $\frac{e^nz}{n}$ does not converge.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	When $z = 1$, $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges. So given series does not converge absolutely on $E$.
+
+	Let $E_1 = \left\{ z : |z| \leq r \right\}$ and $E_2 = \left\{ z : r \leq z \leq 1, z \in \mathbb{R} \right\}$.
+	On $E_1$, given series converges uniformly because its radii of convergence is 1. For $z \in E_2$, let $\varepsilon>0$ be given. take positive integer $N$ such that $N\varepsilon > 1$. Then, we get $\left |\sum_{k=n}^{n+p} \frac{(-1)^k z^k}{k} \right | \leq \left | \frac{(-1)^n z^n}{n} \right | \leq {1 \over n} < \varepsilon$ if $n \geq N$. So given series converges uniformly on $E_2$.
+
+	Finally, let $\varepsilon$ be given. There exist positive integers $N_1, N_2$ such that $n \geq N_1$ implies $\left | \sum_{k=n}^{n+p} \frac{(-1)^k z^k}{k} \right | < \varepsilon$ for $z \in E_1$ and $n \geq N_2$ implies $\left | \sum_{k=n}^{n+p} \frac{(-1)^k z^k}{k} \right | < \varepsilon$ for $z \in E_2$. If we take $n \geq \max\left\{ N_1, N_2 \right\}$, we can see that given series is uniformly cauchy on $E$.
+\end{problem}
+
+
+\begin{problem}
+	For $ |1 + z^2 | > 1$, given series converges absolutely. So it converges absolutely on region $| 1 + z^2 | \geq R > 1$ for any $R$.\\
+	For $ 1 < R \leq \left | z^2 + 1 \right | \leq R'$, we can see that
+	\begin{equation}
+		\left | \frac{z^2}{\left( 1+z^2 \right)^n} \right | \leq \frac{R'+1}{R^n}=M_n
+		\label{10}
+	\end{equation}
+	By M-test, we can conclude that given series uniformly converges on region\\
+	$\left\{ z : 1 < R \leq |z^2 + 1 | \leq R' \right\}$.
+\end{problem}
+
+\begin{problem}
+On the contrary, assume $\{a_n z_0^n\} $ is bounded.
+	Take $r$ such that $R < r < |z_0|$. Then we get
+	\begin{equation}
+		|a_n r^n| = |a_n z_0 ^n| \frac{r^n}{|z_0|^n} \leq M \left( \frac{r}{|z_0|} \right)^n
+		\label{11}
+	\end{equation}
+	for some $M$ since $\left\{ a_n z_0^n \right\}$ is bounded. 
+	Then by M-test, $\sum_{n=0}^{\infty}a_n r^n$ converges. It contradicts to the condition that radii of convergence is $R$.	
+\end{problem}
+
+\begin{problem}
+	\hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item $\limsup_{n \rightarrow \infty} \left( 1+ \frac{1}{n} \right)^n = e$ so radii of convergence is $1 \over e$.
+		\item $\limsup_{n \rightarrow \infty} \left ( \frac{2^n + 3^n}{4^n + 5^n} \right ) ^{1 \over n} = \limsup_{n\rightarrow \infty} \frac{3}{5} \left( \frac{1 + \frac{2^n}{3^n}}{1+\frac{4^n}{5^n}} \right)^{1 \over n} = {3 \over 5}$. So radii of convergence is ${5 \over 3}$.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Let $w = \frac{-z^2}{8}$. Then given series is
+	\begin{equation}
+		\sum_{n=0}^{\infty}w^n
+		\label{<+label+>}
+	\end{equation}
+	This series has radii of convergence 1. So, it converges for $|w| < 1$ which is equivalent to $|z| < 2 \sqrt{2}$.
+	Also, $\sum_{n=0}^{\infty}w^n = \frac{1}{1-w}$ if $|w| < 1$. So we get following:
+	\begin{equation}
+		\sum_{n=0}^{\infty} w^n = \frac{1}{1-w} = \frac{1}{1 + \frac{z^2}{8}} = \frac{8}{8+z^2}
+		\label{<+label+>}
+	\end{equation}
+\end{problem}
+
+\begin{problem}
+	Note that for $n > 10$, $n^2 \leq n!$ by induction. $f(z) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}\left( z-a \right)^{n}$. Let $z-a = w$ and $a_n = \frac{f^{(n)}(a)}{n!}$. Then
+	\begin{equation}
+		\limsup_{n\rightarrow \infty} = \limsup_{n\rightarrow \infty} |a_n|^{1 \over n} \leq \limsup_{n\rightarrow \infty} \left | {M \over n!} \right | ^{1 \over n} = 0.
+		\label{14}
+	\end{equation}
+	So radii of convergence is $\infty$, so the given function is entire because it can be represented as series.
+	Note that last equality of (14) follows from $e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}$ which is entire.
+\end{problem}

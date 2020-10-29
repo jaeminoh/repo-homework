@@ -1,0 +1,83 @@
+\begin{problem}
+	Obviously $\left | {1 \over z } \right | \leq {1\over \varepsilon} $. Let $ {1 \over z } = r e^{i\theta} $ where $0 < r \leq {1 \over \varepsilon}$. Then real part of ${1\over z} = r \cos\theta$. Therefore $\left | e^{1 \over z} \right | = e^{r\cos \theta} \leq e^{1 \over \varepsilon}$. Thus, given function is bounded in the region $\left | z  \right | \geq \varepsilon $.
+\end{problem}
+
+\begin{problem}
+	Let $z = \log\left( 1 + i  \right) ^{\pi i}$. Then $e^{z} = \left( 1 + i  \right) ^{\pi i} = e^{\pi i \log \left( 1 + i \right)}$. Therefore $z = 2k\pi i + \pi i \log \left ( 1 + i \right)$ $ = 2k \pi i + \pi i \left(  \ln \sqrt{2} + i \left(  {\pi\over 4} + 2m \pi  \right) \right)$. So $z = \left( 2k + {1 \over 2 }\ln{2} \right)\pi i - \pi ^{2}\left( {1 \over 4} + 2m \right)$ where $k, m$ are integers.
+\end{problem}
+
+\begin{problem}
+	\begin{multline*}
+	\left( iy  \right)^{\left( iy \right)}
+	= e^{iy \log \left( iy \right)}
+	= e^{iy \left(  ln \lvert y \rvert + i\left( {\pi \over 2} + k\pi  \right) \right)}\\
+	= e^{-y \left( { \pi \over 2 + k\pi } + iy\ln \lvert y \rvert  \right)}
+	= e^{-y\left( {\pi \over 2 } + k\pi  \right)} \left(  \cos\left( y\ln \lvert y \rvert  \right) + i\sin \left( y\ln \lvert y \rvert  \right) \right)
+	\end{multline*}
+where $k$ is even(odd) when $y>0$($y<0$).
+\end{problem}
+
+\begin{problem}
+	$z = re^{i \theta } $.
+	Then $z^{2\over 3} = e^{ {2 \over 3} \log z  } = e^{ {2 \over 3 } \left( \ln r + i \theta  \right)} = r^{2\over 3}\cdot e^{i \left( {2 \over 3 } \theta  \right)} = w$.
+	Therefore $\left | w  \right | = r^{2\over 3}$.
+\end{problem}
+
+\begin{problem}
+	Let $a = {1 \over 2i } \log \frac{z+i}{z-i}$. Then $\sin a = \frac{e^{ai} - e^{-ai}}{2i}$ and $\cos a = \frac{e^{ai}+e^{-ai}}{2}$. 
+\begin{multline*}
+	\cot a = i \frac{e^{ai}+e^{-ai}}{e^{ai}-e^{-ai}} = i \frac{e^{2ai}+e^{-2ai}+2}{e^{2ai}-e^{-2ai}} \\
+	=i \frac{ \frac{ z+i }{z-i} + \frac{z-i}{z+i} + 2 }{\frac{z+i}{z-i} - \frac{z-i}{z+i}} = i \frac{4z^{2}}{4zi} = z
+\end{multline*}
+Therefore $\cot a = z$ which implies $\cot^{-1 } z = a$.
+\end{problem}
+
+\begin{problem}
+	\hfill \\
+	\begin{enumerate}
+		\item $\lim_{z \rightarrow 0 } \frac{\log \left( 1 + z  \right) }{z} = 1$ by theorem 5.26. By continuity of $e^{z}$, $\lim_{z \rightarrow 0} \left( 1+z  \right) ^{1 \over z } = \lim_{z \rightarrow 0} e^{\log \left( 1+z  \right) \over z} = e$.
+		\item $z^{1 \over 2 } = e^{ {1 \over 2 } \ln \lvert z \rvert + i \theta}$ where $\theta$ is argument of $z$.
+			So, $z^{1\over 2} \rightarrow 0$ as $z \rightarrow 0$.
+			Therefore, $\lim_{z\rightarrow 0} \frac{\sqrt{z} - 2}{z-2} = {-2 \over -2 } = 1$.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	$u_x = \sqrt{x^2 + y^2 } +\frac{x^2}{\sqrt{x^2 + y^2}}$, $u_y = \frac{xy}{\sqrt{x^2 + y^2}}$, $v_x = \frac{xy}{\sqrt{x^2 + y^2}}$, and $v_y = \sqrt{x^2 + y^2} + \frac{y^2 }{ \sqrt{x^2 + y^2 }}$. To satisfy Cauchy-Riemann equation, $x^2 = y^2$ and $xy = 0$ which is impossible except for $x = y = 0$.
+	
+	Let's compute values of partials.
+	$u_x\left( 0, 0 \right) = \lim_{h \rightarrow 0 } \frac{h\sqrt{h^{2}}}{h} = \lim_{h \rightarrow 0 } \lvert h \rvert = 0$. Similarly all other partials have $0$ at the origin. So given function satisfies Cauchy-Riemann equation at origin. So $f$ is differentiable at origin and $f'(0) = 0$.
+\end{problem}
+
+\begin{problem}
+	$f(z) = z^{2} + z^{2} \bar{z}$. So $\frac{\partial f}{\partial \bar{z}} = z^{2}$ which is zero if and only if $z = 0$. So $f$ is nowhere differentible except at $z = 0$. $\lim_{z\rightarrow 0} \frac{f(z) - f(0)}{z} = \lim_{z \rightarrow 0} \left( z + z \bar{z} \right) = 0 = f'(0)$. 
+	Also, we cannot say about derivative of $f$ on $\mathbb{C} - 0$. So we cannot say about second(or higher) order derivative of $f$ at origin.
+\end{problem}
+
+\begin{problem}
+	$u_x = e^{x} \cos \left( ay \right) $, $u_y = -a e^{x} \sin \left( ay \right)$, $v_x = e^{x}\sin \left( y+b \right)$, and $v_y = e^{x} \cos \left( y+b \right)$. To satisfy Cauchy-Riemann equation, $a = \pm 1$ and $b = 2k\pi$ where $k\in \mathbb{Z}$.	
+\end{problem}
+
+\begin{problem}
+	Since real part of $f' = f_x$ is zero, $u_x = 0 = v_y$ by Cauchy-Riemann equation. So $u = \phi_1 (y)$ and $v = \phi_2 (x)$. Then $\phi _1 ' (y) = - \phi _2 ' (x)$ for all $x, y \in \mathbb{R}$ because $u_y = -v_x$. Therefore $\phi_1 ' = - \phi_2 ' = c \in \mathbb{R}$. So, put $\phi_1 = cy+d_1$ and $\phi_2 = -cx + d_2$ where $d_1, d_2 \in \mathbb{R}$. Therefore $f(x, y) = (cy+d_1) + i(-cx + d_2)$ which is entire function.
+\end{problem}
+
+\begin{problem}
+	Automatically, $u_y = -v_x = 0$. 
+	$u'(x) = v'(y)$ for all $x, y \in \mathbb{R}$. So $u' = v' = c \in \mathbb{R}$.
+	So $u(x) = cx + d_1$ and $v(y) = cy + d_2$ where $d_1, d_2 \in \mathbb{R}$.
+	Therefore $f(z) = cz + d_1 + i d_2$.
+
+\end{problem}
+
+\begin{problem}
+	Given function is real function. But analytic real valued function must be constant in the domain.
+	Unfortunately, our function is not constant. So it is not analytic in the domain.
+\end{problem}
+
+\begin{problem}
+	$f(z) = \ln \lvert z \rvert + i \theta$ where $4\pi < \theta \leq 6\pi$ is argument of $z$. (that is, cutting $\theta = 4\pi$)
+
+	Clearly, $f$ is analytic on $\mathbb{C} \setminus [0, \infty )$ and $f(-1) = 0 + i \theta$.
+	$\theta = \pi + 2k \pi \in (4\pi , 6\pi]$. So $k = 2$ and $f(-1) = 5\pi i$.
+\end{problem}

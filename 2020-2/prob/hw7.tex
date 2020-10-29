@@ -1,0 +1,33 @@
+\begin{problem}[2.5.2] \hfill
+
+	If $E|X_1|^p = \infty$, then for each positive integer $k$, $E|X_1|^p \leq \sum_{n} P(|X_1|^p > nk) = \infty$.
+	But $P(|X_1|^p > nk) = P(|X_n| > (nk)^{1/p} )$. Then by Borel Cantelli lemma $P(|X_n| > (nk)^{1/p} \text{i.o.} ) =1$. That is, $\limsup_{n} |X_n| / n^{1/p} \geq k^{1/p}$ for infinitely many $k$. Therefore $\limsup_n |X_n|/n^{1/p} = \infty$.
+
+	But $|X_n| \leq |S_n| + |S_{n-1}|$. That leads $\limsup_n |S_n| / n^{1/p} = \infty$. By taking contrapositive, we get the conclusion.
+
+\end{problem}
+
+\begin{problem}[2.5.5] \hfill
+
+	The first one leads the second one directly because Kolmogorov's three series lemma with $A=1$ tells it. \\
+
+	The second one implies the third one because $\frac{X_n}{1+X_n} \leq 1_{X_n >1} + X_n 1_{X_n \leq 1}$ and monotone convergence theorem. \\
+
+	The third one implies $\sum_n \frac{X_n}{1+X_n} < \infty$ a.s. And convergence of $\sum_n \frac{a_n}{1+a_n}$ for $a_n \geq 0$ gives the convergence of $\sum_n a_n$. It is because $lim a_n = 0$ and $|a_N + \cdots a_{N+n}| \leq (1+\varepsilon) \left | \frac{a_N}{1+a_N} + \cdots + \frac{a_{N+n}}{1+a_{N+n}} \right |$ for large $N$. Therefore $\sum_{k=1}^{n}a_k$ is cauchy hence converges.
+	Therefore $\sum_n X_n$ converges a.s.
+\end{problem}
+
+\begin{problem}[3.2.4] \hfill
+
+	Since $X_n \rightarrow X_\infty$ in distribution, there are $Y_n =_d X_n$ and $Y_\infty =_d X_\infty$ such that $Y_n \rightarrow Y_\infty$ a.s.
+	
+	Then $g(Y_n) \geq 0$ and $g(Y_n) \rightarrow g(Y_\infty)$ a.s. Therefore by Fatou's lemma, $\liminf Eg(Y_n) \geq Eg(Y_\infty)$ which is equivalent to $\liminf Eg(X_n) \geq Eg(X_\infty)$ since $X_n =_d Y_n$ for all $n \in \mathbb{N} \cup \infty$.
+\end{problem}
+
+\begin{problem}[3.2.5] \hfill
+
+	There are $Y_n \rightarrow Y_\infty$ a.s. and distribution function of $Y_n$ is equal to $F_n$. $F_\infty = F$.
+
+	Then by theorem 1.6.8, $Eh(Y_n) \rightarrow Eh(Y_\infty)$ which is equivalent to $\int h(x) dF_n(x) \rightarrow \int h(x) dF(x)$ because distribution function of $Y_n$ is $F_n$.
+	
+\end{problem}

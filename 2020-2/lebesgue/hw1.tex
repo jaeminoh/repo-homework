@@ -1,0 +1,194 @@
+\begin{problem}[1.5] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $\varepsilon>0$ be given. There is open set $O$ containing $E$ such that $m\left( O \setminus E \right) < \varepsilon$.
+			Since $E$ is compact set contained in open set $O$, there is $r>0$ such that $r$ neighborhood of $E$ is contained in $O$. For $nr>1$, $O_n \subset O$. Therefore $m\left( O_n \setminus E \right) \leq m\left( O \setminus E \right) < \varepsilon$.
+			Therefore $\lim_{n\rightarrow \infty}m(O_n) = m(E)$.
+
+		\item For closed and unbounded set which does not satisfy above, consider $E = \left\{ \sum_{k=1}^n \frac{1}{k} : n \in \mathbb{N} \right\}$. 
+			$m(E) = 0$ because of countability and $m(O_n) = \infty$ since each $O_n$ contains $(x, \infty)$ for some $x>0$.
+
+			For open and bounded set which does not satisfy (a), consider $E = \bigcup_{i=1}^{\infty}\left( q_i - {\varepsilon \over 2^{i+1}}, q_i + {\varepsilon \over 2^{i+1}} \right)$ where $q_i$ is enueration of rational numbers between $0$ and $1$. Then by countable additivity, $m(E) \leq \varepsilon$ and $O_n \supset [0, 1]$. Since $\varepsilon$ is arbitrary positive number, we can see that $E$ does not satisfy (a).
+
+		\end{enumerate}
+
+\end{problem}
+
+\begin{problem}[1.7] \hfill
+
+	It will be shown in problem \#8 that $\delta E$ is measurable when $E$ is measurable since $\delta E$ is image of $E$ under $n$ by $n$ matrix whose $i$-th diagonal entry is $\delta_i$.	
+
+	Consider $R = \Pi_{i=1}^d \left[ a_i, b_i \right]$. Then $\delta R = \Pi_{i=1}^{d}\left[ \delta_i a_i, \delta_i b_i \right]$. It is rectangle, so $|\delta R| = \Pi_{i=1}^d |R|$ for all rectangle $R$.
+
+	Now suppose $\delta E \subset \bigcup_{j=1}^{\infty}Q_j$ where $Q_j$ is a cube. Then $E \subset \bigcup_{j=1}^\infty {1 \over \delta} Q_j$.
+	It leads $m_{*}(E) \leq \sum_{j=1}^\infty \Pi_{i=1}^d {1 \over \delta_i} |Q_j|$. Therefore $\Pi_{i=1}^d \delta_i m_{*}(E) \leq \sum_{j=1}^\infty |Q_j|$. Since $\bigcup_{j=1}^\infty Q_j$ is arbitrary, $\Pi_{i=1}^d m_{*}\left( E \right) \leq m_{*}\left( \delta E \right)$.
+
+	On the contrary, suppose $E \subset \bigcup_{j=1}^\infty Q_j'$. Then $\delta E \subset \bigcup_{j=1}^\infty \delta Q_j'$. It leads $m_{*}(\delta E) \leq \sum_{j=1}^\infty \Pi_{i=1}^d |Q_j'| = \Pi_{i=1}^d \delta_i \sum_{j=1}^\infty |Q_j'|$. Since $\bigcup_{j=1}^\infty Q_j'$ is arbitrary, $m_{*}(\delta E) \leq \Pi_{i=1}^d \delta_i  m_{*}\left( E \right)$.
+	
+
+\end{problem}
+
+\begin{problem}[1.8] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Note that $\left | Lx - Lx' \right | \leq \| L \| |x-x'|$ where $\| L \| = \sup_{|x| = 1} \left |Lx \right |$. It is well known that $\| L \| < \infty$ for linear operator on $d$ Euclidean space. Therefore $L$ is continuous, which leads compactness of $L(E)$ when $E$ is compact. Also, $\bigcup_\alpha L(A_\alpha) = L(\bigcup_\alpha A_\alpha)$. It means $L$ preserves $F_\sigma$. Because we can represent any $F_\sigma$ set as countable union of compact set by considering $k$-disc centered at origin. ($k$ is positive integer)
+
+		\item Assume $E$ is measurable. Let $\varepsilon >0$ be given. There is $F_\sigma \subset E$ such that $m\left( E \setminus F_\sigma \right) < \varepsilon$. By definition of Lebesgue measure, there is covering of $E \setminus F_\sigma$ by cubes, $\sum |Q_j| < \varepsilon$. 
+			
+			Then $m\left( L(E) - L(F_\sigma) \right) \leq m\left( L\left( E \setminus F_\sigma \right) \right) \leq \sum m_{*}\left( L(Q_j )\right) \leq (2 \sqrt{d} M)^d \sum m_{*}(Q_j)$.
+
+			Notice that last term can be arbitrarily small and $L(F_\sigma)$ is countable union of closed sets. By corollary 3.5, $L(E)$ is measurable.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[1.13] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Every open set is countable union of almost disjoint cubes. Therefore open set is $F_\sigma$. By considering complement, every closed set is countable intersection of open sets.
+
+		\item $\mathbb{Q}$ is $F_\sigma$ set because $\mathbb{Q} = \bigcup_{i=1}^\infty \left\{ q_i \right\} $, where one-point set is closed.
+
+			Assume $\mathbb{Q} = \bigcap_{i=1}^\infty G_i$ where $G_i$ is an open set. Since $\mathbb{Q}$ is dense in $\mathbb{R}$, each $G_i$ is open dense subset of $\mathbb{R}$. Consider $G_i \setminus \left\{ q_i \right\} = G_i'$. It is also dense in $\mathbb{R}$ and open. By Baire's theorem, $\bigcap_{i=1}^\infty G_i'$ must be nonempty. But actually $\bigcap_{I=1}^\infty G_i'$ is empty. It is contradiction. Therefore $\mathbb{Q}$ is not $G_\delta$ set.
+
+		\item Consider $\mathbb{Q}_{>0} \cup \mathbb{I}_{\leq 0}$ where $\mathbb{I}$ is set of irrational number. It is disjoint union of $F_\sigma$ set and $G_\delta$ set. If that set is $G_\delta$ set, by intersection(-ing) with positive real numbers, we get $\mathbb{Q}_{>0} = G_\delta$ which is contradiction. If that set is $F_\sigma$, its complement is $G_\delta$, and it leads $\mathbb{Q}_{\leq 0}$ is $G_\delta$ set by intersection with nonpositive real numbers. It also contradicts with (b).
+
+		\#	positive rationals and nonpositive rationals are not $G_\delta$ set by same reasoning in (b).
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[1.14] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item $J_{*}(E) \leq J_{*}(\bar{E})$ is trivial.
+			Let $E \subset \bigcup_{j=1}^N I_j$. Then $\bar{E} \subset \bigcup_{j=1}^N \bar{I}_j = \overline{\bigcup_{j=1}^N I_j}$. But $\sum |I_j| =  \sum |\bar{I}_j|$. Therefore $J_{*}(\bar{E}) \leq \sum_{j=1}^N|\bar{I}_j| = \sum_{j=1}^N |I_j|$. By taking infimum over all $\bigcup_{j=1}^N \supset E$, $J_{*}\left( \bar{E} \right) \leq J_{*}(E)$.
+
+		\item $E = \mathbb{Q} \cap \left[ 0, 1 \right]$. Then $m(E) = 0$ but covering of $E$ by finitely many intervals must contain $\left[ 0, 1 \right]$. So $J_{*}(E) = 1$.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[1.15] \hfill
+
+	$m_{*}^{\mathcal{R}}(E) \leq m_{*}(E)$ since class of rectangles contains class of cubes.
+
+	Assume $m_{*}^{\mathcal{R}}(E) < m_{*}(E)$. Then there is $\bigcup_{j=1}^{\infty}R_j$ containing $E$ such that $m_{*}(E) > \sum |R_j|$ by definition of $m_{*}^{\mathcal{R}}$. This is impossible since $m_{*}(E) \leq m_{*}(\bigcup_{i=1}^\infty R_j ) \leq \sum m_{*}(R_j) = \sum |R_j|$ by countable additivity of $m_*$.
+	
+	Therefore $m_*^\mathcal{R}(E) = m_*(E)$.
+\end{problem}
+
+\begin{problem}[1.16] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item $x \in E$ iff for any $n$, there is $k \geq n$ such that $x \in E_k$ iff $x \in \bigcup_{k \geq n} E_k$ for any n iff $x \in \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty E_k$. 
+
+			Therefore, $E$ is measurable.
+
+		\item $m(E) \leq m\left( \bigcup_{k\geq n} E_k \right) \leq \sum_{k=n}^{\infty}m(E_k)$ for any positive integer $n$. 
+
+			But, since $\sum_{k=1}^\infty m(E_k) < \infty$, for given $\varepsilon >0$, there is positive integer $N$ such that $n\geq N$ implies $\sum_{k=n}^\infty m(E_k) < \varepsilon$.
+			Therefore $m(E) < \varepsilon$ for every positive $\varepsilon$. This means $m(E) = 0$.
+
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[1.17] \hfill
+
+	Fix $k$. $m\left( |f_k| = \infty \right) = \lim_{n\rightarrow \infty}m\left( |f_k| > n \right) = 0$. So we can choose positive integer $N_k$ such that $N_k \leq N_{k+1}$ and $m\left( |f_k| >N_k \right) < 2^{-k}$. Let $N_k = \frac{c_k}{k}$.
+
+	Then $\sum_{k=1}^\infty m\left( \frac{|f_k|}{c_k} > \frac{1}{k} \right) \leq 1 < \infty$.
+	By Borel-Cantelli lemma, $m\left( \limsup E_k \right) = 0$. So, if $x \notin \limsup E_k$, then $x \in \bigcap_{k \geq n} E_k^c$ for some positive integer $n$, and it means $\frac{|f_k(x)|}{c_k} \leq \frac{1}{k}$ for all $k \geq n$. Therefore $\lim_{k \rightarrow \infty} \frac{|f_k|}{c_k} = 0$ for almost every $x$.
+\end{problem}
+
+\begin{problem}[1.18] \hfill
+
+	First consider characteristic function $1_E$ of finite measure set $E$. There are $F_n \subset E \subset G_n$ where $F_n, G_n$ are closed, open repectively and $m(G_n \setminus F_n) < 2^{-n}$.
+	
+	We can assume $G_n$ is decreasing by considering $G_n' = \bigcap_{k=1}^n G_n$. Similarly, we can regard $F_n$ as increasing sequence of closed sets.
+
+	Now, for each $n$, there is Urysohn function $f_n$ which is continuous, vanishes outside of $G_n$ and equal to 1 on $F_n$. Then clearly $f_n \rightarrow 1_E$ as $n \rightarrow \infty$ except on $\bigcap_{n\geq 1}\left( G_n \setminus F_n \right)$. But $m(\bigcap_{n\geq 1}\left( G_n \setminus F_n \right) = 0$. This says there is sequence of continuous function whose a.e. limit is $1_E$.
+
+		From now on, using the above, consider measurable function $f$. There is sequence of simple function $s_n$ whose pointwise limit is $f$. By above, for each $n$, there is $\left\{ f_{n, k} \right\}_{k=1}^\infty$ whose a.e. limit is $s_n$.
+		
+		Choose $k_n\leq k_{n+1}$ so that $m(\left\{ f_{n, k_n} \ne s_n \right\}) < 2^{-n}$. By Borel Cantelli lemma, $m(\limsup A_n) = 0$ where $A_n = \left\{ f_{n, k_n} \ne s_n \right\}$. 
+		If $x \in \left( \limsup A_n \right)^c$, then $x \in \bigcap_{n \geq N} A_n^c$ for some $N$, then $f_{n, k_n} = s_n$ for $n \geq N$. Therefore $\lim_{n\rightarrow \infty} f_{n, k_n} = \lim_{n\rightarrow \infty} s_n = f$ for almost every $x$.
+\end{problem}
+
+\begin{problem}[1.22] \hfill
+
+	Assume $f = 1_{[0, 1]}$ a.e. where $1_A$ denotes characteristic function of $A$.
+	If $f \ne 1$ for some $ x \in (0, 1)$, there is $\delta >0$ such that $(x-\delta, x+\delta) \subset (0, 1)$ and $f \ne 1$ on $(x-\delta, x+\delta)$ by continuity.
+	It contradicts with $f = 1_{[0, 1]}$ a.e. Therefore $f = 1 $ for $x \in \left( 0, 1 \right)$. Similarly, $f = 0$ for $|x| > 1$. Then $f$ must be discontinuous at $x = 0, 1$. It leads the fact that there is no such $f$.
+
+\end{problem}
+
+\begin{problem}[1.23] \hfill
+
+	Fix $n$. Then $\mathbb{R} = \bigcup_{k \in \mathbb{Z}} \left ( \frac{k}{n}, \frac{k+1}{n} \right ]$. So for each $x \in \mathbb{R}$, there exists unique $k$ such that $x \in \left ( {k \over n}, \frac{k+1}{n} \right ]$. Now, fix $y$. For $x \in \left ( \frac{k}{n}, \frac{k+1}{n} \right ]$, define $f_n(x, y)$ as follows:
+	\begin{equation*}
+		f_n(x, y) = n \left[ f\left( \frac{k}{n}, y \right)\left( \frac{k+1}{n}-x \right) + f\left( \frac{k+1}{n}, y \right)\left( x-\frac{k}{n} \right) \right]
+		\label{<+label+>}
+	\end{equation*}
+	It is line segemnt connecting $\left( \frac{k}{n}, f\left( \frac{k}{n}, y \right) \right)$ and $\left( \frac{k+1}{n}, f\left( \frac{k+1}{n}, y \right) \right)$.
+	Note that it is sum of product of two continuous functions. Hence $f_n$ is measurable. 
+
+	Also, consider below:
+	\begin{equation*}
+		\begin{split}
+			f_n(x, y) - f(x, y)
+			& = \left[ f\left( \frac{k}{n}, y \right) - f(x, y) \right]\left( k+1 -nx \right) \\
+			& + \left[ f\left( \frac{k+1}{n}, y \right) - f(x, y) \right]\left( nx -k \right)
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	Note that $k < nx \leq k+1$ hence $0\leq k+1 -nx \leq 1$ and $0 \leq nx -k \leq 1$. 
+	By continuity of $f(\cdot, y)$, as $n \rightarrow \infty$, $f_n(x, y) - f(x, y) \rightarrow 0$ since $\frac{k}{n}, \frac{k+1}{n} \rightarrow x$. 
+
+	Therefore $f(x, y)$ is pointwise limit of measurable function hence measurable.
+\end{problem}
+
+\begin{problem}[1.25] \hfill
+
+	Let $E$ be measurable. Then $E^c$ is also measurable. By definition of measurability, there is open set $O$ containing $E^c$ such that $m_*(O \setminus E^c) = m_* (E \setminus O^c) < \varepsilon$. Therefore $E$ is measurable in new sense.
+
+	Assume that $E$ is measurable in new sense. For each $\varepsilon>0$, there is closed $F \subset E$ such that $m_*(E \setminus F) = m_*(F^c \setminus E^c) < \varepsilon$. It leads measurability of $E^c$ and therefore $E$ is measurable in old sense because class of measurable sets is closed under complement set operation.
+	
+\end{problem}
+
+\begin{problem}[1.26] \hfill
+
+	$m_*(E \setminus A) \leq m_*(B \setminus A) = m(B) - m(A) = 0$ since measure of $B$ is finite. Therefore $E\setminus A$ is zero measure set, therefore measurable. $E = E \setminus A \cup A$ which is union of two measurable set. Therefore $E$ is measurable.
+	
+\end{problem}
+
+\begin{problem}[1.27] \hfill
+
+	Let $Q_t = [-\frac{1}{2}t, \frac{1}{2}t]^d$ and $K_t = E_1 \cup \left( E_2 \cap Q_t \right)$. Clearly $K_t$ is compact for each $t \geq 0$. It is straightforward from definition that $E_1 \subset K_t \subset E_2$.
+
+	Note that $K_0 = E_1$ and $K_M = E_2$ for large $M$ such that $E_2 \subset Q_M$. Now define the function $\varphi(t) = m(K_t)$. Then, for $s, t$, $\left | \varphi(s) - \varphi(t) \right | \leq \left | m(Q_s) - m(Q_t) \right | = |s^d - t^d|$.
+	For every $\varepsilon>0$, there is $\delta>0$ such that $|s-t| < \delta$ implies $|s^d - t^d| < \varepsilon$. This leads continuity of $\varphi(t)$.
+
+	Since domain of $\varphi$ is connected and codomain of $\varphi$ is ordered, we can use intermediate value theorem. So there is $p \in [0, M]$ so that $m(E_1) < m(K_p) < m(E_2)$. And clearly $E_1 \subset K_p \subset E_2$.
+	
+\end{problem}
+
+\begin{problem}[1.28] \hfill
+
+	Let $\alpha \in \left( 0, 1 \right)$. ${1 \over \alpha} m_*(E) > m_*(E)$ so there is open set $O$ containing $E$ such that $m_*(E) = m_*(E \cap \bigcup_{j \geq 1} I_j ) = m_*(\bigcup_{j\geq 1}E\cap I_j) > \alpha m_*(O) = \alpha \sum_{j \geq 1} m_*(I_j)$ where $I_j$'s are disjoint interval whose union is $O$.
+
+	If $m_*(E\cap I_j) < \alpha m_*(I_j)$ for all positive integer $j$, then $m_*(E) \leq \sum_{j\geq 1} m_*(E\cap I_j) \leq \alpha \sum_{j\geq 1}m_*(I_j)$ which contradicts to above. 
+
+	Therefore there is $I_j$ such that $m_*(E \cap I_j) \geq \alpha m_*(I_j)$.
+	
+\end{problem}
+
+
+\begin{problem}[1.37]\hfill
+
+	Consider $f 1_{\left[ -n, n \right]}$. It is uniformly continuous on $[-n, n]$. Let $\varepsilon>0$ be arbitrary. choose $\delta>0$ less than $n$ such that $d(x, y) < \delta$ implies $d(f(x), f(y)) < \varepsilon$ for all $x, y \in \left[ -n, n \right]$. 
+
+	For each $x \in \left[ -n, n \right]$, consider $\left( x- {\delta \over 2}, x+ \frac{\delta}{2} \right)$. Such interval forms open cover of $[-n, n]$.
+	We can cover $\left[ -n, n \right]$ by at most $\frac{2n+1}{\delta}$ number of such intervals.
+	Let $\Gamma_n$ be graph of $f 1_{\left[ -n, n \right]}$.
+	Then $m_*(\Gamma_n) \leq \frac{2n+1}{\delta} \delta 2\varepsilon = 2(2n+1)\varepsilon$ which can be arbitrarily small. Therefore $m_*(\Gamma_n) = 0$ for all $n$ and $m(\Gamma) = \sum_{n=1}^\infty m(\Gamma_n) = 0$ where $\Gamma$ is graph of $f$.
+	
+\end{problem}
+
+

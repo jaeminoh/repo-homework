@@ -1,0 +1,79 @@
+\begin{problem}[3.1] \hfill
+
+	It suffices to show that $\int_\gamma f(z) dz = 0$ for rectangle $\gamma$ whose edges are parallel to coordinate axes by Morera's theorem.
+
+	First, assume that $\gamma$ intersects with $\left[ 0, 1 \right]$ only finitely many points. Let $p$ be such point. Then $p$ must be on (wlog) left edge of $\gamma$. Let $a + ib$, $a+ic$ be two vertices incident with left edge. ($b>c$) Let $\rho(t) = a + i(tc + (1-t)b)$. Consider $f \circ \rho$. It is continuous and equals to $\frac{\partial}{\partial t}F(\rho(t))$ except for $\gamma^{-1}(p)$ where $F$ is antiderivative of $f$ on $\mathbb{C} \setminus \left[ 0, 1 \right]$. 
+	Then lemma 2.3.1 says $f(\rho(t)) = \frac{\partial}{\partial t}F(\rho(t))$ even for $\gamma^{-1}(p)$.
+	Therefore $\int_\rho f(z) dz = F(a+ic) - F(a+ib)$. By using this result, we can easily calculate $\int_\gamma f(z) dz = 0$.
+
+	Now, assume that (wlog) upper edge of $\gamma$ intersects with $\left[ 0, 1 \right]$. Let $\gamma = \gamma_1 + \gamma_2 + \gamma_3 + \gamma_4$ which are upper edge, left edge, bottom edge, and right edge respectively, parametrized like $\rho$ of above, positive oriented.
+	Consider $\varphi$ made by shrinking side edges of $\gamma$ so that distance between of upper edges of $\varphi$ and $\gamma$ less than $\delta$, while bottom edge is fixed. Also note that $\delta$ is chosen so that $d(z_0, z_1) < \delta$ implies $d(f(z_0), f(z_1)) < \varepsilon$. 
+
+	\begin{equation*}
+		\begin{split}
+			\left | \int_\gamma f(z) dz - \int_\varphi f(z)dz \right |
+			& \leq \left | \int_{\gamma_2 - \varphi_2} f(z) dz + \int_{\gamma_4 - \varphi_4} f(z) dz \right |\\
+			& +\left ( \text{ length of } \gamma_1 \right ) \varepsilon
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	And, second term of above goes to $0$ as distance between $\varphi_1$ and $\gamma_1$ goes to 0 by continuity and result of first case.
+	Actually $\int_\varphi f(z) dz = 0$ because $\varphi$ does not intersect with $\left[ 0, 1 \right]$. Thus we have shown that $\int_\gamma f(z) dz = 0$.
+
+	By first, second case and Morera's thm, $f$ is actually entire function.
+\end{problem}
+
+\begin{problem}[3.2] \hfill
+
+	For $0 < r < 1$, $|f^{(n)}(0) | \leq {n! \over r^n} {1 \over 1-r}$ by using Cauchy estimate.
+	$r^n(1-r)$ is maximized when $r = {n \over n+1}$. So, when $r = {n \over n+1}$, we get best estimate of $|f^{\left( n \right)}\left( 0 \right)|$.
+	
+\end{problem}
+
+\begin{problem}[3.3] \hfill
+	\begin{enumerate}[label =(\alph*)]
+		\item Since $K$ is compact subset of open set $U$, there is $r >0$ such that for all $x\in K$, closure of  $D(x, r)$ is in $U$.
+			Then, $|f(z)|^2 \leq {1 \over 2\pi} \left | \int_{\partial D(z, r} {f^2(w) \over w-z}dw \right | \leq {1 \over 2\pi}  \int_0^{2\pi}|f^2(z+re^{i\theta})d\theta|$.
+	By multiplying $\rho$ both sides and integrating from $0$ to $r$, we can get the following:
+	
+	\begin{equation*}
+		\begin{split}
+			\frac{r^2}{2}|f(z)|^2 & \leq \frac{1}{2\pi} \int_0^r \int_0^{2\pi}\rho|f^2(z+re^{i\theta})|d\theta d\rho \\
+				& = \frac{1}{2\pi} \int_{\overline{D}(z, r)}|f|^2dm \\
+				& = \frac{1}{2\pi}\int_U |f|^2 dm
+		\end{split}
+	\label{<+label+>}
+	\end{equation*}
+	for all $z \in K$, where $m$ is lebesgue measure,  using Holder's inequality and polar coordinate integration.
+
+	Therefore $C = \frac{1}{r\sqrt{\pi}}$
+\item If $f$ is identically zero, possible.
+
+	Else if $f$ is constant, then $\int_{\mathbb{C}}|f|dm = \infty$ since measure of complex plane is $\infty$.
+
+	Else, that is $f$ is nonconstant entire function, then $f$ must be unbounded. So, there is $\delta > 0 $ such that $|f| \geq 1$ for all $ |z| > \delta$. Then $\int_{\mathbb{C}}|f| dm \geq m\left( \left\{ z: |z| > \delta \right\} \right) = \infty$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[3.4]
+	\begin{enumerate}[label = (\alph*)]
+		\item Since $\frac{z}{e^z -1}$ is bounded near 0, it has removable singularity at $0$. So we can regard it as holomorphic function. 
+			Note that $e^z -1 = 0$ when $z$ is integer multiple of $2\pi i$. So, given power series converges on unit disc.
+			Now, multiply $e^z -1$ both sides. Since $e^z-1$ is entire and given power serires converges absolutely on $\bar{D}(0, r)$ where $0<r<1$, we can write $z = \sum_{n=0}^\infty \frac{B_n}{n!}z^n \sum_{n=1}^\infty \frac{1}{n!}z^n$. 
+			Since $z$ is entire, coefficient of power series is unique. By comparing coefficients of both sides, we can get given recursion formula.
+
+			$\lim_{z \rightarrow 0} \frac{z}{e^z-1} = 1 = B_0$. From this, by simple calculation, $B_1 = {- 1\over 2}$, $B_2 = {1 \over 6}$, and $B_3 = 0$.
+
+			Consider $-z = f(z) - f(-z) = \sum_{n=0}^\infty 2\frac{B_{2n+1}}{(2n+1)!}z^{2n+1}$. This makes sense because $f$ is holomorphic on unit disc. By comparing coefficient of this series, we can get $B_{2m+1} = 0$ for $m \geq 1$.
+		\item We alrealdy notice that $e^z -1$ is zero when $z$ is integer multiple of $2\pi i$. But $\lim_{z \rightarrow 2k\pi i}\frac{z}{e^z - 1}$ is not bounded when $k \ne 0$. Therefore, $\frac{z}{e^z-1}$ is holomorphic on $D(0, 2\pi)$ and is not holomorphic outside of that disc. Since power seriese representation of holomorphic function at $P$ has radius of convergence at least $d(P, U)$, we can say radius of convergence of the series is $2\pi$. 
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[3.5] \hfill
+
+	$f'$ is holomorphic on unit disc. Let $r = \sup_{z \in K} |z|$. Since $K$ is compact, $|f'| \leq M$ on $K$ and $r$ is positive but less than 1. Let $\gamma(t) = tz^n$ which connects origin and $z^n$. $|f(z^n) - f(0)| = \left | \int_\gamma f' dz \right | \leq M \sup_{z\in K} |z|^n = Mr^n$.
+	Therefore, $\left | \sum_{n=1}^\infty f(z^n) \right | \leq \sum_{n=1}^\infty |f(z^n)| \leq \sum_{n=1}^\infty Mr^n < \infty$ because $r$ is positive but less than 1.
+	
+\end{problem}
+

@@ -1,0 +1,48 @@
+\setcounter{section}{3}
+\section{Elementary Hilbert Space Theory}
+
+\begin{problem}[1]
+	\hfill
+
+	Let $m\in M$. Then $\left( m, x \right) = 0 $ for all $x \in M^{\bot}$. So $m \in \left( M^{\bot} \right)^{\bot} \Rightarrow M \leq \left( M^{\bot} \right)^{\bot}$. 
+
+	On the contrary, let $m\in \left( M^{\bot} \right)^{\bot}$. Decompose $m$ by $Pm + Qm$ where $Pm \in M$ and $Qm \in M^{\bot}$. For $x\in M^{\bot}$, $\left( m, x \right) = \left( Qm, x \right) = 0$. Take $x = Qm$. Then $Qm = 0$, which leads $m = Pm \in M$. Hence $\left( M^{\bot} \right)^{\bot} \leq M$. 
+\end{problem}
+
+\begin{problem}[5]
+	\hfill
+
+	Since $L$ is continuous linear functional on $H$, there is nonzero unique $y\in H$ such that $Lx = \left( x, y \right)$ for all $x \in H$. (When $L$ is nontrivial linear functional.)
+
+	For all $x \in M$, $\left( x, y \right) = Lx = 0$. So $y\in M^{\bot}$. 
+
+	If dimension of $M^{\bot}$ is bigger than 1, we can take $z \in M^{\bot}$ such that $z \ne 0$ and $\left\{ z, y \right\}$ is linearly independent.
+
+	Now, consider the following:
+	\begin{equation*}
+		u = z - \frac{\left( z, y \right)}{\left( y, y \right)}y
+		\label{<+label+>}
+	\end{equation*}
+	
+	Then $\left( u, y \right) = 0$ and $u \in M^{\bot}$, so $u = 0$. This contradicts to independency of $\left\{ z, y \right\}$. So dimension of $M^{\bot}$ is smaller than 1.
+
+\end{problem}
+
+\begin{problem}[7]
+	\hfill
+
+	Let $N_0 = 0$, choose $N_1$ so that $\sum_{n=N_0 + 1} ^{N_1} a_n^2 > 1$. 
+	For chosen $N_0, \cdots, N_k$, choose $N_{k+1}$ so that $\sum_{n= N_k + 1 }^{N_{k+1}}a_n^2 > 1$. And put $E_k = \left\{ N_{k-1}, \cdots, N_k \right\}$. 
+
+	Let $s_k = \sum_{n\in E_k}a_n^2 >1$, and $c_k ={1\over ks_k}$. Then, done.
+	
+\end{problem}
+
+\begin{problem}[8]
+	\hfill
+
+	Let $\left\{ v_\beta : \beta \in B \right\} $ be an orthonormal basis of $H_2$. Then $H_2 \cong l^2(B)$. Additionally, assume $H_1 \cong l^2(A)$ and without loss of generality, there exists an injection $\varphi : A \hookrightarrow B$. Let $Q$ be a class of all finite linear combination of $\left\{ v_\beta : \beta \in \varphi\left( A \right) \right\}$. Then $\overline{Q}$ is Hilbert space, being closed subspace of $H_2$. 
+
+	Then $\overline{Q} \cong l^2\left( \varphi\left( A \right) \right) \cong l^2\left( A \right) \cong H_1$. So $H_1$ is isomorphic to $\overline{Q}$, which is closed subspace of $H_2$. 
+	
+\end{problem}

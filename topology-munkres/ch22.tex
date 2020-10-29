@@ -1,0 +1,67 @@
+\setcounter{section}{21}
+
+\section{The Quotient Topology}
+\subsection{Quotient Topology}
+\subsection{Topological Group}
+
+\begin{problem}[5] \hfill
+
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $\varphi_\alpha : xH \mapsto \alpha \cdot x H$ be the map induced by $f_\alpha$. Then $\varphi_\alpha$ is clearly bijective. Let $V$ be an open set in $G/H$. We want to show that $\varphi_\alpha^{-1}\left( V \right)$ is open in $G$. Since $G/H$ is quotient space, it is good to consider $p^{-1}\left( \varphi_\alpha^{-1} \left( V \right) \right)$ where $p$ corresponds each $x\in G$ to $xH$. 
+			\begin{equation*}
+				\begin{split}
+					p^{-1}\left( \varphi_\alpha ^{-1} \left( V \right) \right) & = \left\{ x \in G : \alpha \cdot x H \in V \right\} \\
+					& = \left\{ \alpha^{-1} \cdot x : xH \in V \right\} \\
+					& = f_{\alpha^{-1}}\left( p^{-1}\left( V \right) \right)
+				\end{split}
+				\label{<+label+>}
+			\end{equation*}
+		But the last one is open since $f_g : x \mapsto g\cdot x, g \in G$ is homeomorphism, and $p$ is a quotient map.
+		Note that $\varphi_\alpha ^{-1} = \varphi_{\alpha^{-1}}$. So $\varphi_\alpha$ is a homeomorphism. 
+
+	\item Note that $G/H$ is a homogeneous space by a). So, closedness of $\left\{ eH \right\}$ implies closedness of every other singleton sets. Now Consider
+	\begin{equation*}
+		\begin{split}
+			p^{-1}\left( G/H \setminus \left\{ eH \right\} \right) & = \left\{ x \in G : xH \in G/H \setminus \left\{ eH \right\} \right\} \\
+		& = H^c
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	Therefore $G/H \setminus \left\{ eH \right\}$ is open, hence $\left\{ eH \right\}$ is closed.
+
+\item Let $V$ be an open set in $G$. We want to check whether $p(V)$ is open or not. So, it is good to consider
+	\begin{equation*}
+		\begin{split}
+			p^{-1}\left( p(V) \right) & = \left\{ x \in G : xH \in p(V) \right\} \\
+			& = \bigcup_{x \in V} xH \\
+			& = \left\{ x\cdot h : x \in V, h\in H \right\} \\
+			& = \bigcup_{h\in H} V \cdot h
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	But $V \cdot h = \left\{ x\cdot h : x \in V \right\} = g_h \left( V \right)$ is open since $g_h$ is homeomorphism. (see problem 4)
+	So, last one of above equation is union of open sets, therefore $p(V)$ is open. So $p$ is open mapping.
+
+\item By b), $G/H$ is $T_1$ space. Let $f: xH \mapsto x^{-1}H$, $V$ be an open set in $G/H$. We want to show that $f^{-1}\left( V \right)$ is open in $G/H$. So, consider 
+
+	\begin{equation*}
+		\begin{split}
+			p^{-1} \left( f^{-1} \left( V \right) \right) & = \left\{ g \in G : g^{-1}H \in V \right\} \\
+			& = \left\{ g^{-1} \in G : gH \in V \right\}
+		\end{split}
+	\end{equation*}
+	But note that $F : x \mapsto x^{-1}$ is a homeomorphism, and last one of above equation is $F\left( p^{-1} \left( V \right) \right)$, therefore open.
+
+	Now consider $g: \left( xH, yH \right) \mapsto x\cdot y H$. Let $\left( xH, yH \right) \in g^{-1}\left( V \right)$. Then $x\cdot y H \in V \leftrightarrow p\left( x\cdot y \right) \in V$. Therefore $x\cdot y \in p^{-1}\left( V \right)$ which is open. Let $G: \left( x, y \right) \mapsto x\cdot y$. Then $\left( x, y \right) \in G^{-1}\left( p^{-1}(V) \right)$ which is open in $G \times G$. So there exists basis element of $G \times G$ such that $\left( x, y \right) \in B_1 \times B_2 \subset G^{-1} \left(  p^{-1} \left( V \right) \right)$. Then, 
+	\begin{equation*}
+		\begin{split}
+			(p \times p)\left( x, y \right) = \left( xH, yH \right) & \in p\left( B_1 \right) \times p\left( B_2 \right) \\
+			& \subset \left( p\times p \right)\left( G^{-1} \left(  p^{-1} \left( V \right) \right) \right) \subset g^{-1}\left( V \right)
+	\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	So $g^{-1}\left( V \right)$ is open since $p$ is open mapping therefore $p(B_1) \times p(B_2)$ is open.
+	\end{enumerate}
+	
+\end{problem}

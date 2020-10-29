@@ -1,0 +1,43 @@
+\setcounter{section}{34}
+\section{The Tietze Extension Theorem}
+
+\begin{problem}[1]
+	\hfill 
+
+	Let $A, B$ be disjoint closed subspace of $X$. Define $f$ as following:
+
+	\begin{equation*}
+		f(x) = 
+		\begin{cases}
+			0 &  \text{ if } x \in A \\
+			1 &  \text{ if } x \in B
+		\end{cases}
+		\label{<+label+>}
+	\end{equation*}
+	
+	Then $f : A \cup B \rightarrow \left[ 0, 1 \right]$ is continuous (by pasting lemma).
+
+	By Tietze extension theorem, we can extend $f$ to $\overline{f} : X \rightarrow \left[ 0, 1 \right]$. This $\overline{f}$ is what we can get from Urysohn lemma.
+\end{problem}
+
+\begin{problem}[5] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $\left( X, A, f \right)$ be given. Since $f : A \rightarrow \mathbb{R}^J$, $f_\alpha : A \rightarrow \mathbb{R}$. Apply the Tietze extension theorem to $f_\alpha$. Then we get continuous function $\overline{f} : X \rightarrow \mathbb{R}^J$ which satisfies $\left( \overline{f} \right)_\alpha = \overline{f_\alpha}$. This $\overline{f}$ is what we want.
+
+		\item Without loss of generality, we can assume that $Y$ is a retract of $\mathbb{R}^J$. Let $f : A \rightarrow Y$ be a continuous function. By expanding codomain, we can get $f' : A \rightarrow \mathbb{R}^J$ which is continuous. Let $\overline{f}$ be the extension of $f'$. Then $r \circ \overline{f}$ is continuous extension of $f$ where $r$ is a retraction of $\mathbb{R}^J$ into $Y$.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}[6] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $h$ be a homeomorphism of $Y_o$ onto $Y$. Since $Y$ has universal extension property, we can extend $h$ to $\overline{h} : X \rightarrow Y$ which is continuous. Then $h^{-1} \circ \overline{h}$ is the retraction of $X$ into $Y_o$. 
+
+		\item Note that (b) of problem 5 still holds if we replace $\mathbb{R}^J$ to $\left[ 0, 1 \right]^J$.
+			Fix $y \in Y$ and choose neighborhood $V_y$ of $y$. By Urysohn lemma, there is a continuous function $f_y$ such that $f_y(y) = 1$ and vanishes outside of $V_y$. Let $F(x) = \left( f_y(x) \right)_{y\in Y}$. Then $F$ is imbedding of $Y$ into $\left[ 0, 1 \right]^{Y}$ by theorem 34.2.
+
+			Since $F$ is imbedding of $Y$ into $\left[ 0, 1 \right]^J$, $F\left( Y \right) \cong Y$. Now, it is sufficient to show that $F\left( Y \right)$ is retract of $\left[ 0, 1 \right]^J$. But it follows directly by (b) of problem 5 since $F\left( Y \right)$ is compact hence closed, $\left[ 0, 1 \right]^J$ is compact Hausdorff hence normal.
+	\end{enumerate}
+	
+\end{problem}

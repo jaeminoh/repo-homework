@@ -1,0 +1,55 @@
+\begin{problem}[5.1] \hfill
+
+	Let $P(z) = z^n + a_{n-1}z^{n-1} + \cdots + a_0$ and assume that $P(z) =0$ has no solution. Then by the argument principle, $\frac{1}{2\pi i}\int_{\partial D(Q, R)}\frac{P'(\zeta)}{P(\zeta)}d\zeta = 0$ for all $R >0$. That integral is equal to $\frac{1}{2\pi i}\int_0^{2\pi}\frac{P'(Q+Re^{i\theta})}{P(Q+Re^{i\theta})}Rie^{i\theta}d\theta$.
+	But, as $R \rightarrow \infty$, integrand of above goes to $in$ uniformly on $0 \leq \theta \leq 2\pi$. Therefore, the integral above goes to $n>0$ which is the degree of $P$. It is contradiction. Thus $P(z) = 0$ has at least one solution in complex plane.
+\end{problem}
+
+\begin{problem}[5.2] \hfill
+
+	Assume the existence of such $f$. Since $f$ is bounded near $0$, Riemann removable singularity theorem says that $f$ can be extended to the function which is holomorphic on entire unit disc.
+
+	If modulus of $f(0)$ is equal to 1 or 2, then image of the unit disc under $f$ is not open which contradicts to the open mapping theorem. So $f(0) \in \left\{ w: 1 < |w| < 2 \right\}$.
+
+	Since $f$ is surjective function of the punctured unit disc onto the annulus, we can find $w \ne 0$ such that $f(0) = f(w)$.
+	Choose two disjoint neighborhood $U_w, U_0$ of $w, 0$ respectively. Then by the open mapping theorem, $f(U_w)$ and $f(U_0)$ are open and $f(0) \in f(U_w) \cap f(U_0)$.
+	Since $f(U_w) \cap f(U_0)$ is open, we can choose small neighborhood of $f(0)$ contained in the previous set.
+	And therefore we can choose $f(0) \ne \alpha \in f(U_w) \cap f(U_0)$. This cannot be happen since $f$ is injective.
+
+	Thus there is no such $f$.
+	
+\end{problem}
+
+\begin{problem}[5.3] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Choose $R > \lambda$, and choose $n$ so large that $\lambda -1 \geq 1/n$. Then $\bar{D}(R, R-{1 \over n}) \subset \text{Right half plane}$.
+
+			Then for $\zeta \in \partial D(R, R-1/n)$, $|e^{-\zeta}| < 1 \leq \lambda - 1/n \leq |\zeta-\lambda|$.
+			Put $f(z) = e^{-z} + z - \lambda$ and $g(z) = z-\lambda$. Then by above and Rouche's theorem, $f$ and $g$ has same zero on $D(R, R-1/n)$.
+			But any $z \in \text{Right half plane}$ must be inside of $D(R, R-1/n)$ for some large $R$ and $n$. This means $f$ and $g$ have same zero on the right half plane.
+
+			But $g(z) = 0$ has unique solution. Therefore $e^{-z}+z -\lambda = 0$ has unique solution on the right half plane.
+
+		\item	Fix $z' \in U$. Note that $U\setminus \left\{ z' \right\}$ is still a domain. Let $g_k (z) = f_k (z) - f_k(z')$ for $z \in U \setminus \left\{ z' \right\}$.
+			Since $f_j$ is an injective holomorphic function on $U$, $g_k$ does not vanish on $U \setminus \left\{ z' \right\}$.
+			Uniform convergence of $f_j$ on compact subsets of $U$ implies uniform convergence of $g_k$ on compact subsets of $U\setminus \left\{ z' \right\}$.
+			Since $g_k$ is nonvanishing function, by Hurwitz's theorem, $\lim_{k\rightarrow \infty} g_k(z) = f(z) - f(z')$ does not vanish or identically zero. \\
+
+			If it is identically zero on $U \setminus \left\{ z' \right\}$, then f must be constant function on $U$.
+			If it is nonvanishing on $U \setminus \left\{ z' \right\}$, then $f(z'') = f(z')$ implies $z'' = z'$. Thus $f$ must be injective.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[5.4] \hfill
+
+	It seems to be solved by the maximum modulus principle (or theorem), but I don't know where to start.
+	
+\end{problem}
+
+\begin{problem}[5.5] \hfill
+
+	For $z \in S$, $|\varphi(z)| = \left | \frac{e^{2\pi z i} -1 }{e^{2\pi z i} + 1}\right |$, and the real part of $e^{2\pi z i} > 0$ because $z \in S$. Then it is clear that $|\varphi(z) | < 1$. Also $\varphi(0) = 0$.
+
+	Therefore $\varphi \circ f : D \rightarrow D$ is holomorphic and it fixes the origin. Then Schwarz's lemma says $|\varphi'(0)f'(0) | \leq 1$.  But $\varphi'(0) = \pi$. Therefore $|f'(0)| \leq 1/\pi$. The equality holds only if $\varphi(f(z)) = wz$ for some $|w| = 1$.
+	
+\end{problem}

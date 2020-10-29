@@ -1,0 +1,54 @@
+\begin{problem}[2.1] \hfill
+
+	Let $f = u+ iv$. Then $\bar{f}f' = ff' - 2ivf'$, where $ff'$ is holomorphic. So, $\int_\gamma \bar{f}f' dz = \int_\gamma -2ivf' dz = \int_\gamma -2iv(u_x + iv_x)dz = \int_\gamma -2iv(v_y + iv_x)dz = -i \int_a^b (2vv_y + 2ivv_y)(\gamma_1 ' + i\gamma_2 ') dt = \alpha$ where $\gamma = \gamma_1 + i\gamma_2$.
+	
+	Therefore, real part of $\int_\gamma \bar{f} f' dz$ is equal to real part of $\alpha$. And it is also equal to $-\int_a^b Im \left [ (2vv_y + i2vv_x)(\gamma_1 ' + i\gamma_2 ')\right ]dt = -\int_a^b (2vv_x \gamma_1 ' + 2vv_y \gamma_2') dt = -\int_a^b \frac{d}{dt}(v^2 \circ \gamma) dt = 0$ since $\gamma$ is closed curve.
+
+	So, $\int_\gamma \bar{f}f' dz$ is purely imaginary.
+\end{problem}
+
+\begin{problem}[2.2] \hfill
+
+	Let $f = -u_y$ and $g = u_x$. Then $f, g$ are continuous on $U$. Since $u$ is harmonic, $\frac{\partial f}{\partial y} = \frac{\partial g}{ \partial x}$ on $U \setminus \left\{ 0 \right\} $. So there is $v: U \rightarrow \mathbb{R}$ which is $C^1$ function and $v_x = f$, $v_y = g$ by lemma 2.5.3.
+
+	Let $F = u+ iv$. Then $F$ is $C^1$ function since $u, v$ are $C^1$. Since $v_x = f = -u_y$ and $v_y = g = u_x$, $F$ satisfies Cauchy-Riemann equation on $U$. Thus $F$ is holomorphic on $U$ and real part of $F$ is $u$.
+	
+\end{problem}
+
+\begin{problem}[2.3] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item For $z \notin \left[ 0, 1 \right]$, the map $w \mapsto {1 \over w-z}$ is holomorphic on $\mathbb{C} \setminus \left[ 0, 1 \right]$. Let $\gamma(t) = t$ for $t \in \left[ 0, 1 \right]$. Then $F(z) = \int_\gamma \frac{dw}{w-z} = \int_0^1 \frac{1}{t-z}dt $ is well defined.
+
+		 For $z \notin \left[ 0, 1 \right]$, let $d>0$ be distance between $z$ and $\left[ 0, 1 \right]$. For $|h| < {d \over 2}$, consider $\frac{F(z+h) - F(z)}{h} = \int_0^1 \frac{1}{(t-z-h)(t-z)}dt$. Then $\left | \frac{1}{(t-z-h)(t-z)} - \frac{1}{(t-z)^2} \right | = \left | \frac{h}{(t-z)^2(t-z-h)} \right | \leq |h| {2 \over d^3}$ since $|t-z| \geq d$ and $|t-z-h| \geq {d \over 2}$. Therefore, as $|h| \rightarrow 0$, integrand converges to ${1 \over (t-z)^2}$ uniformly on $t\in \left[ 0, 1 \right]$. So $\lim_{h\rightarrow 0}{F(z+h) - F(z) \over h} = \int_0^1\lim_{h\rightarrow 0}\frac{1}{(t-z-h)(t-z)}dt = \int_0^1 \frac{1}{(t-z)^2}dt = F'(z)$.
+
+			By same reasoning, we get $F''(z) = \int_0^1 \frac{1}{(t-z)^3}dt$. From existence of $F''$, $F'$ is continuous. Therefore $F$ is $C^1$ function. Existence of complex derivative and $C^1$ implies $F$ is holomorphic on $\mathbb{C} \setminus \left[ 0, 1 \right]$. 
+
+		\item For $s \in (0, 1)$, $F(s +i\varepsilon) = \int_0^1 \frac{1}{t-s-i\varepsilon}dt = \int_0^1 \frac{t-s+i\varepsilon}{(t-s)^2 +\varepsilon^2}dt = \int_0^1 \frac{t-s}{(t-s)^2 + \varepsilon^2}dt + i \int_0^1 \int_0^1 \frac{\varepsilon}{(t-s)^2 + \varepsilon^2}dt$. Let $t-s = \varepsilon \tan \theta$. $\varepsilon \tan \theta_0 + s = 0$ and $\varepsilon \tan \theta_1 + s = 1$ for $-{\pi \over 2 } < \theta_0, \theta_1 < {\pi\over 2}$.	
+			Then $\sec ^2 \theta_0 = {s^2 \over \varepsilon^2}+1$, $\sec^2 \theta_1 = \frac{(1-s)^2}{\varepsilon^2}+1$, $\theta_0 = \tan^{-1}\left( {-s \over \varepsilon} \right)$, and $\theta_1 = \tan^{-1}\left( 1-s \over \varepsilon \right)$.
+
+			Then $F(s+i\varepsilon) = \int_{\theta_0}^{\theta_1}\tan \theta d\theta + i \int_{\theta_0}^{\theta_1}d\theta$ = $\log \left | {\sec \theta_1 \over \sec \theta_0} \right | + i\left( \theta_1 - \theta_0 \right)$. As $\varepsilon \downarrow 0$, $F\left( s+i\varepsilon \right)$ goes to ${1-s \over s} + i\pi$ by simple calculation.
+
+			Similarly, $F(s-i\varepsilon)$ goes to ${1-s \over s} -i\pi$ as $\varepsilon \downarrow 0$.
+
+		\item Consider $F(-\varepsilon) = \int_0^1 {1 \over t+\varepsilon} dt = \log {1 + \varepsilon \over \varepsilon}$. It goes to $\infty$ as $\varepsilon \downarrow 0$. 
+
+			Consider $F(1+\varepsilon) = \int_0^1 {1 \over t - 1 - \varepsilon}dt = \log{\varepsilon \over 1+ \varepsilon}$. It goes to $-\infty$ as $\varepsilon \downarrow 0$. Therefore, for $s = 0, 1$, $\lim_{z \notin \left[ 0, 1 \right] \rightarrow s} F(z)$ does not exists.
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[2.4] \hfill
+
+	First consider $p\equiv0$. We can easily see that $\sup_{z \in C} |z^{-n}| = 1$ so desired value $\leq 1$.
+
+	Note that $|p(z) - z^{-n}| = |z^n p(z) - 1|$. Thus, $1 = \frac{1}{2\pi i} \int_C \frac{z^n p(z) -1}{z}dz \leq \sup_{z\in C}|z^np(z) -1|$. 
+
+	Those leads the conclusion.
+	
+\end{problem}
+
+\begin{problem}[2.5] \hfill
+
+	It is enough to show $\gamma$ and $\mu$ are path homotopic. Definte $H(t, s) = (1-s)\gamma(t) + {\gamma(t) \over |\gamma(t)|}s$. Then $H(t, 1) = \mu(t)$ and $H(t, 0) = \gamma(t)$ by reparametrization. And $H$ is continuous because $\gamma(t) \ne 0$. Therefore $H$ is path homotopy between $\gamma$ and $\mu$. Since line integration is invariant under path homotopy, we get $\int_\gamma F(\zeta) d\zeta = \int_\mu F(\zeta) d\zeta$.
+	
+\end{problem}

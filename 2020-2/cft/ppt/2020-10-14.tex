@@ -1,0 +1,276 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\title{Conformal Self Mappings}
+
+\author{Jaemin Oh}
+\institute{KAIST}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{Contents}
+	\tableofcontents
+\end{frame}
+
+\begin{frame}
+	\frametitle{conformal map}
+	\begin{itemize}
+		\item $U, V$ : open subsets of $\mathbb{C}$
+		\item $f$ is a function of $U$ into $V$
+		\item $f$ is conformal if $f$ is bijective and holomorphic.
+		\item conformal = biholomorphic
+		\item If $h$ is holomorphic function of $U$, and $U$ is somewhat complicated, by considering $h \circ f$, we can change the domain of $h$.
+		\item why conformal? it preserves the angle.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{characterizing conformal self mapping of $\mathbb{C}$}
+	\begin{itemize}
+		\item natural example: $az + b$ for $a \ne 0$
+		\item In fact, above form is all of them.
+		\item Note that we are considering not just entire function. Conformal self mappings of $\mathbb{C}$ has more condition than entire function.
+			\begin{alertblock}{Lemma 6.1.2.}
+				If $f: \mathbb{C} \rightarrow \mathbb{C}$ is a conformal then $\lim_{|z| \rightarrow \infty} |f(z)| = \infty$.
+\end{alertblock}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{proof of lemma 6.1.2.}
+	\begin{itemize}
+		\item Fix $M$. We want to show existence of $N$ such that $f\left( \left\{ z: |z| > N \right\} \right) \subset \left\{ w: |w| > M \right\}$. 
+
+		\item Above is equivalent to $\left\{ z : |z| > N \right\} \subset f^{-1}\left( \left\{ w: |w|>N \right\} \right)$ since $f$ is bijective. 
+
+		\item Above is equivalent to $\left\{ z : |z| \leq N \right\} \supset f^{-1}\left( \left\{ w: |w| \leq M \right\} \right)$ by taking complement. 
+
+		\item Existence of $N$ is clear since RHS of above is compact($\Rightarrow$ closed and bounded). 
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{characterizing conformal self mapping of $\mathbb{C}$}
+
+
+	 We already know that $f$ must be polynomial when $f$ is entire and $f \rightarrow \infty$ as $|z| \rightarrow \infty$. Using this and fundamental thm of algebra, we can characterize conformal self mapping of complex plane. \\
+	\pause
+
+	\begin{alertblock}{lemma 6.1.3}
+		$f$ is a conformal self mapping of $\mathbb{C}$. Then there are $B, D >0$ such that $|z| > D$ implies $|f(z)| < B|z|$.
+		
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{proof of lemma 6.1.3.}
+	\begin{itemize}
+		\item There is $C$ such that $|z|>C$ implies $|f(z)| >1$.
+		\item Define $g(z) = 1/f\left( {1 \over z} \right)$ for $z \in D'(0, \frac{1}{C})$.
+		\item As $z \rightarrow 0$, $g \rightarrow 0$. So $g$ has removable singularity at $0$.
+		\item $g'(0) \ne 0$ since $g$ is injection since $f$ is injection.
+		\item Near $0$, $\left | \frac{g(z)}{z} \right | > \frac{1}{B}$. 
+		\item Near $0$, $\left | f(\frac{1}{z}) \right | < \frac{B}{|z|}$.
+		\item $z \mapsto \frac{1}{z}$ leads the conclusion.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{characterizing}
+	\begin{itemize}
+		\item Consider $|f^{(n)}(0)| \leq \frac{n!}{r^n}\sup_{w \in \partial D(0, r)}|f(w)|$.
+		\item For $r > D$, supremum above $\leq Br$ by lemma 6.1.3.
+		\item If $n >1$, by letting $r \rightarrow \infty$, $n$-th derivative of $f$ at $0$ must be zero.
+		\item Therefore $f$ must be polynomial of degree at most $1$.
+		\item But $f$ must be nonconstant. So $f(z) = az + b $ for $a \ne 0$.
+		\item We are characterized conformal self mappings of $\mathbb{C}$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{remark}
+	\begin{itemize}
+		\item $h$ is holomorphic on $\left\{ z: |z| > \alpha \right\}$ and $\lim_{|z| \rightarrow \infty} |h(z)| = \infty$.
+		\item By same procedure in proof of lemma 6.1.3, we can conclude that there are $B, D>0$ such that $|z| > D \Rightarrow |h(z)| < B|z|^n$ for some $n$.
+		\item Why $n$? Because we cannot say $g'(0) \ne 0$. But, $g^{(n)}(0) \ne 0$ for some $n$ since $g$ is nonconstant since $h$ is nonconstant. *$g(z) = 1/h(1/z)$
+		\item Note that entire function $\varphi$ which satisfies $\lim_{|z| \rightarrow \infty} |\varphi(z) | = \infty$ must be polynomial.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{characterizing conformal self mapping of unit disc}
+	\begin{itemize}
+		\item natural example : rotation ($f(z) = wz$ for $|w| = 1$)
+		\item In fact, above form is all of them which fixes origin.
+		\item 
+			\begin{alertblock}{lemma 6.2.1.}
+				$f: D \rightarrow D$ is biholomorphic which fixes origin iff $f(z) = wz$ for $|w| = 1$
+				
+			\end{alertblock}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{proof of lemma 6.2.1.}
+	\begin{itemize}
+		\item $g = f^{-1}$. Then both of $f, g$ are fixing origin.
+		\item Schwarz lemma says $|f'(0)| $ and $|g'(0)|$ are $\leq 1$.
+		\item Chain rule says $f'(0)g'(0) = 1$. This leads $|f'(0)| = |g'(0)| = 1$. 
+		\item Uniqueness of Schwarz lemma tells us that $f(z) = f'(0)z$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mobius transformation}
+	\begin{itemize}
+		\item $\varphi_a(z) = \frac{z-a}{1-\bar{a}z}$ for $|a| <1$ is called Mobius transformation. 
+
+		\item Theorem 5.5.2 says $\varphi_a$ is conformal self mapping of unit disc. So we take it for granted.
+
+		\item 
+			\begin{alertblock}{theorem 6.2.3.}
+				$f$ is conformal self mapping of unit disc. Then $f(z) = w \varphi_a(z)$ for some $|a|<1$ and $|w| = 1$. 
+				
+			\end{alertblock}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{proof of theorem 6.2.3.}
+
+	\begin{itemize}
+		\item $f(0) = b$. Let $g = \varphi_b \circ f$. Then $g$ fixes origin.
+		\item $g(z) = wz$ for some $|w| = 1$. Namely, $f(z) = \varphi_b^{-1}(wz)$. Note that any $f$ must be such form.
+		\item But $\varphi_b^{-1} = \varphi_{-b}$.
+		\item $f(z) = \frac{wz + b}{1+ \bar{b}wz}$
+		\item Simple calculation leads $f(z) = w \varphi_{-bw^{-1}}(z)$.
+		\item Take $a = -bw^{-1}$.
+
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{automorphism group}
+	\begin{itemize}
+	
+		\item Set of all conformal self mapping of unit disc forms group under composition. It is called automorphism group of unit disc.
+
+		\item Mobius transformation denotes automorphism of unit disc.
+		\item Further, fix $U$ then $\left\{ \text{conformal self mapping of }U \right\}$ forms a group under composition.
+		\item it is called automorphism group of $U$.
+	\end{itemize}
+
+\end{frame}
+\begin{frame}
+	\frametitle{preliminaries of linear fractional transformation}
+	\begin{itemize}
+		\item Riemann sphere is $\mathbb{C} \cup \infty \cong S^2$ by stereographic projection.
+		\item $p_i \rightarrow p_0$ in R-sphere is equivalent to $\pi^{-1}(p_i) \rightarrow \pi^{-1}(p_0)$ in $S^2$.
+		\item Note that image of north-pole in $S^2$ under projection is $\infty$.
+		\item Also, above definition of limit in extended plane is congruent to definition using metric.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{linear fractional transformation}
+	\begin{itemize}
+		\item $g : \mathbb{C} \rightarrow \mathbb{C}$ is meromorphic iff $\hat{g} : \mathbb{C} \rightarrow \hat{\mathbb{C}}$ is holomoprhic.
+		\item $f: \hat{\mathbb{C}} \rightarrow \hat{\mathbb{C}}$
+		\item Let $ad-bc \ne 0$, $a, b, c, d \in \mathbb{C}$. $f(z) = \frac{az + b}{cz+d}$ is called linear fractional transformation if it satisfies two more conditions.
+		\item If $c=0$, $f(\infty) = \infty$. In this case, $f$ is a linear map.
+		\item If $c\ne 0$, $f(-\frac{d}{c})= \infty$, $f(\infty) = \frac{a}{c}$.
+		\item Note that $f(p_i) \rightarrow f(p_0)$ when $p_i \rightarrow p_0$ for all $p_0 \in \mathbb{C} \cup \infty$.
+		\item Above says continuity of $f$ on the Riemann sphere.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{linear fractional transformation}
+	\begin{itemize}
+		\item $[ [a, b], [c, d] ] = A \in GL_2(\mathbb{C})$
+
+		\item $A \cdot z = \frac{az+b}{cz+d}$ is a group action (by simple calculation)
+
+		\item $A^{-1} \cdot (A \cdot z ) = I \cdot z = z$, hence $A \cdot z$ has the inverse, hence bijective
+
+		\item We already know that $A \cdot z$ is continuous on Riemann sphere(by previous frame), hence homeomorphism
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{l.f. transformation as conformal self mapping of Riemann sphere}
+	\begin{itemize}
+		\item When $c = 0$, $g(z) = 1/f(1/z)$ is holomorphic near $0$ (because $f(\infty) = \infty$) hence $f$ is holomorphic at $\infty$.
+			
+		\item When $c \ne 0$, $h(z) = 1/f(z)$ is holomorphic near $z = -d/c$. \\
+			Also $g(z) = 1/f(1/z)$ is holomoprhic near $0$.\\
+			Therefore $f$ is holomorphic at $-d/c$ and $\infty$.
+
+		\item In both cases, $f$ is self conformal mapping of the Riemann sphere.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{characterizing conformal self mapping of the Riemann sphere}
+	\begin{itemize}
+		\item Let $\varphi$ be a conformal self mapping of the Riemann sphere.
+
+		\item If $\varphi$ maps $\infty$ to $\infty$, then $\varphi$ must be linear.
+
+		\item If $\varphi(\infty) = a$, then exists $\psi$: l.f. transformation maps $a$ to $\infty$ \\
+			Then $\psi \circ \varphi$ maps $\infty$ to $\infty$.\\
+			By above, $\psi \circ \varphi$ must be linear, and by considering $\varphi(z) = \psi^{-1}(\alpha z + \beta)$, we can conclude that $\varphi$ must be l.f. transformation.
+
+		\item Thm 6.3.5 : $f$ is conformal self mapping of the Riemann sphere iff $f$ is l.f. transformation.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{geometric property of l.f. transformation}
+\begin{itemize}
+\item Any line on Riemann sphere can be regarded as circle by stereographic projection. \\
+
+\item	Any l.f. transformation can be represented as composite of translation, dialation, and inversion. \\
+
+\item	Translation and dialation maps circle on Riemann sphere to circle. \\
+
+\item	In fact, inversion maps circle to circle. 
+	\end{itemize}
+\end{frame}
+	\begin{frame}
+		\frametitle{inversion maps circle to circle}
+		\begin{itemize}
+\item	$\alpha(x^2 + y^2) + \beta x + \gamma y + \delta = 0$ represents arbitrary circle on Riemann sphere.\\
+
+\item Let $z = x+iy$ and $w = 1/z = u+iv$. Then simple calculation yields $x = u/(u^2 + v^2)$ and $y = -v/(u^2+v^2)$.
+
+\item $\alpha + \beta u - \gamma v + \delta(u^2 + v^2) = 0$ represents generalized circle also. 
+
+\item therefore we can see that inversion maps circle to circle on Riemann sphere.
+
+\item note that $0 \mapsto \infty$ by inversion. So circle pass through origin goes to line does not pass origin and so forth.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{thm 6.3.6.}
+	\begin{itemize}
+		\item Consider $f:z \mapsto \frac{z-i}{z+i}$.
+		\item This maps $(1, 0, \infty, i)$ to $(\frac{1-i}{1+i}=-i, -1, 1, 0)$ respectively.
+		\item Note that $1, 0, \infty$ are points in boundary of upper half plane.
+		\item And $-i, -1, 1$ are points in boundary of unit disc.
+		\item $f$ maps boundary of upper half plane onto boundary of unit disc.
+		\item $f$ maps upper half plane onto unit disc since $f$ is continuous and upper half plane is connected.
+	\end{itemize}
+\end{frame}
+\end{document}
+

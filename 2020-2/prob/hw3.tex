@@ -1,0 +1,53 @@
+\begin{problem}[1.5.1] \hfill
+
+	First, we will show that $ | g | \leq \| g \|_\infty$ a.e.
+
+	It is true because
+	\begin{equation*}
+		\begin{split}
+			\mu\left( |g| > \|g\|_\infty \right) & =
+			\mu\left( \bigcup_{n=1}^{\infty}\left\{ |g| \geq \| g \|_\infty + {1 \over n} \right\} \right) \\
+			& \leq \sum_{n=1}^{\infty}\mu\left( \left\{ |g| > \|g\|_\infty + {1 \over n} \right\} \right) \\
+			& = 0
+		\end{split}
+		\label{<+label+>}
+	\end{equation*}
+	by definition of $\|g \|_\infty$.
+
+	Hence $|g| \leq \| g \|_\infty$ a.e.
+
+	Then, $\int |fg|d\mu \leq \|g \|_\infty \int |f| d\mu = \|g \|_\infty \| f \|_1$. 
+\end{problem}
+
+\begin{problem}[1.5.3] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Since $p>1$, $x \mapsto |x|^p$ is convex function. $|f+g|^p \leq 2^{p-1}(|f|^p + |g|^p)$ follows from convexity of $|x|^p$.
+
+			$\int |f+g|^p d\mu \leq \int 2^p|f|^p d\mu + \int 2^p |g|^p d\mu$. Therefore finiteness of $\|f \|_p$ and $\| g \|_p$ leads $\| f + g \|_p < \infty$.
+
+			Now, consider $\int |f+g|^p d\mu = \int |f+g||f+g|^{p-1}d\mu \leq \int |f||f+g|^{p-1}d\mu + \int |g||f+g|^{p-1}d\mu$. Let $q$ be Holder conjugate of $p$. Then by applying Holder inequality, we get $\|f+g\|_p^p \leq \|f+g\|_p^{p/q}(\|f\|_p + \|g\|_p)$. Simple calculating leads Minkowski's inequality.
+
+		\item First consider $p=1$. By using triangle inequaltiy, the result follows directly.
+		Next consider $p=\infty$. $|f+g| \leq |f| + |g| \leq \| f \|_\infty + \| g \|_\infty$ a.e. Therefore $\| f + g \|_\infty \leq \|f \|)\infty + \| g \|_\infty$.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}[1.6.8] \hfill
+
+	First assume $g = 1_A$. Then $\int g d\mu = \mu(A) = \int_A f(x)dx = \int 1_A f dm$ where $m$ is Lebesgue measure.
+	
+	Next, assume $g = \sum_i a_i 1_{A_i}$, simple function. Then $\int g d\mu = \sum_i a_i \mu\left( A_i \right) = \sum_i a_i \int 1_{A_i}f dm$.
+
+	Next, assume $g$ is nonnegative measurable. Let $\left\{ s_n \right\}_{n=1}^{\infty}$ be increasing sequence of simple function converges to $g$ pointwisely. Then $\int g d\mu = \lim_{n\rightarrow \infty} \int s_n d\mu = \lim_{n\rightarrow \infty} \int s_n f dm$. But $s_n f \uparrow gf$ since $f$ is nonnegative. By monotone convergence theorem, we can get $\int g d\mu = \int g f dm$.
+
+	Last, assume $g$ is integrable function. We can decompose $g$ by $g = g^+ - g^-$. Applying 3rd step for $g^+, g^-$ each, we can get $\int gd\mu = \int g^+ f dm - \int g^- f dm = \int gf dm$ since $f$ is nonnegative.
+	
+\end{problem}
+
+\begin{problem}[1.6.13] \hfill
+
+	Since $X_n \uparrow X$, $X_n^+ \uparrow X^+$ and $X_n^- \downarrow X^-$. And note that $X_n^- \leq X_1^-$ which is integrable. Apply monotone convergence theorem to $X_n^+$ and apply dominated convergence theorem to $X_n^-$ to get $\lim EX_n = \lim EX_n^+ - \lim EX_n^- = EX^+ - EX^- = EX$.
+	
+\end{problem}
+
+

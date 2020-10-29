@@ -1,0 +1,62 @@
+Comment: In problem 19 and 21, we treat the functions in $L^1$. So $f(x) - g(x)$ is well defined except on null set $N$ which is $\{ x: f(x) = \pm \infty \text { or } g(x) = \pm \infty \} $. \\
+
+Problem 19. \\
+
+It is trivial to check whether $f$ is measurable or not. (Surely measurable.)\\
+There are countably many corresponding null sets. Let $N$ be a union of such null sets.
+Then all assumptions of problem are valid except on $N$.
+Note that $\lim_{k\rightarrow \infty} \left| f_k\left( x \right) \right | \leq \lim_{k\rightarrow \infty} g_k \left( x \right) = g(x)$ almost everywhere  and $g \in L^1$ so $f \in L^1$.
+Now consider $g_k + g - \left | f - f_k  \right | = h_k $ which is nonnegative measurable function except on $N$.
+By applying Fatou's lemma, we can get :
+
+\begin{multline*}
+	\int \liminf_{k \rightarrow \infty } h_k d\lambda \leq \liminf_{k\rightarrow \infty } \left( \int g d\lambda + \int \left( g_k - \left | f - f_k  \right |  \right) d\lambda  \right) = \\
+	\int g d\lambda - \limsup_{k\rightarrow \infty } \left( \int \left( \left| f - f_k  \right | - g_k \right) d\lambda  \right) \leq 0
+\end{multline*}
+
+Therefore $\int g d\lambda + \limsup_{k\rightarrow \infty }\left( \int \left( \left | f- f_k \right| - g_k \right)d\lambda \right) \leq 0$. But we know that $\int g d\lambda = \limsup\int g_k d\lambda$ and $\limsup\left( a_k + b_k  \right) \leq \limsup\left( a_k  \right) + \limsup \left( b_k \right) $.
+Thus, 
+\begin{equation*}
+	\limsup_{k\rightarrow \infty } \left(  \int \left( g_k + \left | f - f_k  \right | - g_k  \right) d\lambda  \right) \leq 0
+\end{equation*}
+which means $\lim_{k\rightarrow \infty } \int \left| f - f_k \right | d\lambda = 0$ because limsup of nonnegative sequence goes to positive (or infinity) when it does not go to 0.
+
+Then $\lim \left | \int f_k d\lambda - \int f d\lambda  \right | = 0$, which implies conclusion of our problem.\\
+
+\subsection*{section D. Integration over subsets of $\mathbb{R}^n$ } \hfill \\
+
+Problem 20. \\
+
+It is obvious that $\{ x \in E : - \infty \leq f(x) \leq t \} \subset E$ for every $t \in \left[ -\infty, \infty \right]$. By completeness of Lebesgue measure $\lambda$, every subset of null set is measurable. Hence $f$ is measurable.
+
+Now consider $0 \leq s \leq f_{+}1_{E}$ where $s$ is nonnegative simple function. $s$ can have positive value on subset of $E$. Therefore $\int s d\lambda = 0$. So $\int f_{+} 1_{E} d\lambda  = 0$. Similarly, we can show that $\int f_{-} 1_{E} d\lambda = 0$. Thus we get $\int _{E} f d\lambda = 0 $ for all measurable function defined on $E$. \\
+
+Problem 21. \\
+
+There are countably many corresponding null sets. Let $N$ be a union of such null sets. Then all assumptions of problem are valid except on $N$.
+Now consider $ \left | f - f_k  \right| \leq f + f_k = g_k \in L^1$ a.e. and $\lim g_k = 2f$ exists a.e. and $\lim \int g_k d\lambda = \int 2f d\lambda$. So all the assumptions of problem 19 are satisfied.
+
+Therefore $\lim_{k\rightarrow \infty } \int \left | f_k - f  \right | d\lambda = \int \lim_{k\rightarrow \infty } \left| f_k - f  \right | d\lambda = 0$.
+
+From above and $\int_{E} f d\lambda \leq \int f d\lambda $ for nonnegative measurable function $f$, we can get
+\begin{equation*}
+	\lim \left| \int_{E} f d\lambda - \int_{E} f_k d\lambda  \right | \leq \lim \int_{E} \left| f- f_k \right| d\lambda = 0
+\end{equation*}
+So $\lim_{k\rightarrow \infty}\int_{E}f_k d\lambda = \lim _{k\rightarrow \infty}\int_{E}f d\lambda$. \\
+
+\subsection*{section E. Generalization of Measure Space} \hfill \\
+
+Problem 22. \\
+
+Let $A_1 = A$, $A_2 = B \setminus A$, $A_k = \emptyset$ for $k \geq 3$. Then by countable additivity of $\mu$,
+$\mu\left( \bigcup_{k=1}^{\infty} A_k  \right) = \mu \left( B  \right) = \mu\left( A \right) + \mu\left( B\setminus A \right)$. Therefore $\mu\left( A \right) \leq \mu\left( B \right)$ because $B\setminus A \in \mathcal{M}$ and $\mu\left( B \setminus A \right) \geq 0$. \\
+
+Problem 24. \\
+
+Let $B_1 = A_1 $, $B_k = A_k \setminus \bigcup_{j=1}^{k-1}A_j \subset A_k$ for $k\geq 2$. Then $B_k$'s are pairwise disjoint and in $\mathcal{M}$. Also $\bigcup_{k=1}^{\infty}B_k = \bigcup_{k=1}^{\infty}A_k$.
+Therefore $\mu \left( \bigcup_{k=1}^{\infty} A_k  \right) = \mu \left( \bigcup_{k=1}^{\infty} B_k  \right) = \sum_{k=1}^{\infty} \mu\left( B_k \right) \leq \sum_{k=1 }^{\infty}\mu\left( A_k \right)$. \\
+
+Problem 25. \\
+
+Let $B_1 = A_1$ and $B_k = A_k \setminus A_{k-1}$ for $k \geq 2$. Then $B_k$'s are pairwise disjoint and union from index 1 to index $N \in \mathbb{N} \cup \infty $ is same for that of $A_k$'s.
+Therefore $\mu\left( \bigcup_{k=1}^{\infty}B_k  \right) = \mu\left( \bigcup_{k=1}^{\infty}A_k \right) = \sum_{k=1}^{\infty}\mu\left( B_k \right) = \lim \sum_{k=1}^n \mu\left( B_k \right) = \lim \mu\left( A_n \right)$. \\

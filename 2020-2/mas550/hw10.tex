@@ -1,0 +1,94 @@
+\begin{problem}[4.2.8] \hfill
+
+	Let $\nu = \inf\left\{ k : \Pi_{m=1}^{k}\left( 1+Y_m \right) > M \right\}$ for $M>0$.
+	Let $U_n = MX_n \Pi_{m=1}^{n-1}\left( 1+Y_m \right)^{-1}$.
+	Clealry $\nu$ is a stopping time.
+	Now we claim that $U_{n \wedge \nu}$ is positive supermartingale.
+
+\[
+	\begin{split}
+		E\left( U_{n+1 \wedge \nu} | \mathcal{F}_n \right)
+		& = E\left( U_\nu 1_{\left\{ n+1 > \nu \right\}} + U_{n+1} 1_{ \left\{ n+1 \leq \nu \right\}} | \mathcal{F}_n \right) \\
+		& \leq U_\nu 1_{ \left\{ \nu \leq n \right\}} +1_{ \left\{ n+1 \leq \nu \right\}} M \Pi_{m=1}^n \left( 1+Y_m \right)^{-1} X_n (1+Y_n) \\
+		& = U_{\nu} 1_{ \left\{ \nu \leq n \right\}} + 1_{ \left\{ n < \nu \right\}} M \Pi_{m=1}^{n-1}\left( 1+Y_m \right)^{-1}X_n\\
+		& = U_{\nu \wedge n}
+	\end{split}
+\]
+Above manipulation is possible since $\left\{ n+1 \leq \nu \right\} = \left\{ \nu \leq n \right\}^c$.
+Thus $U_{n \wedge \nu}$ is a positive supermartingale, so it converges almost surely.
+
+Note that $\sum Y_n < \infty$ implies $\Pi (1+Y_n) < \infty$ by considering $1+x \leq \exp(x)$ and its partial product.
+Now fix $w$ so that $U_{\nu \wedge n}(w)$ and $\Pi(1+Y_n(w))$ are convergent. 
+Choose $M > \Pi\left( 1+Y_n \right)$.
+Then $\nu = \infty$, so $U_{\nu \wedge n} = U_n$.
+But we know that $U_{\nu \wedge n}(w)$ converges, say to $K$.
+Then for that $w$, $X_n(w) \rightarrow K(w) \Pi\left( 1+Y_n(w) \right) /M$.
+Thus we can say that $X_n$ converges almost surely.
+
+\qed
+
+\end{problem}
+
+\begin{problem}[4.3.3] \hfill
+
+	It is very similar to \#4.2.8.
+
+	Let $\nu = \inf\left\{ k : \sum_{m=1}^k Y_m > M \right\}$ for $M>0$.
+	Clearly, $\nu$ is a stopping time.
+	Let $U_n = X_n - \sum_{m < n}Y_m + M$.
+	Then clearly, $U_{n \wedge \nu}$ is nonnegative random variables.
+	Now we claim that $U_{n \wedge \nu}$ is a supermartingale.
+\[
+	\begin{split}
+		E\left( U_{n+1 \wedge \nu} | \mathcal{F}_n \right)
+		& = E\left( U_{\nu} 1_{ \left\{ \nu < n+1 \right\}} + U_{n+1} 1_{ \left\{ n+1 \leq \nu \right\}} | \mathcal{F}_n \right)\\ 
+		& \leq U_\nu 1_{ \left\{ \nu < n+1 \right\}} + 1_{\left \{n+1 \leq \nu \right \}} \left( X_n + Y_n - \sum_{m < n+1}Y_m +M \right)\\
+		& = U_{\nu}1_{ \left\{ \nu \leq n \right\}} + U_n 1_{\left \{n < \nu \right \}} \\
+		& = U_{\nu \wedge n}
+	\end{split}
+\]
+Above is possible since $\left\{ \nu \geq n+1 \right\} = \left\{ \nu \leq n \right\}^c \in \mathcal{F}_n$.
+Thus $U_{n \wedge \nu}$ is a positive supermartingale, so it converges almost surely.
+
+Now, fix $w$ so that $U_{n\wedge \nu}(w), \sum Y_n(w)$ both are convergent.
+Choose $M > \sum Y_n(w)$. Then $\nu = \infty$ so $U_{n \wedge \nu} = U_n$.
+Then we can say that $U_n(w) \rightarrow K(w)$, so $X_n(w) \rightarrow K(w) - M + \sum Y_n(w)$.
+Thus $X_n$ converges almost surely.
+
+\qed
+
+\end{problem}
+
+\begin{problem}[4.3.4] \hfill
+
+	Let $\left\{ Y_n \right\}_{n=1}^\infty$ be a sequence of independent random variables such that $P(Y_n = 1) = p_n$.
+	Also let $P(Y_n = 0) = 1-p_n$.
+	Since $Y_n$ are indepdendent, by Borel Canteli lemma (1st and 2nd both) implies that
+\[
+	\sum_{n\geq 1}p_n = \sum_{n\geq 1} P(Y_n = 1) = \infty \Leftrightarrow P(Y_n =1 i.o.) = 1
+\]
+	Note that $\cap_{n=N}^{N+k}\left\{ Y_n = 0 \right\} \downarrow \cap_{n=N}^{\infty}\left\{ Y_n = 0 \right\}$.
+	So $\Pi_{n=N}^{N+k} (1-p_n) \rightarrow \Pi_{n=N}^\infty (1-p_n)$ as $k\rightarrow \infty$.
+
+	Since $P(Y_n = 1 i.o.) = P(\cap_{N=1}^\infty \cup_{n \geq N} \left\{ Y_n = 1 \right\})=1$, we can get the following:
+
+\[
+	\begin{split}
+		P(\bigcap_{N \geq 1} \bigcup_{n\geq N} \left\{ Y_n = 0 \right\}) = 0
+		& = \lim_{N\rightarrow \infty} P\left( \bigcap_{n\geq N}\left\{ Y_n = 0 \right\} \right) \\
+		& = \lim_{N\rightarrow \infty} \lim_{k\rightarrow \infty} P\left( \bigcap_{n=N}^{N+k}\left\{ Y_n = 0 \right\} \right)\\
+		& = \lim_{N\rightarrow \infty} \lim_{k\rightarrow \infty} \Pi_{n=N}^{N+k}(1-p_n) \\
+		& = \lim_{N\rightarrow \infty} \Pi_{n\geq N} (1-p_n)
+	\end{split}
+\]
+But, $\Pi_{n\geq N} (1-p_n) \leq \Pi_{n\geq M} (1-p_n)$ where $M \geq N$ since $1-p_n \leq 1$.
+Therefore we can see that $\Pi_{n\geq N} (1-p_n) \leq \lim_{N\rightarrow \infty}\Pi_{n\geq N}(1-p_n) = 0$ by above.
+So, $\Pi_{n\geq N}(1-p_n) = 0$ for all positive integer $N$.
+
+For the other direction, suppose $\Pi_{n \geq 1 } (1-p_n) = 0$. Then its partial product must converge to zero.
+It means that $\Pi_{n\geq N} (1-p_n) = 0$ for every $N$.
+Then $\lim_{N}P(\cap_{n\geq N}\left\{ Y_n  = 0 \right\}) = 0$.
+So $P(Y_n = 1 i.o.) = 1$ which implies the result.
+\qed
+	
+\end{problem}

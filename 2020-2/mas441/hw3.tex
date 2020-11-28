@@ -1,0 +1,210 @@
+\begin{problem}[3.5] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item It is enough to show that $\int_0 ^{1/2} \frac{dx}{x(\log x)^2} < \infty$.
+			\[
+				\begin{split}
+					\int_0^{1/2}\frac{dx}{x(\log x)^2}
+					& = \lim_{n\rightarrow \infty} \int_{1/n}^{1/2} \frac{dx}{x (\log x )^2} \\
+					& = \lim_{n\rightarrow \infty} \int_{-\log n}^{-\log 2} \frac{dt}{t^2} \\
+					& = \lim \left( 1/\log 2 - 1/\log n \right) = 1/ \log 2 <\infty
+				\end{split}
+			\]
+			By MCT and the change of variable formula.
+			Thus $f$ is integrable.
+
+		\item Fix $x \in \left[ -1/2, 1/2 \right]$. Let $\varepsilon > 0$ be small. Consider $B = \left( -|x| -\varepsilon, |x| +\varepsilon \right)$.
+			\[
+				\begin{split}
+					f^*(x)
+					& \geq \frac{1}{2|x|+2\varepsilon} \int_{-|x|-\varepsilon}^{|x|+\varepsilon}\frac{dt}{|t|(\log |t|)^2} \\
+					& = \frac{1}{|x| + \varepsilon} \int_0^{|x|+\varepsilon}\frac{dt}{t(\log t)^2}\\
+					& \geq \frac{1}{|x|+\varepsilon} \int_0^{|x|} \frac{dt}{t (\log t)^2} \\
+					& = \frac{1}{|x|+\varepsilon}\frac{1}{-\log|x|}
+				\end{split}
+			\]
+			by similar calculation to above.
+			The above inequality for maximal function of $f$ holds for all small $\varepsilon>0$, thus we can say that $f^*(x) \geq 1/\left( -|x|\log|x| \right)$.
+
+			Now, it remains to show that $f^*$ is not locally integrable.
+			This can be done by considering the following:
+			\[
+				\begin{split}
+					\int_{-1/2}^{1/2} f^*(x) dx 
+					& \geq 2\int_{0}^{1/2} \frac{dx}{-x\log x} \\
+					& = 2 \lim_{n\rightarrow \infty} \int_{1/n}^{1/2}\frac{dx}{-x\log x} \\
+					& = 2 \lim_{n\rightarrow \infty} \left( \log\left( 1/\log 2 \right) - \log\left( 1/\log n \right) \right) = \infty
+				\end{split}
+			\]
+			Thus $f^*$ is not integrable on $(-1/2, 1/2)$, this implies the result.
+
+			\qed
+	\end{enumerate}
+
+\end{problem}
+
+\begin{problem}[3.12] \hfill
+
+	By chain rule, $F'$ exists for all $x \ne 0$.
+	But, 
+	\[
+		\lim_{h \rightarrow 0} \frac{F(h)}{h} = \lim_{h\rightarrow 0} h\sin (1/h^2) = 0
+	\]
+	Thus $F'$ exists for all $x\in \mathbb{R}$.
+
+	For $1/\sqrt{2n\pi + \pi/6} \leq x \leq 1/\sqrt{2n\pi - \pi/6}$, $2n\pi - \pi/6 \leq 1/x^2 \leq 2n\pi + \pi/6$, thus $\cos 1/x^2 \geq sqrt{3}/2$ and $\left | \sin 1/x^2 \right | \leq 1/2$.
+	So $|F'| \geq 2/x \cos 1/x^2 - 2x \left | \sin 1/x^2 \right | \geq \sqrt3 \sqrt{2n\pi -\pi/6} - 1/\sqrt{2n\pi - \pi/6}$.
+	
+	By using the above,
+	\[
+		\begin{split}
+			\int_0^1 |F'| dm
+			& \geq \sum_{n=1}^\infty \left( 1/\sqrt{2n\pi - \pi/6} - 1/\sqrt{2n\pi +\pi/6} \right)\left( \sqrt3 \sqrt{2n\pi - \pi/6} - 1/\sqrt{2n\pi - \pi/6} \right) \\
+			& = \sum_{n=1}^\infty \frac{\pi / \sqrt 3}{\sqrt{2n\pi + \pi/6}\left( \sqrt{2n\pi + \pi/6} + \sqrt{2n\pi - \pi/6} \right)} \\
+			& -\sum_{n=1}^\infty \frac{\pi/3}{\left( 2n\pi - \pi/6 \right)\sqrt{2n\pi+\pi/6} \left( \sqrt{2n\pi + \pi/6} + \sqrt{2n\pi - \pi/6} \right)}
+		\end{split}
+	\]
+	where the last sum converges and previous one diverges (by $p$-test.)
+	Thus $F'$ is non-integrable.
+
+	\qed
+\end{problem}
+
+\begin{problem}[3.14] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Given $\varepsilon >0$, we can always find $n \in \mathbb{N}$ such that $1/n < \varepsilon$.
+			Therefore, 
+			\[
+				\limsup_{h\downarrow 0} \frac{F(x+h)-F(x)}{h} = \lim_{n\rightarrow \infty} \sup_{0<h<1/n} \frac{F(x+h)- F(x)}{h}
+			\]
+
+			Let $q$ be a rational number.
+			Clearly, the following is true:
+			\[
+				\sup_{0<q<1/n}\frac{F(x+q)-F(x)}{q} \leq \sup_{0<h<1/n}\frac{F(x+h)-F(x)}{h}
+				\label{eq:3.14.2}
+				\tag{3.14.2}
+			\]
+			
+			If the above inequality is strict, then there is $h' \in (0, 1/n)$ such that
+			\[
+				\sup_{0<q<1/n}\frac{F(x+q)-F(x)}{q} < \frac{F(x+h')-F(x)}{h'}
+				\label{eq:3.14.3}
+				\tag{3.14.3}
+			\]
+			
+			Let $q_i \in (0, 1/n)$ be a sequence of rational numbers such that $q_i \rightarrow h'$.
+			Then by continuity of $F$ and $h'>0$, 
+			\[
+				\lim_{i\rightarrow \infty} \frac{F(x+q_i) - F(x)}{q_i} = \frac{F(x+h') - F(x)}{h'}
+			\]
+			
+			But the above is impossible due to strict inequality in \ref{eq:3.14.3}.
+			Thus, only equality can be possible in \ref{eq:3.14.2}.
+
+			Therefore, 
+			\[
+				\limsup_{h\downarrow 0}\frac{F(x+h) - F(x)}{h} = \inf_{n} \sup_{0<q<1/n} \frac{F(x+q) - F(x)}{q}
+			\]
+			which is countable $\limsup$. And $\frac{F(x+q)-F(x)}{q}$ is measurable due to the continuity of $F$.
+			Thus the result follows.
+
+			\qed
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}[3.15] \hfill
+
+	Let $F$ be function of bounded variation on $[a, b]$.
+	We can write $F(x) = F(a) + P_F(a, x) -N_F(a, x)$ for $x \in [a, b]$.
+	Let $F_1(x) = F(a) + P_F(a, x)$ and $F_2$ be the other.
+	Clearly $F_i$'s are bounded, increasing function.
+	Thus it remains to show that $P_F, N_F$ are continuous provided by the continuity of $F$.
+
+	Let $\varepsilon>0$ be given, choose $\delta>0$ such that $|F(x+h) - F(x)| < \varepsilon$ if $|h| < \delta$.
+	Without loss of generality, assume $h>0$.
+	By the definition of $P_F$, there are partitions of $[a, x], [a, x+h]$ such that $P_F(a, x) - \sum_{+}\left( F(t_j) - F(t_{j-1}) \right) < \varepsilon$ and $P_F(a, x+h) - \sum_{+} \left( F(s_j) - F(s_{j-1}) \right) < \varepsilon$.
+	Now consider the common refinement of those two partition. Then:
+	\[
+		\begin{split}
+			P_F(a, x+h) - P_F(a, x) 
+			& \leq 2\varepsilon + \sum_{+}\left( F(s_j) - F(s_{j-1}) \right) - \sum_{+}\left( F(t_j) - F(t_{j-1}) \right) \\
+			& = 2\varepsilon + \sum_{+}\left( F(s_j') - F(s_{j-1}') \right) \\
+			& \leq 2\varepsilon + |F(x+h) - F(x)| \leq 3\varepsilon
+		\end{split}
+	\]
+	where $s_j'$ is a positive part of partition of $[x, x+h]$.
+	When $h<0$, by similar manipulation, we can get the same result.
+	Thus $P_F$ is continuous.
+
+	All the above calculation can be applied to the process showing the continuity of $N_F$.
+
+	\qed
+
+\end{problem}
+
+\begin{problem}[3.16] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $F(x) = F(a) + P_F(a, x) - N_F(a, x) = F_1(x) + F_2(x)$.
+			Since $F, F_1, F_2$ are of bounded variation(because $F_i$'s are increasing), their derivative exists a.e.
+			Further, $F' = F_1' - F_2'$.
+			Since $F_i$'s are increasing, we can say $F_i' \geq 0$ a.e.
+			So $F' = F_1 ' - F_2' \leq F_1' + F_2'$.
+			Similarly, $-F' \leq F_1' + F_2'$.
+			So $|F'| \leq F_1' + F_2'$.
+			By integrating the previous inequality from a to b, we get $\int_a^b |F'| dm \leq \int_a^b F_1' + F_2' dm$.
+
+			But the last one is $ \leq F_1(b) - F_1(a) + F_2(b) - F_2(a) = P_F(a, b) + N_F(a, b) = T_F(a, b)$.
+
+			\qed
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[3.24] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item $F(x) \leq F(b)$ so $F$ is bdd increasing function. Let $F_J$ be corresponding jump function of $F$.
+			Then $F - F_J$ is continuous and increasing, so bounded.
+			By theorem 3.11, derivative of $F-F_J$ exists a.e., $\geq 0$, and integrable.
+			So, $F_A(x) = \int_a^x (F-F_J)'dm \leq (F-F_J)(x) - (F-F_J)(a)$. Then clearly $F_A$ is absolutely continuous.
+			Let $F_C(x) = F(x) - F_J(x) - F_A(x)$.
+			Then $F_C$ is sum of continuous functions, so continuous.
+			And since $F_A$ is absolutely continuous, its derivative is equal to $(F-F_J)'$ so $F_C' = 0$ a.e.
+			Note that $(F-F_J)' \geq 0$ implies $F_A$ is increasing.
+			Also note that for $x\leq y$,
+		\[
+			\begin{split}
+				F_C(x) - F_C(y)
+				& = F(x) - F(y) -F_J(x) +F_J(y) + \int_x^y (F-F_J)'dm\\
+				& \leq F(x) - F(y) -F_J(x) +F_J(y) + (F-F_J)(y) - (F-F_J)(x) \\
+				& = 0
+			\end{split}
+		\]
+		so $F_C$ is increasing function.
+
+	\item Let $F = F_A + F_C + F_J$. Note that $F_J$ can vary up to additive constant. Since $F_C' = 0$ a.e., derivative of $F- F_J$ and derivative of $F_A$ are equal almost everywhere.
+		So, due to absolute continuity of $F_A$, $F_A(x) - F_A(a) = \int_a^x F' dm = \int_a^x (F-F_J)'dm$. This means that $F_J$ determines $F_A$ up to additive constant. Then $F_C$ is determined automatically.
+
+		\qed
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[3.32] \hfill
+
+	Assume the Lipschitz condition. Take $\delta = \varepsilon /M$ when $\varepsilon>0$ is given.
+	For $(a_i, b_i)$ such that $\sum_i (b_i - a_i) < \delta$,
+	then $\sum_i |f(b_i) - f(a_i)| \leq M\sum_i (b_i - a_i) < M \delta = \varepsilon$. 
+	Thus $f$ is absolutely continuous. So $f'$ exists a.e.
+	Now consider the following:
+	\[
+		|f'(x)| = \lim_{h\rightarrow 0} \frac{|f(x+h)-f(x)|}{|h|} \leq M
+	\]
+	Thus $|f'| \leq M$ a.e. x.
+	
+	For the other direction, without loss of generality, assume $x\leq y$.
+	Since $f$ is absolutely continuous, $f'$ exists a.e, and $\int_x^y f' dm = f(y) - f(x)$.
+	Thus, $|f(x) - f(y) | = \left | \int_x^y f' dm \right | \leq \int_x^y |f'| dm \leq (y-x)M = |x-y|M$.
+
+	\qed
+\end{problem}

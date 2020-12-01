@@ -1,0 +1,102 @@
+\begin{problem}[4.4.7] \hfill
+
+	$\lambda >0$. For $c>0$,
+	\[
+		\begin{split}
+			P(\max_{1\leq m \leq n} X_m \geq \lambda)
+			& \leq P \left ( \max_{1 \leq m \leq n} (X_m + c)^2 \geq (\lambda+c)^2 \right ) \\
+			& \leq \frac{E(X_n+c)^2}{(\lambda+c)^2}
+		\end{split}
+	\]
+	since $(X_m + c)^2$ is a submartingale, and by the Doob's inequality.
+
+	Note that $E(X_n+c)^2 = EX_n^2 + c^2$ since $EX_n = EX_0 = 0$.
+	The minimum of the last term(with respect to $c$) occurs when $c = EX_n^2 / \lambda$ by differentiating it.
+	And, its minimum value is $EX_n^2 /(EX_n^2 + \lambda^2)$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[4.4.9] \hfill
+
+	Consider the following:
+	\[
+		\begin{split}
+			E\left( X_m -X_{m-1} \right)\left( Y_m -Y_{m-1} \right)
+			& = EX_mY_m - EX_mY_{m-1} - EX_{m-1}Y_m + EX_{m-1}Y_{m-1} \\
+			& = EX_mY_m - E\left( E(X_m Y_{m-1} | \mathcal{F}_{m-1}) \right) \\
+			& - E\left( E(X_{m-1}Y_m | \mathcal{F}_{m-1} ) \right) + EX_{m-1}Y_{m-1} \\
+			& = EX_mY_m - E\left( Y_{m-1}E(X_m | \mathcal{F}_{m-1}) \right) \\
+			& - E\left( X_{m-1}E(Y_m | \mathcal{F}_{m-1}) \right) +EX_{m-1}Y_{m-1} \\
+			& = EX_mY_m -EX_{m-1}Y_{m-1}
+		\end{split}
+	\]
+	So the result follows directly.
+	Note that $X_m Y_m$ is integrable due to the Cauchy-Schwartz inequality. 
+
+	\qed
+\end{problem}
+
+\begin{problem}[4.4.10] \hfill
+	
+	By the problem 4.4.9, $EX_n^2 = EX_0^2 + \sum_{m=1}^n E\xi_m^2 \leq EX_0^2 +\sum_{m=1}^\infty E\xi_m^2 < \infty$.
+	So $\sup_n E|X_n|^2 \leq EX_0^2 + \sum_{m=1}^\infty E\xi_m^2 < \infty$.
+	Therefore, the $L_2$ martingale convergence theorem implies the result.
+
+	\qed
+
+\end{problem}
+
+\begin{problem}[4.6.1] \hfill
+
+	Let $\mathcal{F}_n = \sigma\left( Y_1, \cdots Y_n \right)$.
+	Then $E(\theta | Y_1, \cdots Y_n) = E(\theta | \mathcal{F}_n)$.
+	By theorem 4.6.8, $E(\theta | \mathcal{F}_n) \rightarrow E(\theta | \mathcal{F}_\infty)$ a.s. and in $L_1$.
+	Now, it remains to show that $E(\theta |\mathcal{F}_\infty) = \theta$.
+
+	Conditioning on $\theta$, we can get the followings:
+	\[
+		E(Y_i |\theta) = E(Z_i + \theta | \theta) = \theta + E(Z_i | \theta) = \theta
+	\]
+	\[
+		E( |Y_i - \theta|^2 |\theta) = E(Z_i^2 |\theta) = E(Z_i^2) = 0
+	\]
+	by independence of $Z_i$ and $\theta$.
+
+	Define $X_n = \sum_{i=1}^n Y_i /n$. Clearly, $X_n$ are $\mathcal{F}_\infty$ measurable.
+	By the above observations, we can easily check that $E(|X_n - \theta|^2 | \theta) = 1/n$.
+	So, by integrating both sides, $E|X_n - \theta|^2 = 1/n$.
+	Therefore $X_n \rightarrow \theta$ in $L_2$.
+	By the fact that $L_2$ convergent sequence has a almost sure convergent subsequence,
+	we can say that $X_{n_k} \rightarrow \theta$.
+	But each $X_{n_k}$ is $\mathcal{F}_\infty$ measurable, we can say that $\theta$ is $\mathcal{F}_\infty$ measurable.
+
+	Thus, $E(\theta | \mathcal{F}_\infty) = \theta$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[4.6.7] \hfill
+
+	By triangle inequality,
+\[
+	| E(Y_n | \mathcal{F}_n ) - E(Y |\mathcal{F}_\infty) |
+	\leq |E(Y_n | \mathcal{F}_n ) - E(Y | \mathcal{F}_n) | + | E(Y | \mathcal{F}_n) - E(Y|\mathcal{F}_\infty) |
+\]
+Write the above as $S_1 \leq S_2 + S_3$.
+Then clealry $E S_3 \rightarrow 0$ as $n \rightarrow \infty$ by theorem 4.6.8.
+To estimate $E S_2$,
+\[
+	\begin{split}
+		ES_2
+		& \leq E \left( E\left(  |Y_n - Y| | \mathcal{F}_n \right) \right) \\
+		& = E|Y_n -Y|
+	\end{split}
+\]
+by Jensen's inequality.
+Therefore, $L_1$ convergence of $Y_n$ implies $ES_2 \rightarrow 0$ as $n\rightarrow \infty$.
+
+\qed
+
+	
+\end{problem}

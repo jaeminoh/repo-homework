@@ -1,0 +1,195 @@
+\begin{problem}[10.1] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $\cos z = g(z)$. $g'(z) = -\sin z$ hence $g'(\pi/2) = -1 \ne 0$. Note that $g(\pi/2) = 0$.
+			So, by theorem 5.2.2, there are $\delta, \varepsilon > 0$ such that each $q \in D(0, \varepsilon)$ has unique inverse image under $g$, and the inverse image of $q$ lies in $D(\pi/2, \delta)$.
+			It is well known that $f: q \mapsto g^{-1}(q)$ on $D(0, \varepsilon)$ is holomorphic.
+			
+			Therefore, we have the function element $(f, U)$.
+			Uniqueness(up to $\varepsilon$) follows from the uniqueness of inverse image of $g$ on $D(0, \varepsilon)$.
+
+		\item Let $\alpha$ be any complex number.
+			$\cos w = \alpha$ can be rewritten as $t^2 - 2\alpha t + 1 = 0$ for $t = e^{iw}$.
+			The former equation has order 2 solution when $\alpha = \pm 1$, and otherwise, has simple two solutions.
+			Thus, when $\alpha \ne \pm 1$, by choosing one of two solutions, we can apply theorem 5.2.2 again.
+			So we can find function element of $\arccos$ $(f, U)$ where $U$ is a disc centered at $\alpha$, whose preimage under $g(z) = \cos z$ contains one of two solutions as described before.
+
+			Now, let $\Delta \subset \mathbb{C} \setminus \left\{ -1, 1 \right\}$ be a disc, where $g^{-1}$ is well defined and holomorphic.
+			Then $(f, \Delta)$ is a function element of $\arccos$.
+			Let $D = g^{-1}(\Delta)$. Then $g$ is a conformal mapping of $D$ onto $\Delta$.
+
+			When $\Delta \cap \Delta' \ne \emptyset$, we can find corresponding $D, D'$ which intersects. 
+			Then, by letting $f$ be the inverse of $g|_{D}$, we can get the function element $(f, \Delta)$.
+			Since $g$ has unique inverse on $D \cap D'$, $f = f'$ on $\Delta \cap \Delta'$.
+			Thus $(f, \Delta), (f', \Delta')$ are direct analytic continuation.
+			This process may be continued.
+
+			Let $\gamma$ be a path from the origin to $\alpha \in \mathbb{C} \setminus \left\{ -1, 1 \right\}$.
+			From the origin, we can apply the above procedure along $\gamma$.
+			Then, by using compactness of the image of $\gamma$, we can cover the image by finite chain of $\Delta_i$ such that $(f_i, \Delta_i)$ is a direct analytic continuation of $(f_{i-1}, \Delta_{i-1})$.
+
+			It says that $(f, U)$ from (a) admits unrestricted continuation in $\mathbb{C} \setminus\left\{ -1, 1 \right\}$.
+
+		\item If $z_0 = \pm 1$, then $ \sin h(z_0)  = 0$.
+			By chain rule, $-\sin h(z) h'(z) = 1$. Putting $z=z_0$ leads contradiction.
+			So $z_0 \ne \pm 1$.
+
+			Now, let $(f, U)$ be that of (a) and note that for given $\Delta \subset \mathbb{C} \setminus\left\{ -1, 1 \right\}$ which is a disc centered at $\alpha$, there are exactly two function elements by solving the equation $\cos w = \alpha$.	
+			Let $\gamma_1, \gamma_2, \gamma_3$ be curves where the index of $\gamma_1 - \gamma_2$ at $1$ is $\pm 1$ but $0$ at $-1$, and the inndex of $\gamma_1 - \gamma_3$ at $-1$ is $\mp 1$ but $0$ at $1$.
+
+			Then $(h, \Delta)$ can be achieved by analytic continuation along one of $\gamma_i$'s.
+			Because, if not, $(f, U)$ defines global $\arccos$ on $\mathbb{C} \setminus \left\{ -1, 1 \right\}$ which is impossible.
+
+			Impossibility follows from this observation: Let $\delta(t) = 1+\varepsilon e^{2\pi i t}$. Analytic continuation of $(f, U)$ along $\delta$ leads another function element defined on $U$ which is a disc centered at the origin.
+			In fact, this observation leads the conclusion: given $(h, \Delta)$ is a member of equivalence class determined by $(f, U)$.
+	\end{enumerate}
+\qed
+\end{problem}
+
+\begin{problem}[10.2] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $u = s+t, v = t/s$. Then the integral must be:
+			\[
+				\int_0^\infty \int_0^\infty \frac{v^{z-1}}{1+v}e^{-u}dudv = \int_0^\infty \frac{v^{z-1}}{v+1}dv
+			\]
+			Since $0<1-z<1$, by calculating residue (similar to \#4 (a) of hw4), we can get $ = \pi / \sin \pi(1-z) = \pi / \sin \pi z$.
+
+			From holomorphy of $\Gamma(z) \Gamma(1-z), \pi/\sin\pi z$ on $\mathbb{C} \setminus \mathbb{Z}$, they are same by the identity theorem.
+
+		\item Note that $\Gamma(z) = \int_0^1 e^{-t}t^{z-1} dt + \int_1^\infty e^{-t}t^{z-1}dt = S_1 + S_2$.
+			Then $|S_2| \leq \int_1^\infty e^{-t}t^{s-1} dt$ where $s = Re(z)$.
+			When $s \geq 1/2$, take $s \leq n \leq s+1$.
+			For such $n$, $|S_2| \leq \int_1^\infty e^{-t}t^n dt = \Gamma(n+1) = n! \leq n^n = e^{n\log n}
+			\leq e^{(s+1) \log(s+1)}$.
+			Since $| \sin \pi z | \leq e^{|z|}$, $\left | \frac{\sin \pi z}{\pi} \Gamma(z) \right | \leq e^{C|z| \log |z|}$.
+
+			$|S_1| \leq |\int_0^1 \sum_{n=0}^\infty t^{n+s-1}(-1)^n/n! dt| = |\sum_{n=0}^\infty \frac{(-1)^n}{n!(n+s)}|$.
+			But, the last term is bounded by constant if $s\geq 1/2$.
+
+			Thus the result holds for $Re(z) = s \geq 1/2$.
+
+		\item First, (a) says that $1/\Gamma$ is entire and has simple zeros at nonnegative integers.
+			Then (b) says that the order of entire function $1/\Gamma$ is $1$.
+			Thus the Hadamard factorization theorem implies:
+			\[
+				\frac{1}{\Gamma(z)} = e^{Az + B} z \Pi_{n=1}^\infty \left( 1+\frac{z}{n} \right)e^{-z \over n}
+			\]
+			Note that $B = 0$ by considering $z \Gamma(z) = \Gamma(z+1) \rightarrow 1$ as $z \rightarrow 0$.
+			Next, by putting $z = 1$,
+			\[
+				\begin{split}
+					e^{-A} 
+					& = \Pi_{n=1}^{\infty}\left( 1+1/n \right)e^{-1 \over n} \\
+					& = \exp(\sum_{n=1}^\infty \left( \log (1+ {1\over n} ) - {1 \over n} \right) \\
+					& = \lim_{N\rightarrow \infty} \exp\left( \sum_{n=1}^N (\log(1+1/n) - 1/n \right) \\
+					& = \lim_{N\rightarrow \infty} \exp\left( -\sum_{n=1}^N 1/n + \log N +\log(1+1/N) \right) \\
+					& = e^{-\gamma}
+				\end{split}
+			\]
+
+			\qed
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[10.3] \hfill
+
+	Every element of $\Gamma$ can be expressed as finite product of $\mu, \omega, \mu^{-1}, \omega^{-1}$.
+	So, we'll use the induction on the length of $f \in \Gamma$.
+
+	First, for length 1 $f$, the assertion trivially holds.
+	Let length of $f$ be $n$. Then,
+	\[ 
+		\mu \circ f (z) = \frac{az + b}{(2a+c)z + 2b+d}
+	\]
+	where $a, d$ are odds and $b, c$ are evens.
+	Thus $\mu \circ f$ satisfies the assertion.
+	Also, 
+	\[
+		\omega \circ f (z) = \frac{(a+c)z + b+d}{cz + d}
+	\]
+	so $\omega \circ f$ satisfies the assertion.
+
+	Similarly, for the inverses of $\mu, \omega$, we can check the assertion.
+	Therefore, the assertion holds by induction.
+
+	\qed
+	
+\end{problem}
+
+\begin{problem}[10.4] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Since $f$ is doubly periodic, it is sufficient to show that the residue of $f$ at the origin is zero.
+			Let
+			\begin{align*}
+				\gamma_1(t) & = \frac{1}{2} it \\
+				\gamma_2(t) & = -t +i\frac{1}{2} \\
+				\gamma_3(t) & = -\frac{1}{2} -it \\
+				\gamma_4(t) & = t -i\frac{1}{2}
+			\end{align*}
+			where $-1/2 \leq t \leq 1/2$.
+			Then by adjoining the above paths, we get the curve $\gamma$ whose image is the square centered at the origin.
+
+			Now, integrate $f$ along $\gamma$. Then
+			\[
+				\int_\gamma f = \sum_{i=1}^4 \int_{\gamma_{i}} f
+			\]
+			But we can easily check that integral of $f$ along $\gamma_i$ and $\gamma_{i+2}$ are cancelled by its double periodicity($i = 1, 2$).
+			Thus $\int_\gamma f = 0$.
+			Therefore, by the residue theorem, $Res_0(f) = 0$.
+			This completes the proof.
+
+			\qed
+
+		\item Let $\alpha$ be any complex number. Let $\Lambda$ be the integer lattice.
+
+			If $\inf_{z \in \mathbb{C} \setminus \Lambda} |\wp(z)-\alpha | = \varepsilon > 0$,
+			then $1/(\wp(z)-\alpha)$ is bounded by $1/\varepsilon$ on $z \in \mathbb{C} \setminus \Lambda$.
+			For $z \in \Lambda$, $1/(\wp(z)-\alpha) = 0$ so by the Riemann removable singularity theorem, $1/(\wp(z) -\alpha)$ is entire but bounded.
+			So it must be constant which is contradiction.
+			Thus, infimum of $|\wp(z) -\alpha|$ over $\mathbb{C} \setminus \Lambda$ equals to $0$ for any complex number $\alpha$.
+
+			Let $\left\{ z_n \right\}_{n=1}^{\infty}$ be a sequence such that $|\wp(z_n) -\alpha | \rightarrow 0$ as $n\rightarrow \infty$.
+			Since $\wp(z)$ is doubly periodic, by translating each $z_n$ appropriately, we can regard $\left\{ z_n \right\}$ as a sequence contained in the (closed) unit square whose vertices are $(0, 0), (0, 1), (1, 0), (1, 1)$.
+
+			Then $\left\{ z_n \right\}$ is contained in compact set, so it has convergent subsequence $\left\{ z_{n_k} \right\}$.
+			But $z_{n_k}$ cannot be converges to the vertices described above. Because $\wp(z)-\alpha = \infty$ at those vertices.
+			So $z_{n_k}$ must converges to another points of the unit square described above.
+			Then, by continuity, $|\wp(z) -\alpha| = 0$ for some $z \in$ [the unit square except the vertices].
+
+			It leads surjectiveness of $\wp$.
+
+			\qed
+
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[10.5] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Fix $t$ and consider the following equation of $z$:
+			\[
+				\wp (z) = \gamma(t)
+			\]
+			This equation always has a solution since range of $\wp$ is $\mathbb{C}$.
+			Let $\alpha$ be a solution of the above equation.
+			Then $\wp '(\alpha) \ne 0$.
+			So, (holomorphic) inverse function theorem can be applied.
+			From $z_0$, we can analytically continue this function to $\gamma(1)$ along $\gamma$(detail: same as problem 1).
+			Then $\Gamma: t \mapsto \wp^{-1}(\gamma(t))$ is what we want.
+
+			Uniqueness directly follows from construction. Since $\wp(z) = \gamma(t)$ has simple solution thus $\wp$ is locally invertible.
+
+		\item By definition of line integral,
+			\[
+				\begin{split}
+					\int_\gamma \frac{dw}{\sqrt{4w^3 -C_1 w + C_2}}
+					& = \int_0^1 \frac{\gamma'(t)}{\sqrt{4\gamma(t)^3 -C_1 \gamma(t) + C_2}}dt \\
+					& = \int_0^1 \frac{\wp'(\Gamma(t)) \Gamma'(t)}{\wp'(\Gamma(t))}dt \\
+					& = \int_0^1 \Gamma'(t) dt \\
+					& = \Gamma(1) - \Gamma(0).
+				\end{split}
+			\]
+	\end{enumerate}
+	
+	\qed
+\end{problem}

@@ -1,0 +1,83 @@
+\begin{problem}[4.7.2] \hfill
+
+	Let $w_N = \sup \left\{ |Y_n - Y_m | : m, n \leq N \right\}$.
+	Then clearly $|Y_n - Y_{-\infty} | \leq w_N$ for $n \leq N$.
+	Since $Y_n \rightarrow Y_{-\infty}$ a.s. as $n \rightarrow -\infty$,
+	$w_N \rightarrow 0$ as $N \rightarrow -\infty$ almost surely.
+	Note that $w_N \leq 2Z \in L_1$.
+	Thus $w_N \in L_1$.
+	So, $\mathbb{E}(w_N | \mathcal{F}_{-\infty}) \rightarrow 0$ as $N\rightarrow -\infty$.
+
+	Let 
+	\[
+		\begin{split}
+			& \left | E(Y_n |\mathcal{F}_n) - E(Y_{-\infty} | \mathcal{F}_{-\infty} ) \right | \\
+			& \leq |E(Y_n |\mathcal{F}_n) - E(Y_{-\infty} | \mathcal{F}_n) |
+			+ |E(Y_{-\infty} | \mathcal{F}_n ) - E(Y_{-\infty} | \mathcal{F}_{-\infty})| \\
+			& = S_1 + S_2
+		\end{split}
+	\]
+
+	Now, consider the following:
+	\[
+\begin{split}
+	\limsup_{n\rightarrow -\infty} \left | E(Y_n | \mathcal{F}_n) - E(Y_{-\infty} | \mathcal{F}_n) \right |
+	& \leq \limsup E(\left | Y_n - Y_{-\infty} \right | | \mathcal{F}_n ) \\
+	& \leq \lim_{n \rightarrow -\infty} E(w_N | \mathcal{F}_n) \\
+	& = E(w_N |\mathcal{F}_{-\infty})
+\end{split}
+	\]
+	So, by $N \rightarrow -\infty$, $\limsup_{n\rightarrow -\infty} S_1 = 0$.
+	$\limsup_{n\rightarrow -\infty} S_2 = 0$ because $E(Y_{-\infty} | \mathcal{F}_n)$ is a backward martingale so it converges to $E(Y_{-\infty}| \mathcal{F}_{-\infty})$ a.s. and in $L_1$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[4.8.4] \hfill
+
+	Let $M_n = S_n ^2 - n\sigma^2$. Then $M_n$ is a quadratic martingale.
+	Since $n\wedge T$ is bounded stopping time, we have $EM_{n\wedge T} = EM_0 = 0$.
+	Thus $ES_{n\wedge T}^2 = \sigma^2 E(n\wedge T)$.
+	As $n\rightarrow \infty$, $E(n\wedge T) \rightarrow ET$ by MCT.
+
+	Now consider $E|S_T - S_{n \wedge T}|^2 = E\left( \sum_{m = n+1}^\infty 1_{(m \leq T)} \xi_m \right)^2$.
+	Note that 
+	\[
+		E (1_{m \leq T}) (1_{m+k \leq T}) \xi_m \xi_{m+k} = (E\xi_{m+k})E1_{m\leq T}1_{m+k\leq T}\xi_m = 0
+	\]
+	Thus $E|S_T - S_{n\wedge T}|^2 = \sum_{m=n+1}^\infty E1_{(m\leq T)}\xi_m^2 = \sigma^2 \sum_{m=n+1}^\infty P(m\leq T)$.
+	But, $\sum_{m=1}^\infty P(m\leq T) = ET <\infty$.
+	So we can say $E|S_T - S_{n \wedge T}|^2 \rightarrow 0$ as $n\rightarrow 0$.
+	
+	Therefore $S_{n\wedge T} \rightarrow S_T$ in $L_2$, so $S_{n\wedge T}^2 \rightarrow S_T^2$ in $L_1$, which leads the conclusion.
+
+	\qed
+
+\end{problem}
+
+\begin{problem}[4.8.7] \hfill
+
+	Note that $ET = a^2$ by theorem 4.8.7.
+	Claim : $(b, c) = (3, 2)$.
+	\[
+		\begin{split}
+			& E(Y_{n+1}|\mathcal{F}_n) \\
+			& = 1+6S_n^2 +S_n^4 -6(n+1)(1+S_n^2) + 3(n+1)^2 +2(n+1) \\
+			& = S_n^4 -6n S_n^2 + 3n^2 +2n
+		\end{split}
+	\]
+	Since $n\wedge T$ is bounded stopping time, we can get $EY_0 = EY_{n\wedge T}$.
+	Thus $3E(n\wedge T)^2 = 6E\left[ (n\wedge T)S_{n\wedge T}^2 \right] - ES_{n\wedge T}^4 - 2E_{n\wedge T}$.
+	
+	But, by MCT, $E(n\wedge T)^2 \rightarrow ET^2$ and $E(n\wedge T) \rightarrow ET$.
+	And $S_{n\wedge T}$ is bounded, so BCT implies $ES_{n\wedge T}^m \rightarrow a^m$.
+	Thus, $3ET^2 = 6a^4 - a^4 - 2ET = 5a^4 -2a^2$.
+
+	Note that $(n\wedge T)S_{n\wedge T}^2 \leq a^2T \in L_1$. Thus $E(n\wedge T)S_{n\wedge T}^2 \rightarrow a^4$ by DCT.
+
+	\qed	
+\end{problem}
+
+\begin{problem}[4.8.9] \hfill
+	
+\end{problem}<++>

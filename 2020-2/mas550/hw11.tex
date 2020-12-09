@@ -1,3 +1,22 @@
+\begin{problem}[4.4.1] \hfill
+
+	Note that $(N=j) \in \mathcal{F}_j$ and $E(X_k | \mathcal{F}_j) \geq X_j$ since $X_i$ is a submartingale.
+	Thus we get the following:
+	\[
+		\int_{N = j} E(X_k | \mathcal{F}_j) = \int_{N=j} X_k \geq \int_{N=j}X_j
+	\]
+	Now, by summing the above about $j$, we get the desired result, which is the second proof of $EX_N \leq EX_k$ for 4.4.1.
+	
+\end{problem}
+
+\begin{problem}[4.4.2] \hfill
+
+	Let $K_n = 1_{(M<n\leq N}$. Then $K_n$ is predictable, hence $(K \cdot X)_n$ is a submartingale.
+		By simple calculation, $(K \cdot X)_n = X_{n \wedge N} - X_{n \wedge M}$.
+		Thus, $E(K\cdot X)_k \geq 0$ implies $EX_{k\wedge N} \geq EX_{k \wedge M}$ which is the result.
+	
+\end{problem}
+
 \begin{problem}[4.4.7] \hfill
 
 	$\lambda >0$. For $c>0$,

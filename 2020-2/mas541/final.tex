@@ -1,0 +1,242 @@
+\begin{problem}[1] \hfill
+
+	Note that $H_p \subset L_p(D(0, 1))$. Thus $\| \cdot \|_p$ is well defined norm of $H_p$.
+	$H_p$ is vector space by Minkowski's inequality.
+
+	Let $K \subset D = D(0, 1)$ be compact.
+	Then, there is $r>0$ such that $D(z, r) \subset D$ for each $z \in K$.
+	Then,
+	\[
+		\begin{split}
+			|f(z)|^p
+			& \leq \frac{1}{2\pi} \left | \int_{\partial D(z, r)} \frac{f^p(\zeta)}{\zeta - z}d\zeta \right | \\
+			& \leq \frac{1}{2\pi} \int_0^{2\pi} |f(z+re^{i\theta})|^p \theta.
+		\end{split}
+	\]
+	By multiplying $\rho$ both sides and integrating from $0$ to $r$, we get the following:
+	\[
+		\begin{split}
+			\frac{r^2}{2}|f(z)|^p
+			& \leq \frac{1}{2\pi}\int_0^r \int_0^{2\pi} \rho |f(z+re^{i\theta})|^p d\theta d\rho \\
+			& = \frac{1}{2\pi}\int_{D(z, r)} |f|^p dm \\
+			& \leq \frac{1}{2\pi}\int_{D(0, 1)}|f|^p dm
+		\end{split}
+	\]
+	by polar coordinate integration.
+
+	Thus, $\sup_{z\in K} |f(z)| \leq 1/(\pi r^2)^{1/p} \| f \|_p = C\| f\|_p$, where $C$ depends on $K$ only.
+
+	Let $\left\{ f_k \right\}$ be a Cauchy in $H_p$. And fix $K \subset D$. Then
+	\[
+		\sup_{z\in K} |f_n(z) - f_m(z)| \leq_K C \|f_m - f_n \|_p
+	\]
+	Thus $f_k$ is uniformly Cauchy in $K$, which says normal convergence of $f_k$.
+	Let the normal limit of $f_k$ be $f$(holomorphy of $f$ follows from the fact that $f$ is the normal limit of $f_k$, which are holomorphic).
+
+	Let $\varepsilon>0$ be given. Choose $N$ such that $\| f_n - f_m \| _p \leq \varepsilon$ for $m, n \geq N$.
+	Then, by Fatou's lemma,
+	\[
+		\int_D |f -f_m|^p dm \leq \liminf_{n\rightarrow \infty} \int_D |f_n - f_m|^p dm \leq \pi \varepsilon^p
+	\]
+	Therefore $f-f_m \in H_p$ and $\| f - f_m \|_p$ goes to $0$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[2]\hfill
+
+	\begin{enumerate}
+		\item Fix $r>0$. Then, as $r \rightarrow \infty$,
+			\[
+				\left | \frac{f^{(n)}(0)}{n!} \right | \leq \frac{|f(z)|}{r^n} \rightarrow 0.
+			\]
+			if $n \geq m$.
+			Because, by maximum modulus principle, maximum of $|f(z)|$ on $\overline{D}(0, r)$ must occur on $\partial D(0, r)$ and by the given condition.
+			
+			Thus, for $n\geq m$, $n$-th Maclaurine coefficient is equal to $0$. Therefore $f$ must be a polynomial of degree at most $m-1$.
+
+		\item To satisfy $\lim_{|z| \rightarrow \infty}f(z)/|z|^m = \infty$, $\lim_{|z| \rightarrow \infty}f(z)$ must be $\infty$.
+			Such $f$ must be polynomial by theorem 4.7.5. But any polynomial $f$ does not satisfy the given condition for all positive integer $m$.
+
+			Therefore, we can conclude that we cannot find such entire function.
+
+			\qed
+
+	\end{enumerate}
+	
+\end{problem}
+
+\begin{problem}[4]\hfill
+
+	Let $K = \left\{ r_1 \leq |z| \leq r_2 \right\} \subset \left\{ 1 < z < 2 \right\}$, i.e. $1<r_1 < r_2 < 2$.
+	Then $f^{-1}(K)$ is compact, by continuity of $f^{-1}$.
+	Since $f^{-1}(K)$ is compact, we can find $1>R>0$ such that $f^{-1}(K) \subset \overline{D}(0, R)$.
+	Thus, for $1>|z|>R$, $f(z)$ lies in the outside of $K$ by bijectiveness of $f$.
+	
+	But, $\left\{1> |z| > R \right\}$ is connected subset of the unit disk.
+	But, the image of $\left\{ 1>|z|>R \right\}$ under $f$ lies outside of $K$, which contradicts to connectivity.
+	
+	\qed
+\end{problem}
+
+\begin{problem}[5] \hfill
+	
+	Fix $r>0$. We can choose $k$ such that $|a_k|<r<|a_{k+1}|$.
+	Since $P_n$ has simple zero at $a_i$, $1/P_n$ has simple pole at $a_i$.
+	Note that $Res_{1/P_n}(a_i) = \Pi_{j \ne i}1/(a_i - a_j)$.
+	Thus, by residue theorem,
+	\[
+		\int_{|z| = r}\frac{dz}{P_n(z)} = 2\pi i \sum_{i=1}^k \Pi_{j \ne i} \frac{1}{(a_i - a_j)}
+	\]
+	since index of $|z| = r$ about each $a_i$ is $1$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[6] \hfill
+
+	The degree of $f$ must be even.
+	Otherwise, $f$ must have at least one real root.
+	Since $f$ has real coefficients, if $\alpha$ is a root of $f(z) = 0$, then $\overline{\alpha}$ is also a root.
+	Now let the degree of $f$ = $2n$. Then, by the above, $f$ has $n$ zeros in the upper half plane and the other $n$ zeros are in the lower half plane.
+	
+	Let $a_1, \cdots a_k$ be a set of distinct zeros of $f$ which lie in the upper half plane.
+	Since $f$ can have multiple zeros, we cannot say $a_i$'s are simple.
+
+	Now consider $\gamma_1^R(t) = t$, $\gamma_2^R(s) = Re^{2\pi i s}$ where $-R \leq t \leq R$ and $0 \leq s \leq 1$.
+	Then
+	\[
+		\int_{\gamma_1^R + \gamma_2^R} \frac{dt}{f(t)} = 2\pi i \sum_{i=1}^k Res_{1/f}(a_i)
+	\]
+	by the residue theorem.
+	But, as $R \rightarrow \infty$, 
+	\[
+		\int_{\gamma_2^R}\frac{dt}{|f(t)|} \lesssim \frac{\pi R}{R^{2n}} \rightarrow 0
+	\]
+	where $2n$ is the degree of $f$.
+
+	Also, 
+	\[
+		\int_{\gamma_1^R}\frac{dt}{f(t)} \rightarrow \int_{-\infty}^\infty \frac{dt}{f(t)}
+	\]
+	by DCT.
+
+	Thus, 
+	\[
+		\int_{-\infty}^\infty \frac{dt}{f(t)} = 2\pi i \sum_{i=1}^k Res_{1/f}(a_i)
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[7] \hfill
+
+	\begin{enumerate}
+		\item Let $\mathcal{F} = \left\{ f_n : n\in \mathbb{N} \right\}$. 
+			Note that the images of $f_n$ are uniformly bounded by $\Omega$.
+			Then by Montel's theorem, $\mathcal{F}$ is a normal family.
+			Note that $f_n'(z_0) = [f'(z_0)]^n$.
+			But there is a subsequence $f_{n_k}$ such that $f_{n_k} \rightarrow F$ normally.
+			Then $f_{n_k}' \rightarrow F'$ normally.
+			Thus, if $|f'(z_0)| >1$, then $f_{n_k}'(z_0)$ cannot converge.
+			Therefore $|f'(z_0)|\leq 1$.
+
+		\item Without loss of generality, assume $z_0 = 0$.
+			If $|f'(0)|<1$, then $\sum_{n=0}^\infty f'(0)^n$ converges, thus $f_n'(0) \rightarrow 0$.
+			So, $F'(0) = \lim_{k\rightarrow \infty} f_{n_k}'(0) = 0$.
+			
+			By hard calculation, 
+			\[
+				f_n''(0) = f''(0)\sum_{k=n-1}^{2n-2}f'(0)^{k}
+			\]
+			which goes to $0$ as $n\rightarrow \infty$ since $\sum_{n\geq 0} f'(0)^n$ converges.
+			Thus, $F''(0) = \lim_{k\rightarrow \infty} f_{n_k}''(0) = 0$.
+
+			Similar calculation yields the remaining result, i.e. $F^{(n)}(0) = 0$.
+			Thus $F(z) = 0$ for all $z \in \Omega$.
+	\end{enumerate}
+	
+\end{problem}
+\begin{problem}[8]\hfill
+
+	Let $\Omega = \left\{  |z| > 1 \right\}$ and $D' = \left\{ 0 < |z| < 1 \right\}$.
+	Then $\Omega$ is conformally equivalent to $D'$ by the inversion.
+	Let $f : D' \rightarrow D'$ be a conformal self mapping.
+	Since $f$ is bounded near $0$, $f(0)$ can be defined by the Riemann removable singularity theorem.
+	So now we can regard $f$ as a map from $D = \left\{ |z|<1 \right\}$ to $\overline{D}$.
+	If $|f(0)| = 1$, then image of $D$ under $f$ is not open, so it contradicts to the open mapping theorem.
+	
+	Else if $0 < |f(0)| < 1$, then we can choose $w \in D'$ such that $f(0) = f(w)$.
+	Now, choose $U_0, U_w$ which are disjoint open sets containing $0, w$ respectively.
+	Then $f(U_0), f(U_w)$ are open sets by the open mapping theorem.
+	Since they are intersects ($f(0), f(w)$), there is $r>0$ such that $D(f(0), r) \subset f(U_0) \cap f(U_w)$.
+	Choosing $\beta \in D(f(0), r)$ which is not equal to $f(0)$ leads contradiction to the fact that $f$ is injective function of $D'$.
+	Thus $f(0) = 0$.
+
+	But, conformal self mapping of the unit disk which fixes origin must be a rotation. Thus $f(z) = \alpha z$ for some $|\alpha| = 1$.
+	So, $z \mapsto 1/z \mapsto \alpha/z \mapsto z/\alpha$ is a conformal self mapping of $\Omega$.
+	That is, it must be a rotation.
+	
+	\qed
+\end{problem}
+
+\begin{problem}[9]\hfill
+
+	Let $h = (z-i)/(z+i)$, $f(z) = \log|z|$.
+	Then $f \circ h, u\circ h$ are harmonic function of the upper half plane except $i$.
+	Since $f, u \rightarrow 0$ as $ |z| \rightarrow 1$, $f \circ h, u\circ h \rightarrow 0$ as $|z| \rightarrow 0$.
+	Thus, by the Schwarz reflection principle, we can regard $f\circ h, u\circ h$ be a harmonic function of $\mathbb{C}\setminus \left\{ -i, i \right\}$.
+
+	Let $f \circ h = F$ and $u \circ h = U$.
+	Since $F, U$ are equal to $0$ on the real axis,
+	\[
+		\frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} = 0
+	\]
+	on the real axis.
+	Thus, by Laplace equation, 
+	\[
+		\frac{\partial^2 F}{\partial y^2} = \frac{\partial^2 U}{\partial y^2} = 0
+	\]
+	on the real axis.
+	Note that $F, U$ are nonconstant.
+	So
+	\[
+		\frac{\partial F}{\partial y} = C, \frac{\partial U}{\partial y} = D
+	\]
+	on the real axis($C, D \ne 0$).
+
+	By Laplace equation, $F_x -i F_y$ and $U_x-iU_y$ are holomorphic on $\mathbb{C} \setminus \left\{-i, i\right\}$.
+	Therefore, on the real axis, $D(F_x - iF_y) = C(U_x -iU_y)$.
+	And, by the identity theorem, they are equal on all of $\mathbb{C} \setminus \{ -i, i \}$.
+	Thus 
+	\[
+		\frac{D}{C}F_x = U_x
+	\]
+	on all of doubly punctured plane, and by integrating them, we get
+	\[
+		DF(z) = CU(z)
+	\]
+	since $F(0) = U(0) = 0$.
+	
+	Now, by considering the upper half plane and $F\circ h^{-1}, U \circ h^{-1}$, $u$ must be positive constant multiple of $f(z) = \log|z|$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[10] \hfill
+
+	Counterexample: the identity $\iota(z) = z$.
+
+	Let $f(z) = \int_\gamma \exp(-\zeta^2) d\zeta$ where $\gamma(t) = zt$ for $0\leq t \leq 1$.
+	Then $f'(z) = \exp(-z^2) \ne 0$.
+	
+	Note that $f(0) = 0$.
+	When $z \ne 0$, $f(z) = z\int_0^1 \exp(-z^2 t^2) dt$.
+	Thus $f(z)^2 = z^2 \int_0^1 \int_0^1 \exp(-z^2(t^2+s^2)) dtds$.
+
+	By polar coordinate integration, $f(z)^2 = z^2\int_0^{\pi/2}\int_0^{r(\theta)} r\exp(-z^2 r^2) dr d\theta$.
+	And this is not equal to zero when $z \ne 0$.
+	Thus $f$ has simple zero at $0$.
+	
+	\qed
+\end{problem}

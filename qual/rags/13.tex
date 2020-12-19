@@ -1,0 +1,85 @@
+\begin{problem}[13.1] \hfill
+
+	I think the given condition should be modified: $A$ is $\nu-$null whenever $\mu(A) = 0$.
+	With this, $\nu = \nu^+ - \nu^-$ and they are all absolutely continuous positive measure with respect to $\mu$.
+	Therefore we can apply the Radon-Nikodym theorem, so $d\nu^+ = f_1 d\mu$ and $d\nu^- = f_2 d\mu$.
+	Then $f = f_1 - f_2$ is what we desired.
+
+	\qed
+\end{problem}
+
+\begin{problem}[13.2] \hfill
+
+	Statement: Let $\nu$ be a finite signed measure and let $\mu$ be $\sigma$-finite positive measure.
+	Then $\nu = \nu_a + \nu_s$ where $\nu_a \ll \mu$ and $\nu_s \bot \mu$.
+	Note that $\nu_a \ll \mu$ means $|\nu_a| \ll \mu$.
+
+	This can be proved by decomposing $\nu$ into $\nu^+ - \nu^-$.
+	
+	\qed
+\end{problem}
+
+\begin{problem}[13.3]\hfill
+	
+\end{problem}<++>
+
+\begin{problem}[13.4]\hfill
+	
+\end{problem}<++>
+
+\begin{problem}[13.5]\hfill
+
+	First assume that $\nu \ll \mu$ and $\mu \ll \nu$.
+	Then there are $f_1, f_2$ such that
+	\[
+		d\nu = f_1d\mu, \ d\mu = f_2 d\nu.
+	\]
+	By change of variable formula,
+	\[
+		\mu(A) = \int_A f_2 d\nu = \int_A f_2 f_1 d\mu.
+	\]
+	Thus, $\mu(f_1 f_2 = 0) >0$ gives the contradiction.
+
+	For the other direction, assume that $d\nu = fd\mu$ for $f>0$ $\mu$-a.e.
+	Clearly $\nu \ll \mu$.
+	Now let $E_n = \{ f > 1/n \}$.
+	When $\nu(A) = 0$,
+	\[
+		\frac{1}{n}\mu(A\cap E_n) \leq \int_{A} f d\mu = \nu(A) = 0.
+	\]
+	Thus $\mu(A\cap E_n) = 0$ for all $n$, and by letting $n\rightarrow \infty$, we can get $\mu(A) = 0$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[13.6]\hfill
+
+	First,
+	\[
+		\mu(f = 0) \leq \mu\left( f \leq \frac{1}{n} \right) \leq \frac{1}{n} \rho\left( f \leq {1 \over n} \right) \leq {1 \over n} \rho(X)
+	\]
+	thus by letting $n\rightarrow \infty$ we can get $\mu(f= 0) = 0$, which means $f>0$ $\mu$-a.e.
+
+	Now,
+	\[
+		\rho(A) = \mu(A) + \nu(A) = \int_A f+g d\rho
+	\]
+	for all $A$.
+	Thus
+	\[
+		\int_A f+g-1 d\rho = 0
+	\]
+	which means $f+g = 1$ $\rho$-a.e.
+
+	Since $\nu \ll \mu$, there is $h$ such that $d\nu = hd\mu$.
+	But,
+	\[
+		\int_A g d\rho = \nu(A) = \int_A hd\mu = \int_A hf d\rho
+	\]
+	by change of variable formula.
+	Thus $g = hf$ $\rho$-a.e.
+	Therefore $h = d\nu /d\mu = g/f$.
+
+	\qed
+
+\end{problem}

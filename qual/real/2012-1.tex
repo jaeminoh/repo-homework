@@ -1,0 +1,94 @@
+\section*{2012.1}
+
+\begin{problem}
+	Consider
+	\[
+		\mathcal{F} = \left\{ A \subset \mathbb{R}^n : f^{-1}(A) \in \mathcal{B}(\mathbb{R}^m) \right\}.
+	\]
+	Then $\mathcal{F}$ is a $\sigma-$algebra containing every open set of $\mathbb{R}^n$.
+	Thus $\mathcal{F}$ contains Borel $\sigma-$algebra of $\mathbb{R}^n$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	omitted.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	Clearly, $1/q < 1/r < 1/p$.
+	Let $\theta \in (0, 1)$ such that
+	\[
+		\frac{1}{r} = \frac{\theta}{p} + \frac{1-\theta}{q}
+	\]
+	Also,
+	\[
+		|f|^r = |f|^{r\theta}|f|^{r(1-\theta)}
+	\]
+	Apply Holder's inequality.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	First, consider $f_n = |f| \wedge n$.
+	Let $\varepsilon >0$ be given.
+	By using MCT, we can find $\delta >0$ such that
+	\[
+		m(E) < \delta \Rightarrow \int_E |f| dm < \varepsilon
+	\]
+	But, the above implies the absolute continuity of $F$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	Let
+	\[
+		M = \left\{ f \in \mathcal{H}: L(f) = 0 \right\}
+	\]
+	Since $L$ is bounded linear functional, it is continuous, hence $M$ is a closed subspace of $\mathcal{H}$.
+	
+	If $M = \mathcal{H}$, then put $g = 0$.
+	If $M \ne \mathcal{H}$, then there is nonzero $h \in M^\perp$.
+	Consider 
+	\[
+		w = h L(f) - f L(h)
+	\]
+	Then $L(w) = 0$, so $w \in M$, thus $w \perp h$.
+	So,
+	\[
+		0 = (w|h) = L(f)(h|h) - L(h)(f|h)
+	\]
+	By taking $g = \overline{L(h)}h/(h|h)$, we have proved the existence of such element.
+
+	Let $g_1, g_2$ be such elements. Then $L(f) = (f|g_1) = (f|g_2)$ for all $f \in \mathcal{H}$.
+	Put $f = g_1 - g_2$.
+	Then
+	\[
+		(g_1 - g_2|g_1) = (g_1 - g_2|g_2)
+	\]
+	which leads $\| g_1 - g_2 \| = 0$.
+	Therefore the uniqueness follows.
+
+	\qed
+\end{problem}
+
+\begin{problem} \hfil
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $E$ be a set of exterior measure zero.
+			Let $A$ be any set.
+			Then
+			\[
+				m_*(A) \geq m_*(A\cap E^c) = m_*(A\cap E^c) + m_*(A\cap E)
+			\]
+			where the last term is zero by monotonicity of exterior measure.
+
+		\item omitted.
+	\end{enumerate}
+
+	\qed
+\end{problem}
+

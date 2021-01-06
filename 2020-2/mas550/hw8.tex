@@ -1,0 +1,48 @@
+\begin{problem}[3.2.12] \hfill
+
+	First assume that $X_n \rightarrow X$ in probability.
+	Let $f$ be any continuous, bounded function.
+	Then, by bounded convergence theorem, $f(X_n) \rightarrow f(X)$ in $L_1$.
+	Thus $X_n \rightarrow X$ in distribution.
+
+	Now assume that $X_n \rightarrow c$ in distribution.
+	Let $F$ be distribution function of $c$.
+	Since $c$ is constant, $F(c + \varepsilon) = 1$, $F(c) = 1$, and $F(c-\varepsilon) = 0$ for any $\varepsilon>0$.
+	Note that the discountinuity point of $F$ is only $c$.
+	Then 
+	\[
+		P(|X_n - c| \leq \varepsilon) \geq P(X_n \leq c+\varepsilon) - P(X_n \leq c -\varepsilon) \rightarrow 1
+	\]
+	Therefore, $X_n \rightarrow c$ in probability.
+
+	\qed
+\end{problem}
+
+\begin{problem}[3.2.13][Slutsky's theorem] \hfill
+
+	First note that the portmanteau theorem holds not only for bounded continuous function but also for bounded uniformly continuous function.
+	Because, when we look the proof, the trapezoid function which we used is bounded, uniformly continuous(actually, Lipschitz). 
+
+	Now without loss of generality, assume that $c = 0$.
+	Let $f$ be bounded, uniformly continuous function.
+	Let $w_\delta (f) = \sup_{|x-y| \leq \delta} |f(x) - f(y)|$.
+	Then $w_\delta (f) \rightarrow 0$ as $\delta \rightarrow 0$ because of uniform continuity.
+	Now, consider the following:
+	\[
+		\begin{split}
+			& \left | Ef(X_n + Y_n) - Ef(X) \right | \\
+			& \leq \left | Ef(X_n + Y_n) - Ef(X_n) \right | + \left | Ef(X_n) - Ef(X) \right | \\
+			& \leq w_\delta (f) + 2\sup |f| P(|Y_n| > \delta) + o(1) \\
+		\end{split}
+	\]
+	By taking $\limsup_{n\rightarrow 0}$, the last term $\leq w_\delta (f)$.
+	Therefore, by $\delta \rightarrow 0$, we get the result.
+
+	\qed
+\end{problem}
+
+\begin{problem}[3.2.14] \hfill
+
+
+	
+\end{problem}<++>

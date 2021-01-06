@@ -1,3 +1,74 @@
+\begin{problem}[4.1.1] \hfill
+
+	\[
+		P(G | A) = P(A \cap G) / P(A) = \int_G 1_A dP / \int_\Omega 1_A dP = \int_g P(A|\mathcal{G})dP / \int_\Omega P(A|\mathcal{G}) dP
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[4.1.2]\hfill
+
+	Let $A \in \mathcal{F}$.
+	Then
+	\[
+		a^2 \int_A 1_{(|X| \geq a)}dP \leq \int_A X^2 1_{(|X| \geq a)}dP \leq \int_A X^2 dP
+	\]
+	which leads
+	\[
+		a^2 P(|X| \geq a | \mathcal{F}) \leq E(X^2 | \mathcal{F}).
+	\]
+
+\qed	
+\end{problem}
+
+\begin{problem}[4.1.3]\hfill
+
+	Let $\theta$ be any real number.
+	Then
+	\[
+		E\left( (X+\theta Y)^2 | \mathcal{G} \right) \geq 0.
+	\]
+	
+	By linearity of conditional expectation, we get
+	\[
+		E(X^2 |\mathcal{G}) + 2\theta E(XY | \mathcal{G}) + \theta^2 E(Y^2 | \mathcal{G}) \geq 0.
+	\]
+
+	Thus, the conclusion follows.
+
+	\qed
+	
+\end{problem}
+
+\begin{problem}[4.1.5] \hfill
+
+	Let $P(a) = P(b) = P(c) = 1/3$, $X = 1_{(a)}$, $\mathcal{F}_1 = \sigma(\{a\})$, and $\mathcal{F}_2 = \sigma(\{b\})$.
+	Then
+	\[
+		E(X | \mathcal{F}_2) = \frac{1}{2} 1_{\{a, c\}}
+	\]
+	but
+	\[
+		E\left( E(X |\mathcal{F}_2) | \mathcal{F}_1 \right) = \frac{1}{3}1_{(a)} + \frac{1}{4}1_{\{b, c\}}.
+	\]
+
+	\qed
+	
+\end{problem}
+
+\begin{problem}[4.1.6] \hfill
+
+	Note that
+	\[
+		\int E(X|\mathcal{F})^2 dP = \int E(X E(X|\mathcal{F}) | \mathcal{F}) dP = \int X E(X |\mathcal{F}) dP.
+	\]
+	Use the above.
+
+	\qed
+	
+\end{problem}
+
 \begin{problem}[4.1.7] \hfill
 
 	By definition of $\Var (X | \mathcal{F})$, we get the following:
@@ -34,6 +105,52 @@ Note that $XY$ is integrable by Holder's inequality for $p = q = 2$ and finite s
 \qed
 \end{problem}
 
+\begin{problem}[4.1.10]\hfill
+
+	Let $Z= E(X |\mathcal{G})$.
+	\[
+		\begin{split}
+			EX^+ - EX^- & = EX = EZ = EZ^+ - EZ^- \\
+			& = \int_{Z>0}Z dP + \int_{Z<0} ZdP \\
+			& = \int_{Z>0}X dP + \int_{Z<0} XdP
+		\end{split}
+	\]
+	also,
+	\[
+		\begin{split}
+			EX^+ +EX^- & = E|X| = E|Z| = EZ^+ +EZ^- \\
+			& = \int_{Z>0}Z dP - \int_{Z<0}Z dP \\
+			& = \int_{Z>0}X dP - \int_{Z<0}X dP
+		\end{split}
+	\]
+	thus
+	\[
+		\int X^+ -1_{Z>0}X dP = 0.
+	\]
+	But, from $X^+ \geq 1_{Z>0}X$, we can catch $X^+ = 1_{Z>0}X$ almost surely.
+	Similarly, $X^- = -1_{Z<0}X$ almost surely.
+	Therefore each sign functions of $X$ and $E(X|\mathcal{G})$ are equal almost surely.
+	
+	Now consider
+	\[
+		\left\{ Y < E(Y |\mathcal{G}) \right\} = \bigcup_{i\in \mathbb{N}}\left\{ Y < q_i < E(Y|\mathcal{G}) \right\}
+			= \bigcup_{i\in \mathbb{N}}B_i
+	\]
+	where $q_i$'s are enumeration of the rationals.
+
+	Note that $B_i = \left\{ Y - q_i <0 \right\} \cap \left\{ E(Y|\mathcal{G}) - q_i > 0 \right\}$.
+	But, by using the fact that each sign functions of $Y - q_i$ and $E(Y|\mathcal{G}) - q_i$ are equal almost surely,
+	we get
+	\[
+		P(B_i) = 0
+	\]
+	for each $i\in \mathbb{N}$.
+	Thus $P(Y <E(Y|\mathcal{G}) ) = 0$.
+
+	By similar assertion, $Y = E(Y|\mathcal{G})$ almost surely.
+
+	\qed
+\end{problem}
 \begin{problem}[4.2.3] \hfill
 
 	Clearly $\mathcal{F}_m \subset \mathcal{F}_{m+1}$ for all positive integer $m$.

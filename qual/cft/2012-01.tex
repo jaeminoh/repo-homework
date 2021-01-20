@@ -1,0 +1,126 @@
+\section*{2012.01}
+
+\begin{problem}
+	
+	Let $\Omega$ be a simply connected domain. Let $f$ be a meromorphic function on $\Omega$ which has finitely many poles.
+	If $\gamma$ is a piecewise $C^1$ curve which does not cross any poles of $f$, then
+	\[
+		\int_\gamma f(z) dz = 2\pi i \sum_{k=1}^n Res_f(a_k) Ind_{\gamma}(a_k)
+	\]
+	where $\left\{ a_k \right\}_{k=1}^n$ are poles of $f$ lying inside of $\gamma$.
+
+	Use this formula and contour $\Gamma = \gamma_1 + \gamma_2$ where $\gamma_1(t) = t$ for $t \in [-R, R]$ and $\gamma_2(t) = Re^{it}$ for $t \in [0, \pi]$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Let $f$ be a such map.
+	Since $f$ is bounded near $0$, the Riemann removable singularity theorem says that $f$ extends to the entire function.
+	Then $f$ is bounded entire function, so $f$ is constant.
+	But any constant function cannot be conformal map of $A$ onto $B$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Consider this Blaschke factor:
+	\[
+		B_{1/2}(z) = \frac{z-1/2}{1-z/2}
+	\]
+	This is an automorphism of $\mathbb{D}$ but has no fixed point.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Let $g(z) = f(z)/z$.
+	Since $f(0) = 0$, $g$ is bounded near the origin.
+	So we can regard $g$ as a holomorphic function on the unit disk.
+	
+	Now fix $0\leq r < 1$.
+	Then
+	\[
+		\max_{z \in \overline{D}(0, r)} \lvert g(z) \lvert = \max_{z \in \partial D(0, r)}\lvert g(z) \lvert
+	\]
+	by the maximum modulus theorem.
+	But the last term is bounded by $1/r$ since $|f| \leq 1$.
+	Thus by $r \uparrow 1$, we can get $|g(z)| \leq 1$ for $z \in \mathbb{D}$.
+
+	\qed
+\end{problem}
+
+\begin{problem} \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item omitted. see 2019.02.\\
+
+		\item Consider $g(z) = f(1/z)$.
+			If $g$ has a removable singularity at the origin, then $f$ is bounded entire function, which is a contradiction.
+
+			If $g$ has an essential singularity at the origin, then $g(0 < |z| < 1)$ is dense in $\mathbb{C}$.
+			But, $g(|z| > 1)$ is an open set since $g$ is holomorphic hence open mapping.
+			So, $q \in g(|z| > 1)$ implies the existence of $\varepsilon>0$ such that
+			\[
+				D(q, \varepsilon) \subset g\left( |z| >1 \right).
+			\]
+			But we always find $0 < |z'| < 1$ such that $g(z') \in D(q, \varepsilon)$ by the denseness.
+			Therefore
+			\[
+				g\left( |z| > 1 \right) \cap g\left( 0< |z| < 1 \right) \ne \emptyset
+			\]
+			which contradicts to the injectivity.
+
+			So $g$ must have a pole at the origin, and that implies $f$ must be a polynomial.
+			Now the injectivity implies linearity of $f$.
+	\end{enumerate}
+
+	\qed
+\end{problem}
+
+\begin{problem}\hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Choose $r>0$ such that the zero set of $f$ in $D(0, r)$ consists of the origin only.
+			Note that $F(z) = f(z) / z^m$ is nonvanishing on $D(0, r)$.
+			Since $D(0, r)$ is simply connected and $F$ is nonvanishing, there is $h \in H(D(0,r))$ such that $F = e^h$.
+			By taking $g(z) = z \exp(h(z)/m)$, we get the desired result.\\
+
+		\item It suffices to show that $f(\Omega)$ is open.
+			Let $q \in f(\Omega)$ and choose $\delta>0$ such that $f(p) = q$ and $\overline{D}(p, \delta) \subset \Omega$.
+			Note that we can choose $\delta$ so that $f(\cdot) - q $ is nonvanishing in $\overline{D}'(p, \delta)$.
+
+			Since $\partial D(p, \delta)$ is compact and $f(\cdot) -q$ is nonvanishing, we can choose $\varepsilon>0$ so that 
+			\[
+				\lvert f(\zeta) - q \lvert > 2\varepsilon
+			\]
+			for all $\zeta \in \partial D(p, \delta)$.
+
+			Define $N: D(q, \varepsilon) \rightarrow \mathbb{Z}$ by
+			\[
+				N(w) = \frac{1}{2\pi i}\int_{\partial D(p, \delta)} \frac{f'(\zeta)}{f(\zeta) - w} d\zeta.
+			\]
+			This is integer valued by the argument principle and continuous by $\varepsilon>0$.
+			Thus $N$ is constant and $N(p) = m \geq 1$. Thus $N(w) = m$ for all $w \in D(q, \varepsilon)$.
+			This implies that every $w \in D(q, \varepsilon)$ has a preimage $z$ in $D(p, \delta)$,
+			so $D(q, \varepsilon) \subset f(D(p, \delta)) \subset f(\Omega)$.\\
+
+		\item If $f'(p) = 0$, then $p$ is not simple, say $f(p) = q$ of order $m \geq 2$.
+			Since $f'$ is holomorphic, we can choose $\delta_1$ so that $p$ is isolated in $D(p, \delta_1)$ in the sense of simple points.
+			Now choose $\delta( < \delta_1), \varepsilon>0$ such that $\overline{D}(p, \delta) \subset \Omega$ and $D(q, 2\varepsilon) \subset f(D(p, \delta)) \setminus f(\partial D(p, \delta))$.
+
+			For $w \in D(q, \varepsilon)$, we can define
+			\[
+				N(w) = \frac{1}{2\pi i} \int_{\partial D(p, \delta)} \frac{f'(\zeta)}{f(\zeta) - w} d\zeta.
+			\]
+			Then by $\varepsilon>0$ and the argument principle, $N$ is constant.
+			Therefore each $w \in D(q, \varepsilon)$ has $m$ preimages in $D(p, \delta)$ counting multiplicities.
+			But every points in $D(p, \delta)$ is simple except for $p$.
+			Thus we can say that $w$ has $m$ distinct preimages in $D(p, \delta)$ if $w \ne q$.
+			And this contradicts to the injectivity.
+	\end{enumerate}
+
+	\qed
+\end{problem}

@@ -1,0 +1,98 @@
+\section*{2019.02}
+\begin{problem}[Casorati-Weierstrass]
+
+	If the image of $f$ is not dense in $\mathbb{C}$, then there are $\varepsilon >0$ and $w \in \mathbb{C}$ such that
+	\[
+		\lvert f(z) - w \lvert > \varepsilon
+	\]
+	for all $z \in D'(z_0, r)$.
+	Now consider $g(z) = 1/(f(z) - w)$.
+	Then the modulus of $g$ is bounded by $1/\varepsilon$.
+	So the Riemann removable singularity theorem implies that $g \in H(D(z_0, r))$.
+
+	If $g(z_0) = 0$, then $f$ has a pole at $z_0$, which is contradiction.
+	If $g(z_0) \ne 0$, then $f$ must be bounded near $z_0$, which contradicts to the essential singularity.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Observe that the given polynomial is a partial sum of $\exp(z)$.
+	Since the radius of convergence of the power series of $\exp(z)$ is $\infty$,
+	the given polynomial converges locally uniformly.
+
+	Note that $ \lvert \exp(z) \lvert \geq \exp(-R)$ on $z \in \partial D(0, R)$.
+	Thus, if we take $n$ so large that 
+	\[
+		\lvert P_n(z) - \exp(z) \lvert < \exp(-R)
+	\]
+	for all $z \in \partial D(0, R)$, then Rouche's theorem implies the result because $\exp(z)$ is nonvanishing.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Since the modulus of $f$ is $1$ on the boundary of the unit disk, the modulus of $f$ is bounded by $1$ on the entire unit disk.
+	Thus, by the maximum modulus principle, $f$ is a self mapping of the unit disk.
+\end{problem}
+
+\begin{problem}
+	
+	Fix $r>0$ and choose $N$ such that $\lvert a_n \lvert > 2r$ whenever $n \geq N$.
+	Then
+	\[
+		\sum_{n\geq N} \left \lvert \frac{r}{a_n} \right \lvert ^n \leq \sum_{n\geq N} \left( \frac{1}{2} \right)^n < \infty.
+	\]
+	Thus, for each $r>0$,
+	\[
+		\sum_{n \in \mathbb{N}} \left \lvert \frac{r}{a_n} \right \lvert ^n < \infty.
+	\]
+	This implies
+	\[
+		\prod_{n \in \mathbb{N}} E_{n-1}\left( \frac{z}{a_n} \right)
+	\]
+	is an entire function.
+
+	(explanation about the zeros are needed)
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	If $f(0) = 0$, then the result follows trivially.
+	So assume that $f(0) \ne 0$.
+	Consider
+	\[
+		g(z) = \frac{f(z)}{\prod_{k=1}^{n(R)}B_{a_k/R}(z/R)}
+	\]
+	where $n(R)$ denotes the number of zeros of $f$ in $D(0, R)$.
+	Then $g$ is nonvanishing.
+	So $\log |g|$ is harmonic, and the mean value property implies
+	\[
+		\log|g(0)| = \frac{1}{2\pi}\int_0^{2\pi}\log|g(Re^{i\theta})| d\theta
+	\]
+	which is equivalent to
+	\[
+		\log|f(0)| - \sum_{k=1}^{n(R)}\log \left \lvert \frac{a_k}{R} \right \lvert = \frac{1}{2\pi} \int_{0}^{2\pi} \log |f(Re^{i\theta})| d\theta.
+	\]
+	Thus, the result follows immediately if we observe that $|a_k / R| \leq |r/ R| \leq 1$ and $n(R) \geq n(r) \geq n$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	
+	Let $K$ be a compact subset of the unit disk.
+	Then we can find $0\leq r < 1$ such that $K \subset \overline{D}(0, r)$.
+	Note that
+	\[
+		|f(z)| \leq \sum_{n\geq 1}|a_n||z|^n \leq \sum_{n\geq 1 }nr^n < \infty.
+	\]
+	Thus, $\mathcal{F}$ is locally uniformly bounded.
+	Then second Montel's theorem implies the result.
+
+	\qed
+\end{problem}

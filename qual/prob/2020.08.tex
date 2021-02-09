@@ -1,0 +1,77 @@
+\section{2020.08}
+
+\begin{problem}
+	Use the following formula:
+	\[
+		\int_{(a, b]}G dF+F dG = F(b)G(b)-F(a)G(a) + \sum_{x \in (a, b]}\left( F(x) - F(x^-) \right).
+	\]
+	Note that the last term is the sum of atoms.
+
+	In our case, $G(x) = x^3$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	\[
+		\frac{\sum X_k}{\sqrt{\sum X_k^2}} = \frac{\sum X_k / n}{\sigma / \sqrt{n}} \frac{\sigma}{\sqrt{\sum X_k^2 /n}}
+	\]
+	Now apply the Central limit theorem, law of large numbers, and Slutsky's theorem.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	Let $X_i$'s are iid random variables which follow exponential distribution of rate $2$.
+	Then given integral is equal to
+	\[
+		\mathbb{E}\cos\left( \frac{X_1 + \cdots X_n}{n} \right).
+	\]
+	By law of large numbers,
+	\[
+		\frac{X_1 + \cdots X_n}{n} \rightarrow _p \mathbb{E}X_1 = \frac{1}{2}.
+	\]
+	Since $\cos$ is bounded continuous function, by applying bounded convergence theorem, given limit is equal to $\cos1/2$.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	Observe that $S_n$ is a martingale.
+	Thus $|S_n|^2$ is a submartingale, and we will apply Doob's inequality.
+
+	Let $A = \left\{ \max_{1 \leq k \leq n}|S_k|^2 \geq \lambda^2 \right\}$.
+	Then by Doob's inequality,
+	\[
+		\lambda^2 P(A) \leq \mathbb{E}S_n^2 1_{A} \leq \mathbb{E}|S_n|^2 = \Var{S_n}.
+	\]
+	But $A = \left\{ \max_{1\leq k\leq n}|S_k| \geq \lambda \right\}$.
+	Therefore we get the result.
+
+	\qed
+\end{problem}
+
+\begin{problem}
+	Consider the corresponding quadratic martingale $M_n = S_n^2 - n\sigma^2 = S_n^2 -n$.
+	Then $M_{n\wedge T}$ is also a martingale.
+	Thus, $\mathbb{E} M_{n\wedge T} = \mathbb{E}M_0 = 0$ implies
+	\[
+		\mathbb{E} S_{n\wedge T}^2 = \mathbb{E} n\wedge T.
+	\]
+	But the right hand side goes to $\mathbb{E} T$ by monotone convergence theorem.
+	And note that
+	\[
+		| S_{n\wedge T} | \leq \max( |a|, |b| ).
+	\]
+	Thus bounded convergence theorem implies $\mathbb{E} S_{n\wedge T}^2 \rightarrow \mathbb{E}S_T^2$. 
+	\[
+		\mathbb{E} S_T^2 = P(S_T = a) a^2 + P(S_T = b) b^2 = (x-a)(b-x)
+	\]
+	To complete the above, we must show that $T<\infty$ a.s.
+	This can be done by considering
+	\[
+		P\left( T > m(b-a) \right) \leq \left( 1- \left( 1/2 \right)^{b-a} \right)^m.
+	\]
+
+	\qed
+\end{problem}

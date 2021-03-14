@@ -1,0 +1,137 @@
+\documentclass{memoir}
+\usepackage{amsmath, amssymb, amsthm, enumitem}
+\author{jaemin.oh}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+\title{2021s mas651 lecture note}
+\maketitle
+\tableofcontents
+
+\chapter{Markov Chain}
+\section{Construction, Markov Properties}
+Let $(S, \mathcal{S})$ be a measurable space.
+This will be a state space of our Markov Chain.
+
+\begin{definition}[Transition Probability]
+	A function $p:S \times \mathcal{S} \rightarrow \mathbb{R}$ is a transition probability if it satisfies two condition:
+	\begin{enumerate}
+		\item For each $B\in \mathcal{S}$, $p(\cdot, B)$ is a measurable mapping.
+		\item For each $x \in S$, $p(x, \cdot)$ is a probability measure.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	By the second condition, $p(\cdot, B)$ is a bounded measurable mapping.
+	\label{transprob}
+\end{remark}
+
+If any transition probability is given, then we can define a Markov chain with a natural filtration $\mathcal{F}_n$.
+
+\begin{definition}[Markov Chain]
+	$(X_n, \mathcal{F}_n)$ is a markov chain with transition probability $p$ if
+\[
+	P\left( X_{n+1} \in B \lvert \mathcal{F}_n \right) = p\left( X_n, B \right).
+\]
+	
+	\label{markovchain}
+\end{definition}
+
+After defining of Markov chain, we must have a curiosity about the existence.
+The existence of $X_n$ can be shown by the Kolmogorov extension theorem.
+First, assume an initial distribution $\mu$ on $S$.
+Second, define
+\[
+	\nu_{0, \dots, n}\left( B_0, \dots B_n \right) = \int_{B_0}\mu(dx_0) \dots \int_{B_n}p(x_{n-1}, dx_n)
+\]
+Then $\left\{ \nu_{0, \dots n} \right\}_{n=0} ^\infty$ is a collection of finite dimensinal distributions which is consistent.
+Thus, by the Kolmogorov extension theorem, there is a measure $P_\mu$ on $(\Omega_0, \mathcal{F}_{\infty}) = (S^\omega, \mathcal{S}^\omega)$ which satisfies
+\[
+	P_\mu \left (X_0 \in B_0 , \dots X_n \in B_n\right ) = \int_{B_0}\mu(dx_0)\dots \int_{B_n}p(x_{n-1}, dx_n)
+\]
+where $X_n$ is a coordinate map of $\omega \in \Omega_0$.
+
+\begin{remark}
+	$\omega = (\omega_0, \omega_1, \dots)$ so we can interpret $\omega_n$ as a $n$-th state of our markov chain.
+	$\theta(\omega) = (\omega_n, \omega_{n+1}, \dots)$ is a shift operator, which makes the original $n$-th state be an initial.
+	\label{<+label+>}
+\end{remark}
+
+We have constructed $P_\mu$ and corresponding $X_n$.
+But we don't know whether $X_n$ is a markov chain or not.
+To show that $X_n$ is actually a markov chain, we should use \ref{markovchain}.
+
+\begin{theorem}
+	$X_n$ above satisfies
+\[
+	P_\mu\left( X_{n+1} \in B \lvert \mathcal{F}_n \right) = p\left( X_n, B \right)
+\]
+	\label{<+label+>}
+\end{theorem}
+\begin{proof}
+	To prove this, we must show
+	\[
+		\int_A 1_{\left( X_{n+1} \in B \right)}dP_\mu = \int_A p\left( X_n, B \right) dP_\mu
+	\]
+	for all $A \in \mathcal{F}_n$.
+	Thanks to $\pi-\lambda$ theorem, we can restrict ourselves to $A = \left\{ X_0 \in B_0, \dots X_n \in B_n \right\}$.
+	To simplicity, put $B = B_{n+1}$.
+	Then the target equation is equal to
+	\[
+		P_\mu\left( X_0 \in B_0, \dots, X_{n+1} \in B_{n+1} \right) = \int_{B_0}\mu(dx_0)\dots\int_{B_n}p(x_{n-1}, dx_n)p(x_n, B_{n+1}).
+	\]
+	And we want that the last expression is equal to
+	\[
+		\int_A p(X_n, B)dP_\mu.
+	\]
+	To do this, first replace $p(x_n, B_{n+1})$ to $1_C(x_n)$.
+	We can easily check that the equality is true for any indicator function.
+	Thus the equality is true for any simple function, and true for any bounded measurable function by BCT.
+	Note that $p(\cdot, B_{n+1})$ is a bounded measurable mapping.
+
+\end{proof}
+
+To go further, we need a very useful theorem which is called the Monotone Class Theorem.
+
+\begin{theorem}[Monotone Class Theorem]
+	Let $\mathcal{A}$ be a $\pi$-system that contains $\Omega$ and let $\mathcal{H}$ be a collection of real valued functions which satisfies:
+	\begin{enumerate}
+		\item If $A \in \mathcal{A}$, then the corresponding indicator function belongs to $\mathcal{H}$.
+		\item If $f, g\in \mathcal{H}$, then for any real linear combination of them belongs to $\mathcal{H}$.
+		\item If $0\leq f_n \uparrow f \leq M$ and $f_n \in \mathcal{H}$, then $f \in \mathcal{H}$.
+	\end{enumerate}
+	Then $\mathcal{H}$ contains all $\sigma(\mathcal{A})$ measurable functions which are bounded.
+	\label{monotoneclassthm}
+\end{theorem}
+
+\begin{proof}
+	$\mathcal{G} = \left\{ A:1_A \in \mathcal{H} \right\}$ is a $\lambda$-system containing $\mathcal{A}$.
+	Thus $\sigma(\mathcal{A}) \subset \mathcal{G}$ which means $1_A \in \mathcal{H}$ for all $A \in \sigma(\mathcal{A})$.
+	Then $\mathcal{H}$ contains all simple functions which are $\sigma(\mathcal{A})$ measurable, hence the conclusion follows from the third condition above.
+\end{proof}
+
+\begin{remark}
+	A class of bounded measurable function $f:S \rightarrow \mathbb{R}$ which satisfies
+	\[
+		E\left( f(X_{n+1}) \lvert \mathcal{F}_n \right) = \int p(X_n, dy)f(y)
+	\]
+	is actually a monotone class. 
+	Because \ref{markovchain} says the first condition for $\mathcal{A} = \mathcal{S}$,
+	and the others are satisfied by the elementary properties of expectation and integration.
+
+	By induction, we can extend this result by
+	\[
+		E\left[ \prod_{m=0}^n f_m(X_m) \right] = \int\mu(dx_0)f_0(x_0) \dots \int p_{n-1}(x_{n-1}dx_n)f_n(x_n)
+	\]
+	where the subscript for $p$ stands for temporally inhomogeneous transition probability.
+	\label{<+label+>}
+\end{remark}
+
+
+\end{document}

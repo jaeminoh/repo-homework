@@ -1,0 +1,71 @@
+\begin{problem}[5.2.1] \hfill
+
+	By the given hint,
+	\[
+		E(1_A 1_B \lvert \mathcal{F}_n) = E(1_A E(1_B \lvert \mathcal{F}_n) \lvert X_n)
+	\]
+	so it suffices to show that $E(1_B \lvert \mathcal{F}_n) = E(1_B \lvert X_n)$.
+
+	Let $Y = 1_{B_n}(\omega_0) \cdots 1_{B_{n+k}}(\omega_k)$.
+	Then $Y \circ \theta_n =$ the indicator function of $\left\{ X_n \in B_n , \cdots, X_{n+k} \in B_{n+k} \right\} = B$.
+	By the markov property,
+	\[
+		P(B\lvert \mathcal{F}_n) = E_{X_n}Y.
+	\]
+	Let $\varphi(x) = E_x Y$ then $\varphi(X_n)$ is $\sigma(X_n)$-measurable mapping.
+	Thus, when $B$ has a form of $\left\{ X_n \in B_n, \cdots, X_{n+k} \in B_{n+k} \right\}$ for some nonnegative integer $k$,
+	\[
+		P(B\lvert \mathcal{F}_n) = P(B\lvert X_n).
+	\]
+	Note that a collection of such $B$ generates $\sigma(X_n, X_{n+1}, \cdots)$.
+
+	Now let $\mathcal{G} = \left\{ C: P(C\lvert \mathcal{F}_n) = P(C\lvert X_n) \right\}$.
+	By putting $B_{n+i} = S$ for $0 \leq i \leq k$, we earn $\Omega_0 \in \mathcal{G}$.
+	If $C, D \in \mathcal{G}$ and $C \subset D$, then by properties of conditional expectation, $D\setminus C \in \mathcal{G}$.
+	If $C_i \in \mathcal{G}$ and $C_i \uparrow C$ then by monotone convergence theorem for conditional expectation, $C \in \mathcal{G}$.
+	Thus $\mathcal{G}$ is a lambda system containing a collection of $B$'s which generates $\sigma(X_n, \cdots)$.
+	Therefore, by Dynkin's theorem, the third equation is satisfied by any $B \in \sigma(X_n, \cdots)$.
+	By the first equation, we can derive the conclusion.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.2.4]\hfill
+	
+\end{problem}<++>
+
+\begin{problem}[5.2.6]\hfill
+
+	Fix $x \in S \setminus C$.
+	Since $P_x(T_C = \infty) = \lim_{M\rightarrow \infty} P_x(T_C > M) < 1$, we can choose $N_x$ and $\varepsilon$ so that
+	\[
+		P_x(T_C > M) \leq 1-\varepsilon
+	\]
+	whenever $M \geq N_x$. Note that we can choose $N_x$ as an integer.
+	Put $N = \max_{x \in S\setminus C} N_x$.
+	Now we get
+	\[
+		\begin{split}
+			P_y(T_C > 2N) & = \sum_{x\in S\setminus C} P_y(T_C > 2N, T_C>N, X_N = x) \\
+			& = \sum_{x\in S\setminus C} P_y\left( T_C > 2N \lvert X_N = x, T_C > N \right)P_y(X_n = x, T_C > N) \\
+			& \leq \sum_{x\in S\setminus C} P_x(T_C > N) P_y(X_N = x, T_C >N) \\
+			& \leq (1-\varepsilon)\sum_{x \in S\setminus C}P_y(X_N = x, T_C > N) \\
+			& \leq (1-\varepsilon)^2.
+		\end{split}
+	\]
+	By induction, the result follows.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.2.7]\hfill
+	
+\end{problem}<++>
+
+\begin{problem}[5.2.8]\hfill
+	
+\end{problem}<++>
+
+\begin{problem}[5.2.11]\hfill
+	
+\end{problem}<++>

@@ -112,6 +112,22 @@
 				\end{split}
 			\]
 			for $X_n \notin A\cup B$.
+
+			Now, put $Y_n = h(X_n)$.
+			Then
+			\[
+				Y_{n\wedge \tau} -Y_0 = h\left( X_{n\wedge \tau} \right) - h(X_0) = \sum_{k=1}^n 1_{\left( \tau \geq k\right)}\left( Y_k -Y_{k-1} \right).
+			\]
+			By using the above,
+			\[
+				\begin{split}
+					E_x \left( Y_{n+1 \wedge \tau} - Y_0 \lvert \mathcal{F}_n \right)
+					& = \sum_{k=1}^{n+1} 1_{(\tau \geq k)}E_x\left( Y_k - Y_{k-1} \lvert \mathcal{F}_n \right) \\
+					&= 1_{(\tau \geq n+1)}\left( Y_n - Y_0 \right) + 1_{(\tau < n+1)}\left( Y_\tau - Y_0 \right) \\
+					&= 1_{(\tau > n)}(Y_n -Y_0) + 1_{(\tau \leq n)} (Y_\tau -Y_0) \\
+					&= Y_{n\wedge \tau} - Y_0.
+				\end{split}
+			\]
 			So $h(X_{n\wedge \tau})$ is a martingale.
 			Note that the first equality is due to (5.2.2), and the last is due to optional stopping.
 			
@@ -185,6 +201,17 @@
 				\end{split}
 			\]
 			for $X_n \notin A$.
+			
+			Now put $Y_n = g(X_n) + n$ and $\tau = V_A$ for convenience.
+			Then
+			\[
+				\begin{split}
+					E_x \left( Y_{n+1 \wedge \tau} -Y_0\lvert \mathcal{F}_n \right)
+					&= \sum_{k=1}^{n+1} 1_{(\tau \geq k)}E_x\left( Y_k - Y_{k-1} \lvert \mathcal{F}_n \right) \\
+					&= 1_{(\tau \geq n+1)}(Y_n - Y_0) + 1_{(\tau < n+1)}(Y_\tau - Y_0) \\
+					&= Y_{n\wedge \tau} - Y_0.
+				\end{split}
+			\]
 			So $X_{n\wedge V_A} + n\wedge V_A$ is a martingale.
 
 		\item From the boundedness of $g$ and the fact that $V_A$ is $L^1$ function, our martingale is uniformly integrable.

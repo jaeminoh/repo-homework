@@ -32,7 +32,32 @@
 
 \begin{problem}[5.2.4]\hfill
 	
-\end{problem}<++>
+	First, claim that
+	\[
+		P_x\left( X_n =y \lvert T_y = m \right) = P_y\left( X_{n-m} = y \right).
+	\]
+	This is because
+	\[
+		\begin{split}
+			P_x\left( X_n = y \lvert T_y = m \right) & = \frac{P_x\left( X_n = y, T_y = m \right)}{P_x\left( T_y = m \right)} \\
+			& = \frac{\int_{T_y = m} 1_{(X_n = y)}dP_x}{P_x\left( T_y = m \right)} \\
+			& = \frac{\int_{T_y = m} E\left( 1_{(X_n = y)} \lvert \mathcal{F}_m \right)dP_x}{P_x\left ( T_y = m \right )} \\
+			& = \frac{\int_{T_y = m} E_{X_m}1_{(X_{n-m} = y)}dP_x}{P_x\left( T_y = m \right)} \\
+			& = \frac{P_x\left( T_y = m \right) P_y\left( X_{n-m} = y \right)}{P_x\left( T_y = m \right)}.\\
+		\end{split}
+	\]
+
+	Now, note that $P_x\left( X_n = y \right) = \sum_{m=1}^n P_x \left( X_n = y, T_y = m \right)$.
+	From this and the above discussion,
+	\[
+		\begin{split}
+			p^n(x, y) & = P_x\left( X_n = y \right) = \sum_{m=1}^n P_x\left( X_n = y \lvert T_y = m \right)P_x\left( T_y = m \right) \\
+		& = \sum_{m=1}^n P_y\left( X_{n-m} = y \right )P_x\left( T_y = m \right) = \sum_{m=1}^n P_x\left( T_y = m \right)p^{n-m}(y, y).
+		\end{split}
+	\]
+	\qed
+\end{problem}
+
 
 \begin{problem}[5.2.6]\hfill
 
@@ -55,17 +80,121 @@
 	\]
 	By induction, the result follows.
 
+	\begin{remark}
+		By $k\rightarrow \infty$, we can say that $P_y\left( T_C = \infty \right) = 0$.
+		That is, $P_y\left( T_C < \infty \right) = 1$.
+		\label{remark526}
+	\end{remark}
 	\qed
 \end{problem}
 
 \begin{problem}[5.2.7]\hfill
 	
-\end{problem}<++>
+	\begin{enumerate}
+		\item It is similar to the manipulation of problem 5.2.4: 
+			\[
+				\begin{split}
+					P_x\left( V_A < V_B \right) & = \sum_{y}P_x\left( V_A < V_B, X_1 = y \right)
+					= \sum_{y}P_x\left( V_A < V_B \lvert X_1 = y \right)P_x\left( X_1 = y \right) \\
+					& = \sum_{y}p(x, y) P_x\left( V_A < V_B \lvert X_1 = y \right) = \sum_{y}p(x, y)P_y\left( V_A < V_B \right)
+				\end{split}
+			\]
+			where the first term is $h(x)$ and the last term is $\sum_{y}p(x, y)h(y)$.
+
+		\item I think we must further assume that $h$ is bounded and measurable.
+			For convenience, let $\tau = V_A \wedge V_B = V_{A \cup B}$.
+			By the equation (5.2.2) of our textbook, we get
+			\[
+				\begin{split}
+					E_x\left( h(X_{n+1}) \lvert \mathcal{F}_n \right)
+					&= \sum_y p(X_n, y)h(y) \\
+					&= h(X_n)
+				\end{split}
+			\]
+			for $X_n \notin A\cup B$.
+			So $h(X_{n\wedge \tau})$ is a martingale.
+			Note that the first equality is due to (5.2.2), and the last is due to optional stopping.
+			
+		\item We assumed that $h$ is bounded.
+			Thus, our martingale is uniformly bounded, so the optional stopping theorem can be applied:
+			\[
+				x = E_x h(X_0) = E_x h(X_\tau) 
+				= E_x \left[ E_x \left(h( X_\tau) \lvert \mathcal{F}_{\tau} \right) \right]
+			\]
+			where the last term is equal to
+			\[
+				E_x \left[ E_{X_\tau}h(X_0) \right] 
+				= E_x\left[ 1_{(X_\tau \in A)} +0\cdot 1_{(X_\tau \in B)} \right]
+				= E_x \left[ 1_{(X_\tau \in A)} \right].
+			\]
+			The above is because $P_x(\tau < \infty) = 1$ and $h$ is $1$ on $A$ and $0$ on $B$.	
+			Note that this implies the result, since $X_\tau \in A$ is equivalent to $V_A < V_B$.
+	\end{enumerate}
+
+	\qed
+\end{problem}
 
 \begin{problem}[5.2.8]\hfill
 	
-\end{problem}<++>
+	Let $\tau = V_0 \wedge V_N$.
+	Then $X_{n\wedge \tau}$ is an uniformly bounded martingale since the state space of $X_n$ is finite.
+	By the optional stopping theorem, we get
+	\[
+		E_x X_0 = E_x X_\tau
+	\]
+	where the LHS is equal to $x$.
+	Note that, by the remark \ref{remark526}, we can say that $P_x\left( \tau < \infty \right) = 1$.
+	Then the RHS of the above eqn is equal to $0 P_x\left( V_0 < V_N \right) + NP_x\left( V_N < V_0 \right)$.
+	Thus,
+	\[
+		x = N P_x\left( V_N < V_0 \right).
+	\]
+	\qed
+\end{problem}
 
 \begin{problem}[5.2.11]\hfill
 	
-\end{problem}<++>
+	\begin{enumerate}
+		\item It is similar to the manipulation of problem 5.2.7: 
+			\[
+				\begin{split}
+					E_x V_A & = \sum_{k \geq 1}P_x\left( V_A \geq k \right) \\
+					& = P_x \left( V_A \geq 1 \right) + \sum_{k\geq 2}P_x \left( V_A \geq k \right) \\
+					& = 1 + \sum_{k\geq 2 } P_x \left( V_A \geq k \right) \\
+					& = 1+ \sum_{k\geq 2} \sum_{y}P_x\left( V_A \geq k \lvert X_1 = y \right)P_x\left( X_1 = y \right) \\
+					& = 1+ \sum_{y}p(x, y) \sum_{k\geq 2 }P_y\left( V_A \geq k-1 \right) = 1+\sum_y p(x, y)E_y V_A
+				\end{split}
+			\]
+			where $P_x\left( V_A \geq 1 \right) = 1$ since $x$ lies outside of $A$.
+
+			Also, $E_x V_A < \infty$ because
+			\[
+				\begin{split}
+					E_x \frac{V_A}{N} & = \sum_{k\geq 1} P_x\left( V_A \geq kN \right) \\
+					&\leq \sum_{k\geq 1}\left( 1-\varepsilon \right)^k < \infty.
+				\end{split}
+			\]
+
+		\item I think we should assume the measurability, and boundedness of $g$.
+			By the manipulation used in problem 5.2.7, we get:
+			\[
+				\begin{split}
+					E_x\left( g(X_{n+1}) + n+1 \lvert \mathcal{F}_n \right)
+					&= n+1+\sum_y p(X_n, y)g(y) \\
+					&= n+g(X_n)
+				\end{split}
+			\]
+			for $X_n \notin A$.
+			So $X_{n\wedge V_A} + n\wedge V_A$ is a martingale.
+
+		\item From the boundedness of $g$ and the fact that $V_A$ is $L^1$ function, our martingale is uniformly integrable.
+			Thus we can apply optional stopping theorem:
+			\[
+				E_x g(X_0) = E_x \left[ V_A + g(X_{V_A}) \right]
+			\]
+			where the first term is $g(x)$ and the second term is $E_x V_A + E_x g(X_{V_A})$.
+			But $X_{V_A}$ lies in $A$ and $g$ is 0 on $A$.
+			Thus the second term of the equation is $E_x V_A$.
+	\end{enumerate}
+	\qed
+\end{problem}

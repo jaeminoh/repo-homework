@@ -1,0 +1,173 @@
+\begin{exercise}[1.4] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $I = \left[ 0, 1 \right]$.
+			Then $I\setminus \hat{C} = \bigcup_{n=1}^\infty \hat{C}_n^c$
+			where $\hat{C}_n$ is $n$-th stage of constructing Fat Cantor set.
+			Thus,
+			\[
+				m(I\setminus \hat{C}) = m(I) - m(\hat{C}) = 1- m(\hat{C}) =\lim_{n\rightarrow \infty}m(\hat{C}_n^c) = \sum_{n=1}^\infty 2^{n-1}l_n
+			\]
+			because $\hat{C}_n^c \uparrow \bigcup_{n=1}^\infty \hat{C}_n^c$ and $\hat{C}$ is closed hence measurable.
+			Therfore $m(\hat{C})  = 1-\sum_{n=1}^\infty 2^{n-1}l_n >0$.
+
+		\item $\hat{C}_k$ consists of $2^k$ closed intervals whose length are $(1-\sum_{n=1}^k 2^{n-1}l_n)/2^k$.
+			Let $x \in \hat{C}$. Then $x\in \hat{C}_k$.
+			So we can find $x_k \in I_k$ such that
+		\[
+			|x-x_k| \leq \left( 1-\sum_{n=1}^k 2^{n-1}l_n \right)/2^k + \varepsilon_k l_k
+		\]
+		for some $0 < \varepsilon_k < 1$.
+		As $k\rightarrow \infty$, $|x-x_k| \rightarrow 0$ since $l_k \rightarrow 0$.
+
+	\item The result of b tells us that every point of $\hat{C}$ is a limit point of $I$.
+		And we also know that $\hat{C}$ is closed.
+		Hence $\hat{C}$ is a perfect set.
+
+		Let $(a, b) \subset \hat{C}$ and $a < c < d < b$.
+		For large $k$, $l_k < d-c$ since $l_k \rightarrow 0$.
+		Then, for $\hat{C}_k$, $c$ and $d$ must lie in different intervals of $\hat{C}_k$.
+		So there is $e \notin \hat{C}_k$ such that $c<e<d$.
+		Then $\left[ c, d \right]$ does not belong to $\hat{C}_k$ which is a contradiction.
+		So $\hat{C}$ is totally disconnected.
+		
+	\item It is well known fact that a nonempty perfect set is uncountable.
+		We had learned it in an introductory analysis course and topology course.
+	\end{enumerate}
+\qed
+
+\end{exercise}
+
+\begin{exercise}[1.7] \hfill
+	
+	First, we will show that if $O$ is open, then $\delta O$ is also open.
+	Let $\delta x \in \delta O$.
+	Then $x \in O$.
+	By openness, there is $r>0$ such that $Q_r (x) \subset O$ where $Q_r(x)$ is a cube whose side length is $r$ and centered at $x$.
+	Thus $\delta Q_r(x) \subset \delta O$ and $\delta Q_r(x)$ contains $\delta x$.
+	But a collection of all open rectangles forms a basis of Euclidean space.
+	So $\delta O$ is an open set.
+
+	Next, let a set $E$ and a positive number $\varepsilon$ be given.
+	Choose $O \supset E$ such that $m_* (O \setminus E) < \varepsilon / (\delta_1 \cdots \delta_d)$.
+	Then, there is an union of cube $\bigcup_{j=1}^\infty Q_j \supset O\setminus E$ such that
+	$\sum_{j=1}^\infty m(Q_j) < \varepsilon/(\delta_1 \cdots \delta_d)$.
+	Then,
+	\[
+		m_*(\delta O \setminus \delta E) = m_*(\delta (O\setminus E)) \leq m_* (\bigcup_{j=1}^\infty \delta Q_j) \leq \sum_{j=1}^\infty m(\delta Q_j) < \varepsilon.
+	\]
+	Thus $\delta E$ is measurable.
+
+	Now let $E \subset \bigcup_{j=1}^\infty Q_j$.
+	Then $\delta E \subset \bigcup \delta Q_j$, so $m(\delta E) \leq \delta_1 \cdots \delta_d \sum_{j=1}^\infty m(Q_j).$
+	Since $\bigcup_{j=1}^\infty$ is arbitrary, we get
+	\[
+		m(\delta E) \leq \delta_1 \cdots \delta_d m(E).
+	\]
+	Now let $\delta E \subset \bigcup_{j=1}^\infty Q_j'.$
+	Then $E \subset \bigcup_{j=1}^\infty 1/\delta Q_j'.$
+	So $m(E) \leq \sum_{j=1}^\infty m(Q_j') / (\delta_1 \cdots \delta_d).$
+	Since $\bigcup_{j=1}^\infty Q_j'$ is arbitary, we get
+	\[
+		m(E) \leq \frac{m(\delta E)}{\delta_1 \cdots \delta_d}
+	\]
+	and this finishes the proof.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[1.24] \hfill
+	
+	Let $s_n$ be enumeration of $\mathbb{Q} \cap \left[ -1, 1 \right]$ and $t_n$ be enumeration of $\mathbb{Q} \cap \left[ -1, 1 \right]^c$.
+	When $n = m^2$, put $r_n = t_m$.
+	When $n \in \left( m^2, (m+1)^2 \right)$, put $r_n = s_{n-m}$.
+	Then $r_n$ is an enumeration of $\mathbb{Q}$.
+	Also, we get
+	\[
+		\begin{split}
+			m\left( \bigcup_{n=1}^\infty \left( r_n - 1/n, r_n + 1/n \right) \right)
+			& \leq \sum_{m=1}^\infty 2/m^2 + m\left( \bigcup_{n \ne m^2} \left( r_n - 1/n, r_n + 1/n \right) \right) \\
+			& \leq \sum_{m=1}^\infty 2/m^2 + 2+ 1 < \infty.
+		\end{split}
+	\]
+	Therefore, finiteness implies nonemptyness of the complement, since the Lebesgue measure of complement is positive.
+
+\qed
+\end{exercise}
+
+\begin{exercise}[1.35] \hfill
+
+	First, let's briefly check the idea of constructing $\varphi$.
+	Construction can be done by defining a sequence of functions, say $\varphi_n$.
+	Put $\varphi_n(0) = 0$ and $\varphi_n(1) = 1$.
+	Let $C_{ji}$ be the $i$-th stage of constructing $C_j$.
+	Then $\varphi_i$ maps the discarded set of stage $i$ to the discarded set of stage $i$, sequentially, and linearly(positive).
+	We can extend $\varphi_i$ by assigning value on $C_{1i}$ using linearity and monotonicity.
+	This sequence of functions converges uniformly, thus $\varphi$ is continuous.
+	The other properties of $\varphi$ can be checked by this construction.
+
+	Let $\mathcal{N} \subset C_1$ be a non-measurable set.
+	Then $\varphi(\mathcal{N}) \subset C_2$ so $\varphi(\mathcal{N})$ is measurable by completeness.
+	If $\varphi(\mathcal{N})$ is a Borel set, then by continuity, $\varphi^{-1} ( \varphi (\mathcal{N} ) ) = \mathcal{N}$ must be a Borel set, which is a contradiction.
+	So there is a Lebesgue measurable set which is not Borel measurable.
+
+	Since $\varphi (\mathcal{N})$ is measurable, $f = 1_{\varphi(\mathcal{N})}$ is a measurable map.
+	Then $f \circ \varphi (x) = 1_{\mathcal{N}}(x)$ is non-measurable map.
+
+	\qed
+\end{exercise}
+
+\begin{problem}[1.4]\hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item $A_\varepsilon$ is clearly bounded, so it is enough to show that the complement is open.
+			Let $c \notin A_{\varepsilon}$.
+			Then $osc(f, c) < \varepsilon$, so for some $r>0$, $osc(f, c, r) < \varepsilon$.
+			Choose any $d \in I(c, r)$.
+			We can choose $r^* > 0$ so that $I(d, r^*) \subset I(c, r)$.
+			Then
+			\[
+				osc(f, d, r^*) \leq osc(f, c, r) < \varepsilon
+			\]
+			so $osc(f, d) < \varepsilon$, which says $I(c, r) \subset J\setminus A_\varepsilon$.
+			Therefore $J \setminus A_\varepsilon$ is open in $J$, hence $A_\varepsilon$ is compact.
+
+		\item Let $D_f$ be a set of all discontinuities of $f$.
+			Then for any $\varepsilon >0$, $A_\varepsilon \subset D_f$.
+			So $m(A_\varepsilon) \leq m(D_f) = 0$.
+			By the definition of Lebesgue measure, there is countably many open intervals which cover $A_\varepsilon$ and have sum of length $\leq \varepsilon$.
+			Using compactness, we can choose finite subcover, call them by $(a_i, b_i)_{i=1}^k$ where $a_i < a_{i+1}$.
+			After discarding all of subcovers from $J$, we get compact subset of $J$, say $J'$.
+			For each $c \in J'$, we can choose $r_c$ such that $osc(f, c, 2r_c) < \varepsilon$.
+			Again, using compactness, we can choose finitely many $c$'s.
+			Then finitely many closed intervals $\left[ c-r_c, c+r_c \right]$ have finite intersections.
+			By taking these endpoints(contain $a_i, b_i$'s) as endpoints of our partition(if necessary, consider a refinement),
+			we get 
+			\[
+				U(f, P) - L(f, P) \leq 2M \varepsilon + m(J) \varepsilon
+			\]
+			where $M$ is bound of $f$.
+			The first term of estimate comes from $(a_i, b_i)$'s and the second term comes from $J'$.
+
+		\item Since $D_f \subset \bigcup_{n=1}^\infty A_{1/n}$, so $m(A_{1/n})= 0$ leads the conclusion.
+			Assume not, i.e. $m(A_{1/n}) > \varepsilon$.
+			Take partition $P$ such that $U(f, P) - L(f, P) < \varepsilon /n$.
+			Let $\left[ a, b \right]$ be interval of $P$ whose interior intersects to $A_{1/n}$.
+			Then
+			\[
+				\sup_{x, y \in \left[ a, b \right]} |f(x) - f(y) | \geq \frac{1}{n}.
+			\]
+			But $m(A_{1/n}) > \varepsilon$.
+			So
+			\[
+				\begin{split}
+					\sum_{\left[ a, b \right]\cap A_{1/n} \ne \emptyset} \left[ \sup_{x \in \left[ a, b \right]}f(x) - \inf_{y \in \left[ a, b \right]} f(y) \right] m\left( A_{1/n} \cap \left[ a, b \right] \right) \\
+					 = \sum_{\left[ a, b \right] \cap A_{1/n} \ne \emptyset} \sup_{x, y \in \left[ a, b \right]} \left | f(x) - f(y) \right | m\left( A_{1/n} \cap \left[ a, b \right] \right) \\
+					 \geq \frac{\varepsilon}{n} \\
+					 > U(f, P) - L(f, P)
+				\end{split}
+			\]
+			which is a contradiction.
+
+	\end{enumerate}
+	\qed
+\end{problem}

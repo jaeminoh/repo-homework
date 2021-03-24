@@ -1,0 +1,99 @@
+\begin{problem}[5.3.1] \hfill
+
+	Abbreviation of notation: $P(X_1 \leq x_1, \cdots, X_n \leq x_n)$ as $P(X \leq x)$, which is a distribution function of a random vector.
+
+	First, let's see that they are identically distributed.
+	Since $y$ is recurrent, the strong Markov property always holds when we are considering $\mathcal{F}_{R_k}$.
+	\[
+		P_y (\nu_k \leq x ) = E_y P_y(\nu_k \leq x \lvert \mathcal{F}_{R_{k-1}})
+			= E_y E_{X_{R_{k-1}}} 1_{(\nu_1 \leq x)} = P_y(\nu_1 \leq x).
+	\]
+	So $\nu_k$ are identically distributed.
+
+	Now, let's see that they are independent.
+	\[
+		\begin{split}
+			P_y (\nu_1 \leq x_1 , \cdots, \nu_n \leq x_n)
+			&= E_y P_y (\nu_1 \leq x_1, \cdots, \nu_n \leq x_n \lvert \mathcal{F}_{R_{n-1}}) \\
+			&= E_y\left[ 1_{\left( \nu_1 \leq x_1 \right)}\cdots 1_{\left( \nu_{n-1} \leq x_{n-1} \right)} P_y(\nu_1 \leq x_n) \right] \\
+			&= P_y(\nu_1 \leq x_n) P_y(\nu_1 \leq x_1 , \cdots, \nu_{n-1} \leq x_{n-1}) \\
+			&= \cdots \\
+			&= P_y(\nu_n \leq x_n) \cdots P_y(\nu_1 \leq x_1)
+		\end{split}
+	\]
+	since they are identically distributed.
+	Note that $\nu_1, \cdots \nu_{n-1}$ are $\mathcal{F}_{R_{n-1}}$ measurable.
+	This is because $\left\{ X_{R_{n-2}+i} \in B \right\} \cap \left\{ R_{n-1} = k \right\} \in \mathcal{F}_k.$
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.3.2] \hfill
+	
+	On $\left\{ T_y < \infty \right\}$, by the strong Markov property,
+	\[
+		\rho_{xy} = P_y(T_z < \infty) = E_x\left( 1_{\left( T_y + T_z < \infty \right)} \lvert \mathcal{F}_{T_y} \right).
+	\]
+	Thus,
+	\[
+		\begin{split}
+			\rho_{xy}\rho_{yz}
+			&= E_x1_{\left( T_y < \infty \right)}E_x\left( 1_{\left( T_y + T_z < \infty \right)} \lvert \mathcal{F}_{T_y} \right)\\
+			&= E_x 1_{\left( T_y < \infty \right)} 1_{\left( T_y + T_z < \infty\right)} \\
+			&= P_x\left( T_y + T_z < \infty \right) \leq P_x\left( T_z < \infty \right) = \rho_{xz}.
+		\end{split}
+	\]
+\end{problem}
+
+\begin{problem}[5.3.5] \hfill
+	
+	As in the proof of theorem 5.3.8, $\varphi(X_{n\wedge \tau})$ is a nonnegative supermartingale.
+	So the supmartingale converges to $Y$ a.s.
+	From the modified condition $\varphi \rightarrow 0$,
+	we know that $\left\{ x: \varphi(x) > M \right\}$ is a finite set.
+	So $X_n$ visits $\left\{ x: \varphi(x) > M \right\}$ only finitely many times for all $M>0$.
+	Thus $\varphi(X_n) \rightarrow 0$ as $n\rightarrow \infty$.
+	If $\tau < \infty$ almost surely, then $\varphi(X_{n\wedge \tau}) \rightarrow \varphi(X_\tau) = 0$.
+	But we have the other condition: $\varphi > 0$ on $F$.
+	So $\varphi(X_\tau) = 0$ cannot happen; thus $P_x(\tau = \infty) > 0$.
+
+	If the chain is recurrent, then $\tau < \infty$ a.s.
+	But our case is not the case, so the chain must be transient.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.3.7] \hfill
+	
+	First assume the recurrence.
+	Let $f$ be a superharmonic function, so $f(X_n)$ is a nonnegative supermartingale.
+	By the martingale convergence theorem, $f(X_n) \rightarrow Y$ a.s.
+	By the recurrence, $P(X_n = x\ i.o.) = 1$ for all $x \in S$.
+	So $P(f(X_n) = f(x)\  i.o.) =1$, which says $f(X_n) \rightarrow f(x) = Y$ a.s.
+	But $x\in S$ is arbitrary, $f$ must be a constant.
+
+	Now, assume the transience.
+	Fix $z \in S$.
+	Let $V = \inf\left\{ n \geq 0: X_n = z \right\}$.
+	Let $f(x) = P_x(V < \infty)$.
+	We will show that $f$ is a nonconstant superharmonic function.
+	For $x \ne z$,
+	\[
+		f(x) = P_x(V < \infty) = \sum_{y}p(x, y) P_y(V<\infty) = \sum_y p(x, y) f(y).
+	\]
+	For $x = z$,
+	\[
+		\sum_y p(z, y) f(y) \leq \sum_y p(z, y) = 1 = f(z)
+	\]
+	since $f \leq 1$.
+	Thus, $f$ is superharmonic.
+
+	Now claim that there is $y \in S$ such that $f(y) < 1$.
+	If no such $y$ exists, then $f(y) = 1$ for all $y \in S$.
+	This says that $P_y(V<\infty) = 1$ for all $y$ which is equivalent to the recurrence of $z$.
+	But we assumed the recurrence of our chain.
+	So there is $y\in S : f(y) < 1$.
+	And this says $f$ is nonconstant.
+
+	\qed
+\end{problem}

@@ -133,5 +133,134 @@ To go further, we need a very useful theorem which is called the Monotone Class 
 	\label{<+label+>}
 \end{remark}
 
+\begin{theorem}[The Markov Property]
+	Let $Y: \Omega_0 \rightarrow \mathbb{R}$ be any bounded measurable mapping.
+	Then $E_\mu \left (Y \circ \theta_m \lvert \mathcal{F}_m \right ) = E_{X_m}\left[ Y \right].$
+	\label{markovproperty}
+\end{theorem}
+
+\begin{proof}
+	First, assume $Y = \prod_{k=0}^n g_k$ where $g_k$ are bounded measurable.
+	By using Dynkin's theorem and the previous result, we can prove the Markov property for this case.
+	We can extend the special case to general case by using the monotone class theorem.
+\end{proof}
+
+\begin{remark}
+	$\mathcal{F}_m$ is an information accumulated during time $0$ to $m$.
+	Conditioning on this information, any future($\theta_m$, starting from time $m$) quantity can be guessed by the formula.
+	It seems somewhat related to the elementary Markov property.
+	Actually this result implies the usual Markov property.
+	Let's see.
+
+	Let $Y = 1_{(X_n = j)}$.
+	Then
+	\[
+		\begin{split}
+			&P\left( X_n = j \lvert X_0 = i_0, \dots, X_{n-1} = i_{n-1} \right)\\
+			&= \frac{P\left( X_0 = i_0, \dots, X_n = j \right)}{P\left( X_0 = i_0, \dots, X_{n-1} = i_{n-1} \right)}\\
+			&= \frac{\int_{X_0 = i_0, \dots, X_{n-1} = i_{n-1}}P\left( X_n = j \lvert \mathcal{F}_{n-1} \right)dP}{P\left( X_0 = i_0, \dots, X_{n-1} = i_{n-1} \right)} \\
+			&= \frac{\int_{X_0 = i_0, \dots, X_{n-1} = i_{n-1}}E\left (Y\circ \theta_{n-1} \lvert \mathcal{F}_{n-1}\right )}{P(X_0 = i_0, \dots, X_{n-1} = i_{n-1})} \\
+			&=  P\left( X_n =j \lvert X_{n-1} = i_{n-1} \right).
+		\end{split}
+	\]
+	\label{<+label+>}
+\end{remark}
+
+\begin{theorem}[Chapman-Kolmogorov]
+	Let $X_n$ be a Markov chain.
+	Then
+	$P_x\left( X_{m+n} = z \right) = \sum_{y}P_x\left( X_m = y \right)P_y\left( X_n = z \right).$
+	\label{ChapmanKolmogorov}
+\end{theorem}
+
+\begin{proof}
+	This is a direct consequence of the Markov property.
+	Use this:
+	\[
+		P_x(X_{m+n} = z) = E_x P_x\left( X_{m+n} = z \lvert \mathcal{F}_m \right).
+	\]
+\end{proof}
+
+\begin{remark}
+	This is intuitively clear.
+	To go $z$ from $x$ in exactly $m+n$ steps, we must pass $y$ in $m$-th step.
+	When a state of $m$-th step is given, remaining $n$ steps are independent of the past by the Markov property.
+	\label{<+label+>}
+\end{remark}
+
+Now recall the optional stopping theorem in the martingale theory.
+That theorem says us that in certain condition, we can regard a stopping time as an index of our martingale.
+Analogy in Markov chain will be shown.
+
+Let $N$ be any stopping time.
+Note that $N$ is a stopping time if and only if $\left\{ N= n \right\} \in \mathcal{F}_n$.
+
+\begin{definition}
+	$\mathcal{F}_N$ is a collection of set $A$ such that $A \cap \left\{ N=m \right\} \in \mathcal{F}_m$ for all $m$.
+	Also, $\theta_N(w)$ is $\theta_n(w)$ when $N=n$ and $\Delta$ when $N=\infty$.
+	Here, $\Delta$ is an extra point added to $\Omega_0$.
+	Since we will only cover the case $N<\infty$, $\Delta$ will make no problem.
+	\label{<+label+>}
+\end{definition}
+
+\begin{theorem}[The Strong Markov Property]
+	Let $Y_n : \Omega_0 \rightarrow \mathbb{R}$ be uniformly bounded measurable function.
+	Then
+	\[
+		E_\mu \left( Y_N \circ \theta_N \lvert \mathcal{F}_N \right) = E_{X_N}\left[ Y_N \right]
+	\]
+	on $\left\{ N < \infty \right\}$.
+	\label{strongmarkovproperty}
+\end{theorem}
+
+\begin{proof}
+	We can write $1_{\left( N < \infty \right)} = \sum_{n=0}^\infty 1_{\left( N= n \right)}$.
+	Let $A \in \mathcal{F}_N$.
+	Then it can be easily shown that
+	\[
+		E_\mu \left[ Y_N \circ \theta_N ; A \cap \left\{ N < \infty \right\} \right]
+		= E_\mu \left[ E_{X_N}\left[ Y_N \right]; A \cap \left\{ N< \infty \right\} \right].
+	\]
+\end{proof}
+
+\begin{remark}
+	On $\left\{ N < \infty \right\}$ can be thought of as multiplying both sides by $1_{\left( N<\infty \right)}$.
+	\label{<+label+>}
+\end{remark}
+
+	An application of the strong Markov property is:
+\begin{theorem}
+	$P_x\left( T_y^k < \infty \right) = \rho_{xy} \rho_{yy}^{k-1}$ for $k \ge 1$.
+	\label{<+label+>}
+\end{theorem}
+
+\begin{proof}
+	Let $Y = 1$ if $w_n = y$ for some $n$ and $0$ otherwise.
+	Take $N = T_y^{k-1}$.
+	Then $Y \circ N = 1_{\left( T_y^k < \infty \right)}.$
+	Use this, the strong Markov property, and the induction.
+\end{proof}
+
+\begin{theorem}[Reflection Principle]
+	Let $\left\{ \xi_i \right\}_{i=1}^\infty$ be an iid sequence of random variables, with symmetric distribution about $0$.
+	Let $S_n = \sum_{i=1}^n \xi_i$.
+	Then $S_n$ is clearly Markov chain.
+	If $a>0$, then
+	\[
+		P\left( \sup_{m \le n} S_m \ge a \right) \le 2 P\left( S_n \ge a \right).
+	\]
+	\label{reflectionprinciple}
+\end{theorem}
+
+\begin{proof}
+	temporally omitted.
+\end{proof}<++>
+
+\begin{remark}
+	This is a kind of maximal inequality.
+	The maximal quantity of the random variable during time $n$ can be estimated by the quantity of the random variable at time $n$.
+	\label{<+label+>}
+\end{remark}
+
 
 \end{document}

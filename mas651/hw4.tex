@@ -1,0 +1,90 @@
+\begin{problem}[5.5.2] \hfill
+
+	Let $N_y^x$ be the number of hittings to $y$ before returning to $x$.
+	Then $\mu_x(y) = E_xN_y^x$.
+	Also, we can write
+	\[
+		N_y^x = \sum_{k=1}^\infty 1_{\left (T_y, \cdots, T_y^k < T_x \right )} = \sum_{k=1}^\infty 1_{\left( T_y^k < T_x \right)}.
+	\]
+	By using the strong Markov property and the induction, we get
+	\[
+		\begin{split}
+			E_x N_y^x
+			&= \sum_{k=1}^\infty P_x\left( T_y^k < T_x \right) \\
+			&= \sum_{k=1}^\infty E_x\left[ P_x\left( T_y, T_y^k < T_x \lvert \mathcal{F}_{T_y} \right) \right] \\
+			&= \sum_{k=1}^\infty E_x\left[ 1_{\left( T_y < T_x \right)}P_y\left( T_y^{k-1} < T_x \right) \right] \\
+			&= \cdots \\
+			&= \sum_{k=1}^\infty P_x(T_y < T_x) P_y(T_y < T_x)^{k-1} \\
+			&= \frac{P_x(T_y < T_x)}{1-P_y(T_y<T_x)} = \frac{w_{xy}}{w_{yx}}.
+		\end{split}
+	\]
+	\qed
+\end{problem}
+
+\begin{problem}[5.5.3] \hfill
+
+	Irreducibility and recurrence implies the existence of unique(up to constant multiple) stationary measure.
+	The recurrence implies that $y \mapsto \mu_x(y)$ is the stationary measure.
+	Thus, for some $c>0$, $\mu_y(z) = \mu_x(z) \cdot c$.
+	So $\mu_y(z)p(z, y) = c \mu_x(z)p(z, y)$.
+	By adding over $z$,
+	\[
+		1 = \mu_y(y) = \sum_z \mu_y(z)p(z, y) = c\sum_z \mu_x(z)p(z, y) = c\mu_x(y).
+	\]
+	Thus $c = 1/\mu_x(y)$ and this leads the result.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.5.4] \hfill
+	
+	$E_x T_y = \infty$ says that the chain is expected to not reach the state $y$.
+	So $\mu_x(y) = 0$, contradiction.
+	Also
+	\[
+		\sum_x E_x T_y p(x, y) + 1 = E_y T_y < \infty
+	\]
+	by positive recurrence.
+	Therefore $E_x T_y$ should be finite.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.5.5] \hfill
+	
+	On the contrary, assume that $p$ is positive recurrent.
+	Then, with irreducibility, the existence of stationary distribution $\pi$ is guaranteed.
+	Also, any stationary measure is constant multiple of $\pi$ by theorem 5.5.9.
+	Thus $c \pi(x) = \mu(x)$ for some constant $c>0$.
+	Then,
+	\[
+		\infty = \sum_x \mu(x) = c \sum_x \pi(x) = c < \infty,
+	\]
+	which is a contradiction.
+	Hence $p$ cannot be positive recurrent.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.5.9] \hfill
+	
+	Note that $Y_{n\wedge \tau} - Y_0 = \sum_{k=1}^n 1_{\left( \tau \ge k \right)}\left( Y_k - Y_{k-1} \right).$
+	Using this,
+	\[
+		\begin{split}
+			E_x\left( Y_{n+1 \wedge \tau} - Y_0 \lvert \mathcal{F}_n \right)
+			&= \sum_{k=1}^n 1_{\left( \tau \ge k \right)}\left( Y_k - Y_{k-1} \right)
+		+ 1_{\left( \tau \ge n+1 \right)}\left [E_x\left( X_{n+1} \lvert \mathcal{F}_n \right) - X_n +\varepsilon \right ]\\
+		&\le \sum_{k=1}^n 1_{\left( \tau \ge k \right)}\left( Y_k - Y_{k-1} \right) + 1_{\left( \tau \ge n+1 \right)}\left[ X_n - \varepsilon - X_n + \varepsilon \right] \\
+		&= Y_{n\wedge \tau}-Y_0.
+		\end{split}
+	\]
+	Thus $Y_{n\wedge \tau}$ is a nonnegative supermartingale.
+	Now, by theorem 4.8.4, we have
+	\[
+		x = E_x[Y_0] \ge E_x[Y_\tau] = E_x[X_\tau + \tau \varepsilon] \ge \varepsilon E_x[\tau]
+	\]
+	since $X_n \ge 0$.
+	By dividing both sides by $\varepsilon$, we earn the result.
+	\qed
+\end{problem}

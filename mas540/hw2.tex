@@ -1,0 +1,129 @@
+\begin{exercise}[2.2] \hfill
+
+	Let $\varepsilon > 0$.
+	Choose $g \in C_c(\mathbb{R}^d)$ such that $\| f-g\|_1 < \varepsilon.$
+	Let the domain of $g$ is contained in $B_r(0)$.
+	For $x\in B_r(0)$,
+	\[
+		|x - \delta x| = |1-\delta||x| \le r |1-\delta| < \xi
+	\]
+	if $|1-\delta|$ is small.
+	Let $\xi>0$ be a number which satisfies $|x- y|<\xi \Rightarrow |g(x) - g(y) | < \varepsilon$.
+	Then, for enoughly small $|1-\delta|$, we get $|x-\delta x| < \xi \Rightarrow |g(\delta x) - g(x)|<\varepsilon$.
+	Thus we get $\| g_\delta - g \| \le \varepsilon m(B_r(0)),$ $\| f-g\| < \varepsilon,$ $\| f_\delta - g_\delta \| < K\varepsilon.$
+	Therefore
+	\[
+		\| f-f_\delta \| \leq \|f-g\| + \|g-g_\delta \| + \|g_\delta - f_\delta\|
+		\le \left( m(B_r(0)) + 1 + K \right)\varepsilon.
+	\]
+	This says as $\delta \rightarrow 1$, $\| f_\delta - f\| \rightarrow 0$.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[2.6] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $n\in \mathbb{N}$.
+		On $\left[ n, n+1 \right]$, define
+		\[
+			f(x) = 
+			\begin{cases}
+				n &\text{if } n\le x \le n+ 1/n^3\\
+				1/n^3 &\text{if } n+2/n^3 \le x \le n+1-1/n^3 \\
+				\text{linear} &\text{otherwise.}
+			\end{cases}
+		\]
+		Then
+		\[
+			\int_{\left[ n, n+1 \right]} f(x)dx \le \frac{1}{n^2} +\frac{1}{n^3}n\frac{1}{2}
+			+\left( 1-\frac{3}{n^3} \right)\frac{1}{n^3}
+			+\frac{1}{n^3}(n+1)\frac{1}{2}
+			=\frac{2n+3}{2n^3}+\frac{1}{n^2}-\frac{3}{n^6}.
+		\]
+		Now, reflect $f$ to the y-axis.
+		Define $f$ on $(-1, 1)$ by $1$.
+		Then
+		\[
+			\int_\mathbb{R} f dm \le 2+ 2\left( \sum_{n\ge 1}\left( \frac{4n+2}{2n^3} - \frac{3}{n^6} \right) \right) <\infty.
+		\]
+		But clearly $\limsup_{x\rightarrow \infty} f(x) = \infty$.
+
+		\item By same manipulation used in \#2.24.b, the result follows.
+			See after If $\varphi$ does not vanish $\sim$.
+	\end{enumerate}
+
+\qed
+\end{exercise}
+
+\begin{exercise}[2.19] \hfill
+
+	Let $g(x, \alpha) = 1_{E_\alpha}(x) 1_{\left( 0, \infty \right)}(\alpha)$.
+	Since $g$ is nonnegative, Tonelli's theorem can be applied.
+	\[
+		\begin{split}
+			\int_{\mathbb{R}^d \times \mathbb{R}} gdm
+			&= \int_{\mathbb{R}^d}\int_{\mathbb{R}}g_x d\alpha dx = \int_{\mathbb{R}^d}|f(x)|dx \\
+			&= \int_\mathbb{R}\int_{\mathbb{R}^d} g^\alpha dxd\alpha = \int_{\left( 0, \infty \right)}m(E_\alpha) d\alpha.
+		\end{split}
+	\]
+	Because $g_x(\alpha) = 1_{\left( 0 < \alpha < |f(x)| \right)}(\alpha)$
+	and $g^\alpha(x) = 1_{\left( 0 < \alpha < |f(x)| \right)}(x).$
+	\qed
+\end{exercise}
+
+\begin{exercise}[2.24] \hfill
+
+	Let $\varphi = f*g.$
+	\begin{enumerate}[label = (\alph*)]
+		\item Choose $h>0$ small so that $\| f_h - f\|_1 < \varepsilon$.
+			Then
+			\[
+				|\varphi(x+h) - \varphi(x)|
+				\le \int |f(x+h-y) - f(x-y)| |g(y)| dy
+				\le B \|f_h -f \|_1 < B\varepsilon.
+			\]
+			Thus $\varphi$ is uniformly continuous.
+
+		\item By Tonelli's theorem,
+			\[
+				\| \varphi \|_1
+				\le \iint |f(x-y)||g(y)|dydx
+				\le \|f\|_1 \int |g(y)| dy
+				= \|f\|_1 \|g\|_1 < \infty.
+			\]
+			So $\varphi \in L^1$.
+			Note that $\varphi$ is uniformly continuous by (a).
+
+			If $\varphi$ does not vanish at infinity, then there exists $\varepsilon>0$ such that
+			for all $M>0$, there is $|x_M| \ge M:\ |\varphi(x_M)| > 2\varepsilon$.
+			By uniform continuity, there is $\delta>0$ such that $|x-y|<\delta \Rightarrow |\varphi(x) - \varphi(y)| < \varepsilon$.
+			We can get strictly increasing sequence $y_i \in \left\{ x_M: M>0 \right\}$ such that $B_\delta(y_i) \cap B_\delta(y_j) = \emptyset$ whenever $i \ne j$.
+
+			Note that for $x \in B_\delta(y_i)$, $|\varphi(x)| > \varepsilon.$
+			Thus
+			\[
+				\int |\varphi| dx \ge \sum_{i=1}^\infty \varepsilon m(B_\delta(y_i)) = \infty.
+			\]
+			But the above contradicts to $\varphi \in L^1.$
+	\end{enumerate}
+	\qed
+\end{exercise}
+
+\begin{problem}[2.3] \hfill
+	
+	Let $E_k = \left\{ |f_k - f| > \varepsilon \right\}.$
+	By the Markov inequality,
+	\[
+		m(E_k) \le {1 \over \varepsilon} \int |f_k - f| dm.
+	\]
+	Since $f_k \rightarrow f$ in $L^1$, we get $m(E_k) \rightarrow 0$.
+	Thus $L^1$ convergence implies the convergence in measure.
+
+	For counterexample, consider $f_k = k 1_{\left( 0, 1/k \right)}$.
+	Then $\int f_k dm = 1$.
+	But $m(|f_k|>\varepsilon) \leq 1/k$ so $f_k \rightarrow 0$ in measure.
+	But, as we seen, $f_k$ does not converge to $0$ in $L^1$.
+	Thus the converse of the previous result is not true.
+	\qed
+\end{problem}

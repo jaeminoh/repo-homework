@@ -1,0 +1,165 @@
+\begin{problem}[5.6.1] \hfill
+
+	For $n=1$,
+	\[
+		P_\mu(X_1 = 0) = \mu(0)p(0,0) + (1-\mu(0))p(1, 0) = (1-\alpha-\beta)\mu(0)+\beta.
+	\]
+
+	Now,
+	\[
+		\begin{split}
+		P_\mu(X_{n+1} = 0) 
+		&= E_\mu P_\mu\left( X_{n+1} = 0 \lvert \mathcal{F}_n \right) \\
+		&= E_\mu\left[ P_0\left( X_1 = 0 \right)1_{\left( X_n = 0 \right)} + P_1\left( X_1 = 0 \right)1_{\left( X_n = 1 \right)} \right] \\
+		&= P_\mu(X_n = 0)p(0, 0) + P_\mu(X_n = 1)p(1, 0) \\
+		&= (1-\alpha)P_\mu(X_n = 0) + \beta(1-P_\mu(X_n = 0)) \\
+		&= (1-\alpha-\beta)P_\mu(X_n = 0) + \beta \\
+		&= (1-\alpha-\beta)^{n+1}\left[ \mu(0) - \frac{\beta}{\alpha+\beta} \right] + \frac{\beta(1-\alpha-\beta)}{\alpha+\beta} + \beta
+	\end{split}
+	\]
+	where the last term is what we desired.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.6.2] \hfill
+
+	Aperiodicy of state $x$ is defined only when the state $x$ is recurrent.
+	So aperiodicy of the chain necessarily contains recurrence of the chain.
+	Note that recurrent chain has stationary measure, $\mu_x(y)$.
+	With finiteness of the state space, by normalizing, we can earn the stationary distribution $\pi$.
+	With irreducibility of the chain, by existence of the stationary measure, the chain is positive recurrent.
+	Now, for any $x, y \in S$, by convergence theorem,
+	\[
+		p^m(x, y) \rightarrow \pi(y) >0.
+	\]
+	So we can find $M_{xy}$ such that $m \ge M_{xy}$ implies $p^m(x, y) > \pi(y)/2 >0$.
+	Take $M = \max_{x,y}M_{xy}$. Then $M<\infty$ because of the finiteness.
+	For any $x, y \in S$,
+	\[
+		p^M(x, y) > \pi(y)/2 >0.
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.6.3] \hfill
+
+	By the previous problem, there is $m>0$ such that $p^m(x, y)>0$ for all $x,y \in S$.
+	Fix $y \in S$.
+	Let $p = \min_{x\in S} p^m(x, y).$
+	Then
+	\[
+		P\left( X_{n+m} = Y_{n+m} = y \lvert X_n = x_1, Y_n = x_2 \right) \geq p^2
+	\]
+	for all $x_1, x_2 \in S$ by the definition of $\bar{p}$.
+	So $P\left( X_{n+m} = Y_{n+m} \lvert X_n, Y_n \right) \ge p^2,$
+	which is equivalent to $P\left( X_{n+m} \ne Y_{n+m} \lvert X_n, Y_n \right) \le 1-p^2.$
+	Now, consider 
+	\[
+		\begin{split}
+			& P(T > km) \\
+			&= P\left ( X_1 \ne Y_1, \cdots, X_{km} \ne Y_{km} \right ) \\
+			&= EP(\ \cdot \ \lvert \mathcal{F}_{(k-1)m}) \\
+			&= EP_{X_{(k-1)m}, Y_{(k-1)m}}\left( X_{km} \ne Y_{km}, \cdots, X_{(k-1)m+1} \ne Y_{(k-1)m+1} \right )1_{\left( X_{(k-1)m} \ne Y_{(k-1)m}, \cdots, X_1 \ne Y_1 \right)} \\
+			&\le (1-p^2)P(X_1 \ne Y_1, \cdots, X_{(k-1)m} \ne Y_{(k-1)m})\\
+			&\le \cdots \\
+			&\le (1-p^2)^k. \\
+		\end{split}
+	\]
+	Therefore
+	\[
+		P(T>n) \le P(T>\left[ n\over m \right]m) \le (1-p^2)^{\left[ n\over m \right]} \le (1-p^2)^{n\over m}
+	\]
+	where $[ \cdot ]$ is the floor function.
+	So the convergence occurs at least exponentially fast.
+
+	\qed
+\end{problem}
+
+\begin{problem}[5.6.5]\hfill
+
+	Note that $P_x(T_x^k < \infty) = 1$.
+	Let $V_k^f = V_k$, and $V_k^{\lvert f \lvert} = V_k'$.
+	\begin{enumerate}
+		\item By the strong Markov property,
+			\[
+				\begin{split}
+					P(V_k \le a)
+					&= EP\left( V_k \le a \lvert \mathcal{F}_{T_x^k} \right)\\
+					&= P_x\left( f(X_0) + \cdots + f(X_{T_x^1 - 1}) \le a \right)
+					= P_x(V_0 \le a).
+				\end{split}
+			\]
+			Thus $\left\{ V_k^f \right\}_{k=1}^\infty$ is an identically distributed sequence.
+
+			By the strong Markov property,
+			\[
+				\begin{split}
+					P(V_k \le a_0, \cdots, V_{k+m} \le a_m)
+					&= EP( \cdot \lvert \mathcal{F}_{T_x^{k+m}} ) \\
+					&= EP_x(V_1 \le a_m) 1_{\left( V_k \le a_0, \cdots, V_{k+m-1} \le a_{m-1} \right)} \\
+					&= \cdots \\
+					&= \prod_{n=0}^m P_x\left( V_0 \le a_n \right) \\
+					&= P\left( V_k \le a_0 \right) \cdots P\left( V_{k+m} \le a_m \right)
+				\end{split}
+			\]
+			where the last equality is due to the previous result.
+			So they are independent.
+
+			Now, consider $E|V_1|$.
+			\[
+				\begin{split}
+				&\le E\sum_{k\ge 1} 1_{\left( T_x^1 < k \le T_x^2 \right)} |f(X_k)| (= EV_1') \\
+				&= E\sum_{k\ge 1} 1_{\left( T_x^1 < k \le T_x^2 \right)} \sum_y |f(y)| 1_{\left( X_k = y \right)}\\
+				&= \sum_y |f(y)| E \sum_{k\ge 1} 1_{\left( T_x^1 < k \le T_x^2 \right)}1_{\left( X_k = y \right)}\\
+				&= \sum_y |f(y)| \mu_x(y) = \sum_y |f(y)| \pi(y) E_x T_x^1 < \infty.
+				\end{split}
+			\]
+			Similarly, we can get $EV_1 = \sum_y f(y) \pi(y) E_x T_x^1.$
+
+		\item Note that $N_n(x) = \sup\left\{ k: T_x^k \le n \right\}.$
+			So $N_n(x) \le K_n$.
+			If $N_n(x) < K_n$, then $K_n = N_n(x) + 1$.
+			By SLLN and theorem 5.6.1, as $n\rightarrow \infty$,
+			\[
+				{1 \over n} \sum_{m=1}^{K_n}V_m
+				= {N_n(x) \over n} {K_n \over N_n(x)} {1 \over K_n} \sum_{m=1}^{K_n}V_m
+				\rightarrow {EV_1 \over E_x T_x^1}
+				= \sum_y f(y) \pi(y)
+			\]
+			$P_\mu$ almost surely since $N_n(x) \rightarrow \infty.$
+
+		\item Refer to problem 2.3.17, sufficient(in fact, necessary also) condition for $\max_{m \le n} V_m' /n \rightarrow 0$ is $EV_m'^+ <\infty$ for all $m$.
+			This is because
+			\[
+				\sum_{n\ge 1}P(V_n' \ge n\delta) <\infty
+			\]
+			for all $\delta >0$.
+			Thus, by Borel Cantelli lemma, $P(V_n' \ge n\delta \text{ i.o.}) = 0$.
+			So
+			\[
+				P(V_n' /n < \delta \text{ all but finitely many n}) = 1.
+			\]
+			Also,
+			\[
+				\frac{1}{n} \max_{m \le n} V_m'
+				\le \frac{1}{n}\left( \max_{m\le M}V_m' +\max_{M < m \le n}V_m' \right)
+				\le \frac{\max_{m\le M}V_m'}{n}+\max_{M<m\le n} \frac{V_m'}{m}
+			\]
+			where the last term $\le \delta$ as $n\rightarrow \infty$.
+			Since $\delta$ is arbitrary, we can get $\max_{m \le n}V_m'/n \rightarrow 0$ a.s.
+
+			Now, note that $K_n \le n$.
+			Then
+			\[
+				\frac{1}{n}\left \lvert \sum_{m=1}^n f(X_m) - \sum_{m=1}^{K_n}V_m \right \lvert
+				\le \frac{1}{n}\max_{m \le n}V_m' \rightarrow 0
+			\]
+			as $n\rightarrow \infty$.
+
+	\end{enumerate}
+
+	\qed
+\end{problem}
+

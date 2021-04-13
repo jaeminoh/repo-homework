@@ -1,0 +1,188 @@
+\begin{problem}[6.1.1] \hfill
+	
+	Let $\varphi$ be a measure preserving map of $\Omega$ into $\Omega$.
+	First, $\varphi^{-1}\Omega = \Omega$ since codomain contains the range.
+	Second, if $A$ is an invariant set, then $\varphi^{-1}A^c = \left( \varphi^{-1}A \right)^c = A^c$, so the complement of $A$ is invariant.
+	Third, if $A_i$ is an increasing sequence of invariant set, then $\varphi^{-1}A = \cup_i \varphi^{-1}A_i = \cup_i A_i = A$, so $A = \cup_i A_i$ is also invariant.
+	Therefore $\mathcal{I}$ is a sigma field.
+
+	We say two sets $A, B$ are equal a.s. if their corresponding indicator functions are equal a.s.
+
+	Let $B$ be a Borel set.
+	Assume that $X \circ \varphi = X$ a.s.
+	Then $\varphi^{-1}X^{-1}B = X^{-1}B$ a.s. so $X^{-1}B$ is invariant,
+	which says $X$ is $\mathcal{I}$ measurable.
+	Let's consider the converse.
+	If $X$ is an indicator function, then the result trivially holds.
+	So we can extend the result to where $X$ is an simplie function, measurable with respect to $\mathcal{I}$.
+	If $X$ is nonnegative function of $\mathcal{I}$, then $s_n \uparrow X$.
+	Since $s_n \circ \varphi = s_n$ a.s, $X\circ \varphi = \lim_n s_n \circ \varphi = \lim_n s_n = X$ a.s.
+	If $X \in \mathcal{I}$ any r.v, then by decomposing it to $X = X^+ - X^-$, we can conclude the result.
+
+	\qed
+\end{problem}
+
+\begin{problem}[6.1.2] \hfill
+
+	\begin{enumerate}
+		\item 
+			\[
+				\begin{split}
+					\omega \in \varphi^{-1}(B)
+					&\Rightarrow \varphi(\omega) \in B
+					\Rightarrow \varphi(\omega) \in \varphi^{-n}(A)
+					\Rightarrow \varphi^{n+1}(\omega) \in A \\
+					&\Rightarrow \omega \in \varphi^{-n-1}(A)
+					\Rightarrow \omega \in B
+				\end{split}
+			\]
+			for some $n \ge 0$.
+			Therefore $\varphi^{-1}(B) \subset B$.
+
+		\item
+			\[
+\begin{split}
+	\omega \in \varphi^{-1}(C) &\Rightarrow \varphi(\omega) \in \varphi^{-n}(B)
+	\Rightarrow \varphi^{n+1}(\omega) \in B \\
+	&\Rightarrow \omega \in \varphi^{-n-1}(B) \Rightarrow \omega \in \varphi^{-n}(B)
+\Rightarrow \omega \in C
+\end{split}
+	\]
+	for all $n \ge 0$.
+	Therefore $\varphi^{-1}(C) \subset C$.
+
+	\[
+		\begin{split}
+			\omega \in C
+			&\Rightarrow \varphi^n(\omega) \in B
+			\Rightarrow \omega \in (\varphi^{-n+1} \circ \varphi^{-1})(B) \\
+			&\Rightarrow \omega \in \varphi^{-n+1}(B)
+			\Rightarrow \omega \in \bigcap_{n \ge 1} \varphi^{-n}(B) = \varphi^{-1}(C)
+		\end{split}
+	\]
+	for all $n \ge 0$.
+	Therefore $C = \varphi^{-1}(C)$.
+
+\item Let $B, C$ be same as above.
+	Assume that $A$ is almost invariant.
+	Then $A = \varphi^{-n}(A)$ almost surely, so $A = B$ a.s.
+	So $A = C$ a.s, which is equivalent to $P(A \Delta C) = 0$.
+
+	Conversely, assume that $P(A \Delta D) = 0$ for some strictly invariant $D$.
+	Since $\varphi$ is measure preserving, $P(\varphi^{-1}(A \Delta D)) = P(A \Delta D) = 0$.
+	So $\varphi^{-1}(A) = \varphi^{-1}(D)$ a.s.
+	But $A = C = \varphi^{-1}(C)$ a.s.
+	Thus $A = \varphi^{-1}(A)$a.s, equivalent to almost invariance of $A$.
+
+	\end{enumerate}
+
+	\qed
+\end{problem}
+
+\begin{problem}[6.1.4] \hfill
+	
+	Let $m$ be any integer, $n$ be any nonnegative integer.
+	Define
+	\[
+		\mu_{m, \cdots, m+n}\left( A_0, \cdots, A_n \right)
+		= P(X_0 \in A_0, \cdots, X_n \in A_n).
+	\]
+	Then $\mu_{m, \cdots, m+n}$ is consistent, so the Kolmogorov extension thm applies.
+	Let $Y_n$ be a coordinate map.
+	Then any length $n+1$ distribution of consecutive sequence of $Y$ has same distribution with $X_0, \cdots, X_n$.
+	It means $Y_n$ is a two sided stationary process, and $X_n$ is embeded in $Y_n$
+
+	\qed.
+\end{problem}
+
+\begin{problem}[6.2.1] \hfill
+
+	Assume $X \in L^p$.
+	Let $A_n(X_M') = \sum_{m=0}^{n-1}X_M' \circ \varphi^m /n$.
+	Since $A_n(X_M') \rightarrow E(X_M' \lvert \mathcal{I})$ a.s. and
+	$|A_n(X_M') - E(X_M'\lvert \mathcal{I}) |^p \le (2M)^p \in L^1$,
+	DCT implies $L^p$ convergence of $A_n(X_M') \rightarrow E(X_M'\lvert \mathcal{I})$.
+
+	Now consider $\| A_n(X_M'') - E(X_M'' \lvert \mathcal{I}) \|_p \le \| A_n(X_M'')\|_p + \|X_M''\|_p$. \\
+	But $\| A_n(X_M'')\|_p \le \sum_{m=0}^{n-1} \| X_M'' \circ \varphi^m \|_p /n = \|X_M''\|_p$.
+	Since $|X_M''|^p \le |X|^p \in L^1$ and $X_M'' \rightarrow 0$ a.s,
+	DCT implies $L^p$ convergence of $A_n(X_M'') \rightarrow E(X_M'' \lvert \mathcal{I})$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[6.2.2] \hfill
+
+	\begin{enumerate}
+		\item Fix $M>0$.
+			Let $h_M = \sup_{m \ge M} |g_m - g|$.
+			By our assumption, $h_M \in L^1$ and $h_M \downarrow 0$ a.s. as $M \uparrow \infty$.
+			Since $g\in L^1$,
+			\[
+				{1 \over n}\sum_{m=0}^{n-1}g_m\circ\varphi^m \rightarrow E(g \lvert \mathcal{I})\text{ a.s}
+			\]
+			So, it is sufficient to show that
+			\[
+				\frac{1}{n}\sum_{m=0}^{n-1}(g_m-g)\circ\varphi^m \rightarrow 0 \text{ a.s.}
+			\]
+			Consider
+			\[
+				\frac{1}{n}\sum_{m=0}^{n-1}|g_m - g|\circ\varphi^m
+				\le \frac{1}{n}\sum_{m=0}^{M-1}|g_m - g|\circ\varphi^m
+				+ \frac{1}{n}\sum_{m=M}^{n-1}h_M \circ \varphi^m.
+			\]
+			By taking $\limsup_{n\rightarrow \infty}$ on both sides,
+			\[
+				\limsup_{n\rightarrow \infty}\frac{1}{n}\sum_{m=0}^{n-1}|g_m-g|\circ\varphi^m
+				\le E(h_M \lvert \mathcal{I}).
+			\]
+			By theorem 4.1.9(Monotone convergence theorem for conditional expectation),
+			as $M \uparrow \infty$, the last term goes to $0$ a.s.
+
+		\item Since $g \in L^1$,
+			\[
+				\frac{1}{n}\sum_{m=0}^{n-1}g\circ\varphi^m \rightarrow  E(g\lvert \mathcal{I})
+			\]
+			a.s. and in $L^1$ by the Ergodic theorem.
+			Now, it is sufficient to show that
+			\[
+				\frac{1}{n}\sum_{m=0}^{n-1}(g_m - g)\circ \varphi^m \rightarrow 0
+			\]
+			in $L^1$ sense.
+			Fix $\varepsilon>0$.
+			Since $\| g_n -g \|_1 \rightarrow 0$, we can choose $N$ such that
+			$\| g_n - g \|_1 < \varepsilon$ whenever $n \ge N$.
+			Then,
+			\[
+				\left \| \frac{1}{n}\sum_{m=0}^{n-1}(g_m - g)\circ \varphi^m \right \|_1 \le 
+				\frac{1}{n}\sum_{m=0}^N \| g_m - g \|_1 + \varepsilon.
+			\]
+			If $n$ is sufficiently large, then the above is bounded by $\varepsilon$.
+			Since $\varepsilon$ is arbitrary, the above goes to $0$ in $L^1$ sense.
+	\end{enumerate}
+
+	\qed
+\end{problem}
+
+\begin{problem}[6.2.3] \hfill
+
+	Note that
+	\[
+		D_k - \alpha > 0
+		\Leftrightarrow \sup_{i\le k}\frac{S_i -i\alpha}{i} > 0
+		\Leftrightarrow \sup_{i\le k}\frac{\sum_{j=0}^{i-1}(X_j - \alpha)}{i} >0
+		\Leftrightarrow \sup_{i\le k}\sum_{j=0}^{i-1}(X_j -\alpha) >0.
+	\]
+	Let the last condition be $M_k > 0$.
+	Then the above says $D_k - \alpha > 0$ is equivalent to $M_k >0$.
+	Therefore by lemma 6.2.2,
+	\[
+		0 \le E\left[ (X-\alpha)1_{\left( M_k >0 \right)} \right].
+	\]
+	Thus,
+	\[
+		\alpha P(D_k > \alpha) \le EX1_{(M_k>0)} \le E|X|.
+	\]
+
+	\qed
+\end{problem}

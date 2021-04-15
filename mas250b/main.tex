@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, enumitem}
+
+\begin{document}
+\section*{Homework 4}
+\begin{enumerate}
+	\item[40.]
+		It is maximized when $(p_1, p_2, p_3) = (1/2, 0, 1.2)$ and minimized when $(0, 1, 0)$.
+
+	\item[42.]
+		Use $V(X) = EX^2 - (EX)^2$.
+		Equality holds iff $V(X) = 0$, i.e. $P(X = EX) = 1$.
+
+	\item[44.]
+		\begin{enumerate}[label = (\alph*)]
+			\item Since we have joint density,
+				\[
+					f_{X_1}(x) = \int_{0}^{1-x}3(x+y)dy = \frac{3}{2} - \frac{3}{2}x^2
+				\]
+				where $0<x<1$.
+				$f_{X_2}$ can be get similarly.
+
+			\item Mean is
+				\[
+					\int_0^1 xf_{X_1}(x) dx = 3/8,
+				\]
+				and the second moment is
+				\[
+					\int_0^1 x^2 f_{X_1}(x) dx = 1/5.
+				\]
+		\end{enumerate}
+
+	\item[49.]
+		Follow the hint.
+		\[
+			0\le V\left (\frac{X}{\sigma_X} + \frac{Y}{\sigma_Y} \right ) = 2+2corr(X,Y).
+		\]
+		When $corr(X,Y) = -1$, then
+		\[
+			V\left( \frac{X}{\sigma_X} + \frac{Y}{\sigma_Y} \right) = 0.
+		\]
+		This implies $X/\sigma_X + Y/\sigma_Y$ is constant.
+		So linearity follows.
+		We can prove the other part similarly.
+
+	\item[50.]
+		Follow the hint.
+		\[
+			cov(N_1, N_2) = \sum_i \sum_j cov(X_i, Y_j) = cov(X_i, Y_i) = -np_1 p_2
+		\]
+		where the second inequality is due to the independence.
+
+	\item[52.]
+		$= E(X_1^2 - X_2^2) - E(X_1 - X_2)E(X_1 + X_2) = E(X_1^2 - X_2^2) = 0$
+		because they have same distribution.
+
+	\item[54.]
+		The moment generating function of $X$ is
+		\[
+			M_X(t) = \int_0^1 \exp(tx) dx = \frac{\exp(t)-1}{t} = \sum_{n\ge 0} \frac{t^n}{(n+1)!}.
+		\]
+		Thus $EX^n$ is equal to $n$-th derivative of $M_X(t)$ at $t = 0$, which is $1/(n+1)$.
+		This result agrees with
+		\[
+			EX^n = \int_0^1 x^n dx = \frac{1}{n+1}.
+		\]
+
+	\item[57.]
+		Note that the distribution function determines the distribution of given random variable.
+		That is, if two random variable have same distribution function, then they have same distribution.
+		So they have same moments.
+		This does not mean that two random variables are same.
+
+		Observe that
+		\[
+			P(X \le x) = P(Y \le \frac{x-a}{b}) = P(a+bY \le x).
+		\]
+		Thus $X$ and $a+bY$ have same distribution.
+		So $EX = E(a+bY) = a+bEY$, and $VX = b^2 VY$.
+\end{enumerate}
+
+\section*{Homework 5}
+\begin{enumerate}
+	\item[1.] Let $X$ be the number of components in working condition.
+		Then $X$ follows binomial$(4, .6)$ distribution.
+		Thus
+		\[
+			P(X \ge 2)
+			= 1-P(X = 0) - P(X = 1)
+			= 1-.4^4 - {4 \choose 1}.6^1 .4^3.
+		\]
+		
+	\item[5.] Probability of working condition for $2$-engine plane is $1-(1-p)^2$.
+		Corresponding probability of $4$-engine plane is $1-(1-p)^4 - {4\choose 1}(1-p)^3p$.
+		Now it is sufficient to solve that
+		\[
+			(1-p)^4 + {4\choose 1}p(1-p)^3 \le (1-p)^2.
+		\]
+		The answer is $p \ge 2/3$.
+
+	\item[9.] $X$ follows binomial$(n, p)$ distribution.
+		\[
+			\begin{split}
+				E e^{tX}
+				&= \sum_{k=0}^n e^{tk} {n\choose k} p^k (1-p)^{n-k} \\
+				&= \sum {n \choose k} (pe^t)^k (1-p)^{n-k} \\
+				&= (1-p+pe^t)^n \sum {n\choose k}\left( \frac{pe^t}{1-p+pe^t} \right)^k\left( \frac{1-p}{1-p+pe^t} \right)^{n-k} \\
+				&= (1-p+pe^t)^n.
+			\end{split}
+		\]
+		First derivative at $t = 0$ is $np$, and the second derivative at $t = 0$ is $n(n-1)p^2 +np$.
+		Thus we get the answer.
+
+	\item[11.] Let $X$ be the number of winnings.
+		Then $X$ follows binomial$(50, .01)$ distribution.
+		Using this, we can exact probabilities.
+
+		But one may want another method, because the calculations are messy.
+		Actually since $n$ is large and $p$ is small, we can regard $X$ as Poisson $50 \cdot .01 = 1/2$ random variable approximately.
+		Using this approximation,
+		\[
+			P(X \ge 1) = 1-P(X = 0) = 1-\exp(-1/2),
+		\]
+		\[
+			P(X = 1) = \exp(-1/2)1/2,
+		\]
+		\[
+			P(X \ge 2) = 1- P(X = 0) - P(X = 1) = 1- \exp(-1/2) - 1/2 \exp(-1/2).
+		\]
+
+	\item[12.] Let $X$ be the number of colds.
+		Let $Y$ be the indicator function of the event: 'the drug is effective'.
+
+		What we want is $P(Y = 1 \lvert X = 0)$.
+		By using Bayes' formula,
+		\[
+			\begin{split}
+				P(Y = 1 \lvert X = 0) 
+				&= \frac{P(X = 0, Y = 1)}{P(X = 0, Y = 1) + P(X = 0, Y = 0)}\\
+				&= \frac{0.75 \exp(-2)}{0.75 \exp(-2) + 0.25 \exp(-3)}.
+			\end{split}
+		\]
+
+	\item[19.]
+		\begin{enumerate}[label = (\alph*)]
+			\item By direct calulation,
+				\[
+					\frac{P(X=i)}{P(X = i-1)} = \frac{(n-i+1)(k-i+1)}{i(m-k+i)}.
+				\]
+
+			\item This can be done by the recurrence relation above.
+		\end{enumerate}
+
+	\item[20.]
+		\begin{enumerate}[label = (\alph*)]
+			\item $(1-p)^{k-1}p.$
+
+			\item Let $S = \sum_{k\ge 1} k(1-p)^{k-1}p$.
+				Then 
+				\[
+					S - (1-p)S = pS = \frac{p}{1-(1-p)}= 1.
+				\]
+				So $S = 1/p$.
+
+			\item There are $r-1$ success until $k-1$.
+			Thus 
+			\[
+				P(Y = k) = {k-1 \choose r-1} p^r (1-p)^{k-r}.
+			\]
+
+			\item $Y = \sum_{i=1}^r Y_i$, where $Y_i$ is iid geometric r.v. considered in (a).
+				Thus $EY = \sum_{i=1}^rEY_i = r \cdot 1/p$.
+				Note that direct calculation is also possible.
+		\end{enumerate}
+
+	\item[21.] First,
+		\[
+			P(a+(b-a)U \le x) = P\left( U \le \frac{x-a}{b-a} \right).
+		\]
+		For  $\frac{x-a}{b-a} \in (0, 1)$, the above is equal to $\frac{x-a}{b-a}$.
+		But $\frac{x-a}{b-a} \in (0, 1)$ is equivalent to $a < x < b$.
+		Also observe that $x \ge b$ implies the above is equal to $1$, and $x \le a$ leads the above $0$.
+		Thus distribution functions of $a+(b-a)U$ and $Unif(a, b)$ are the same.
+\end{enumerate}
+\end{document}

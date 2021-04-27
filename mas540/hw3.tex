@@ -1,0 +1,170 @@
+\begin{exercise}[3.2] \hfill
+
+	Let $\left\{ L_\delta \right\}$ be any approximation to the identity.
+	Then, by triangle inequality, $\left\{ K_\delta + L_\delta \right\}$ is also approximation to the identity because of the third condition.
+	Therefore
+	\[
+		f*\left( K_\delta + L_\delta \right)(x) \rightarrow f(x) \text{ a.e. }x
+	\]
+	as $\delta \rightarrow 0$ by theorem 2.1.
+	
+	But,
+	\[
+		\begin{split}
+			f*(K_\delta +L_\delta)(x)
+			&= \int f(x-y)(K_\delta(y) + L_\delta(y)) dy \\
+			&= f*K_\delta(x) + f*L_\delta(x).
+		\end{split}
+	\]
+	Since $f*L_\delta(x) \rightarrow f(x)$ for a.e. $x$,
+	$f*K_\delta(x) \rightarrow 0$ for a.e. $x$ necessarily.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[3.5] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item By the change of variable formula($\log x = t$),
+			\[
+				\begin{split}
+					\int_\mathbb{R} |f(x)| dx
+					&= \int_{-1/2}^{1/2}f(x) dx \\
+					&= \int_{-\infty}^{-\log 2}\frac{1}{t^2}dt = \frac{1}{\log 2} < \infty.
+				\end{split}
+			\]
+
+		\item Let $\varepsilon > 0$.
+			Then
+			\[
+				\begin{split}
+					f^*(x) &\ge \frac{1}{2|x| + 2\varepsilon}\int_{-|x|-\varepsilon}^{|x|+\varepsilon} \frac{dt}{t (\log t)^2} \\
+					&= \frac{1}{|x|+\varepsilon}\int_0^{|x|+\varepsilon}\frac{dt}{t(\log t)^2} \\
+					&= \frac{1}{-\log\left( |x|+\varepsilon \right)(|x|+\varepsilon)}.
+				\end{split}
+			\]
+			Since $\varepsilon>0$ is arbitrary, by taking $\varepsilon \downarrow 0$, we obtain
+			\[
+				f^*(x) \ge \frac{1}{|x|\log \frac{1}{|x|}}.
+			\]
+			But $1/(-|x| \log|x|)$ is clearly non-locally integrable function.
+			This is by integrating on the interval containing $0$ and the change of variable formula, used above.
+	\end{enumerate}
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[3.12] \hfill
+	
+	By chain rule, $F'$ exists for all $x \ne 0$.
+	But, 
+	\[
+		\lim_{h \rightarrow 0} \frac{F(h)}{h} = \lim_{h\rightarrow 0} h\sin (1/h^2) = 0
+	\]
+	Thus $F'$ exists for all $x\in \mathbb{R}$.
+
+	For $1/\sqrt{2n\pi + \pi/6} \leq x \leq 1/\sqrt{2n\pi - \pi/6}$, $2n\pi - \pi/6 \leq 1/x^2 \leq 2n\pi + \pi/6$, thus $\cos 1/x^2 \geq \sqrt{3}/2$ and $\left | \sin 1/x^2 \right | \leq 1/2$.
+	So $|F'| \geq 2/x \cos 1/x^2 - 2x \left | \sin 1/x^2 \right | \geq \sqrt3 \sqrt{2n\pi -\pi/6} - 1/\sqrt{2n\pi - \pi/6}$.
+	
+	By using the above,
+	\[
+		\begin{split}
+			\int_0^1 |F'| dm
+			& \geq \sum_{n=1}^\infty \left( 1/\sqrt{2n\pi - \pi/6} - 1/\sqrt{2n\pi +\pi/6} \right)\left( \sqrt3 \sqrt{2n\pi - \pi/6} - 1/\sqrt{2n\pi - \pi/6} \right) \\
+			& = \sum_{n=1}^\infty \frac{\pi / \sqrt 3}{\sqrt{2n\pi + \pi/6}\left( \sqrt{2n\pi + \pi/6} + \sqrt{2n\pi - \pi/6} \right)} \\
+			& -\sum_{n=1}^\infty \frac{\pi/3}{\left( 2n\pi - \pi/6 \right)\sqrt{2n\pi+\pi/6} \left( \sqrt{2n\pi + \pi/6} + \sqrt{2n\pi - \pi/6} \right)}
+		\end{split}
+	\]
+	where the last sum converges and previous one diverges (by $p$-test.)
+	Thus $F'$ is non-integrable.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[3.23] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Follow the hint.
+			\[
+				(D^+ G_\varepsilon)(x_0) = (D^+ F)(x_0) + \varepsilon > 0.
+			\]
+			This means, for sufficiently small $h>0$,
+			\[
+				G_\varepsilon(x_0 + h) > G_\varepsilon(x_0) \ge 0.
+			\]
+			This contradicts to our choice of $x_0$.
+
+		\item Use the Mean value theorem.
+	\end{enumerate}
+	\qed
+\end{exercise}
+
+\begin{exercise}[3.25] \hfill
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $f$ be the function given in the hint.
+			Note that all of points in any open set $O$ is a point of Lebesgue density.
+			This is because, we can only consider small ball $B_x$ contained in $O$.
+			Thus
+			\[
+				\liminf \frac{m(O_n \cap B)}{m(B)} = 1
+			\]
+			for all $x \in E$.
+			Therefore
+			\[
+				\begin{split}
+					\liminf \frac{1}{m(B)}\int_B f dm
+					&= \liminf \sum_{n\ge 1}\frac{m(O_n \cap B)}{m(B)} \\
+					&\ge \sum_{n \ge 1} \liminf \frac{m(O_n \cap B)}{m(B)} = \sum_{n\ge 1} 1 = \infty.
+				\end{split}
+			\]
+			 
+		\item Let $F(x) = \int_{-\infty}^x f(t) dt$ where $f$ is the function found in a.
+			Then $F$ satisfies the given condition.
+	\end{enumerate}
+	\qed
+\end{exercise}
+\begin{exercise}[3.32] \hfill
+	
+	Assume the Lipschitz condition. Take $\delta = \varepsilon /M$ when $\varepsilon>0$ is given.
+	For $(a_i, b_i)$ such that $\sum_i (b_i - a_i) < \delta$,
+	then $\sum_i |f(b_i) - f(a_i)| \leq M\sum_i (b_i - a_i) < M \delta = \varepsilon$.
+	Thus $f$ is absolutely continuous. So $f'$ exists a.e.
+	Now consider the following:
+	\[
+		|f'(x)| = \lim_{h\rightarrow 0} \frac{|f(x+h)-f(x)|}{|h|} \leq M
+	\]
+	Thus $|f'| \leq M$ a.e. x.
+
+	For the other direction, without loss of generality, assume $x\leq y$.
+	Since $f$ is absolutely continuous, $f'$ exists a.e, and $\int_x^y f' dm = f(y) - f(x)$.
+	Thus, $|f(x) - f(y) | = \left | \int_x^y f' dm \right | \leq \int_x^y |f'| dm \leq (y-x)M = |x-y|M$.
+
+\end{exercise}
+
+\begin{problem}[3.5] \hfill
+	
+	First, assume that $F' \ge 0$ a.e.
+	Let $E$ be the set, $F'(x) < 0$.
+	According to exercise 25, we can find $\Phi$ which is increasing, absolutely continuous, and $D_{\pm}\Phi(x) = \infty$ for all $x \in E$.
+	Note that $\infty = D_{+}\Phi(x) \le D^+\Phi(x)$.
+	Now, for $\delta >0$, consider $F+\delta \Phi$.
+	On $E$, $D^+(F+\delta \Phi) = \infty >0$.
+	On $E^c$, $D^+(F+\delta \Phi) = F' + \delta \Phi' \ge 0$.
+	Therefore, by exercise 23, $F+\delta \Phi$ is an increasing function.
+	So
+	\[
+		F(x)-F(a) + \delta(\Phi(x) - \Phi(a)) \ge 0.
+	\]
+	Since $\delta>0$ is arbitrary, we can assert $F(x) \ge F(a)$ whenever $x \ge a$.
+
+	Now we'll solve the problem using the above.
+	Let $G(x) = \int_a^x F' dm$.
+	Then $G'(x) = F'(x)$ a.e. by Lebesgue differentiation theorem.
+	Thus $G'(x) - F'(x) \ge 0$ a.e.
+	Then, the above implies $G(x) - G(a) - F(x) + F(a) \ge 0$.
+	Since we can say that $G'(x) - F'(x) \le 0$ a.e. also,
+	we obtain $G(x) - G(a) -F(x) + F(a) \le 0$.
+	But $G(a) = 0$.
+	Therefore $F(x) - F(a) = G(x) = \int_a^x F' dm$.
+
+	\qed
+\end{problem}
+

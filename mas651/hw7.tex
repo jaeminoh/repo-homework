@@ -1,0 +1,144 @@
+\begin{problem}[7.1.1] \hfill
+
+	First, let $F$ be the distribution function of standard normal, $f = F'$.
+	Let
+	\[
+		I(a) = \int_0^\infty F(ax) f(x)dx.
+	\]
+	Then
+	\[
+		I'(a) = \int_0^\infty xf(ax)f(x) dx = \frac{1}{2\pi(1+a^2)}.
+	\]
+	Note that $I(0) = 1/4$.
+	So,
+	\[
+		I(a) = \frac{1}{4} + \frac{1}{2\pi}\int_0^a \frac{dt}{1+t^2} = \frac{1}{4} + \frac{\arctan{a}}{2\pi}.
+	\]
+
+	Now, assume that $B_0 = 0$.
+	\[
+		\begin{split}
+			P(B_s >0, B_t>0)
+			&= \int_0^\infty P(B_t - B_s > -B_s \lvert B_s = x) f_{B_s}(x) dx \\
+			&= \int_0^\infty P(B_t - B_s > -x) f_{B_s}(x) dx \\
+			&= \int_0^\infty P(B_t - B_s \le x) f_{B_s}(x)dx \\
+			&= \int_0^\infty F\left( \frac{x}{\sqrt{t-s}} \right) f_{B_s}(x) dx\\
+			&= \int_0^\infty F\left( \frac{\sqrt{s}u}{\sqrt{t-s}} \right)f(u)du \\
+			&= \frac{1}{4} + \frac{1}{2\pi}\arctan{ \sqrt{ \frac{s}{t-s}}}.
+		\end{split}
+	\]
+	
+	When $B_0 = y$, the desired one is
+	\[
+		\int_{-y/\sqrt{s}}^\infty F\left( \frac{\sqrt{s}u + y}{\sqrt{t-s}} \right) f(u) du.
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.1.2] \hfill
+	
+	Decompose it by $(B_3-B_2), (B_2 - B_1), B_1$.
+\end{problem}
+
+\begin{problem}[7.1.3] \hfill
+
+	By using the definition of Riemann integration,
+	\[
+		W = \lim_{n\rightarrow \infty} \sum_{k=1}^n \sum_{i=1}^k \frac{t}{n}\left( B\left( \frac{i}{n}t \right)- B\left( \frac{i-1}{n}t \right) \right).
+	\]
+	This is equal to $N(B_0, t^3/3)$ by considering the characteristic function because Wiener process has stationary independent increment.
+\end{problem}
+
+\begin{problem}[7.1.4] \hfill
+
+	Let $\mathcal{G}$ be the collection of such sets.
+	Note that the generator of $\mathcal{F}_0$ is contained in $\mathcal{G}$.
+	So, if $\mathcal{G}$ is a $\sigma-$field, then $\mathcal{F}_0 \subset \mathcal{G}$.
+	
+	Take any sequence and $B = \mathbb{R}^{\mathbb{N}}$.
+	This shows $\Omega_0 \in \mathcal{G}$.
+	Now assume $A \in \mathcal{G}$.
+	Then $A = \left\{ \omega: (\omega(t_1), \cdots ) \in B \right\}$ for some sequence $t_n$ and $B \in \mathcal{R}^{\mathbb{N}}$.
+	The complement of $A$ is $\left\{ \omega: \left( \omega(t_1), \cdots \right) \notin B \right\}$.
+	Since $B$ is Borel set, $A^c \in \mathcal{G}$.
+	To show that $\mathcal{G}$ is a sigma fiel
+	Let $A_i \uparrow A$.
+	Let $\left\{ t_n^i \right\}_{n=1}^\infty$ be the corresponding sequence of $A_i$.
+	Let ${q_n}$ be an enumeration of $\cup_i \left\{ t_n^i \right\}$.
+	Then we can express $A_i = \left\{ \omega: (\omega(q_1), \cdots) \in E_i \right\}$ where $E_i$ is a Borel set.
+	Thus
+	\[
+		\bigcup_i A_i = \left\{ \omega: (\omega(q_1), \cdots) \in \bigcup_i E_i \right\} \in \mathcal{G}.
+	\]
+	This says $\mathcal{G}$ is a sigma field.
+
+	Now, let me show that $\mathcal{G} \subset \mathcal{F}_0$.
+	Fix $A \in \mathcal{G}$.
+	Let $\left\{ t_n \right\}$ be the corresponding sequence of time.
+	Let $\pi_t : t \mapsto w(t)$ be the coordinate map.
+	Then, by elementary measure theory, $\sigma(\pi_t: t\in \left\{ t_n \right\}) = \left \{ \left\{ w: (w(t_1), \cdots) \in B \right\} : B \in \mathcal{B}^{\mathbb{N}} \right \}$.
+Since $\mathcal{F}_0$ is the smallest sigma field which makes all coordinate maps measurable, $\sigma(\pi_t: t\in \left\{ t_n \right\} ) \subset \mathcal{F}_0$.
+	Therefore, since $A \in \sigma(\pi_t: t\in \left\{ t_n \right\})$, $A$ must lie in $\mathcal{F}_0$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.1.5] \hfill
+
+	Let $\gamma > 1/2 + 1/m$.
+	$A_n$ is the set defined in 7.1.6, with $C|t-s|$ replaced by $C|t-s|^\gamma$.
+	$Y_{n, k}$ is the set defined in 7.1.6, with $j= 0,1,2$ replaced by $j = 0, \cdots, m$.
+	$B_n$ is the set defined in 7.1.6, with $5C/n$ replaced by $C (5/n)^\gamma$.
+
+	By the same argument,
+	\[
+		\begin{split}
+			P(A_n)
+			&\le P(B_n) \le n P\left( |B(1/n)| \le C(5/n)^\gamma \right)^m \\
+			&= nP\left( |Z| \le 5^\gamma C/n^{\gamma-1/2} \right)^m \\
+			&\le D \frac{n}{n^{m\gamma - m/2}}.
+		\end{split}
+	\]
+	But $m\gamma - m/2 > 1$.
+	So, by letting $n \rightarrow \infty$, the result follows.
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.1.6] \hfill
+
+	Let
+	\[
+		Y_n = \sum_{m\le 2^n}\Delta^2_{m, n}.
+	\]
+	Note that $\Delta_{m, n} \sim N(0, t/2^n)$.
+	So
+	\[
+		\frac{2^n}{t}\Delta_{m,n} \sim \chi^2_1.
+	\]
+	By definition of chi-squared distribution and property of gamma distribution,
+	\[
+		\sum_{m\le 2^n}\Delta^2_{m, n} \sim Gamma(2^{n-1}, \frac{t}{2^{n-1}}).
+	\]
+	Thus $EY_n = t$ and $Var Y_n = t^2/2^{n-1}$.
+
+	By the Markov inequality,
+	\[
+		\begin{split}
+			P\left( |Y_n - t| > \frac{1}{n} \right)
+			&\le n^2 E(Y_n -t)^2 \\
+			&= \frac{n^2 t^2}{2^{n-1}}.
+		\end{split}
+	\]
+	So $\sum_n P(|Y_n - t| > 1/n) < \infty$.
+	By the Borel-Cantelli lemma,
+	\[
+		P\left( |Y_n - t| > {1 \over n} \text{ i.o. } \right) = 0.
+	\]
+	This says, for almost every $\omega \in \Omega$, there is $N(\omega)$ such that
+	$n \ge N(\omega)$ implies $|Y_n - t| \le 1/n$.
+	Thus $Y_n \rightarrow t$ almost surely.
+	
+	\qed
+\end{problem}

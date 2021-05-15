@@ -137,6 +137,7 @@
 	Since $f$ is absolutely continuous, $f'$ exists a.e, and $\int_x^y f' dm = f(y) - f(x)$.
 	Thus, $|f(x) - f(y) | = \left | \int_x^y f' dm \right | \leq \int_x^y |f'| dm \leq (y-x)M = |x-y|M$.
 
+\qed
 \end{exercise}
 
 \begin{problem}[3.5] \hfill
@@ -164,6 +165,8 @@
 	we obtain $G(x) - G(a) -F(x) + F(a) \le 0$.
 	But $G(a) = 0$.
 	Therefore $F(x) - F(a) = G(x) = \int_a^x F' dm$.
+	Since $F'$ is integrable, $\nu(B) = \int_B F' dm$ is absolutely continuous with respect to $m$
+	so $F$ is absolutely continuous.
 
 	\qed
 \end{problem}

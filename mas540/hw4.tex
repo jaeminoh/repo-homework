@@ -1,0 +1,240 @@
+\begin{exercise}[4.4] \hfill
+	
+	First, let's show the completeness.
+	Let $\left\{ f_n \right\} \subset l^2(\mathbb{Z})$ be a Cauchy sequence.
+	Choose $n_k$ such that $\| f_{n_{k+1}} - f_{n_k} \| < 2^{-k+1}$.
+	Define $f = f_{n_1} + \sum_{k=1}^\infty (f_{n_{k+1}} - f_{n_k})$
+	and $g = |f_{n_1}| + \sum_{k=1}^\infty |f_{n_{k+1}} - f_{n_k}|$.
+	Note that $\| g \| \le \| f_{n_1} \| + \sum_{k=1}^\infty \| f_{n_{k+1}} - f_{n_k}\| \le \| f_{n_1} \| + 2 < \infty$.
+	Because, for each $i \in \mathbb{Z}$, $|f(i)| \le g(i) \le \|g \| <\infty$,
+	we can observe that $f(i)$ is absolutely converges.
+	Thus $f$ is well defined function, also in $l^2$ ($\because \| f\| \le \|g \| < \infty$).
+	Now let's show that $f_{n_k} \rightarrow f$.
+	\[
+		\| f - f_{n_k} \| \le \sum_{m=k}^{\infty} \| f_{n_{m+1}} - f_{n_m}\| \le 2^{-k}.
+	\]
+	So $f_{n_k} \rightarrow f$ as $k \rightarrow \infty$ in $l^2$.
+	Therefore $l^2(\mathbb{Z})$ is complete.
+
+	Now let's show the separability.
+	Let $\mathcal{B}$ be the set of all rational sequence in $l^2(\mathbb{Z})$.
+	Clearly, it is nonempty since the zero sequence is in $\mathcal{B}$.
+	Let $f \in l^2$.
+	Fix $\varepsilon >0$.
+	For each $i\in \mathbb{Z}$, choose $q_i$ such that 
+	\[
+		|f(i) - q_i|^2 < \frac{\varepsilon^2}{2^{|i|}}.
+	\]
+	Let $q: i \mapsto q_i$.
+	Then $\| q \| \le \| q - f\| + \| f \|$,
+	where
+	\[
+		\begin{split}
+			\| q - f \|
+			&= \left (\sum_{-\infty}^\infty |q_i - f(i)|^2 \right )^{1/2} \\
+			&\le \left( \sum_{-\infty}^\infty \frac{\varepsilon^2}{2^{|i|}} \right)^{1/2} \\
+			&= \sqrt{3} \varepsilon.
+		\end{split}
+	\]
+	Since $\|f \| <\infty$, we can see that $q \in l^2$ and $\| f-q\| \le \sqrt{3} \varepsilon$.
+	Note that $q \in l^2$ implies $q \in \mathcal{B}$.
+	So $\mathcal{B}$ is dense in $l^2$, and clearly $\mathcal{B}$ is countable set.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[4.15] \hfill
+
+	Let $\left\{ e_1, e_2, \cdots, e_n \right\}$ be an orthonormal basis of $\mathcal{H}_1$.
+	Let $f \in \mathcal{H}_1$, $\| f\| = 1$.
+	Then $f = \sum_{i=1}^n c_i e_i$, where $\sqrt{\sum |c_i|^2} = 1$.
+	Then
+	\[
+		\begin{split}
+			\| Tf\|
+			&= \| c_1 Te_1 + \cdots c_n Te_n \| \\
+			&\le |c_1|\|Te_1\| + \cdots + |c_n| \|Te_n\| \\
+			&\le \sum_{i=1}^n|c_i|M \\
+			&\le M \left( \sum_{i=1}^n |c_i|^2 \right)^{1/2}\left( \sum_{i=1}^n 1 \right)^{1/2}\\
+			&= \sqrt{n} M < \infty
+		\end{split}
+	\]
+	where $M = \max_{1 \le i \le n} \| Te_i \|$.
+	Since $n$ is fixed, the above says that $T$ is bounded operator.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[4.22] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item Polarization identity:
+			\[
+				(f, g) = \frac{1}{4}\left[ \| f+ g\|^2 - \|f-g\|^2 + i\|f+ig\|^2 - i\|f-ig\|^2 \right].
+			\]
+			This can be shown by using the hint. (Actually, we have seen it in the lecture.)
+			
+			Put $Tf, Tg$ in the place of $f, g$ respectively.
+			Since $T$ is linear and $\| Tf \| = \|f \|$, we can easily see that $(f, g) = (Tf, Tg)$.
+
+			Now fix $g\in \mathcal{H}$.
+			Then $(f, T^*Tg) = (Tf, Tg)$ by the definition of adjoint,
+			and $(Tf, Tg) = (f, g)$ by isometric property of $T$.
+			Thus
+			\[
+				(f, T^* Tg - g) = 0
+			\]
+			for all $f \in \mathcal{H}$.
+			Therefore $T^* T = I$ by taking $f = T^* T g - g$.
+
+		\item Let's show the injectivity.
+			Let $Tf= Tg$.
+			Then
+			\[
+				0 = \| Tf - Tg \| = \|f - g \| \Rightarrow f = g.
+			\]
+			Thus $T$ is bijective isometry.
+			Therefore it is an unitary operator.
+
+			Now fix $g\in \mathcal{H}$.
+			For each $f\in \mathcal{H}$, there is $h$ such that $f = Th$ because of the surjectivity.
+			Then
+			\[
+				\begin{split}
+					(f, TT^* g)
+					&= (Th, TT^* g) \\
+					&= (h, T^* T T^* g) \\
+					&= (h, T^* g) \\
+					&= (Th, g) \\
+					&= (f, g)
+				\end{split}
+			\]
+			by the definition of the adjoint and $T^* T = I$ because $T$ is an isometry.
+			Therefore
+			\[
+				(f, TT^* g - g) = 0
+			\]
+			for all $f \in \mathcal{H}$.
+			By taking $f = TT^*g - g$, we can conclude that $TT^* = I$.
+
+		\item Let $\mathcal{H} = l^2(\mathbb{N})$.
+			Let $f = (f(1), f(2), \cdots) \in \mathcal{H}$.
+			Define $T: (f(1), f(2), \cdots) \mapsto (0, f(1), f(2), \cdots)$.
+			Clearly $T$ is a linear operator, but non-surjective.
+			If we show that $T$ is isometry, then we are done.
+			\[
+				\| Tf \|^2 = 0 + \sum_{i=1}^\infty |f(i)|^2 = \| f \|^2.
+			\]
+			So$T$ is an isometry, which is not unitary.
+
+		\item Note that unitary operator is isometry.
+			So, by (a) and Cauchy Schwartz inequality,
+			\[
+				(Tf, Tf) = (f, T^* Tf) \le \| f \| \| T^* T f \| = \| f \|^2.
+			\]
+			Thus $\| Tf \| \le \| f\|$.
+
+			For the other direction,
+			\[
+				\begin{split}
+					(f, f)
+					&= (T^* Tf, T^* Tf) \\
+					&= (Tf, T T^* Tf) \\
+					& \le \| Tf \| \|TT^* Tf \|.
+				\end{split}
+			\]
+			But $\| TT^*Tf \|^2 = (TT^*Tf, TT^*Tf) = (Tf, T T^* T T^* T f) = (Tf, Tf) = \| Tf\|^2$
+			since $(T^* T)^* (T^* T) = T^* T T^* T = I$ by (a).
+			Therefore $(f, f) \le (Tf, Tf)$, which completes the proof.
+	\end{enumerate}
+	\qed
+\end{exercise}
+
+\begin{exercise}[4.32] \hfill
+
+	\begin{enumerate}[label = (\alph*)]
+		\item $T(cf + dg)(t) = t(cf+dg)(t) = ctf(t) + dtg(t) = cT(f)(t) + dT(g)(t)$ so $T$ is linear.
+			Note that $t^2 \le 1$ on $[0, 1]$.
+			So
+			\[
+				\| Tf \|^2 = \int_0^1 t^2 |f(t)|^2 dt \le \int_0^1 |f(t)|^2 dt = \| f \|^2
+			\]
+			which says that $\| T \| \le 1$.
+
+			Also,
+			\[
+				\begin{split}
+					(Tf, g)
+					&= \int_0^1 tf(t) \overline{g(t)}dt \\
+					&= \int_0^1 f(t) \overline{tg(t)} dt = (f, Tg)
+				\end{split}
+			\]
+			hence $Tg = T^* g$ for all $g \in L^2[0, 1]$ by same argument used in exercise 22.
+			Thus $T$ is a bounded linear operator with $T = T^*$.
+
+			Let $f_n(t) = \sqrt{2n+1} t^n$.
+			Then $\| f_n \| ^2 = \int_0^1 (2n+1)t^{2n} dt = 1$ for all $n$.
+			Thus $f_n \in \text{ the unit ball of }L^2[0, 1]$.
+			For any subsequence $f_{n_k}$,
+			\[
+				\begin{split}
+					&\| Tf_{n_k} - Tf_{n_l} \|^2 \\
+					&= \int_0^1 (2n_k + 1)t^{2n_k + 2} +(2n_l + 1)t^{2n_l + 2} - 2\sqrt{(n_k+1)(n_l+1)}t^{(n_k+1)(n_l+1)} dt \\
+					&= \frac{2n_k+1}{2n_k +3} + \frac{2n_l + 1}{2n_l + 3} - \frac{2\sqrt{(n_k+1)(n_l+1)}}{(n_k+1)(n_l+1)+1}.
+				\end{split}
+			\]
+			As $n_k, n_l \rightarrow \infty$, the first two terms go to $1$ respectively, but the last term go to $0$.
+			So the sequence does not converge.
+			Hence $T$ is non-compact.
+
+		\item Suppose $T \varphi = \lambda \varphi$.
+			Then $t\varphi(t) = \lambda \varphi(t)$ for all $t \in [0, 1]$.
+			Then $t \varphi(t) 1_{\varphi\ne0}(t) = \lambda \varphi(t) 1_{\varphi \ne 0}(t)$,
+			so $1_{\varphi \ne 0}(t) = 0$, which means $\varphi = 0$.
+			But the zero vector cannot be an eigenvector, hence there is no eigenvector.
+
+	\end{enumerate}
+	\qed
+\end{exercise}
+
+\begin{problem}[4.1] \hfill
+	
+	Let $X$ be a collection of linearly independent subsets of $\mathcal{H}$.
+	Impose partial order by the inclusion.
+	Note that $X$ is nonempty since the empty set is in $X$.
+
+	We'll use Zorn's lemma which is equivalent to the AC.
+	Let $Y$ be any totally ordered subset of $X$.
+	$L_Y = \bigcup_{w \in Y}w$.
+	Then every finite subset of $L_Y$ is in $Y$, since $Y$ is totally ordered.
+	Hence $L_Y$ is linearly independent, so $L_Y \in X$.
+	But, note that $L_Y$ is an upperbound of $Y$ in $X$.
+	So Zorn's lemma gives $L_m$ which is maximal element of $X$.
+
+	Now assert that $L_m$ is an algebraic basis of $\mathcal{H}$.
+	Since $L_m \in X$, $L_m$ is linearly independent.
+	If $L_m$ does not span $\mathcal{H}$, then there is $f \in \mathcal{H}$ outside of span $L_m$.
+	Define $L_f = L_m \cup \left\{ f \right\}$. Then $L_f$ is strictly larger than $L_m$.
+	But, $L_f$ is linearly independent, since $f$ is outside of span of $L_m$.
+	Thus $L_f \in X$, which contradicts to the maximality of $L_m$.
+	Hence $L_m$ spans $\mathcal{H}$ algebraically, so $L_m$ is an algebraic basis.
+
+	Now $L_m = \{a_\alpha: \alpha \in I\}$.
+	Let $B = \left\{ e_\alpha = \frac{a_\alpha}{\| a_\alpha \|} : \alpha \in I \right\}$.
+	Then $B$ is an algebraic basis, consists of unit vectors.
+
+	Choose $\left\{ e_i \right\}_{i\in \mathbb{N}}$.
+	For $f \in \mathcal{H}$,
+	\[
+		f = \sum_{\alpha \in F} c_\alpha e_\alpha = \sum_{\alpha \in F \setminus \mathbb{N}} c_\alpha e_\alpha + \sum_{i=1}^N c_i e_i
+	\]
+	where $F$ is finite set.
+	Define $l(f) = \sum_{i=1}^N i c_i$.
+	Note that $N$ depends on $f$.
+	Clearly, $l$ is linear: $l(cf +dg) = c\sum_{i=1}^N i c_i + d\sum_{i=1}^N i d_i = cl(f) + dl(g)$.
+	Also $l(e_i) = i$.
+	But, $|l(e_i)| = i \rightarrow \infty$ as $i\rightarrow \infty$, even though $\| e_i \| = 1$.
+	This says $l$ is unbounded linear functional.
+
+	\qed
+\end{problem}

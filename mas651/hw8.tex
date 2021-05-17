@@ -1,0 +1,114 @@
+\begin{problem}[7.2.2] \hfill
+
+	Note that 
+	\[
+		1_{(L \le t)} = 1_{(T_0 > 1-t)} \circ \theta_t
+	\]
+	because the RHS means there is no visits to $0$ during $1-t$ from time $t$.
+	It is equal to the LHS.
+
+	Therefore, by the Markov property,
+	\[
+		P_0\left( L \le t \right)
+		= E_0 1_{(L\le t)}
+		= E_0 E_{B_t}1_{(T_0 > 1-t)}
+		= \int p_t(0, y)P_y(T_0 > 1-t) dy.
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.2.4] \hfill
+
+	Note that $P_0 (B(t) \ge 0) = P_0\left( B(t) / f(t) \ge 0 \right) = 1/2 >0$.
+
+	Let $X = \limsup_{ t \downarrow 0} \frac{B(t)}{f(t)}$.
+	Then $X$ is $\mathcal{F}_0^+$ measurable.
+	Let $t_n \downarrow 0$.
+	Then
+	\[
+		P(X \ge 0) \ge 
+		P\left(\limsup_{n} \frac{B(t_n)}{f(t_n)} \right )
+		\ge \limsup_n P\left( \frac{B(t_n)}{f(t_n)} \right).
+	\]
+	Since $t_n \downarrow 0$ is arbitrary, we can observe that
+	\[
+		P\left( X \ge 0 \right) \ge \limsup_{t\downarrow 0} P\left( \frac{B(t)}{f(t)} \right).
+	\]
+	But the RHS of the above is bigger than $0$ since $P_0\left( B(t)/f(t) \ge 0 \right) = 1/2 > 0$.
+	Thus, by Bluementhal's $0-1$ law, $P(X \ge 0) = 1$.
+
+	Let $\alpha \in \mathbb{R}$.
+	Then $P_0(X \le \alpha) \in \left\{ 0, 1 \right\}$ by $0-1$ law.
+	But $F(\alpha) = P_0(X \le \alpha)$ is a cdf.
+	So $F(\alpha)$ is nondecreasing, right continuous function.
+	Since $F(\alpha) \in \left\{ 0, 1 \right\}$ for each $\alpha$, we can observe that
+	$F$ has exactly one jump discontinuity or constant function.
+	
+	First, consider discontinuous case. 
+	Let $c$ be the discontinuity of $F$.
+	Then $F(c) = 1$ but $F(c^-) = 0$, and $P_0(X = c) = F(c) - F(c^-) = 1$.
+	But $P_0(X \ge 0) = 1$, so $c \in [0, \infty)$.
+
+	Now, consider the case when $F$ is constant.
+	Since $P(Z \ge 0) = 1$, $F(0) = 0$ so $F = 0$.
+	This says, for each $\alpha \in \mathbb{R}$, $P(X > \alpha) = 1$.
+	This means that $P(X  = \infty) = 1$.
+
+	Therefore, $X = c$ almost surely for some $c \in [0, \infty]$.
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.3.2] \hfill
+
+	\begin{enumerate}
+		\item $\left\{ S \wedge T < t \right\} = \left\{ S < t  \right\} \cup \left\{ T < t \right\} \in \mathcal{F}_t$.
+
+		\item $\left\{ S \vee T < t \right\} = \left\{ S < t \right\} \cap \left\{ T < t \right\} \in \mathcal{F}_t$.
+	
+		\item $\left\{ S + T < t \right \} = \bigcup_{q \le t} \left\{ S < q \right\} \cap \left\{ T< t-q \right\} \in \mathcal{F}_t$ since $q , t-q \le t$.
+
+		\item $\left\{ S \wedge t < r \right\} = \left\{ S < r \right\} \cup \left\{ t < r \right\} \in \mathcal{F}_r$ since $t$ is constant function.
+
+		\item $\left\{ S \vee t < r \right\} = \left\{ S < r \right\} \cap \left\{ t < r \right\} \in \mathcal{F}_r$.
+
+		\item $\left\{ S + t < r \right\} = \left\{ S < r-t \right\} \in \mathcal{F}_r$ because $r-t \le r$.
+	\end{enumerate}
+
+	\qed
+\end{problem}
+
+\begin{problem}[7.3.3] \hfill
+
+	\begin{enumerate}
+		\item $\left\{ \sup_{k ge n} T_k \le t \right\} = \bigcap_{k \ge n}\left\{ T_k \le t \right\} \in \mathcal{F}_t$. So $sup_{k \ge n} T_k$ is a stopping time.  By taking $n=1$, $\sup_n T_n$ is a stopping time.
+
+		\item $\left\{ \inf_{k\ge n} T_k < t \right\} = \bigcup_{k \ge n} \left\{ T_k < t \right\} \in \mathcal{F}_t$. By taking $n=1$, $\inf_n T_n$ is a stopping time.
+
+		\item Let $S_n = \sup_{k\ge n} T_k$.
+			By 1, $S_n$ is a stopping time.
+			Thus by 2, $\inf_n S_n = \limsup_n T_n$ is a stopping time.
+
+		\item Let $R_n = \inf_{k \ge n}T_k$.
+			Similarly, by 1, 2, $\sup_n R_n = \liminf_n T_n$ is a stopping time.
+	\end{enumerate}
+	
+	\qed
+\end{problem}
+
+\begin{problem}[7.3.5] \hfill
+
+	\begin{enumerate}
+		\item $\left\{ S< T \right\} \cap \left\{ S < t \right\} = \bigcup_{q \le t} \left\{ S< q \right\} \cap \left\{ q < T \right\} \in \mathcal{F}_t$ since $q\le t$.
+			Thus $\left\{ S<T \right \} \in \mathcal{F}_S$.
+
+		\item $\left\{ S > T \right\} \cap \left\{ S < t \right\} = \bigcup_{q \le t } \left\{ T < q \right\} \cap \left\{ q < S < t \right\} \in \mathcal{F}_S$.
+
+			By 1, 2 and symmetry, $\left\{ S<T \right\}, \left\{ S>T \right\} \in \mathcal{F}_S \cap \mathcal{F}_T$.
+
+		\item But $\left\{ S = T \right\} = \left\{ S \le T \right\} \cap \left\{ S \ge T \right\} = \left\{ S < T \right\}^c \cap \left\{ S > T \right\}^c \in \mathcal{F}_S$ since $\mathcal{F}_S$ is a sigma field.
+	\end{enumerate}
+
+	\qed
+\end{problem}

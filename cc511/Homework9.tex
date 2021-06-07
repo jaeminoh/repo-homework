@@ -1,0 +1,362 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{titlesec}
+\usepackage[centertags]{amsmath}
+\usepackage{amsmath}
+\usepackage[british]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{float}
+\usepackage{bbm}
+
+\usepackage{enumitem}
+
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{pstricks,pst-node}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{fancybox}
+%\usepackage{multibox}
+\usepackage{setspace}
+\usepackage{hyperref,cleveref}
+
+\usepackage{authblk}
+\newtheorem*{sol}{Solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\section*{Homework 9.}
+(Due 6 PM on May. 19)
+
+\begin{itemize}
+\item [10.1.4]  A new radar system is being developed to detect packages
+dropped by airplane. In a series of trials, the radar
+detected the packages being dropped 35 times out of 44. Construct a 95\% lower confidence bound on the
+probability that the radar successfully detects dropped
+packages. \\
+
+\begin{sol}
+	Since $n-x = 9  > 5$ and $n = 44 > 5$, we can use normal approximation. (+3)
+	The formula for the answer is
+	\[
+		\left (\frac{x}{n} - \frac{Z_{0.05}}{n}\sqrt{ \frac{n(n-x)}{n}}, 1 \right ),
+	\]
+	which is
+	\[
+		\left( \frac{35}{44} - \frac{1.645}{44}\sqrt{\frac{35 \cdot 9}{44}}, 1 \right) = (0.70, 1).
+	\](+7)
+
+	\qed
+\end{sol}
+
+\item [10.1.8] In trials of a medical screening test for a particular
+illness, 23 cases out of 324 positive results turned out to
+be ``false-positive'' results. The screening test is
+acceptable as long as $p$, the probability of a positive
+result being incorrect, is no larger than 10\%. Calculate a
+$p$-value for the hypotheses
+\begin{align*}
+	&&H_{0}: p \geq 0.1 && \text{versus}&& H_{A}:p<0.1&&
+\end{align*}
+Construct a 99\% upper confidence bound on $p$. Do you
+think that the screening test is acceptable?
+
+\begin{sol}
+	$n-x, n > 5$ so the normal approximation can be done. (+2)
+	Our observed statistic is
+	\[
+		\frac{x-np_0 + 0.5}{\sqrt{np_0(1-p_0)}} = -1.65
+	\]
+	where $+0.5$ of the numerator is due to the continuity correction.(+5)
+
+	Now, p-value is
+	\[
+		P(Z \le -1.65) = 0.049.
+	\](+2)
+
+	And the upper confidence bound is
+	\[
+		\left( 0, \frac{x}{n} + \frac{Z_{0.01}}{n}\sqrt{\frac{x(n-x)}{n}} \right) = (0, 0.104).
+	\](+1)
+
+	Since p-value of our test is larger than $0.01$, we can say that the screening thest is non-acceptable.
+
+	\qed
+\end{sol}
+
+\item [10.1.18] The dielectric breakdown strength of an electrical
+insulator is defined to be the voltage at which the
+insulator starts to leak detectable amounts of electrical
+current, and it is an important safety consideration. In
+an experiment, 62 insulators of a certain type were
+tested at $180^{\circ}$C, and it was found that 13 had a
+dielectric breakdown strength below a specified
+threshold level.
+\begin{enumerate}
+	\item [(a)] Conduct a hypothesis test to investigate whether this
+	experiment provides sufficient evidence to conclude
+	that the probability of an insulator of this type
+	having a dielectric breakdown strength below the
+	specified threshold level is larger than 5\%.
+	\item [(b)]Construct a one-sided 95\% confidence interval that
+	provides a lower bound on the probability of an
+	insulator of this type having a dielectric breakdown
+	strength below the specified threshold level.
+\end{enumerate}
+\begin{sol}
+	\begin{enumerate}[label = (\alph*)]
+		\item $n= 62$, $x = 13$ and $p_0 = 0.05$.
+			Note that the normal approximation is applicable for our data.
+			Set the null hypothesis $H_0: p \le 0.05$ and the alternative $H_1: p > 0.05$.
+			Now observed test statistic is
+			\[
+				\frac{x- np_0 - 0.5}{\sqrt{np_0(1-p_0)}} = 5.48
+			\]
+			by normal approximation and continuity correction.
+			Then p-value is
+			\[
+				P(Z > 5.48),
+			\]
+			which is quite smaller than usual confidence level($0.05, 0.01$).
+			So we can reject the null under $\alpha = 0.01, 0.05$.(+5)
+
+		\item By using the same formula which is used in the previous problem,
+			the answer is
+			\[
+				\left( \frac{13}{62} - \frac{Z_{0.01}}{62}\sqrt{\frac{13(62-13)}{62}}, 1 \right)
+				 = (0.125, 1).
+			 \](+5)
+	\end{enumerate}
+	
+	\qed
+\end{sol}
+\item [10.2.2] Suppose that $x = 261$ is an observation from a
+$B(302, p_A)$ random variable, and that $y = 401$ is an
+observation from a $B(454, p_B)$ random variable.
+\begin{enumerate}
+	\item [(a)] Compute a two-sided 99\% confidence interval for
+	$p_A-p_B$.
+	\item [(b)] Compute a two-sided 90\% confidence interval for
+	$p_A-p_B$.
+	\item [(c)]Compute a one-sided 95\% confidence interval for
+	$p_A-p_B$. Repeat (a) and (b) with the data in (c). 
+	\item [(d)]	Calculate the $p$-value for the test of the hypotheses		
+	\begin{align*}
+		&& H_{0}: p_A=p_B && \text{versus} && H_{A}:p_{A}\neq p_{B}
+	\end{align*}
+\end{enumerate}
+\begin{sol}
+	$(n, m, x, y) = (302, 454, 261, 401)$.
+	\begin{enumerate}[label = (\alph*)]
+		\item The formula is
+			\[
+				\left( \hat{p}_A - \hat{p}_B - Z_{\alpha/2}\sqrt{\frac{\hat{p}_A (1-\hat{p}_A)}{n} + \frac{\hat{p}_B(1-\hat{p}_B)}{m}}, \hat{p}_A - \hat{p}_B + Z_{\alpha/2}\sqrt{\frac{\hat{p}_A(1-\hat{p}_A)}{n}+ \frac{\hat{p}(1-\hat{p}_B)}{m}} \right).
+			\]
+			Realized value is $(-0.083, 0.045)$.(+2)
+
+		\item Procedure is the same. (+2)
+
+		\item Procedure is the same. (+2)
+
+		\item Our test statistic is
+			\[
+				z = \frac{\hat{p}_A - \hat{p}_B}{\sqrt{\hat{p}(1-\hat{p})\left( 1/n + 1/m \right)}} = -0.78
+			\]
+			where $\hat{p}$ is the pooled one.
+			Since we are doing two-sided test,
+			our p-value is
+			\[
+				P(|Z| \ge 0.78) = 0.44.
+			\](+4)
+	\end{enumerate}
+
+	\qed
+\end{sol}
+\item [10.2.12] Recall from Problem 10.1.16 that in a particular day, 22
+out of 542 visitors to a website followed a link provided
+by an advertiser. After the advertisements were
+modified, it was found that 64 out of 601 visitors to the
+website on a day followed the link. Is there any evidence
+that the modifications to the advertisements attracted
+more customers? ( $\alpha=0.05$)
+
+\begin{sol}
+	$(n, m, x, y) = (542, 601, 22, 64)$.
+	Set the null $H_0: p_A \ge p_B$ and the alternative $H_1: p_A < p_B$.(+3)
+	Use test statistic $z$ used in the above.
+	Then observed test statistic is $-4.22$.
+	So, p-value is pretty smaller than 0.05 since p-value is $P(Z \le -4.22)$, and $-4.22 < -1.64$.
+	Thus we can reject the null, so there is evidence of the claim.(+7)
+	
+	\qed
+\end{sol}
+\item [\textcolor{red}{10.1.16}] [\textcolor{red}{Not a homework problem}]
+In a particular day, 22 out of 542 visitors to a website
+followed a link provided by one of the advertisers.
+Calculate a 99\% two-sided confidence interval for the
+probability that a user of the website will follow a link
+provided by an advertiser.
+
+\item [10.3.6]\textbf{Taste Tests for Soft Drink Formulations}\\
+A beverage company has three formulations of a soft
+drink product. DS 10.3.6 gives the results of some taste
+tests where participants are asked to declare which
+formulation they like best. Is it plausible that the three
+formulations are equally popular? ( $\alpha=0.05$)
+
+\begin{sol}
+	Since we are using the approximated statistic, checking the approximation condition is always important.
+	And note that $\chi^2, G^2$ are asymptotically chi-squared.
+	So if $n$ is sufficiently large, then you can use anything.
+	I'll use the first one.
+
+	Set the null $H_0: p_i = 1/3, i= 1,2,3$ and the alternative $H_1:\text{ not }H_0$.(+3)
+	The total number of participants is $600$, so the expected frequencies are $e_i = 200$ each.(+3)
+	Our test statistic is
+	\[
+		\sum_{i=1}^3\frac{(x_i - e_i)^2}{e_i} = 17.29
+	\]
+	where $x_i$ is the frequency of each cell.(+2)
+	Now p-value is
+	\[
+		P(\chi^2_2 \ge 17.29) = 0.00018
+	\]
+	so we can reject the null under $\alpha = 0.05$.(+2)
+
+	\qed
+\end{sol}
+\item [10.3.14] A survey is performed to test the claim that three brands
+of a product are equally popular. In the survey, 22 people
+preferred brand A, 38 people preferred brand B, while
+40 people preferred brand C. The Pearson goodness
+of fit can be used to test whether the survey provides
+sufficient evidence to conclude that the three brands are
+not equally popular. ( $\alpha=0.05$)
+
+\begin{sol}
+	The total number of participants is $100$.
+	Let $(x_1, x_2, x_3) = (22, 38, 40)$.
+	Set the null $H_0: p_i = 1/3$ and the alternative $H_1: \text{ not }H_0$.(+3)
+	Then the expected frequency is $100/3 = e_i$ each.(+3)
+	Our test statistic is
+	\[
+		\sum_{i=1}^3 \frac{\left( x_i - e_i \right)^2}{e_i} = 5.84.
+	\](+2)
+	So, p-value is
+	\[
+		P(\chi^2_2 \ge 5.84) = 0.054,
+	\]
+	thus we cannot reject the null under $\alpha = 0.05$.(+2)
+	(False: the survey does not provide sufficient evidence.)
+	
+	\qed
+\end{sol}
+\begin{align*}
+	\text{A. } \text{True} && \text{B .} \text{False} && &&
+\end{align*}
+\item [10.4.2]\textbf{Fertilizer Comparisons}\\
+Seedlings are grown without fertilizer or with one of two
+kinds of fertilizer. After a certain period of time a
+seedling’s growth is classified into one of four
+categories, as given in DS 10.4.2. Test whether the
+seedlings’ growth can be taken to be the same for all
+three sets of growing conditions. ($\alpha=0.05$)
+
+\begin{sol}
+	Sort the data by the matrix($ = A$), where the same row indicates fertilizer and the same column indicates growth.
+	(row1 = no fer, row2 = fer1, row3 = fer2, col1 = dead, col2 = slow, \dots)
+
+	Set the null $H_0: \text{ two categories are independent}$ and the alternative $H_1: \text{ not }H_0$.(+3)
+	Let $x_{ij} = (A)_{i, j}$ be the $(i, j)$ entry of our matrix $A$.
+	Then expected frequency is
+	\[
+		e_{ij} = \frac{x_{i \cdot}x_{\cdot j}}{n}
+	\]
+	where $x_{i\cdot} = \sum_{j=1}^4 x_{ij}$.(+3)
+	
+	Then our test statistic is
+	\[
+		X^2 = \sum_{i=1}^3 \sum_{j=1}^4 \frac{(x_{ij} - e_{ij})^2}{e_{ij}} = 13.66.
+	\](+2)
+	So p-value is
+	\[
+		P(\chi^2_6 \ge 13.66) = 0.034.
+	\]
+	Thus we can reject the null.(+2)
+	
+	\qed
+\end{sol}
+\item [10.4.6] Show that for a $2\times 2$ contingency table the Pearson
+chi-square statistic can be written
+$$
+X^{2}=\frac{n(x_{11}x_{22}-x_{12}x_{21})^{2}}{x_{1\cdot}x_{\cdot 1}x_{2\cdot}x_{\cdot 2}}
+$$
+
+\begin{sol}	
+	Note that
+	\[
+		x_{ij} - e_{ij} = x_{ij} - \frac{(x_{i1} + x_{i2})(x_{1j} + x_{2j})}{\sum_{i, j}x_{ij}}
+		= \frac{x_{ij}x_{i'j'} - x_{ij'}x_{i'j}}{n}
+		= \frac{x_{11}x_{22} - x_{12}x_{21}}{n}
+	\]
+	where $i \ne i'$ and $j \ne j'$.
+
+	Thus
+	\[
+		\sum_{i, j}\frac{(x_{ij}-e_{ij})^2}{e_{ij}} = \frac{(x_{11}x_{22} - x_{12}x_{21})^2}{n^2}\sum_{i, j}\frac{1}{e_{ij}}.
+	\]
+	But
+	\[
+		\frac{1}{e_{ij}} = \frac{n}{x_{i\cdot}x_{\cdot j}} = \frac{n x_{i'\cdot}x_{\cdot j'}}{x_{1\cdot}x_{\cdot 1}x_{2\cdot}x_{\cdot 2}}.
+	\]
+	Also,
+	\[
+		\sum_{i, j}x_{i\cdot}x_{\cdot j} = n^2.
+	\]
+	Combinining the above,
+	\[
+		X^2 = \frac{(x_{11}x_{22} - x_{12}x_{21})^2}{n^2} \frac{n}{x_{1\cdot}x_{\cdot 1}x_{2\cdot} x_{\cdot 2}} n^2.
+	\](+10)
+
+	\qed
+\end{sol}
+
+\item [10.4.10]\textbf{Asphalt Load Testing}\\
+An experiment was conducted to compare three types of
+asphalt. Samples of each type of asphalt were subjected
+to repeated loads at high temperatures, and the resulting
+cracking was analyzed. For type A, 57 samples were
+tested, of which 9 had severe cracking, 17 had medium
+cracking, and 31 had minor cracking. For type B, 49 samples were tested, of which 4 had severe cracking,
+9 had medium cracking, and 36 had minor cracking. For
+type C, 90 samples were tested, of which 15 had severe
+cracking, 19 had medium cracking, and 56 had minor
+cracking. Does this experiment provide any evidence
+that the three types of asphalt are different with respect
+to cracking?
+\end{itemize}
+
+\begin{sol}
+	row1 = severe, row2 = medium, row3 = minor, col1 = A, col2 = B, col3 = C.
+
+	Set the null and the alternative hypothesis.(+3)
+
+	Expected frequency(+3)
+
+	Test statistic and the observed value($5.02$)(+2)
+
+p-value with chi-squared distribution, dof 4($0.28$), conclusion(+2)
+
+	The procedure is the same as 10.4.2, so I omitted calculations.
+
+	\qed
+\end{sol}
+
+\end{document}
+	

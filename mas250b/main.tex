@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath, amssymb, enumitem}
+\usepackage{xcolor}
 
 \begin{document}
 \section*{Homework 4}
@@ -182,4 +183,84 @@
 		Also observe that $x \ge b$ implies the above is equal to $1$, and $x \le a$ leads the above $0$.
 		Thus distribution functions of $a+(b-a)U$ and $Unif(a, b)$ are the same.
 \end{enumerate}
+
+\section*{Homework 6}
+\begin{enumerate}
+	\item[31.]
+		\begin{enumerate}[label = (\alph*)]
+			\item Mean is $250,000$.
+				By using $P(Z \ge 70,000/\sigma) = 0.25$, we can find $\sigma$ from the table.
+
+			\item By using the value of $\sigma$ found above, we can calculate
+				$P(10,000/ \sigma \le Z \le 50,000/\sigma)$.
+		\end{enumerate}
+
+	\item[32.]
+		Let $X, Y$ be scores of econ, stat exams respectively.
+		Then $P(X \le 70) = P(Z \le .5)$, and $P(Y \le 62) = P(Z \le .7)$.
+		Thus
+		\begin{enumerate}[label = (\alph*)]
+			\item stat. exam
+			\item $P(Z \le .5)$
+			\item $P(Z \le .7)$.
+		\end{enumerate}
+
+	\item[37.]
+		Let $X$ follow exponential distribution with mean $1$.
+		Then its pdf is $\exp(-x)1_{\left( 0, \infty \right)}(x)$.
+		\begin{enumerate}[label = (\alph*)]
+			\item $P(X \ge 2) = \int_2^\infty\exp(-x)dx = \exp(-2).$
+			\item $P(X \ge 3 \lvert X>2) = P(X \ge 1) = \exp(-1)$ by memoryless property.
+		\end{enumerate}
+
+	\item[39.]
+		Let $X$ be an exponential r.v. with mean $20$.
+		Then $P(X \ge 30 \lvert X \ge 10) = P(X \ge 20) = \exp(-20/20) = \exp(-1)$.
+
+		Let $Y$ be an uniform r.v. supported on $(0, 40)$.
+		Then $P(Y \ge 30 \lvert Y \ge 10) = \int_{30}^{40}1/40 dx / \int_{10}^{40} 1/40 dx = 1/3$.
+
+	\item[43.]
+		You can use the table for chi-squre distribution, or using the relationship between chi-square distribution and the gamma distribution.
+		Note that $\chi_6^2$ r.v. has a pdf $t^2 \exp(-t/2)/16$.
+		\begin{enumerate}[label = (\alph*)]
+			\item What we want is $\int_0^6 t^2 \exp(-t/2) /16 dt$.
+				We can calculate this by hand(integration by parts) or using calculator.
+
+			\item What we want is $P(3 \le X \le 9) = \int_{3/2}^{9/2}x^2 \exp(-x)/2 dx$.
+				We can calculate this value by hand or using calculator.
+		\end{enumerate}
+
+	\item[44.]
+		Since two chi-squre r.vs are independent, their sum is $\chi_9^2$.
+		Thus
+		\[
+			P(X + Y > 10) = \int_{10}^\infty\frac{t^{7/2}\exp(-t/2)}{\Gamma(9/2)2^{9/2}}dt.
+		\]
+		We can calculate this value by hand(integration by parts, and standard normal distribution) or using calulator.
+
+	\item[45.]
+		The density of gamma$(1/2, 1)$ variable is $x^{-1/2}\exp(-x)/\Gamma(1/2)$.
+		Thus
+		\[
+			\begin{split}
+				\Gamma(1/2) 
+				&= \int_0^\infty \exp(-x) x^{-1/2} dx \\
+				&= \int_0^\infty \exp(-y^2/2)\sqrt{2} dy\\
+				&= 2\sqrt{\pi}\int_0^\infty\frac{\exp(-y^2/2)}{\sqrt{2\pi}}dy = \sqrt{\pi}.
+			\end{split}
+		\]
+		Note that we used the density of standard normal variable.
+
+	\item[48.]
+		Let $Z$ be the standard normal variable.
+		Then
+		\[
+			P(X \le x ) = P\left( Z \le \frac{x-a}{b} \right) = P(a+bZ \le x).
+		\]
+		So $X$ and $a +bZ$ are equal 'in distribution'.
+		Since $a +bZ$ follows $n(a, b^2)$, we can say that $X$ also follows $n(a, b^2)$.
+\end{enumerate}
+
+\include{midterm-criteria}
 \end{document}

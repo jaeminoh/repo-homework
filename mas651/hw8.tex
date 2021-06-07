@@ -22,7 +22,8 @@
 
 	Note that $P_0 (B(t) \ge 0) = P_0\left( B(t) / f(t) \ge 0 \right) = 1/2 >0$.
 
-	Let $X = \limsup_{ t \downarrow 0} \frac{B(t)}{f(t)}$.
+	\begin{enumerate}
+		\item	Let $X = \limsup_{ t \downarrow 0} \frac{B(t)}{f(t)}$.
 	Then $X$ is $\mathcal{F}_0^+$ measurable.
 	Let $t_n \downarrow 0$.
 	Then
@@ -54,8 +55,36 @@
 	Since $P(Z \ge 0) = 1$, $F(0) = 0$ so $F = 0$.
 	This says, for each $\alpha \in \mathbb{R}$, $P(X > \alpha) = 1$.
 	This means that $P(X  = \infty) = 1$.
-
 	Therefore, $X = c$ almost surely for some $c \in [0, \infty]$.
+
+\item When $f(t) = \sqrt{t}$, let $t_n \downarrow 0$ and $\alpha < \infty$.
+	Let $E_N = \left\{ \frac{B(t_n)}{\sqrt{t_n}} > \alpha \text{ for some } n \ge N \right\}$.
+	Then we have the relation
+	\[
+		\frac{B(t_N)}{\sqrt{t_N}} > \alpha \Rightarrow E_N.
+	\]
+	But
+	\[
+		P_0\left( \frac{B(t_N)}{\sqrt{t_N}} > \alpha \right)
+		= P_0\left( B_1 \ge \alpha \right) > 0
+	\]
+	by property of Brownian motion.
+	So,
+	\[
+		P_0(E_N) \ge P_0(B_1 > \alpha) > 0
+	\]
+	for all $N$.
+	Let $N \rightarrow \infty$ then $E_N \downarrow E = \left\{ X > \alpha \right\}$.
+	Therefore
+	\[
+		P_0(E) \ge P_0(B_1 > \alpha) > 0
+	\]
+	and by $0-1$ law,
+	\[
+		P_0(E) = 1.
+	\]
+	Since $\alpha < \infty$ is arbitrary, by taking $\alpha_n \uparrow \infty$, we can see the desired result.
+\end{enumerate}
 
 	\qed
 \end{problem}

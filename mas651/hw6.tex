@@ -53,20 +53,36 @@
 
 	\[
 		\begin{split}
-			\omega \in C
-			&\Rightarrow \varphi^n(\omega) \in B
-			\Rightarrow \omega \in (\varphi^{-n+1} \circ \varphi^{-1})(B) \\
-			&\Rightarrow \omega \in \varphi^{-n+1}(B)
-			\Rightarrow \omega \in \bigcap_{n \ge 1} \varphi^{-n}(B) = \varphi^{-1}(C)
+			C &= B \cap \varphi^{-1}(B) \cap \cdots \\
+			& \subset \varphi^{-1}(B) \cap \varphi^{-2}(B) \cap \cdots .
 		\end{split}
 	\]
-	for all $n \ge 0$.
+	Because $H\cap G \subset H$.
 	Therefore $C = \varphi^{-1}(C)$.
 
 \item Let $B, C$ be same as above.
 	Assume that $A$ is almost invariant.
-	Then $A = \varphi^{-n}(A)$ almost surely, so $A = B$ a.s.
-	So $A = C$ a.s, which is equivalent to $P(A \Delta C) = 0$.
+
+	By elementary set theory, we have the followings:
+	\[
+		\begin{split}
+			A \Delta C & \subset (A \Delta B) \cup (B \Delta C) \\
+			A \Delta (B\cup  C) & \subset (A \Delta B) \cup (A \Delta C)\\
+			A \Delta (B\cap  C) & \subset (A \Delta B) \cup (A \Delta C).
+		\end{split}
+	\]
+	Since $\varphi^{-n}(A) = \varphi^{-n-1}(A)$, by the first relation, $A = \varphi^{-n}(A)$ a.s.
+	Let $B_n = \bigcup_{k = 0}^n \varphi^{-k}(A)$.
+	Then by the second relation, $A = B_n$ a.s.
+	But $B_n \uparrow B$, so
+	\[
+		P(A\Delta B) \le \sum P(A\Delta B_n) = 0
+	\]
+	by the second relation.
+	So $A = B$ a.s.
+	Similarly, by using the third relation, we can see that $B = C$ a.s.
+	Thus $A = B = C$ a.s, by the first relation, and $C$ is strictly invariant by (1,2).
+	
 
 	Conversely, assume that $P(A \Delta D) = 0$ for some strictly invariant $D$.
 	Since $\varphi$ is measure preserving, $P(\varphi^{-1}(A \Delta D)) = P(A \Delta D) = 0$.

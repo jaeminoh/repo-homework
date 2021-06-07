@@ -1,0 +1,36 @@
+\begin{problem}[8.1.1] \hfill
+
+	By theorem 8.1.1, there is $T_{U, V}$ stopping time such that
+	\[
+		B(T_{U, V}) =_d X \text{ and } EX^2 = ET_{U, V}.
+	\]
+
+	By exercise 7.5.4,
+	\[
+		ET_{U, V}^2 \le 4 EB(T_{U, V})^4 = 4EX^4.
+	\]
+
+	\qed
+\end{problem}
+
+\begin{problem}[8.1.2] \hfill
+
+	Let $\psi(w) = \max\left\{ w(t): 0\le t \le 1 \right\} - \min\left\{ w(t): 0\le t\le 1 \right\}$.
+	Then
+	\[
+		\frac{R_n}{\sqrt{n}} = \frac{1}{\sqrt{n}} + \psi\left( \frac{ S_{nt}}{\sqrt{n}} \right).
+	\]
+	Now $1/\sqrt{n} \rightarrow 0$ as $n\rightarrow \infty$ in probability, and by theorem 8.1.5,
+	the last term goes to
+	\[
+		\psi(B_t) = \max_{0\le t \le 1}B_t - \min_{0 \le t \le 1}B_t
+	\]
+	in distribution.
+
+	By Slutsky's eqn, we can say that
+	\[
+		\frac{R_n}{\sqrt{n}} \rightarrow _d \max_{0\le t \le 1}B_t - \min_{0\le t\le 1}B_t.
+	\]
+	
+	\qed
+\end{problem}

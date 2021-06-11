@@ -1,0 +1,40 @@
+\begin{problem}[8.4.1] \hfill
+
+	By definition of brownian bridge,
+	\[
+		\begin{split}
+			P\left( \max_{0 \le t \le 1} B_t ^\circ > b \right)
+			&=  P_0(T_b < 1 \lvert B_1 = 0) \\
+			&=  \sqrt{2\pi} P_0 \left( T_b <1, B_1 = 0 \right) \\
+			&= \sqrt{2\pi} \frac{1}{\sqrt{2\pi}}\exp\left( -\frac{4b^2}{2} \right) = \exp(-2b^2)
+		\end{split}
+	\]
+	where the third equality follows from exercise 7.4.3 (b).
+
+	\qed
+\end{problem}
+
+\begin{problem}[8.4.2] \hfill
+
+	We will show that two densities of them are the same.
+	First,
+	\[
+		P\left( X_t = a \right) 
+		= P\left( B_{t(1-t)} = a \right)
+		= \frac{1}{\sqrt{2\pi t(1-t)}}\exp\left( -\frac{a^2}{2t(1-t)} \right)
+	\]
+	by Brownian scaling.
+
+	On the other hand,
+	\[
+		\begin{split}
+			P\left( B_t^\circ = a \right)
+			&= P(B_t = a \lvert B_1 = 0) \\
+			&= \sqrt{2\pi} \frac{1}{\sqrt{2\pi t}}\exp\left( -\frac{a^2}{2t} \right) \frac{1}{\sqrt{2\pi(1-t)}}\exp\left( -\frac{a^2}{2(1-t)} \right) \\
+			&= \frac{1}{\sqrt{2\pi t(1-t)}} \exp\left( -\frac{a^2}{2t(1-t)} \right)
+		\end{split}
+	\]
+	by equation (8.4.4) of our textbook.
+
+	\qed
+\end{problem}

@@ -1,0 +1,137 @@
+\begin{exercise}[7.1] \hfill
+
+	Assume that $m_\alpha$ is sigma finite.
+	Then there is $\bigcup E_i = \mathbb{R}^d$ such that $E_i$'s are mutually disjoint and have finite Hausdorff measure.
+	Since $\alpha < d$, we have $m_d (E_i) = 0$.
+	Then countable additivity of $m_d$ implies
+	\[
+		m_d(\mathbb{R}^d) = \sum_i m_d(E_i) = 0
+	\]
+	which contradicts to $m_d(\mathbb{R}^d) = \infty$.
+	
+	\qed	
+\end{exercise}
+
+\begin{exercise}[7.3] \hfill
+	
+	Since $|x-y| \le 1$, we have
+	\[
+		|f(x)- f(y)| \le M|x-y|^\gamma \le M|x-y|.
+	\]
+	Then
+	\[
+		\left \lvert \frac{f(x) - f(y)}{x-y} \right \lvert \le M|x-y|^{\gamma-1}.
+	\]
+	By taking $y\rightarrow x$, we have $|f'(x)| = 0$ for all $x\in (0, 1)$.
+	Note that $f$ is lipschitz continuous.
+
+	For any $[\alpha, \beta] \subset \left( 0, 1 \right)$, $f = c$ on $\left[ \alpha, \beta \right]$
+	since its derivative vanishes on $\left[ \alpha, \beta \right]$.
+	Since $[\alpha, \beta]$ is arbitrary, $f = c$ on $(0, 1)$.
+	Since $f$ is continuous on $[0, 1]$, $f$ is constant on $[0, 1]$.
+	
+	\qed
+\end{exercise}
+
+\begin{exercise}[7.7] \hfill
+	
+	Let $\delta>0$ be given.
+	To show the result, we have to show that for any $F_i$ with $|F_i| \le \delta$ and $C \subset \bigcup F_i$,
+	we have $\sum |F_i|^\alpha \ge 1$.
+
+	We can replace $F_i$ to open set $G_i$.
+
+	Since $G_i$ can be expressed as disjoint union of open intervals,
+	we can replace $G_i$ to $I_i$.
+
+	Since $C$ is compact, by choosing finite open cover, we can only consider finite family of $I_i$'s.
+	Also, we can replace $I_i$ to its closure $T_i$.
+
+	Now we can remove $T_i$ from its family if $T_i$ does not contain any point of $C$.
+
+	If $J, J' \subset T_i$, where $J, J'$ are closed intervals which appear in construction procedure of Cantor ternary set and may be in the different stage,
+	then choose largest such $J, J'$.
+	By their construction, $J\cup K \cup J' \subset T_i$ where $K \subset C^c$ and $|J|, |J'| \le |K|$.
+	By concavity,
+	\[
+		(|J| + |K| + |J'|)^\alpha \ge (3/2 (|J|+|J'|))^\alpha = 2\left( (|J|+|J'|)/2 \right)^\alpha
+		\ge |J|^\alpha + |J'|^\alpha.
+	\]
+	Thus we can replace $T_i$ to $J, J'$ since this replacement reduces the sum.
+
+	Among all $J, J'$, choose the shortest one.
+	Then it has length $3^{-k}$.
+
+	Now consider $C_k$ where $C = \cap_k C_k$.
+	Then
+	\[
+		\sum |T_i|^\alpha \ge \sum_{i=1}^{2^k}(3^{-k})^\alpha = 1
+	\]
+	which leads the conclusion.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[7.10] \hfill
+
+	Let $S_k = 1- \sum_{j=1}^k 2^{j-1}l_j$.
+	We want $S_1 = 2/3$, $S_2 = 2/3 \times 3/4$, \ldots, $S_k = 2/(k+1)$.
+	Then $S_k \rightarrow 0$ as $k$ goes to infinity.
+
+	By the definition of $S_k$, we can earn the closed form of $l_k$.
+	Since $S_k = S_{k-1} - 2^{k-1}l_k$,
+	\[
+		l_k = \frac{1}{2^{k-1}}\left( S_{k-1} - S_k \right)
+		= \frac{1}{2^{k-2}}\frac{1}{(k+1)(k+2)}.
+	\]
+
+	Let $\hat{C}$ be our fat Cantor set and $\hat{C} = \cap_k \hat{C}_k$.
+	Then every $\hat{C}_k$ consists of $2^k$ disjoint closed intervals, whose total length is $2/(k+2) = S_k$.
+	Thus $\hat{C}_k$ is disjoint union of $1/(2^{k-1}(k+2))$ length intervals.
+
+	Since $\hat{C} \subset \hat{C}_k$, given $\delta>0$,
+	\[
+		H_\alpha^\delta(\hat{C}) \le \sum_{i=1}^{2^k} \left( \frac{2}{2^{k}(k+2)} \right)^\alpha
+		= \frac{2^\alpha}{2^{k(\alpha-1)}}\frac{1}{(k+2)^\alpha}.
+	\]
+	If $\alpha \ge 1$, then the last term goes to $0$ as $k$ goes to infinity.
+	Note that if $k$ is sufficiently large, then length of each interval in $\hat{C}_k$ is shorter than $\delta$.
+	So $H_\alpha^\delta(\hat{C}) = 0$ for all $\delta$.
+	So Hausdorff dimension of $\hat{C}$ $\le 1$.
+
+	Now we will show $dim \hat{C} \ge 1$.
+	For $\alpha < 1$, similar to exercise 7, it is enough to show that $\sum |T_i|^\alpha \ge 1$
+	and there is $\hat{C}_k \subset \bigcup T_i$.
+	Thus
+	\[
+		\sum|T_i|^\alpha \ge \frac{1}{(k+2)^\alpha}\frac{2^\alpha}{2^{k(\alpha-1)}}.
+	\]
+	Note that if $n \ge k$, then $\hat{C}_n \subset \bigcup T_i$.
+	So we can let $k\rightarrow \infty$.
+	Since $\alpha <1$, by letting $k\rightarrow \infty$, we have
+	\[
+		\sum |T_i|^\alpha = \infty.
+	\]
+	This says $m_\alpha(\hat{C}) = \infty$ for $\alpha < 1$.
+	And this says $dim \hat{C} \ge 1$.
+
+	\qed
+\end{exercise}
+
+\begin{exercise}[7.16] \hfill
+
+	Continuity can be proven by same reasoning written in page 338 of our textbook.
+
+	Assume differentibility and take $u_n = k/4^n$ and $v_n = (k+1)/4^n$ so that $u_n \le t \le v_n$.
+	Note that $K^l(u_n) = K_n^l(u_n)$, and $K^l(v_n) = K^l_n(V_n)$.
+	This says $|K^l(u_n) - K^l(v_n)| \le l^n$, because they are directly adjoined vertices of $n$-th stage construction.
+
+	Thus
+	\[
+		\left \lvert \frac{K^l(u_n) - K^l(v_n)}{u_n - v_n} \right \lvert = \frac{l^n}{1/4^n} = (4l)^n.
+	\]
+	By letting $n\rightarrow \infty$, the limit goes to $\infty$.
+	Thus modulus of derivative at $t$ does not exists, which is contradiction.
+
+	\qed
+\end{exercise}
